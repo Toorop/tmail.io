@@ -1,3 +1,7 @@
-baseurl = "http://yourSiteHere"
+baseurl = "http://tmail.io"
 languageCode = "fr-fr"
 title = "tmail"
+
+[Params]
+	Description = "devblog"
+	Author = "Stephane Depierrepont"
