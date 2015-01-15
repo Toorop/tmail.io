@@ -21,18 +21,17 @@
       <description>
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#tmail&#34;&gt;Qu&amp;rsquo;est ce que tmail ? &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#opensource&#34;&gt;Est ce que tmail est opensource ? &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#opensource&#34;&gt;Peut on utiliser tmail ? &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#opensource&#34;&gt;tmail est codé en quel langage ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Qu&amp;rsquo;est ce que tmail ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#opensource:4a1318da06786ac52626178ca960109e&#34;&gt;Est ce que tmail est opensource ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tester-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Peut on tester tmail ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ? &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;qu-est-ce-que-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Qu&amp;rsquo;est ce que tmail ?&lt;/h2&gt;
+&lt;h2 id=&#34;tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Qu&amp;rsquo;est ce que tmail ?&lt;/h2&gt;
 
 &lt;p&gt;Réponse courte: tmail est un serveur &lt;a href=&#34;http://fr.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol&#34;&gt;SMTP&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;La question que vous vous posez à présent doit donc être :&lt;br /&gt;
-&lt;strong&gt;Mais pourquoi créer un nouveau serveur smtp !?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mais pourquoi créer un nouveau serveur smtp !?&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Oui c&amp;rsquo;est vrai ça pourquoi créer un nouveau serveur SMTP alors qu&amp;rsquo;il existe déjà qmail, postfix, exim, sendmail, .. ?&lt;br /&gt;
 Parce que :&lt;/p&gt;
@@ -50,17 +49,18 @@ Parce que :&lt;/p&gt;
 &lt;em&gt;Un jour je coderais mon propre serveur&lt;/em&gt; ;)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;est-ce-que-tmail-est-opensource:4a1318da06786ac52626178ca960109e&#34;&gt;Est ce que tmail est opensource ?&lt;/h2&gt;
+&lt;h2 id=&#34;opensource:4a1318da06786ac52626178ca960109e&#34;&gt;Est ce que tmail est opensource ?&lt;/h2&gt;
 
 &lt;p&gt;Pour le moment je ne souhaite pas &amp;ldquo;libérer&amp;rdquo; les sources, mais à terme ce sera le cas.&lt;/p&gt;
 
 &lt;p&gt;La raison principale est que le projet est trop jeune, je préfère attendre que les grandes lignes soient posées, que ce que j&amp;rsquo;ai prévu soit implémenté - au moins en partie - pour éviter d&amp;rsquo;une part trop de dispersions et d&amp;rsquo;autre part pour pouvoir concentrer mon temps disponible au code plutôt qu&amp;rsquo;à la gestion du projet.&lt;/p&gt;
 
-&lt;h2 id=&#34;peut-on-utiliser-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Peut on utiliser tmail ?&lt;/h2&gt;
+&lt;h2 id=&#34;tester-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Peut on tester tmail ?&lt;/h2&gt;
 
-&lt;p&gt;Même si il n&amp;rsquo;est pas - encore - open source, je vais mettre à disposition des binaires et la documentation pour permettre à ceux qui le désire de tester tmail.&lt;/p&gt;
+&lt;p&gt;Même si il n&amp;rsquo;est pas - encore - open source, je vais mettre à disposition des binaires et la documentation pour permettre à ceux qui le désire de tester tmail.&lt;br /&gt;
+Bien entendu les versions proposées en test, seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs.&lt;/p&gt;
 
-&lt;h2 id=&#34;tmail-est-codé-en-quel-langage:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ?&lt;/h2&gt;
+&lt;h2 id=&#34;golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ?&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://golang.org/&#34; target=&#34;_blank&#34; title=&#34;golang&#34;&gt;Go&lt;/a&gt;&lt;/p&gt;
 </description>

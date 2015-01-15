@@ -7,16 +7,15 @@ name = "FAQ"
 weight = 5
 +++
 
-* [Qu'est ce que tmail ? ](#tmail)
-* [Est ce que tmail est opensource ? ](#opensource)
-* [Peut on utiliser tmail ? ](#opensource)
-* [tmail est codé en quel langage ? ](#opensource)
+* [Qu'est ce que tmail ? ]({{<ref "#tmail" >}})
+* [Est ce que tmail est opensource ? ]({{<ref "#opensource" >}})
+* [Peut on tester tmail ? ]({{<ref "#tester-tmail" >}})
+* [tmail est codé en quel langage ? ]({{<ref "#golang-tmail" >}})
 
-## Qu'est ce que tmail ? 
+## Qu'est ce que tmail ? {#tmail}
 
 Réponse courte: tmail est un serveur [SMTP](http://fr.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)  
-
-La question que vous vous posez à présent doit donc être :  
+ 
 **Mais pourquoi créer un nouveau serveur smtp !?** 
 
 Oui c'est vrai ça pourquoi créer un nouveau serveur SMTP alors qu'il existe déjà qmail, postfix, exim, sendmail, .. ?  
@@ -35,14 +34,16 @@ Parce que :
 
 
 
-## Est ce que tmail est opensource ?
+## Est ce que tmail est opensource ? {#opensource}
 
 Pour le moment je ne souhaite pas "libérer" les sources, mais à terme ce sera le cas.
 
 La raison principale est que le projet est trop jeune, je préfère attendre que les grandes lignes soient posées, que ce que j'ai prévu soit implémenté - au moins en partie - pour éviter d'une part trop de dispersions et d'autre part pour pouvoir concentrer mon temps disponible au code plutôt qu'à la gestion du projet.
 
-## Peut on utiliser tmail ? 
-Même si il n'est pas - encore - open source, je vais mettre à disposition des binaires et la documentation pour permettre à ceux qui le désire de tester tmail.
+## Peut on tester tmail ? {#tester-tmail}
+Même si il n'est pas - encore - open source, je vais mettre à disposition des binaires et la documentation pour permettre à ceux qui le désire de tester tmail.  
+Bien entendu les versions proposées en test, seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs. 
 
-## tmail est codé en quel langage ?
+## tmail est codé en quel langage ? {#golang-tmail}
 <a href="http://golang.org/" target="_blank" title="golang">Go</a>
+
