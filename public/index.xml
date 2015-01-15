@@ -9,24 +9,8 @@
     
     
     
-    <lastBuildDate>Wed, 14 Jan 2015 15:56:30 CET</lastBuildDate>
+    <lastBuildDate>Wed, 14 Jan 2015 14:14:40 CET</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Installer tmail</title>
-      <link>http://localhost:1313/install/</link>
-      <pubDate>Wed, 14 Jan 2015 15:56:30 CET</pubDate>
-      
-      <guid>http://localhost:1313/install/</guid>
-      <description>
-
-&lt;h1 id=&#34;1:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;1&lt;/h1&gt;
-
-&lt;h2 id=&#34;2:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;2&lt;/h2&gt;
-
-&lt;h3 id=&#34;3:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;3&lt;/h3&gt;
-</description>
-    </item>
     
     <item>
       <title>FAQ</title>
