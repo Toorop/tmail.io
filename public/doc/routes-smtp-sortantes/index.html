@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Routes smtp sortantes &middot; tmail </title>
+
+  
+  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
+  <link rel="stylesheet" href="http://tmail.io/css/syntax.css">
+  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="tmail" />
+</head>
+
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>tmail</h1>
+      <p class="lead">
+       devblog 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+        <li><a href="http://tmail.io/doc/routes-smtp-sortantes/"> Doc </a></li>
+      
+        <li><a href="http://tmail.io/faq/"> FAQ </a></li>
+      
+      <li><a href="mailto:toorop@toorop.fr"> Contact </a></li>
+    </ul>
+
+    
+  </div>
+</div>
+
+    <div class="content container">
+<div class="post">
+  <h1>Routes smtp sortantes</h1>
+  <span class="post-date">Mon, Jan 19, 2015</span>
+      
+
+<p><strong>tmail vous permet de spécifier des routes sortantes pour les mails qu&rsquo;il a à expédier.</strong></p>
+
+<p>Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&rsquo;est le fonctionnement classique d&rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.</p>
+
+<p>Les règles de routage vont êtres définies an fonction des paramètres suivants :</p>
+
+<ul>
+<li>Le domaine de destination.</li>
+<li>L&rsquo;utilisateur authentifié via SMTP AUTH qui a transmis le mail a tmail (le cas échéant).</li>
+</ul>
+
+<p>Lorsque tmail à un mail à transmettre il va chercher parmi les règles suivantes si il y en a une qui correspond. Si oui il va utiliser les routes qui correspondent à cette règle. Chaque route à un poids, comme pour les MX classiques, tmail va donc essayer en premier lieu de se connecter au relais suivant en utilisant la route qui à le poids le plus faible.</p>
+
+<p>Les règles sont testées dans l&rsquo;ordre suivant:</p>
+
+<ul>
+<li><p><strong>Si le mail à été transmis via SMTPAUTH:</strong> tmail va chercher une règle qui correspond à l&rsquo;utilisateur authentifié et au domaine de destination.</p></li>
+
+<li><p><strong>Si le mail à été transmis via SMTPAUTH:</strong> tmail va chercher une règle qui correspond à l&rsquo;utilisateur authentifié indépendamment du domaine de destination.</p></li>
+
+<li><p><strong>Si le mail à été transmis via SMTPAUTH et si le login de cet user est de la forme user@domain:</strong> tmail va chercher une règle qui correspond au domaine de l&rsquo;utilisateur authentifié et au domaine de destination.</p></li>
+
+<li><p><strong>Si le mail à été transmis via SMTPAUTH et si le login de cet user est de la forme user@domain:</strong> tmail va chercher une règle qui correspond au domaine de l&rsquo;utilisateur authentifié indépendamment au domaine de destination.</p></li>
+
+<li><p>tmail va chercher une règle qui correspond au domaine de destination.</p></li>
+
+<li><p>tmail va chercher une règle par défaut (wildcard &ldquo;*&rdquo; sur le domaine de destination)</p></li>
+</ul>
+
+<h4 id="a-venir-création-des-règles-de-routage:5e9d67da96eda8e125d0b466af0f081e">A venir: Création des règles de routage</h4>
+
+</div>
+</div>
+  </body>
+</html>

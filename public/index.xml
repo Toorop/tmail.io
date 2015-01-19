@@ -2,22 +2,63 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tmail</title>
-    <link>http://localhost:1313/</link>
+    <link>http://tmail.io/</link>
     <description>Recent content on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     
     
     
-    <lastBuildDate>Wed, 14 Jan 2015 14:14:40 CET</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jan 2015 16:38:23 CET</lastBuildDate>
+    <atom:link href="http://tmail.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Routes smtp sortantes</title>
+      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
+      <pubDate>Mon, 19 Jan 2015 16:38:23 CET</pubDate>
+      
+      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;
+
+&lt;p&gt;Les règles de routage vont êtres définies an fonction des paramètres suivants :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Le domaine de destination.&lt;/li&gt;
+&lt;li&gt;L&amp;rsquo;utilisateur authentifié via SMTP AUTH qui a transmis le mail a tmail (le cas échéant).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lorsque tmail à un mail à transmettre il va chercher parmi les règles suivantes si il y en a une qui correspond. Si oui il va utiliser les routes qui correspondent à cette règle. Chaque route à un poids, comme pour les MX classiques, tmail va donc essayer en premier lieu de se connecter au relais suivant en utilisant la route qui à le poids le plus faible.&lt;/p&gt;
+
+&lt;p&gt;Les règles sont testées dans l&amp;rsquo;ordre suivant:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle qui correspond à l&amp;rsquo;utilisateur authentifié et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle qui correspond à l&amp;rsquo;utilisateur authentifié indépendamment du domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH et si le login de cet user est de la forme user@domain:&lt;/strong&gt; tmail va chercher une règle qui correspond au domaine de l&amp;rsquo;utilisateur authentifié et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH et si le login de cet user est de la forme user@domain:&lt;/strong&gt; tmail va chercher une règle qui correspond au domaine de l&amp;rsquo;utilisateur authentifié indépendamment au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tmail va chercher une règle qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tmail va chercher une règle par défaut (wildcard &amp;ldquo;*&amp;rdquo; sur le domaine de destination)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;a-venir-création-des-règles-de-routage:5e9d67da96eda8e125d0b466af0f081e&#34;&gt;A venir: Création des règles de routage&lt;/h4&gt;
+</description>
+    </item>
     
     <item>
       <title>FAQ</title>
-      <link>http://localhost:1313/faq/</link>
+      <link>http://tmail.io/faq/</link>
       <pubDate>Wed, 14 Jan 2015 14:14:40 CET</pubDate>
       
-      <guid>http://localhost:1313/faq/</guid>
+      <guid>http://tmail.io/faq/</guid>
       <description>
 
 &lt;ul&gt;

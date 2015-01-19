@@ -1,6 +1,6 @@
 +++
 date = "2015-01-14T14:14:40+01:00"
-draft = true
+draft = false
 title = "FAQ"
 [menu.main]
 name = "FAQ"
