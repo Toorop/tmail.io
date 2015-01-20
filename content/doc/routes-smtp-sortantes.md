@@ -24,7 +24,7 @@ Lorsque tmail à un mail à transmettre il va chercher parmi les règles suivant
 
 Les règles sont testées dans l'ordre suivant:
 
-* **Si le mail à été transmis via SMTPAUTH:** tmail va chercher une règle qui correspond au domaine de destination. 
+* **Si le mail à été transmis via SMTPAUTH:** tmail va chercher une règle qui correspond à l'expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination. 
 
 * tmail va chercher une règle qui correspond au domaine de destination.
 

@@ -42,7 +42,7 @@
 &lt;p&gt;Les règles sont testées dans l&amp;rsquo;ordre suivant:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle qui correspond à l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;tmail va chercher une règle qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
 
