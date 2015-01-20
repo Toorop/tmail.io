@@ -28,21 +28,21 @@
 
 &lt;ul&gt;
 &lt;li&gt;Le domaine de destination.&lt;/li&gt;
-&lt;li&gt;L&amp;rsquo;utilisateur authentifié via SMTP AUTH qui a transmis le mail a tmail (le cas échéant).&lt;/li&gt;
+&lt;li&gt;L&amp;rsquo;expéditeur à la condition que le mail ait été originalement transmis à tmail par un utilisateur authentifié (via SMTP AUTH).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Lorsque tmail à un mail à transmettre il va chercher parmi les règles suivantes si il y en a une qui correspond. Si oui il va utiliser les routes qui correspondent à cette règle. Chaque route à un poids, comme pour les MX classiques, tmail va donc essayer en premier lieu de se connecter au relais suivant en utilisant la route qui à le poids le plus faible.&lt;/p&gt;
+&lt;p&gt;Lorsque tmail à un mail à transmettre il va chercher parmi les règles suivantes si il y en a une qui correspond.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si il trouve une règle&lt;/strong&gt;, il va utiliser les routes qui correspondent à cette règle. Chaque route à un poids, comme pour les MX classiques, tmail va donc essayer en premier lieu de se connecter au relais suivant en utilisant la route qui a le poids le plus faible. Dans le cas où plusieurs routes ont le même poids, il va les ordonner aléatoirement ce qui va permettre de faire facilement du round-robin.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si il n&amp;rsquo;en trouve pas&lt;/strong&gt;, il va utiliser les MX du domaine de destination.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Les règles sont testées dans l&amp;rsquo;ordre suivant:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle qui correspond à l&amp;rsquo;utilisateur authentifié et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle qui correspond à l&amp;rsquo;utilisateur authentifié indépendamment du domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH et si le login de cet user est de la forme user@domain:&lt;/strong&gt; tmail va chercher une règle qui correspond au domaine de l&amp;rsquo;utilisateur authentifié et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH et si le login de cet user est de la forme user@domain:&lt;/strong&gt; tmail va chercher une règle qui correspond au domaine de l&amp;rsquo;utilisateur authentifié indépendamment au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;tmail va chercher une règle qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
 
