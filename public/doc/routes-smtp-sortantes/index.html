@@ -75,12 +75,20 @@
 <p>Les règles sont testées dans l&rsquo;ordre suivant:</p>
 
 <ul>
-<li><p><strong>Si le mail à été transmis via SMTPAUTH:</strong> tmail va chercher une règle qui correspond à l&rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.</p></li>
+<li><p><strong>Si le mail à été transmis via SMTPAUTH:</strong> tmail va chercher une règle liée à l&rsquo;utilisateur authentifié qui correspond à l&rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.</p></li>
+
+<li><p><strong>Si le mail à été transmis via SMTPAUTH:</strong> tmail va chercher une règle liée à l&rsquo;utilisateur authentifié qui correspond au domaine de l&rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.</p></li>
+
+<li><p><strong>Si le mail à été transmis via SMTPAUTH:</strong> tmail va chercher une règle liée à l&rsquo;utilisateur authentifié qui correspond au domaine de destination.</p></li>
+
+<li><p><strong>Si le mail à été transmis via SMTPAUTH:</strong> tmail va chercher une règle &lsquo;générique&rsquo; liée à l&rsquo;utilisateur authentifié.</p></li>
 
 <li><p>tmail va chercher une règle qui correspond au domaine de destination.</p></li>
 
 <li><p>tmail va chercher une règle par défaut (wildcard &ldquo;*&rdquo; sur le domaine de destination)</p></li>
 </ul>
+
+<p>Par <em>règle liée à l&rsquo;utilisateur authentifié</em> j&rsquo;entends une règle lié au login complet de cet utilisateur, ou si il n&rsquo;y en à pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld</p>
 
 <h4 id="a-venir-création-des-règles-de-routage:5e9d67da96eda8e125d0b466af0f081e">A venir: Création des règles de routage</h4>
 

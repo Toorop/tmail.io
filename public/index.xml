@@ -42,12 +42,20 @@
 &lt;p&gt;Les règles sont testées dans l&amp;rsquo;ordre suivant:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle qui correspond à l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond à l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond au domaine de l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle &amp;lsquo;générique&amp;rsquo; liée à l&amp;rsquo;utilisateur authentifié.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;tmail va chercher une règle qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;tmail va chercher une règle par défaut (wildcard &amp;ldquo;*&amp;rdquo; sur le domaine de destination)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle lié au login complet de cet utilisateur, ou si il n&amp;rsquo;y en à pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld&lt;/p&gt;
 
 &lt;h4 id=&#34;a-venir-création-des-règles-de-routage:5e9d67da96eda8e125d0b466af0f081e&#34;&gt;A venir: Création des règles de routage&lt;/h4&gt;
 </description>

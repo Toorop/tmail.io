@@ -24,11 +24,20 @@ Lorsque tmail à un mail à transmettre il va chercher parmi les règles suivant
 
 Les règles sont testées dans l'ordre suivant:
 
-* **Si le mail à été transmis via SMTPAUTH:** tmail va chercher une règle qui correspond à l'expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination. 
+* **Si le mail à été transmis via SMTPAUTH:** tmail va chercher une règle liée à l'utilisateur authentifié qui correspond à l'expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination. 
+
+* **Si le mail à été transmis via SMTPAUTH:** tmail va chercher une règle liée à l'utilisateur authentifié qui correspond au domaine de l'expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination. 
+
+* **Si le mail à été transmis via SMTPAUTH:** tmail va chercher une règle liée à l'utilisateur authentifié qui correspond au domaine de destination. 
+
+* **Si le mail à été transmis via SMTPAUTH:** tmail va chercher une règle 'générique' liée à l'utilisateur authentifié.
 
 * tmail va chercher une règle qui correspond au domaine de destination.
 
 * tmail va chercher une règle par défaut (wildcard "*" sur le domaine de destination)
+
+
+Par *règle liée à l'utilisateur authentifié* j'entends une règle lié au login complet de cet utilisateur, ou si il n'y en à pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld
 
 
 #### A venir: Création des règles de routage
