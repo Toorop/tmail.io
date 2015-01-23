@@ -10,9 +10,9 @@
   <title> tmail &middot; tmail </title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/syntax.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
 
   
-  <link href="http://tmail.io/index.xml" rel="alternate" type="application/rss+xml" title="tmail" />
+  <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="tmail" />
 </head>
 
 <body>
@@ -37,9 +37,7 @@
     <ul class="sidebar-nav">
       <li><a href="/">Home</a> </li>
       
-        <li><a href="http://tmail.io/doc/routes-smtp-sortantes/"> Doc </a></li>
-      
-        <li><a href="http://tmail.io/faq/"> FAQ </a></li>
+        <li><a href="http://localhost:1313/faq/"> FAQ </a></li>
       
       <li><a href="mailto:toorop@toorop.fr"> Contact </a></li>
     </ul>
@@ -55,7 +53,85 @@
       
   <div class="post">
     <h1 class="post-title">
-      <a href="http://tmail.io/doc/routes-smtp-sortantes/">
+      <a href="http://localhost:1313/doc/cli-gestion-queue/">
+        Gestion de la queue en utilisant le CLI
+      </a>
+    </h1>
+
+    <span class="post-date">Wed, Jan 21, 2015</span>
+
+    
+
+<h4 id="lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead">Lister les messages en queue</h4>
+
+<p>La commande pour lister les messages en queue est:</p>
+
+<pre><code>tmail queue list
+</code></pre>
+
+<p>Pour chaque mail en queue les informations suivantes sont retournées:</p>
+
+<ul>
+<li>Identifiant du mail en queue</li>
+<li>From: expéditeur du mail</li>
+<li>To:  destinataire du mail</li>
+<li>Status: status du mail. Actuellement les status sont &ldquo;Delivery in progress&rdquo;, &ldquo;Scheduled&rdquo;, &ldquo;Will be discarded&rdquo;, &ldquo;Will be bounced&rdquo;</li>
+<li>Next delivery process scheduled at: Dans le cas ou un mail est en attente dans la queue ce paramètre indique le moment (approximatif) où le mail sera représenté au process tmail qui traite les message en queue.</li>
+</ul>
+
+<p>Cas où il n&rsquo;y a pas de message en queue:</p>
+
+<pre><code>tmail queue list
+
+There is no message in queue.
+</code></pre>
+
+<p>Cas où il y a un message en queue qui est en train d&rsquo;être délivré:</p>
+
+<pre><code>tmail queue list
+
+1 messages in queue.
+
+2c7eb14bc32991995af0c2f3e79be612535cbfea - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Delivery in progress - Added: 2015-01-23 09:10:40.271449372 +0100 CET 
+</code></pre>
+
+<p>Cas où il y un message en queue en attente:</p>
+
+<pre><code>1 messages in queue.
+2c7eb14bc32991995af0c2f3e79be612535cbfea - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Scheduled - Added: 2015-01-23 09:10:40.271449372 +0100 CET - Next delivery process scheduled at: 2015-01-23 09:14:40.464895229 +0100 CET
+</code></pre>
+
+<h4 id="supprimer-un-message-discard:a5ae8842e5f4cb42bab09bbc9c21cead">Supprimer un message (discard)</h4>
+
+<p>La commande suivante va vous permettre de supprimer un message de la queue:</p>
+
+<pre><code>tmail discard MESSAGE_ID
+</code></pre>
+
+<p>Attention le mail ne sera pas supprimé instantanément, il le sera lorsqu&rsquo;il sera présenté à tmail pour être traité.</p>
+
+<p>Dans la mesure du possible il est préférable de bouncer un mail plutôt que de le supprimer pour que l&rsquo;expéditeur soit informé du fait que son mail n&rsquo;a pas abouti.</p>
+
+<h4 id="bouncer-un-message:a5ae8842e5f4cb42bab09bbc9c21cead">Bouncer un message</h4>
+
+<p>Bouncer un message consiste à le supprimer de la queue et à envoyer un message à l&rsquo;expéditeur pour l&rsquo;informer que son mail n&rsquo;est pas arrivé à destination.</p>
+
+<p>La commande pour bouncer un mail est:</p>
+
+<pre><code>    tmail bounce MESSAGE_ID
+</code></pre>
+
+<p>Comme pour la commande discard, le bounce n&rsquo;est pas instantané il se fera lorsque le mail sera représenté à tmail pour être délivré.</p>
+
+<h4 id="relancer-la-queue-flush:a5ae8842e5f4cb42bab09bbc9c21cead">Relancer la queue (flush)</h4>
+
+<p>Pour le moment cette commande n&rsquo;est pas implémentée. En attendant, pour relancer la queue il vous suffit de relancer tmail.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:1313/doc/routes-smtp-sortantes/">
         Routes smtp sortantes
       </a>
     </h1>
@@ -99,7 +175,7 @@
 <li><p>tmail va chercher une règle par défaut (wildcard &ldquo;*&rdquo; sur le domaine de destination)</p></li>
 </ul>
 
-<p>Par <em>règle liée à l&rsquo;utilisateur authentifié</em> j&rsquo;entends une règle lié au login complet de cet utilisateur, ou si il n&rsquo;y en à pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld</p>
+<p>Par <em>règle liée à l&rsquo;utilisateur authentifié</em> j&rsquo;entends une règle lié au login complet de cet utilisateur, ou si il n&rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld</p>
 
 <h4 id="a-venir-création-des-règles-de-routage:5e9d67da96eda8e125d0b466af0f081e">A venir: Création des règles de routage</h4>
 
@@ -107,7 +183,7 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://tmail.io/faq/">
+      <a href="http://localhost:1313/faq/">
         FAQ
       </a>
     </h1>
@@ -165,5 +241,8 @@ Bien entendu les versions proposées en test, seront des versions de dev qui imp
 </div>
 </div>
 
-  </body>
+  <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

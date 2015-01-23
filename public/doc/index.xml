@@ -2,22 +2,97 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on tmail</title>
-    <link>http://tmail.io/doc/</link>
+    <link>http://localhost:1313/doc/</link>
     <description>Recent content in Docs on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     
     
     
-    <lastBuildDate>Mon, 19 Jan 2015 16:38:23 CET</lastBuildDate>
-    <atom:link href="http://tmail.io/doc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jan 2015 14:20:24 &#43;0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/doc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gestion de la queue en utilisant le CLI</title>
+      <link>http://localhost:1313/doc/cli-gestion-queue/</link>
+      <pubDate>Wed, 21 Jan 2015 14:20:24 &#43;0100</pubDate>
+      
+      <guid>http://localhost:1313/doc/cli-gestion-queue/</guid>
+      <description>
+
+&lt;h4 id=&#34;lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Lister les messages en queue&lt;/h4&gt;
+
+&lt;p&gt;La commande pour lister les messages en queue est:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail queue list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pour chaque mail en queue les informations suivantes sont retournées:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Identifiant du mail en queue&lt;/li&gt;
+&lt;li&gt;From: expéditeur du mail&lt;/li&gt;
+&lt;li&gt;To:  destinataire du mail&lt;/li&gt;
+&lt;li&gt;Status: status du mail. Actuellement les status sont &amp;ldquo;Delivery in progress&amp;rdquo;, &amp;ldquo;Scheduled&amp;rdquo;, &amp;ldquo;Will be discarded&amp;rdquo;, &amp;ldquo;Will be bounced&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Next delivery process scheduled at: Dans le cas ou un mail est en attente dans la queue ce paramètre indique le moment (approximatif) où le mail sera représenté au process tmail qui traite les message en queue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cas où il n&amp;rsquo;y a pas de message en queue:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail queue list
+
+There is no message in queue.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cas où il y a un message en queue qui est en train d&amp;rsquo;être délivré:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail queue list
+
+1 messages in queue.
+
+2c7eb14bc32991995af0c2f3e79be612535cbfea - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Delivery in progress - Added: 2015-01-23 09:10:40.271449372 +0100 CET 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cas où il y un message en queue en attente:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1 messages in queue.
+2c7eb14bc32991995af0c2f3e79be612535cbfea - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Scheduled - Added: 2015-01-23 09:10:40.271449372 +0100 CET - Next delivery process scheduled at: 2015-01-23 09:14:40.464895229 +0100 CET
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;supprimer-un-message-discard:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Supprimer un message (discard)&lt;/h4&gt;
+
+&lt;p&gt;La commande suivante va vous permettre de supprimer un message de la queue:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail discard MESSAGE_ID
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Attention le mail ne sera pas supprimé instantanément, il le sera lorsqu&amp;rsquo;il sera présenté à tmail pour être traité.&lt;/p&gt;
+
+&lt;p&gt;Dans la mesure du possible il est préférable de bouncer un mail plutôt que de le supprimer pour que l&amp;rsquo;expéditeur soit informé du fait que son mail n&amp;rsquo;a pas abouti.&lt;/p&gt;
+
+&lt;h4 id=&#34;bouncer-un-message:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Bouncer un message&lt;/h4&gt;
+
+&lt;p&gt;Bouncer un message consiste à le supprimer de la queue et à envoyer un message à l&amp;rsquo;expéditeur pour l&amp;rsquo;informer que son mail n&amp;rsquo;est pas arrivé à destination.&lt;/p&gt;
+
+&lt;p&gt;La commande pour bouncer un mail est:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    tmail bounce MESSAGE_ID
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Comme pour la commande discard, le bounce n&amp;rsquo;est pas instantané il se fera lorsque le mail sera représenté à tmail pour être délivré.&lt;/p&gt;
+
+&lt;h4 id=&#34;relancer-la-queue-flush:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Relancer la queue (flush)&lt;/h4&gt;
+
+&lt;p&gt;Pour le moment cette commande n&amp;rsquo;est pas implémentée. En attendant, pour relancer la queue il vous suffit de relancer tmail.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Routes smtp sortantes</title>
-      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
-      <pubDate>Mon, 19 Jan 2015 16:38:23 CET</pubDate>
+      <link>http://localhost:1313/doc/routes-smtp-sortantes/</link>
+      <pubDate>Mon, 19 Jan 2015 16:38:23 &#43;0100</pubDate>
       
-      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
+      <guid>http://localhost:1313/doc/routes-smtp-sortantes/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
@@ -55,7 +130,7 @@
 &lt;li&gt;&lt;p&gt;tmail va chercher une règle par défaut (wildcard &amp;ldquo;*&amp;rdquo; sur le domaine de destination)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle lié au login complet de cet utilisateur, ou si il n&amp;rsquo;y en à pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld&lt;/p&gt;
+&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle lié au login complet de cet utilisateur, ou si il n&amp;rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld&lt;/p&gt;
 
 &lt;h4 id=&#34;a-venir-création-des-règles-de-routage:5e9d67da96eda8e125d0b466af0f081e&#34;&gt;A venir: Création des règles de routage&lt;/h4&gt;
 </description>

@@ -2,9 +2,6 @@
 date = "2015-01-19T16:38:23+01:00"
 draft = false
 title = "Routes smtp sortantes"
-[menu.main]
-name = "Doc"
-weight = 4
 
 +++
 **tmail vous permet de spécifier des routes sortantes pour les mails qu'il a à expédier.**  
@@ -37,7 +34,7 @@ Les règles sont testées dans l'ordre suivant:
 * tmail va chercher une règle par défaut (wildcard "*" sur le domaine de destination)
 
 
-Par *règle liée à l'utilisateur authentifié* j'entends une règle lié au login complet de cet utilisateur, ou si il n'y en à pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld
+Par *règle liée à l'utilisateur authentifié* j'entends une règle lié au login complet de cet utilisateur, ou si il n'y en a pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld
 
 
 #### A venir: Création des règles de routage
