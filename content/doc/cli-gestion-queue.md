@@ -31,13 +31,13 @@ Cas où il y a un message en queue qui est en train d'être délivré:
 
 	1 messages in queue.
 	
-	2c7eb14bc32991995af0c2f3e79be612535cbfea - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Delivery in progress - Added: 2015-01-23 09:10:40.271449372 +0100 CET 
+	12564 - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Delivery in progress - Added: 2015-01-23 09:10:40.271449372 +0100 CET 
 
 
 Cas où il y un message en queue en attente:
 
 	1 messages in queue.
-	2c7eb14bc32991995af0c2f3e79be612535cbfea - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Scheduled - Added: 2015-01-23 09:10:40.271449372 +0100 CET - Next delivery process scheduled at: 2015-01-23 09:14:40.464895229 +0100 CET
+	12564 - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Scheduled - Added: 2015-01-23 09:10:40.271449372 +0100 CET - Next delivery process scheduled at: 2015-01-23 09:14:40.464895229 +0100 CET
 
 
 
