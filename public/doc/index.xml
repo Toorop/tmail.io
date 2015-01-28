@@ -2,22 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on tmail</title>
-    <link>http://tmail.io/doc/</link>
+    <link>http://localhost:1313/doc/</link>
     <description>Recent content in Docs on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     
     
     
-    <lastBuildDate>Wed, 21 Jan 2015 14:20:24 &#43;0100</lastBuildDate>
-    <atom:link href="http://tmail.io/doc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jan 2015 09:15:12 &#43;0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/doc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gestion des routes SMTP en utilisant le CLI</title>
+      <link>http://localhost:1313/doc/cli-gestion-route-smtp/</link>
+      <pubDate>Wed, 28 Jan 2015 09:15:12 &#43;0100</pubDate>
+      
+      <guid>http://localhost:1313/doc/cli-gestion-route-smtp/</guid>
+      <description>
+
+&lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctinnalités implémentées.&lt;/p&gt;
+
+&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f&#34;&gt;Lister toutes les routes&lt;/h3&gt;
+
+&lt;p&gt;La commande pour lister les routes est:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail routes list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pour le moment il n&amp;rsquo;y a pas de paramétres pour spécifier des critéres de recherche. Si vous avez besoin de rechercher une route le plus simple pour le moment est d&amp;rsquo;utiliser l&amp;rsquo;outil &lt;em&gt;grep&lt;/em&gt; pour filtrer la sortie de la commande &lt;em&gt;tmail routes list&lt;/em&gt;.&lt;br /&gt;
+Par exemple si vous voulez chercher les routes faisant référence au domaine tmail.io :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail routes list | grep tmail.io
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ajouter-une-régle-de-routage-smtp:253091a785f27e2f20aac978da09c51f&#34;&gt;Ajouter une régle de routage SMTP&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail routes add -h HOST -r DESTINATION_HOST
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;exmples:253091a785f27e2f20aac978da09c51f&#34;&gt;Exmples&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail route add -h tmail.io -r mail.tmail.io -p 2525
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;supprimer-une-régle-de-routage-smtp:253091a785f27e2f20aac978da09c51f&#34;&gt;Supprimer une régle de routage SMTP&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail routes del ROUTE_ID
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Gestion de la queue en utilisant le CLI</title>
-      <link>http://tmail.io/doc/cli-gestion-queue/</link>
+      <link>http://localhost:1313/doc/cli-gestion-queue/</link>
       <pubDate>Wed, 21 Jan 2015 14:20:24 &#43;0100</pubDate>
       
-      <guid>http://tmail.io/doc/cli-gestion-queue/</guid>
+      <guid>http://localhost:1313/doc/cli-gestion-queue/</guid>
       <description>
 
 &lt;h4 id=&#34;lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Lister les messages en queue&lt;/h4&gt;
@@ -89,10 +131,10 @@ There is no message in queue.
     
     <item>
       <title>Routes smtp sortantes</title>
-      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
+      <link>http://localhost:1313/doc/routes-smtp-sortantes/</link>
       <pubDate>Mon, 19 Jan 2015 16:38:23 &#43;0100</pubDate>
       
-      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
+      <guid>http://localhost:1313/doc/routes-smtp-sortantes/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;

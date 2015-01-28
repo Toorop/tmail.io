@@ -10,9 +10,9 @@
   <title> tmail &middot; tmail </title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/syntax.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
 
   
-  <link href="http://tmail.io/index.xml" rel="alternate" type="application/rss+xml" title="tmail" />
+  <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="tmail" />
 </head>
 
 <body>
@@ -37,7 +37,7 @@
     <ul class="sidebar-nav">
       <li><a href="/">Home</a> </li>
       
-        <li><a href="http://tmail.io/faq/"> FAQ </a></li>
+        <li><a href="/faq/"> FAQ </a></li>
       
       <li><a href="mailto:toorop@toorop.fr"> Contact </a></li>
     </ul>
@@ -53,7 +53,52 @@
       
   <div class="post">
     <h1 class="post-title">
-      <a href="http://tmail.io/doc/cli-gestion-queue/">
+      <a href="http://localhost:1313/doc/cli-gestion-route-smtp/">
+        Gestion des routes SMTP en utilisant le CLI
+      </a>
+    </h1>
+
+    <span class="post-date">Wed, Jan 28, 2015</span>
+
+    
+
+<p>Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctinnalités implémentées.</p>
+
+<p>Avant d&rsquo;aller plus loin je vous recommande la lecture de la <a href="doc/routes-smtp-sortantes/">documentation expliquant le fonctionnement des routes SMTP</a></p>
+
+<h3 id="lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f">Lister toutes les routes</h3>
+
+<p>La commande pour lister les routes est:</p>
+
+<pre><code>tmail routes list
+</code></pre>
+
+<p>Pour le moment il n&rsquo;y a pas de paramétres pour spécifier des critéres de recherche. Si vous avez besoin de rechercher une route le plus simple pour le moment est d&rsquo;utiliser l&rsquo;outil <em>grep</em> pour filtrer la sortie de la commande <em>tmail routes list</em>.<br />
+Par exemple si vous voulez chercher les routes faisant référence au domaine tmail.io :</p>
+
+<pre><code>tmail routes list | grep tmail.io
+</code></pre>
+
+<h3 id="ajouter-une-régle-de-routage-smtp:253091a785f27e2f20aac978da09c51f">Ajouter une régle de routage SMTP</h3>
+
+<pre><code>tmail routes add -h HOST -r DESTINATION_HOST
+</code></pre>
+
+<h4 id="exmples:253091a785f27e2f20aac978da09c51f">Exmples</h4>
+
+<pre><code>tmail route add -h tmail.io -r mail.tmail.io -p 2525
+</code></pre>
+
+<h3 id="supprimer-une-régle-de-routage-smtp:253091a785f27e2f20aac978da09c51f">Supprimer une régle de routage SMTP</h3>
+
+<pre><code>tmail routes del ROUTE_ID
+</code></pre>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:1313/doc/cli-gestion-queue/">
         Gestion de la queue en utilisant le CLI
       </a>
     </h1>
@@ -131,7 +176,7 @@ There is no message in queue.
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://tmail.io/doc/routes-smtp-sortantes/">
+      <a href="http://localhost:1313/doc/routes-smtp-sortantes/">
         Routes smtp sortantes
       </a>
     </h1>
@@ -183,7 +228,7 @@ There is no message in queue.
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://tmail.io/faq/">
+      <a href="http://localhost:1313/faq/">
         FAQ
       </a>
     </h1>
@@ -241,5 +286,8 @@ Bien entendu les versions proposées en test, seront des versions de dev qui imp
 </div>
 </div>
 
-  </body>
+  <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>
