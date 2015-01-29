@@ -53,9 +53,27 @@
 
 <p>Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.</p>
 
-<p>Avant d&rsquo;aller plus loin je vous recommande la lecture de la <a href="doc/routes-smtp-sortantes/">documentation expliquant le fonctionnement des routes SMTP</a></p>
+<p>Avant d&rsquo;aller plus loin je vous recommande la lecture de la <a href="doc/routes-smtp-sortantes/">documentation expliquant le fonctionnement des routes SMTP</a> principalement pour savoir l&rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.</p>
 
-<h3 id="aide-en-ligne:253091a785f27e2f20aac978da09c51f">Aide en ligne</h3>
+<h3 id="lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f">Lister toutes les routes</h3>
+
+<p>La commande pour lister les routes est:</p>
+
+<pre><code>tmail routes list
+
+1 - Destination host: toorop.fr - Prority: 1 - Local IPs: default - Remote host: mail.toorop.fr:25
+2 - Destination host: tmail.io - Prority: 1 - Local IPs: default - Remote host: mail.tmail.io:25
+</code></pre>
+
+<p>Pour le moment il n&rsquo;y a pas de paramètres pour spécifier des critères de recherche. Si vous avez besoin de rechercher une route particulière, le plus simple pour le moment est d&rsquo;utiliser l&rsquo;outil <em>grep</em> pour filtrer la sortie de la commande <em>tmail routes list</em>.<br />
+Par exemple si vous voulez chercher les routes faisant référence au domaine tmail.io :</p>
+
+<pre><code>tmail routes list | grep tmail.io
+</code></pre>
+
+<h3 id="ajouter-une-régle-de-routage-smtp:253091a785f27e2f20aac978da09c51f">Ajouter une régle de routage SMTP</h3>
+
+<h4 id="aide-en-ligne:253091a785f27e2f20aac978da09c51f">Aide en ligne</h4>
 
 <pre><code>tmail routes add --help
 NAME:
@@ -77,27 +95,6 @@ OPTIONS:
     --remotePasswd, --rpwd  SMTPauth passwd for remote host
 </code></pre>
 
-<h3 id="lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f">Lister toutes les routes</h3>
-
-<p>La commande pour lister les routes est:</p>
-
-<pre><code>tmail routes list
-
-1 - Destination host: toorop.fr - Prority: 1 - Local IPs: default - Remote host: mail.toorop.fr:25
-2 - Destination host: tmail.io - Prority: 1 - Local IPs: default - Remote host: mail.tmail.io:25
-</code></pre>
-
-<p>Pour le moment il n&rsquo;y a pas de paramètres pour spécifier des critères de recherche. Si vous avez besoin de rechercher une route le plus simple pour le moment est d&rsquo;utiliser l&rsquo;outil <em>grep</em> pour filtrer la sortie de la commande <em>tmail routes list</em>.<br />
-Par exemple si vous voulez chercher les routes faisant référence au domaine tmail.io :</p>
-
-<pre><code>tmail routes list | grep tmail.io
-</code></pre>
-
-<h3 id="ajouter-une-régle-de-routage-smtp:253091a785f27e2f20aac978da09c51f">Ajouter une régle de routage SMTP</h3>
-
-<pre><code>tmail routes add -h HOST -r DESTINATION_HOST
-</code></pre>
-
 <h4 id="exemples:253091a785f27e2f20aac978da09c51f">Exemples</h4>
 
 <p>Ajouter une route pour relayer les mails à destination du domaine tmail.io vers mail.tmail.io</p>
@@ -105,33 +102,65 @@ Par exemple si vous voulez chercher les routes faisant référence au domaine tm
 <pre><code>tmail routes add -d tmail.io -rh mail.tmail.io
 </code></pre>
 
-<p>Ajouter une route pour relayer les mails à destination du domaine tmail.io vers mail.tmail.io en utilisant le port distant 587 et une priorité 2. Concrètement si la règle précédente existe elle va être testée en premier, et si ça ne passe pas par le port 25 tmail va essayer de transmettre les mails en utilisant le port 587.</p>
+<p>Vous pouvez spécifier un port distant</p>
 
-<pre><code>tmail route add -h tmail.io -rh mail.tmail.io -rp 587 -p 2
+<pre><code>tmail routes add -d tmail.io -rh mail.tmail.io -rp 2525 
 </code></pre>
 
 <p>Si le serveur distant nécessite une authentification SMTP ajouter les options rl et rpwd</p>
 
-<pre><code>tmail route add -h tmail.io -rh mail.tmail.io -rl login -rpwd passwd
+<pre><code>tmail route add -d tmail.io -rh mail.tmail.io -rp 587 -rl login -rpwd passwd
 </code></pre>
 
-<p>Vous pouvez créer des routes qui vont agir en fonction de l&rsquo;utilisateur qui à soumis le mail, à la condition bien entendu qu&rsquo;il ce soit authentifié. Imaginons par exemple que vous vouliez router les mails soumis par l&rsquo;utilisateur toorop par le relais premium.tmail.io</p>
+<p>Vous pouvez créer des routes qui vont agir en fonction de l&rsquo;utilisateur qui à soumis le mail ( à la condition bien entendu qu&rsquo;il se soit authentifié via SMTPAUTH). Imaginons par exemple que vous souhaitiez router les mails soumis par l&rsquo;utilisateur toorop@tmail.io vers le relais premium.tmail.io</p>
 
-<pre><code>tmail route add -rh premium.tmail.io -u toorop
+<pre><code>tmail route add -rh premium.tmail.io -u toorop@tmail.io
 </code></pre>
+
+<p>Si vous voulez attribuer une route spécifique à tous les utilisateurs d&rsquo;un domaine, la solution consiste  à utiliser leur adresse email comme login SMTP et ensuite de créer une règle en mettant le domaine comme valeur pour l&rsquo;option u. Par exemple si vous souhaitez que les mails de tous les utilisateurs identifiés comme faisant partie du domaine domaine tmail.io aient leurs mails routés par Mailjet :</p>
+
+<pre><code>tmail route add -rh in.mailjet.com -u tmail.io -rl mailjet_login -rpwd mailjet_passwd
+</code></pre>
+
+<p>Si vous voulez ajouter comme contrainte que l’expéditeur du mail (MAIL FROM) doit etre en @tmail.io :</p>
+
+<pre><code> tmail route add -rh in.mailjet.com -u tmail.io -f tmail.io -rl mailjet_login -rpwd mailjet_passwd
+</code></pre>
+
+<h4 id="round-robin:253091a785f27e2f20aac978da09c51f">Round Robin</h4>
+
+<p>Vous pouvez mettre deux (ou plus) routes identiques. Bien entendu ça n&rsquo;a aucun intérêt si ce sont les seules routes pour une destination donnée, mais dans le cas contraire cela permet de repartir les mails vers plusieurs relais en leur attribuant un poids. Par exemple imaginons que nous souhaitions faire passer deux fois plus de mails par big.smtp.tmail.io que par small.smtp.tmail.io :</p>
+
+<pre><code>tmail route add -d tmail.io -rh big.smtp.tmail.io
+tmail route add -d tmail.io -rh big.smtp.tmail.io
+tmail route add -d tmail.io -rh small.smtp.tmail.io
+</code></pre>
+
+<h4 id="failover:253091a785f27e2f20aac978da09c51f">Failover</h4>
+
+<p>En ajoutant un paramètre de priorité, vous pouvez créer des routes secondaires qui vont qui vont etres utilisé sur les routes de priorité plus élevées sont en échecs.</p>
+
+<p>Par exemple:</p>
+
+<pre><code>tmail route add -d tmail.io -rh main.smtp.tmail.io -p 1
+tmail route add -d tmail.io -rh alt1.smtp.tmail.io -p 2
+tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 3
+</code></pre>
+
+<p>Dans ce cas tmail va d&rsquo;abord tenter de transmettre le mail à main.smtp.tmail.io puis ça ça échoue à alt1.smtp.tmail.io et si ça échoue toujours à alt2.smtp.tmail.io</p>
+
+<p>Notez que vous pouvez mixer failover et roundrobin, par exemple:</p>
+
+<pre><code>tmail route add -d tmail.io -rh main.smtp.tmail.io -p 1
+tmail route add -d tmail.io -rh alt1.smtp.tmail.io -p 2
+tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
+</code></pre>
+
+<p>Dans ce cas si tmail n&rsquo;arrive pas a transmettre le mail à main.smtp.tmail.io il va faire le second essais vers alt1 ou alt2.</p>
 
 <h3 id="supprimer-une-règle-de-routage-smtp:253091a785f27e2f20aac978da09c51f">Supprimer une règle de routage SMTP</h3>
 
 <pre><code>tmail routes del ROUTE_ID
-</code></pre>
-
-<h3 id="tips:253091a785f27e2f20aac978da09c51f">Tips</h3>
-
-<p>Vous pouvez mettre deux (ou plus) routes identiques. Bien entendu ça n&rsquo;a aucun intérêt si ce sont les seules routes pour une destination donnée, mais dans le cas contraire cela permet de repartir les mails vers plusieurs relais en leur attribuant un poids. Par exemple imaginons que nous souhaitions faire passer deux fois plus de mails par big.smtp.tmail.io que par small.smtp.tmail.io :</p>
-
-<pre><code>tmail route add -h tmail.io -rh big.smtp.tmail.io
-tmail route add -h tmail.io -rh big.smtp.tmail.io
-tmail route add -h tmail.io -rh small.smtp.tmail.io
 </code></pre>
 
 </div>
