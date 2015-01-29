@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tmail</title>
-    <link>http://localhost:1313/</link>
+    <link>http://tmail.io/</link>
     <description>Recent content on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
@@ -10,14 +10,14 @@
     
     
     <lastBuildDate>Wed, 28 Jan 2015 09:15:12 &#43;0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tmail.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gestion des routes SMTP en utilisant le CLI</title>
-      <link>http://localhost:1313/doc/cli-gestion-route-smtp/</link>
+      <link>http://tmail.io/doc/cli-gestion-route-smtp/</link>
       <pubDate>Wed, 28 Jan 2015 09:15:12 &#43;0100</pubDate>
       
-      <guid>http://localhost:1313/doc/cli-gestion-route-smtp/</guid>
+      <guid>http://tmail.io/doc/cli-gestion-route-smtp/</guid>
       <description>
 
 &lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
@@ -136,10 +136,10 @@ tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
     
     <item>
       <title>Gestion de la queue en utilisant le CLI</title>
-      <link>http://localhost:1313/doc/cli-gestion-queue/</link>
+      <link>http://tmail.io/doc/cli-gestion-queue/</link>
       <pubDate>Wed, 21 Jan 2015 14:20:24 &#43;0100</pubDate>
       
-      <guid>http://localhost:1313/doc/cli-gestion-queue/</guid>
+      <guid>http://tmail.io/doc/cli-gestion-queue/</guid>
       <description>
 
 &lt;h4 id=&#34;lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Lister les messages en queue&lt;/h4&gt;
@@ -211,10 +211,10 @@ There is no message in queue.
     
     <item>
       <title>Routes smtp sortantes</title>
-      <link>http://localhost:1313/doc/routes-smtp-sortantes/</link>
+      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
       <pubDate>Mon, 19 Jan 2015 16:38:23 &#43;0100</pubDate>
       
-      <guid>http://localhost:1313/doc/routes-smtp-sortantes/</guid>
+      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
@@ -260,10 +260,10 @@ There is no message in queue.
     
     <item>
       <title>FAQ</title>
-      <link>http://localhost:1313/faq/</link>
+      <link>http://tmail.io/faq/</link>
       <pubDate>Wed, 14 Jan 2015 14:14:40 &#43;0100</pubDate>
       
-      <guid>http://localhost:1313/faq/</guid>
+      <guid>http://tmail.io/faq/</guid>
       <description>
 
 &lt;ul&gt;
