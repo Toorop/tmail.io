@@ -10,9 +10,9 @@
   <title> Docs &middot; tmail </title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/syntax.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
 
   
-  <link href="http://tmail.io/doc/index.xml" rel="alternate" type="application/rss+xml" title="tmail" />
+  <link href="http://localhost:1313/doc/index.xml" rel="alternate" type="application/rss+xml" title="tmail" />
 </head>
 
 <body>
@@ -37,7 +37,7 @@
     <ul class="sidebar-nav">
       <li><a href="/">Home</a> </li>
       
-        <li><a href="http://tmail.io/faq/"> FAQ </a></li>
+        <li><a href="http://localhost:1313/faq/"> FAQ </a></li>
       
       <li><a href="mailto:toorop@toorop.fr"> Contact </a></li>
     </ul>
@@ -51,18 +51,25 @@
     <ul class="posts">
         
         <li>
-          <span><a href="http://tmail.io/doc/cli-gestion-route-smtp/">Gestion des routes SMTP en utilisant le CLI</a> <time class="pull-right post-list">Wed, Jan 28, 2015</time></span>
+          <span><a href="http://localhost:1313/doc/tester-tmail/">Tester tmail</a> <time class="pull-right post-list">Thu, Jan 29, 2015</time></span>
         </li>
         
         <li>
-          <span><a href="http://tmail.io/doc/cli-gestion-queue/">Gestion de la queue en utilisant le CLI</a> <time class="pull-right post-list">Wed, Jan 21, 2015</time></span>
+          <span><a href="http://localhost:1313/doc/cli-gestion-route-smtp/">Gestion des routes SMTP en utilisant le CLI</a> <time class="pull-right post-list">Wed, Jan 28, 2015</time></span>
         </li>
         
         <li>
-          <span><a href="http://tmail.io/doc/routes-smtp-sortantes/">Routes smtp sortantes</a> <time class="pull-right post-list">Mon, Jan 19, 2015</time></span>
+          <span><a href="http://localhost:1313/doc/cli-gestion-queue/">Gestion de la queue en utilisant le CLI</a> <time class="pull-right post-list">Wed, Jan 21, 2015</time></span>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/doc/routes-smtp-sortantes/">Routes smtp sortantes</a> <time class="pull-right post-list">Mon, Jan 19, 2015</time></span>
         </li>
         
     </ul>
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

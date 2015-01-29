@@ -2,22 +2,85 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on tmail</title>
-    <link>http://tmail.io/doc/</link>
+    <link>http://localhost:1313/doc/</link>
     <description>Recent content in Docs on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     
     
     
-    <lastBuildDate>Wed, 28 Jan 2015 09:15:12 &#43;0100</lastBuildDate>
-    <atom:link href="http://tmail.io/doc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Jan 2015 17:00:44 &#43;0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/doc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tester tmail</title>
+      <link>http://localhost:1313/doc/tester-tmail/</link>
+      <pubDate>Thu, 29 Jan 2015 17:00:44 &#43;0100</pubDate>
+      
+      <guid>http://localhost:1313/doc/tester-tmail/</guid>
+      <description>
+
+&lt;p&gt;Durant tout le cycle de développement je vais mettre à disposition le nécessaire pour qu&amp;rsquo;il soit possible de tester les fonctionnalités qui sont implémentées.&lt;/p&gt;
+
+&lt;p&gt;Qu&amp;rsquo;il n&amp;rsquo;y ait pas de malentendu, on ne parle pas ici de version bêta, ni même alpha, ce sera à chaque fois une version de dev, avec plein de choses non implémentées et forcement de nombreux bugs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;En clair: n&amp;rsquo;utiliser pas ces versions en prod&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Pour le moment tmail est très basique, mais il devrait cependant vous permettre d&amp;rsquo;envoyer et de relayer des mails.&lt;/p&gt;
+
+&lt;p&gt;On va partir sur une installation qui va nous permettre de mettre en place un service SMTP basique qui va:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;écouter sur les ports 25 et 587 (avec STARTTLS).&lt;/li&gt;
+&lt;li&gt;écouter sur le port 465 en SSL.&lt;/li&gt;
+&lt;li&gt;accepter tous les mails à destination du domaine &lt;em&gt;toorop.fr&lt;/em&gt; et qui va les router vers &lt;em&gt;mail.toorop.fr&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;permettre à l&amp;rsquo;utilisateur &lt;em&gt;toorop@toorop.fr&lt;/em&gt; ayant comme mot de passe &lt;em&gt;passwd&lt;/em&gt; d&amp;rsquo;utiliser le service pour envoyer des mails (quelque soit la destination).&lt;/li&gt;
+&lt;li&gt;router tous les mails à destination de &lt;em&gt;gmail.com&lt;/em&gt; vers mailjet.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;prérequis:d019151a35bd08da572f2cd4d05e6707&#34;&gt;Prérequis&lt;/h2&gt;
+
+&lt;p&gt;Pour le moment je ne fournis que le binaire Linux 32bits, vous n&amp;rsquo;avez donc besoin de rien d&amp;rsquo;autre pour tester qu&amp;rsquo;une machine sous Linux. Pour cet exemple je vais utiliser un &lt;a href=&#34;https://www.ovh.com/fr/vps/vps-classic.xml&#34;&gt;VPS Classic 1 OVH&lt;/a&gt; sous &lt;em&gt;Ubuntu server 64bits&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pensez à vous assurer que vous pouvez utiliser les ports SMTP (ou alors testez sur des ports alternatifs).&lt;/p&gt;
+
+&lt;p&gt;A noter que comme backend pour la base de données vous pouvez utiliser sqlite, MySQl (et dérivés) ou Postgresql. Pour cette première phase je vous encourage chaudement à utiliser sqlite ce sera amplement suffisant.&lt;/p&gt;
+
+&lt;p&gt;A terme, tmail sera splitté en composants sous forme de container Docker, dans ce qui suit je vais jsute expliquer l&amp;rsquo;installation &amp;ldquo;standalone&amp;rdquo; (vs cluster).&lt;/p&gt;
+
+&lt;h3 id=&#34;note-sur-l-utilisation-des-ports-inférieurs-à-1024:d019151a35bd08da572f2cd4d05e6707&#34;&gt;Note sur l&amp;rsquo;utilisation des ports inférieurs à 1024&lt;/h3&gt;
+
+&lt;p&gt;Sur un système linux un processus ne peut ouvrir un port inférieur à 1024 que si il est root.
+Une des limitations de Go fait que l&amp;rsquo;on ne peut pas lancer d&amp;rsquo;application sous l&amp;rsquo;utilisateur root pour ouvrir les ports nécessaires et ensuite forker sous un autre user.&lt;br /&gt;
+Il y à plusieurs autres solutions pour contourner ce problème, la plus simple à mettre en œuvre est d&amp;rsquo;utiliser iptables :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 25 -j REDIRECT --to-port 2525
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;installation:d019151a35bd08da572f2cd4d05e6707&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;h2 id=&#34;configuration:d019151a35bd08da572f2cd4d05e6707&#34;&gt;Configuration&lt;/h2&gt;
+
+&lt;h3 id=&#34;base:d019151a35bd08da572f2cd4d05e6707&#34;&gt;Base&lt;/h3&gt;
+
+&lt;h3 id=&#34;prise-en-charge-des-mails-du-domaine-toorop-fr:d019151a35bd08da572f2cd4d05e6707&#34;&gt;Prise en charge des mails du domaine toorop.fr&lt;/h3&gt;
+
+&lt;h3 id=&#34;router-les-mails-à-destination-du-domaine-toorop-fr-vers-mail-toorop-fr:d019151a35bd08da572f2cd4d05e6707&#34;&gt;Router les mails à destination du domaine toorop.fr vers mail.toorop.fr&lt;/h3&gt;
+
+&lt;h3 id=&#34;ajout-de-utilisateur-toorop-toorop-fr:d019151a35bd08da572f2cd4d05e6707&#34;&gt;Ajout de utilisateur toorop@toorop.fr&lt;/h3&gt;
+
+&lt;h3 id=&#34;router-les-mails-à-destination-de-gmail-com-vers-mailjet:d019151a35bd08da572f2cd4d05e6707&#34;&gt;Router les mails à destination de gmail.com vers Mailjet.&lt;/h3&gt;
+
+&lt;p&gt;Si vous avez des questions, des remarques, des bugs à remonter&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Gestion des routes SMTP en utilisant le CLI</title>
-      <link>http://tmail.io/doc/cli-gestion-route-smtp/</link>
+      <link>http://localhost:1313/doc/cli-gestion-route-smtp/</link>
       <pubDate>Wed, 28 Jan 2015 09:15:12 &#43;0100</pubDate>
       
-      <guid>http://tmail.io/doc/cli-gestion-route-smtp/</guid>
+      <guid>http://localhost:1313/doc/cli-gestion-route-smtp/</guid>
       <description>
 
 &lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
@@ -136,10 +199,10 @@ tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
     
     <item>
       <title>Gestion de la queue en utilisant le CLI</title>
-      <link>http://tmail.io/doc/cli-gestion-queue/</link>
+      <link>http://localhost:1313/doc/cli-gestion-queue/</link>
       <pubDate>Wed, 21 Jan 2015 14:20:24 &#43;0100</pubDate>
       
-      <guid>http://tmail.io/doc/cli-gestion-queue/</guid>
+      <guid>http://localhost:1313/doc/cli-gestion-queue/</guid>
       <description>
 
 &lt;h4 id=&#34;lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Lister les messages en queue&lt;/h4&gt;
@@ -211,10 +274,10 @@ There is no message in queue.
     
     <item>
       <title>Routes smtp sortantes</title>
-      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
+      <link>http://localhost:1313/doc/routes-smtp-sortantes/</link>
       <pubDate>Mon, 19 Jan 2015 16:38:23 &#43;0100</pubDate>
       
-      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
+      <guid>http://localhost:1313/doc/routes-smtp-sortantes/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
