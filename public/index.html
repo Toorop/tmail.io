@@ -53,8 +53,8 @@
       
   <div class="post">
     <h1 class="post-title">
-      <a href="http://localhost:1313/doc/tester-tmail/">
-        Tester tmail
+      <a href="http://localhost:1313/doc/installer-tmail/">
+        Installer et configurer tmail
       </a>
     </h1>
 
@@ -62,58 +62,257 @@
 
     
 
-<p>Durant tout le cycle de développement je vais mettre à disposition le nécessaire pour qu&rsquo;il soit possible de tester les fonctionnalités qui sont implémentées.</p>
+<p>Durant tout le cycle de développement de tmail je vais mettre à disposition le nécessaire pour qu&rsquo;il soit possible de tester les fonctionnalités qui sont implémentées.</p>
 
-<p>Qu&rsquo;il n&rsquo;y ait pas de malentendu, on ne parle pas ici de version bêta, ni même alpha, ce sera à chaque fois une version de dev, avec plein de choses non implémentées et forcement de nombreux bugs.</p>
+<p>Qu&rsquo;il n&rsquo;y ait pas de malentendu, on ne parle pas ici de version bêta, ni même alpha, ce sera à chaque fois une version de développement, avec plein de choses non implémentées et forcement de nombreux bugs.</p>
 
-<p><strong>En clair: n&rsquo;utiliser pas ces versions en prod</strong></p>
+<p><strong>En clair: ne pas utiliser en production</strong></p>
 
 <p>Pour le moment tmail est très basique, mais il devrait cependant vous permettre d&rsquo;envoyer et de relayer des mails.</p>
 
-<p>On va partir sur une installation qui va nous permettre de mettre en place un service SMTP basique qui va:</p>
+<p>On va partir sur une installation qui va nous permettre de mettre en place un service SMTP qui va:</p>
 
 <ul>
 <li>écouter sur les ports 25 et 587 (avec STARTTLS).</li>
 <li>écouter sur le port 465 en SSL.</li>
 <li>accepter tous les mails à destination du domaine <em>toorop.fr</em> et qui va les router vers <em>mail.toorop.fr</em></li>
-<li>permettre à l&rsquo;utilisateur <em>toorop@toorop.fr</em> ayant comme mot de passe <em>passwd</em> d&rsquo;utiliser le service pour envoyer des mails (quelque soit la destination).</li>
-<li>router tous les mails à destination de <em>gmail.com</em> vers mailjet.</li>
+<li>permettre à l&rsquo;utilisateur <em>toorop@toorop.fr</em> ayant comme mot de passe <em>password</em> d&rsquo;utiliser le service pour envoyer des mails (quelque soit la destination).</li>
 </ul>
 
-<h2 id="prérequis:d019151a35bd08da572f2cd4d05e6707">Prérequis</h2>
+<h2 id="prérequis:b68dafd7755f74812ae92f74ce38ff42">Prérequis</h2>
 
 <p>Pour le moment je ne fournis que le binaire Linux 32bits, vous n&rsquo;avez donc besoin de rien d&rsquo;autre pour tester qu&rsquo;une machine sous Linux. Pour cet exemple je vais utiliser un <a href="https://www.ovh.com/fr/vps/vps-classic.xml">VPS Classic 1 OVH</a> sous <em>Ubuntu server 64bits</em>.</p>
 
 <p>Pensez à vous assurer que vous pouvez utiliser les ports SMTP (ou alors testez sur des ports alternatifs).</p>
 
-<p>A noter que comme backend pour la base de données vous pouvez utiliser sqlite, MySQl (et dérivés) ou Postgresql. Pour cette première phase je vous encourage chaudement à utiliser sqlite ce sera amplement suffisant.</p>
+<p>Si vous comptez utiliser tmail pour envoyer des mails, pensez à mettre un reverse sur l&rsquo;IP (ou les IP) de votre serveur.</p>
 
-<p>A terme, tmail sera splitté en composants sous forme de container Docker, dans ce qui suit je vais jsute expliquer l&rsquo;installation &ldquo;standalone&rdquo; (vs cluster).</p>
+<p>Pensez aussi à renseigner les SPF des domaines que vous allez utiliser comme émetteurs le cas échéant.</p>
 
-<h3 id="note-sur-l-utilisation-des-ports-inférieurs-à-1024:d019151a35bd08da572f2cd4d05e6707">Note sur l&rsquo;utilisation des ports inférieurs à 1024</h3>
+<p>A noter que comme backend pour la base de données vous pouvez utiliser sqlite, MySQl (et dérivés) ou Postgresql. Pour cette première phase je vous encourage chaudement à utiliser sqlite, ce sera amplement suffisant.</p>
 
-<p>Sur un système linux un processus ne peut ouvrir un port inférieur à 1024 que si il est root.
-Une des limitations de Go fait que l&rsquo;on ne peut pas lancer d&rsquo;application sous l&rsquo;utilisateur root pour ouvrir les ports nécessaires et ensuite forker sous un autre user.<br />
-Il y à plusieurs autres solutions pour contourner ce problème, la plus simple à mettre en œuvre est d&rsquo;utiliser iptables :</p>
+<p>A terme, tmail sera splitté en composants sous forme de containers Docker, dans ce qui suit je vais juste expliquer l&rsquo;installation &ldquo;standalone&rdquo; (vs cluster).</p>
 
-<pre><code>iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 25 -j REDIRECT --to-port 2525
+<h3 id="dependances-outils:b68dafd7755f74812ae92f74ce38ff42">Dependances &amp; outils</h3>
+
+<p>tmail est un binaire statique, vous n&rsquo;avez besoin d&rsquo;aucune librairie spécifique.</p>
+
+<p>Par contre votre serveur devra disposer des softs suivant:</p>
+
+<ul>
+<li>unzip: pour décrompresser l&rsquo;archive contenant le necessaire à la mise en place de tmail. Pour ceux qui se posent la question de savoir pourquoi j&rsquo;utilise la format zip plutot qu&rsquo;un format plus &ldquo;générique&rdquo; dans un environement *nix, la réponse est que tmail sera dispo sur plusieurs plateformes et du coup je préfére utiliser un format trés courant.</li>
+</ul>
+
+<p>Si vous etes sous Debian/Ubuntu:</p>
+
+<pre><code>apt-get install unzip
 </code></pre>
 
-<h2 id="installation:d019151a35bd08da572f2cd4d05e6707">Installation</h2>
+<h3 id="vous-avez-trouvé-un-bug-vous-avez-une-suggestion:b68dafd7755f74812ae92f74ce38ff42">Vous avez trouvé un bug ? Vous avez une suggestion ?</h3>
 
-<h2 id="configuration:d019151a35bd08da572f2cd4d05e6707">Configuration</h2>
+<p>Utilisez exclusivement le <a href="https://github.com/Toorop/tmail-bugtracker">bugtracker dédié sur Github</a></p>
 
-<h3 id="base:d019151a35bd08da572f2cd4d05e6707">Base</h3>
+<h3 id="note-sur-l-utilisation-des-ports-inférieurs-à-1024:b68dafd7755f74812ae92f74ce38ff42">Note sur l&rsquo;utilisation des ports inférieurs à 1024</h3>
 
-<h3 id="prise-en-charge-des-mails-du-domaine-toorop-fr:d019151a35bd08da572f2cd4d05e6707">Prise en charge des mails du domaine toorop.fr</h3>
+<p>Sur un système linux un processus ne peut ouvrir un port inférieur à 1024 que si il est root.
+Une des limitations de Go fait que l&rsquo;on ne peut pas lancer d&rsquo;application sous l&rsquo;utilisateur root pour ouvrir les ports nécessaires et ensuite <em>forker</em> sous un autre user.<br />
+Il y à plusieurs autres solutions pour contourner ce problème, la plus simple à mettre en œuvre est d&rsquo;utiliser iptables. C&rsquo;est ce que nous allons faire ici.</p>
 
-<h3 id="router-les-mails-à-destination-du-domaine-toorop-fr-vers-mail-toorop-fr:d019151a35bd08da572f2cd4d05e6707">Router les mails à destination du domaine toorop.fr vers mail.toorop.fr</h3>
+<h2 id="installation:b68dafd7755f74812ae92f74ce38ff42">Installation</h2>
 
-<h3 id="ajout-de-utilisateur-toorop-toorop-fr:d019151a35bd08da572f2cd4d05e6707">Ajout de utilisateur toorop@toorop.fr</h3>
+<h3 id="ajout-de-l-utilisateur-tmail:b68dafd7755f74812ae92f74ce38ff42">Ajout de l&rsquo;utilisateur tmail</h3>
 
-<h3 id="router-les-mails-à-destination-de-gmail-com-vers-mailjet:d019151a35bd08da572f2cd4d05e6707">Router les mails à destination de gmail.com vers Mailjet.</h3>
+<p>On va commencer par ajouter un utilisateur tmail</p>
 
-<p>Si vous avez des questions, des remarques, des bugs à remonter</p>
+<pre><code>adduser tmail
+</code></pre>
+
+<h3 id="téléchargement-de-tmail:b68dafd7755f74812ae92f74ce38ff42">Téléchargement de tmail</h3>
+
+<p>J&rsquo;ai mis sur mon FTP une archive comprenant le binaire et divers autre éléments utiles pour installer tmail.</p>
+
+<p>On va donc commencer par récupérer cette archive et la décompresser.</p>
+
+<pre><code># su tmail
+$ cd
+$ wget ftp://ftp.toorop.fr/softs/tmail/tmail.zip
+$ unzip tmail.zip
+$ cd dist
+</code></pre>
+
+<p>Le répertoire <em>dist</em> contient les éléments nécessaires pour lancer tmail:</p>
+
+<pre><code>$ ls -la
+drwxrwxr-x 5 tmail tmail     4096 févr.  2 09:08 .
+drwxr-xr-x 3 tmail tmail     4096 févr.  2 09:08 ..
+drwxrwxr-x 2 tmail tmail     4096 févr.  2 09:08 conf
+-rw-rw-r-- 1 tmail tmail       38 janv. 16 15:14 run
+drwx------ 2 tmail tmail     4096 déc.  29 12:02 ssl
+-rwxr-xr-x 1 tmail tmail 14370520 janv. 28 16:34 tmail
+drwxrwxr-x 2 tmail tmail     4096 déc.  29 11:20 tpl
+</code></pre>
+
+<p>Avant de vous détailler ces différents éléments, on va fixer quelques droits, (il se peut que ce ne soit pas toujours nécessaire mais dans tous les cas pensez à vérifier):</p>
+
+<pre><code>chmod 700 run tmail 
+</code></pre>
+
+<p>et on va rajouter deux répertoires:</p>
+
+<pre><code>mkdir db
+mkdir store 
+</code></pre>
+
+<ul>
+<li>conf: contient, oh surprise, le fichier de configuration.</li>
+<li>run: est un mini script qui va charger la config et lancer tmail.</li>
+<li>ssl: est le répertoire contenant le nécessaire pour gérer le SSL. Vous pouvez utiliser ce qui est inclus dans la distribution dans le cadre de tests mais pensez à créer vos propres certificat et clé en prod (si besoin je ferais un tuto).</li>
+<li>tmail: est l&rsquo;exécutable.</li>
+<li>tpl: contient des templates, par exemple pour les bounces.</li>
+<li>db: contiendra la base sqlite (si vous utilisez sqlite&hellip;)</li>
+<li>store: va servir au stockage des mails en queue. Vous pouvez le mettre ailleurs mais pensez à faire la modification dans le fichier de configuration. A terme, il va y avoir d&rsquo;autre type se <em>store</em> que du stockage sur le disque local.</li>
+</ul>
+
+<h2 id="configuration:b68dafd7755f74812ae92f74ce38ff42">Configuration</h2>
+
+<p>On va commencer par copier le ficher tmail.cfg.base vers tmail.cfg car c&rsquo;est ce dernier qui sera pris en compte:</p>
+
+<pre><code>cp tmail.cfg.base tmail.cfg
+chmod 600 tmail.cfg 
+</code></pre>
+
+<p>Je ne vais parler que des options qu&rsquo;il va être nécessaire de modifier:</p>
+
+<ul>
+<li><p>TMAIL_ME: C&rsquo;est le nom d’hôte de votre serveur, celui qui va être utilisé, entre autre, dans la commande HELO/EHLO. Personnalisez cette valeur pour qu&rsquo;elle corresponde au reverse de votre IP.</p></li>
+
+<li><p>TMAIL_DEBUG_ENABLED: si positionné à <em>true</em> vous allez avoir toutes les info de debug. Pour une sortie moins verbeuse mettez false, mais je ne vous le conseille pas dans le cadre de ces tests.</p></li>
+
+<li><p>TMAIL_DB_DRIVER: la base de données utilisées. Notez que pour le moment j&rsquo;utilise exclusivement sqlite3, les autres devraient fonctionner mais je ne garantis rien.</p></li>
+
+<li><p>TMAIL_DB_SOURCE: la source des données.</p></li>
+
+<li><p>TMAIL_SMTPD_DSNS: cette option va nous permettre de définir les IP:port d&rsquo;écoute de tmail et si on doit activer SSL ou pas. A noter que si SSL n&rsquo;est pas activé on a tout de même l&rsquo;option ESMTP STARTTLS qui permet d&rsquo;avoir des transactions chiffrées si le client supporte STARTTLS.
+Dans notre cas on veut que tmail écoute sur l&rsquo;IP publique du serveur 151.80.115.83, sur les port 25 et 587 et sur le port 465 en SSL. Comme l&rsquo;utilisateur tmail ne peut ouvrir ces ports on va utiliser 2525 5877 et 4655 et on fera de la redirection de port. On a donc:
+TMAIL_SMTPD_DSNS=&ldquo;151.80.115.83:2525:false,151.80.115.83:5877:false,151.80.115.83:4655:true&rdquo;</p></li>
+
+<li><p>TMAIL_DELIVERD_LOCAL_IPS: c&rsquo;est l&rsquo;IP (ou les IP) locale(s) à utiliser pour envoyer des mails. Pour ce premier test on va faire simple, on va utiliser une seule adresse, celle par défaut du serveur: export TMAIL_DELIVERD_LOCAL_IPS=&ldquo;151.80.115.83&rdquo;</p></li>
+
+<li><p>TMAIL_DELIVERD_MAX_IN_FLIGHT: correspond au nombre de &ldquo;delivery&rdquo;, autrement dit d&rsquo;envois concurrents.</p></li>
+
+<li><p>TMAIL_DELIVERD_QUEUE_LIFETIME: correspond au temps de rétention en queue avant qu&rsquo;un mail ne soit bouncé si tmail n&rsquo;arrive pas à l’expédier. Par défaut le temps est très court, si il vous prend l&rsquo;envie d&rsquo;utiliser tmail en prod (ce que je ne vous conseille pas de faire en l&rsquo;état) augmentez le.</p></li>
+</ul>
+
+<p>Un fois cette configuration faite, on peut lancer lancer tmail.</p>
+
+<p>Vu que c&rsquo;est un premier lancement tmail va détecter que la base de données n&rsquo;est pas initialisée et il va vous demander si il peut le faire:</p>
+
+<pre><code>tmail@dev:~/dist$ ./run 
+Database 'driver: sqlite3, source: /home/tmail/dist/db/tmail.db' misses some tables.
+Should i create them ? (y/n): y
+
+je vous passe les info de debug..
+
+[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.449597 INFO - smtpd 151.80.115.83:2525 launched.
+[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.449931 INFO - smtpd 151.80.115.83:5877 launched.
+[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.450011 INFO - smtpd 151.80.115.83:4655 SSL launched.
+[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.499728 INFO - deliverd launched
+</code></pre>
+
+<h3 id="redirection-de-ports-via-iptables:b68dafd7755f74812ae92f74ce38ff42">Redirection de ports via iptables</h3>
+
+<p>Pour que tmail écoute sur les ports standards nous allons mettre en place les trois règles suivantes. Attention assurez vous que vous n&rsquo;avez pas déjà un serveur SMTP qui écoute sur ces ports, si c&rsquo;est le cas et que vous ne souhaitez pas l’arrêter, utilisez simplement tmail sur les port alternatifs.</p>
+
+<pre><code>iptables -t nat -A PREROUTING -p tcp --dport 25 -j REDIRECT --to-port 2525
+iptables -t nat -A PREROUTING -p tcp --dport 465 -j REDIRECT --to-port 4655
+iptables -t nat -A PREROUTING -p tcp --dport 587 -j REDIRECT --to-port 5877
+</code></pre>
+
+<h3 id="le-moment-est-venu-de-faire-un-premier-test:b68dafd7755f74812ae92f74ce38ff42">Le moment est venu de faire un premier test</h3>
+
+<p>Vous pouvez faire le test depuis la même machine mais tant qu&rsquo;a faire, faites le depuis une autre.</p>
+
+<pre><code>$ telnet dev.tmail.io 25
+Trying 151.80.115.83...
+Connected to dev.tmail.io.
+Escape character is '^]'.
+220 tmail.io  tmail ESMTP f22815e0988b8766b6fe69cbc73fb0d965754f60
+HELO toto
+250 tmail.io
+MAIL FROM: toorop@toorop.fr
+250 ok
+RCPT TO: toorop@toorop.fr
+554 5.7.1 &lt;toorop@toorop.fr&gt;: Relay access denied.
+Connection closed by foreign host.
+</code></pre>
+
+<p>Parfait !
+Pour le moment le mail est refusé car nous n&rsquo;avons défini aucune autorisation.</p>
+
+<h3 id="prise-en-charge-des-mails-du-domaine-toorop-fr:b68dafd7755f74812ae92f74ce38ff42">Prise en charge des mails du domaine toorop.fr</h3>
+
+<p>Pour que tmail prenne en charge les mails du domaine toorop.fr il suffit tout simplement deexécuter la commande suivante:</p>
+
+<pre><code>tmail smtpd addRcpthost toorop.fr
+</code></pre>
+
+<p>Si vous avez une erreur du type:</p>
+
+<pre><code>2015/02/02 15:51:30 unable to load config from env, TMAIL_ME variable is missing.
+</code></pre>
+
+<p>C&rsquo;est parce que la configuration n&rsquo;est pas chargée dans votre environnement, pour y remédier exécuter:</p>
+
+<pre><code>. /home/tmail/dist/conf/tmail.cfg
+</code></pre>
+
+<p>Vérifions que tmail accepte les mails pour toorop.fr:</p>
+
+<pre><code>$ telnet dev.tmail.io 25
+Trying 151.80.115.83...
+Connected to dev.tmail.io.
+Escape character is '^]'.
+220 tmail.io  tmail ESMTP 96b78ef8f850253cc956820a874e8ce40773bfb7
+HELO toto
+250 tmail.io
+mail from: toorop@toorop.fr
+250 ok
+rcpt to: toorop@toorop.fr
+250 ok
+data
+354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+subject: test tmail
+
+blabla
+.
+250 2.0.0 Ok: queued 2736698d73c044fd7f1994e76814d737c702a25e
+quit
+221 2.0.0 Bye
+Connection closed by foreign host.
+</code></pre>
+
+<h3 id="router-les-mails-à-destination-du-domaine-toorop-fr-vers-mail-toorop-fr:b68dafd7755f74812ae92f74ce38ff42">Router les mails à destination du domaine toorop.fr vers mail.toorop.fr</h3>
+
+<p>Par défaut quand tmail doit router un mail, il va utiliser les enregistrements DNS MX du domaine pour savoir à qui le transmettre. Mais nous pouvons aussi créer des routes &ldquo;en dur&rdquo;. Par exemple si nous souhaitons que tmail transmette les mails à destination du domaine toorop.fr au relais mail.toorop.fr il suffit de lui indiquer via cette commande :</p>
+
+<pre><code>tmail routes add -d toorop.fr -rh mail.toorop.fr
+</code></pre>
+
+<p>Je vous invite lire la documentation sur les <a href="/doc/cli-gestion-route-smtp/">régles de routage SMTP</a> pour connaitre les possibilités offertes par tmail.</p>
+
+<h3 id="ajout-de-utilisateur-smtp-toorop-toorop-fr:b68dafd7755f74812ae92f74ce38ff42">Ajout de utilisateur SMTP toorop@toorop.fr</h3>
+
+<p>Si vous souhaitez ajouter un utilisateur <em>toorop@toorop.fr</em> qui pourra envoyer des mails via tmail en s&rsquo;authentifiant via SMTPAUTH avec le mot de passe <em>password</em>:</p>
+
+<pre><code>tmail smtpd addUser password
+</code></pre>
+
+<p>Pour supprimer un utilisateur:</p>
+
+<pre><code>tmail smtpd delUser toorop@toorop.fr
+</code></pre>
+
+<p>Bon tests ;)</p>
 
   </div>
   
