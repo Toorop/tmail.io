@@ -45,8 +45,11 @@ Si vous etes sous Debian/Ubuntu:
 	apt-get install unzip
 
 
-### Vous avez trouvé un bug ? Vous avez une suggestion ?
-Utilisez exclusivement le [bugtracker dédié sur Github](https://github.com/Toorop/tmail-bugtracker)
+### Vous avez trouvé un bug ? 
+Utilisez le [bugtracker dédié sur Github](https://github.com/Toorop/tmail-bugtracker)
+
+### Discuter du projet
+J'ai mis en place [un groupe de discutions](https://groups.google.com/d/forum/tmail-dev ) sur Google Groups pour discuter du projet. N'hésitez pas à soumettre vos suggestions.
 
 ### Note sur l'utilisation des ports inférieurs à 1024
 Sur un système linux un processus ne peut ouvrir un port inférieur à 1024 que si il est root.
