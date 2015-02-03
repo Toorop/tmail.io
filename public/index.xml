@@ -66,9 +66,13 @@
 &lt;pre&gt;&lt;code&gt;apt-get install unzip
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;vous-avez-trouvé-un-bug-vous-avez-une-suggestion:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Vous avez trouvé un bug ? Vous avez une suggestion ?&lt;/h3&gt;
+&lt;h3 id=&#34;vous-avez-trouvé-un-bug:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Vous avez trouvé un bug ?&lt;/h3&gt;
 
-&lt;p&gt;Utilisez exclusivement le &lt;a href=&#34;https://github.com/Toorop/tmail-bugtracker&#34;&gt;bugtracker dédié sur Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Utilisez le &lt;a href=&#34;https://github.com/Toorop/tmail-bugtracker&#34;&gt;bugtracker dédié sur Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;discuter-du-projet:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Discuter du projet&lt;/h3&gt;
+
+&lt;p&gt;J&amp;rsquo;ai mis en place &lt;a href=&#34;https://groups.google.com/d/forum/tmail-dev&#34;&gt;un groupe de discutions&lt;/a&gt; sur Google Groups pour discuter du projet. N&amp;rsquo;hésitez pas à soumettre vos suggestions.&lt;/p&gt;
 
 &lt;h3 id=&#34;note-sur-l-utilisation-des-ports-inférieurs-à-1024:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Note sur l&amp;rsquo;utilisation des ports inférieurs à 1024&lt;/h3&gt;
 

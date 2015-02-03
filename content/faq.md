@@ -10,6 +10,8 @@ weight = 5
 * [Qu'est ce que tmail ? ]({{<ref "#tmail" >}})
 * [Est ce que tmail est opensource ? ]({{<ref "#opensource" >}})
 * [Peut on tester tmail ? ]({{<ref "#tester-tmail" >}})
+* [J'ai trouvé un bug !]({{<ref "#bugtracker" >}})
+* [J'ai une suggestion]({{<ref "#suggestion" >}})
 * [tmail est codé en quel langage ? ]({{<ref "#golang-tmail" >}})
 
 ## Qu'est ce que tmail ? {#tmail}
@@ -41,8 +43,15 @@ Pour le moment je ne souhaite pas "libérer" les sources, mais à terme ce sera 
 La raison principale est que le projet est trop jeune, je préfère attendre que les grandes lignes soient posées, que ce que j'ai prévu soit implémenté - au moins en partie - pour éviter d'une part trop de dispersions et d'autre part pour pouvoir concentrer mon temps disponible au code plutôt qu'à la gestion du projet.
 
 ## Peut on tester tmail ? {#tester-tmail}
-Même si il n'est pas - encore - open source, je vais mettre à disposition des binaires et la documentation pour permettre à ceux qui le désire de tester tmail.  
-Bien entendu les versions proposées en test, seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs. 
+Oui vous avez [la procédure pour installer tmail ici](/doc/installer-tmail/)
+Bien entendu les versions proposées seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs. 
+
+## J'ai trouvé un bug {#bugtracker}
+Utilisez le [bugtracker dédié sur Github](https://github.com/Toorop/tmail-bugtracker) pour me le remonter.
+
+## J'ai une suggestion {#suggestion}
+Un [un groupe de discutions](https://groups.google.com/d/forum/tmail-dev) est à votre disposition pour discuter de tmail. Toute suggestion est la bienvenue ;)
+
 
 ## tmail est codé en quel langage ? {#golang-tmail}
 <a href="http://golang.org/" target="_blank" title="golang">Go</a>
