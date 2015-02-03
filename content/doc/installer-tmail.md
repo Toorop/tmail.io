@@ -21,7 +21,7 @@ On va partir sur une installation qui va nous permettre de mettre en place un se
 * permettre à l'utilisateur *toorop@toorop.fr* ayant comme mot de passe *password* d'utiliser le service pour envoyer des mails (quelque soit la destination).
 
 ## Prérequis
-Pour le moment je ne fournis que le binaire Linux 32bits, vous n'avez donc besoin de rien d'autre pour tester qu'une machine sous Linux. Pour cet exemple je vais utiliser un [VPS Classic 1 OVH](https://www.ovh.com/fr/vps/vps-classic.xml) sous *Ubuntu server 64bits*.
+Pour le moment je ne fournis que le binaire Linux 64bits, vous n'avez donc besoin de rien d'autre pour tester qu'une machine sous Linux. Pour cet exemple je vais utiliser un [VPS Classic 1 OVH](https://www.ovh.com/fr/vps/vps-classic.xml) sous *Ubuntu server 64bits*.
 
 Pensez à vous assurer que vous pouvez utiliser les ports SMTP (ou alors testez sur des ports alternatifs).
 
@@ -123,7 +123,7 @@ Je ne vais parler que des options qu'il va être nécessaire de modifier:
 
 * TMAIL_SMTPD_DSNS: cette option va nous permettre de définir les IP:port d'écoute de tmail et si on doit activer SSL ou pas. A noter que si SSL n'est pas activé on a tout de même l'option ESMTP STARTTLS qui permet d'avoir des transactions chiffrées si le client supporte STARTTLS. 
 Dans notre cas on veut que tmail écoute sur l'IP publique du serveur 151.80.115.83, sur les port 25 et 587 et sur le port 465 en SSL. Comme l'utilisateur tmail ne peut ouvrir ces ports on va utiliser 2525 5877 et 4655 et on fera de la redirection de port. On a donc: 
-TMAIL_SMTPD_DSNS="151.80.115.83:2525:false,151.80.115.83:5877:false,151.80.115.83:4655:true"
+TMAIL_SMTPD_DSNS="151.80.115.83:2525:false;151.80.115.83:5877:false;151.80.115.83:4655:true"
 
 * TMAIL_DELIVERD_LOCAL_IPS: c'est l'IP (ou les IP) locale(s) à utiliser pour envoyer des mails. Pour ce premier test on va faire simple, on va utiliser une seule adresse, celle par défaut du serveur: export TMAIL_DELIVERD_LOCAL_IPS="151.80.115.83"
 

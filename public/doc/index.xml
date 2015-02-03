@@ -39,7 +39,7 @@
 
 &lt;h2 id=&#34;prérequis:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Prérequis&lt;/h2&gt;
 
-&lt;p&gt;Pour le moment je ne fournis que le binaire Linux 32bits, vous n&amp;rsquo;avez donc besoin de rien d&amp;rsquo;autre pour tester qu&amp;rsquo;une machine sous Linux. Pour cet exemple je vais utiliser un &lt;a href=&#34;https://www.ovh.com/fr/vps/vps-classic.xml&#34;&gt;VPS Classic 1 OVH&lt;/a&gt; sous &lt;em&gt;Ubuntu server 64bits&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Pour le moment je ne fournis que le binaire Linux 64bits, vous n&amp;rsquo;avez donc besoin de rien d&amp;rsquo;autre pour tester qu&amp;rsquo;une machine sous Linux. Pour cet exemple je vais utiliser un &lt;a href=&#34;https://www.ovh.com/fr/vps/vps-classic.xml&#34;&gt;VPS Classic 1 OVH&lt;/a&gt; sous &lt;em&gt;Ubuntu server 64bits&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Pensez à vous assurer que vous pouvez utiliser les ports SMTP (ou alors testez sur des ports alternatifs).&lt;/p&gt;
 
@@ -157,7 +157,7 @@ chmod 600 tmail.cfg
 
 &lt;li&gt;&lt;p&gt;TMAIL_SMTPD_DSNS: cette option va nous permettre de définir les IP:port d&amp;rsquo;écoute de tmail et si on doit activer SSL ou pas. A noter que si SSL n&amp;rsquo;est pas activé on a tout de même l&amp;rsquo;option ESMTP STARTTLS qui permet d&amp;rsquo;avoir des transactions chiffrées si le client supporte STARTTLS.
 Dans notre cas on veut que tmail écoute sur l&amp;rsquo;IP publique du serveur 151.80.115.83, sur les port 25 et 587 et sur le port 465 en SSL. Comme l&amp;rsquo;utilisateur tmail ne peut ouvrir ces ports on va utiliser 2525 5877 et 4655 et on fera de la redirection de port. On a donc:
-TMAIL_SMTPD_DSNS=&amp;ldquo;151.80.115.83:2525:false,151.80.115.83:5877:false,151.80.115.83:4655:true&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+TMAIL_SMTPD_DSNS=&amp;ldquo;151.80.115.83:2525:false;151.80.115.83:5877:false;151.80.115.83:4655:true&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_LOCAL_IPS: c&amp;rsquo;est l&amp;rsquo;IP (ou les IP) locale(s) à utiliser pour envoyer des mails. Pour ce premier test on va faire simple, on va utiliser une seule adresse, celle par défaut du serveur: export TMAIL_DELIVERD_LOCAL_IPS=&amp;ldquo;151.80.115.83&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
 
