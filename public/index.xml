@@ -139,7 +139,8 @@ mkdir store
 
 &lt;p&gt;On va commencer par copier le ficher tmail.cfg.base vers tmail.cfg car c&amp;rsquo;est ce dernier qui sera pris en compte:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;cp tmail.cfg.base tmail.cfg
+&lt;pre&gt;&lt;code&gt;cd conf
+cp tmail.cfg.base tmail.cfg
 chmod 600 tmail.cfg 
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -536,6 +537,8 @@ There is no message in queue.
 &lt;li&gt;&lt;a href=&#34;#tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Qu&amp;rsquo;est ce que tmail ? &lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#opensource:4a1318da06786ac52626178ca960109e&#34;&gt;Est ce que tmail est opensource ? &lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#tester-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Peut on tester tmail ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bugtracker:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai trouvé un bug !&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#suggestion:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai une suggestion&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ? &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -569,8 +572,16 @@ Parce que :&lt;/p&gt;
 
 &lt;h2 id=&#34;tester-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Peut on tester tmail ?&lt;/h2&gt;
 
-&lt;p&gt;Même si il n&amp;rsquo;est pas - encore - open source, je vais mettre à disposition des binaires et la documentation pour permettre à ceux qui le désire de tester tmail.&lt;br /&gt;
-Bien entendu les versions proposées en test, seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs.&lt;/p&gt;
+&lt;p&gt;Oui vous avez &lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;la procédure pour installer tmail ici&lt;/a&gt;
+Bien entendu les versions proposées seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs.&lt;/p&gt;
+
+&lt;h2 id=&#34;bugtracker:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai trouvé un bug&lt;/h2&gt;
+
+&lt;p&gt;Utilisez le &lt;a href=&#34;https://github.com/Toorop/tmail-bugtracker&#34;&gt;bugtracker dédié sur Github&lt;/a&gt; pour me le remonter.&lt;/p&gt;
+
+&lt;h2 id=&#34;suggestion:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai une suggestion&lt;/h2&gt;
+
+&lt;p&gt;Un &lt;a href=&#34;https://groups.google.com/d/forum/tmail-dev&#34;&gt;un groupe de discutions&lt;/a&gt; est à votre disposition pour discuter de tmail. Toute suggestion est la bienvenue ;)&lt;/p&gt;
 
 &lt;h2 id=&#34;golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ?&lt;/h2&gt;
 

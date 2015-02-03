@@ -49,7 +49,7 @@ Si vous etes sous Debian/Ubuntu:
 Utilisez le [bugtracker dédié sur Github](https://github.com/Toorop/tmail-bugtracker)
 
 ### Discuter du projet
-J'ai mis en place [un groupe de discutions](https://groups.google.com/d/forum/tmail-dev ) sur Google Groups pour discuter du projet. N'hésitez pas à soumettre vos suggestions.
+J'ai mis en place [un groupe de discutions](https://groups.google.com/d/forum/tmail-dev) sur Google Groups pour discuter du projet. N'hésitez pas à soumettre vos suggestions.
 
 ### Note sur l'utilisation des ports inférieurs à 1024
 Sur un système linux un processus ne peut ouvrir un port inférieur à 1024 que si il est root.
@@ -105,7 +105,8 @@ et on va rajouter deux répertoires:
 ## Configuration
 
 On va commencer par copier le ficher tmail.cfg.base vers tmail.cfg car c'est ce dernier qui sera pris en compte:
-
+	
+	cd conf
 	cp tmail.cfg.base tmail.cfg
 	chmod 600 tmail.cfg 
 

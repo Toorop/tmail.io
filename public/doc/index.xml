@@ -139,7 +139,8 @@ mkdir store
 
 &lt;p&gt;On va commencer par copier le ficher tmail.cfg.base vers tmail.cfg car c&amp;rsquo;est ce dernier qui sera pris en compte:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;cp tmail.cfg.base tmail.cfg
+&lt;pre&gt;&lt;code&gt;cd conf
+cp tmail.cfg.base tmail.cfg
 chmod 600 tmail.cfg 
 &lt;/code&gt;&lt;/pre&gt;
 
