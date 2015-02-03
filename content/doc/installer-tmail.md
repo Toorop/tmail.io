@@ -219,7 +219,7 @@ Je vous invite lire la documentation sur les [régles de routage SMTP](/doc/cli-
 
 Si vous souhaitez ajouter un utilisateur *toorop@toorop.fr* qui pourra envoyer des mails via tmail en s'authentifiant via SMTPAUTH avec le mot de passe *password*:
 
-	tmail smtpd addUser password
+	tmail smtpd addUser toorop@toorop.fr password
 
 Pour supprimer un utilisateur:
 

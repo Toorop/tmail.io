@@ -262,7 +262,7 @@ Connection closed by foreign host.
 
 &lt;p&gt;Si vous souhaitez ajouter un utilisateur &lt;em&gt;toorop@toorop.fr&lt;/em&gt; qui pourra envoyer des mails via tmail en s&amp;rsquo;authentifiant via SMTPAUTH avec le mot de passe &lt;em&gt;password&lt;/em&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;tmail smtpd addUser password
+&lt;pre&gt;&lt;code&gt;tmail smtpd addUser toorop@toorop.fr password
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Pour supprimer un utilisateur:&lt;/p&gt;
