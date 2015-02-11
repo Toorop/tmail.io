@@ -20,6 +20,12 @@
       <guid>http://tmail.io/doc/installer-tmail/</guid>
       <description>
 
+&lt;p&gt;&lt;br&gt;
+&lt;div style=&#34;text-align:center&#34;&gt;
+&lt;iframe align=&#34;center&#34; width=&#34;640&#34; height=&#34;360&#34; src=&#34;https://www.youtube.com/embed/Jn9xSfHXsoM?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
 &lt;p&gt;Durant tout le cycle de développement de tmail je vais mettre à disposition le nécessaire pour qu&amp;rsquo;il soit possible de tester les fonctionnalités qui sont implémentées.&lt;/p&gt;
 
 &lt;p&gt;Qu&amp;rsquo;il n&amp;rsquo;y ait pas de malentendu, on ne parle pas ici de version bêta, ni même alpha, ce sera à chaque fois une version de développement, avec plein de choses non implémentées et forcement de nombreux bugs.&lt;/p&gt;

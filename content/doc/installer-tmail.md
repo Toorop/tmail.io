@@ -4,6 +4,14 @@ draft = false
 title = "Installer et configurer tmail"
 
 +++
+<br>
+<div style="text-align:center">
+<iframe align="center" width="640" height="360" src="https://www.youtube.com/embed/Jn9xSfHXsoM?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+<br>
+
+  
+
 
 Durant tout le cycle de développement de tmail je vais mettre à disposition le nécessaire pour qu'il soit possible de tester les fonctionnalités qui sont implémentées.
 
