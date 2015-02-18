@@ -14,6 +14,8 @@ weight = 5
 * [J'ai une suggestion]({{<ref "#suggestion" >}})
 * [tmail est codé en quel langage ? ]({{<ref "#golang-tmail" >}})
 
+<!--more-->
+
 ## Qu'est ce que tmail ? {#tmail}
 
 Réponse courte: tmail est un serveur [SMTP](http://fr.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)  

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Filtrage antivirus en utilisant Clamav &middot; tmail </title>
+
+  
+  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
+  <link rel="stylesheet" href="http://tmail.io/css/syntax.css">
+  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="tmail" />
+</head>
+
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>tmail</h1>
+      <p class="lead">
+       devblog 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+        <li><a href="http://tmail.io/faq/"> FAQ </a></li>
+      
+      <li><a href="mailto:toorop@toorop.fr"> Contact </a></li>
+    </ul>
+
+    
+  </div>
+</div>
+
+    <div class="content container">
+<div class="post">
+  <h1>Filtrage antivirus en utilisant Clamav</h1>
+  <span class="post-date">Wed, Feb 18, 2015</span>
+      
+
+<p>Vous trouverez dans ce billet les explications nécessaires pour installer l&rsquo;antivirus opensource <a href="http://www.clamav.net/index.html">Clamav</a> et activer le filtrage de votre flux SMTP par tmail.</p>
+
+<h3 id="installation-de-clamav:7da83a8da26892e0f6b1ccff72984fde">Installation de clamav</h3>
+
+<p>Je vais prendre le cas où vous utilisez une distribution Linux Debian ou Ubuntu, dans ce cas l’installation de Clamav est on ne peut plus simple :</p>
+
+<pre><code>sudo apt-get install clamav
+</code></pre>
+
+<p>Comme tout antivirus il est nécessaire de maintenir à jour la base de signatures du scanner, normalement l&rsquo;installation de Clamav va aussi entraîner l&rsquo;installation de l&rsquo;outil <em>freshclam</em> dédié à cet effet.</p>
+
+<p>Il ne nous reste plus qu&rsquo;à lancer les services, le scanner en tant que tel:</p>
+
+<pre><code>sudo service clamav-daemon start
+</code></pre>
+
+<p>et le daemon freshclam qui va maintenir à jour la base de signatures:</p>
+
+<pre><code>sudo service clamav-freshclam start
+</code></pre>
+
+<h3 id="configuration-de-tmail-pour-activer-le-filtrage-antivirus:7da83a8da26892e0f6b1ccff72984fde">Configuration de tmail pour activer le filtrage antivirus</h3>
+
+<p>Il y à deux paramètres à configurer/vérifier pour activer le filtrage de votre flux SMTP. Tout d&rsquo;abord il faut indiquer à tmail le socket unix sur lequel écoute le scanner. Le fichier de config contient le chemin par défaut lors d&rsquo;une installation sous Ubuntu, si vous n&rsquo;utilisez pas cette distribution, vous trouverez le chemin dans votre fichier de configuration de clamav.</p>
+
+<pre><code># Clamd DSNS
+export TMAIL_SMTPD_SCAN_CLAMAV_DSNS=&quot;/var/run/clamav/clamd.ctl&quot;
+</code></pre>
+
+<p>Ensuite il ne reste plus qu&rsquo;a activer le filtrage:</p>
+
+<pre><code># Clamav
+export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
+</code></pre>
+
+<p>Et voila !</p>
+
+<p>Il faut savoir qu&rsquo;actuellement le comportement va être le suivant:</p>
+
+<ul>
+<li>Les mails vont êtres filtrés durant la transaction SMTP.</li>
+<li>Si un virus est détecté le mail va être refusé.</li>
+</ul>
+
+<p>A terme je pense ajouter des option permettant par exemple de taguer les mails.</p>
+
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'tmail';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59890382-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

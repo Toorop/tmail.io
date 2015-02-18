@@ -8,6 +8,8 @@ title = "Routes smtp sortantes"
 
 Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C'est le fonctionnement classique d'un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques. 
 
+<!--more-->
+
 Les règles de routage vont êtres définies an fonction des paramètres suivants : 
 
 * Le domaine de destination.

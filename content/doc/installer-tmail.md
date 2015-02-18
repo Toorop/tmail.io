@@ -6,7 +6,7 @@ title = "Installer et configurer tmail"
 +++
 <br>
 <div style="text-align:center">
-<iframe align="center" width="640" height="360" src="https://www.youtube.com/embed/Jn9xSfHXsoM?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe align="center" width="640" height="360" src="https://www.youtube.com/embed/Ncs3AZKPqKU?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 <br>
 
@@ -20,6 +20,8 @@ Qu'il n'y ait pas de malentendu, on ne parle pas ici de version bêta, ni même 
 **En clair: ne pas utiliser en production**
 
 Pour le moment tmail est très basique, mais il devrait cependant vous permettre d'envoyer et de relayer des mails.
+
+<!--more-->
 
 On va partir sur une installation qui va nous permettre de mettre en place un service SMTP qui va:
 
@@ -57,7 +59,7 @@ Si vous etes sous Debian/Ubuntu:
 Utilisez le [bugtracker dédié sur Github](https://github.com/Toorop/tmail-bugtracker)
 
 ### Discuter du projet
-J'ai mis en place [un groupe de discutions](https://groups.google.com/d/forum/tmail-dev) sur Google Groups pour discuter du projet. N'hésitez pas à soumettre vos suggestions.
+J'ai mis en place [un groupe de discussion](https://groups.google.com/d/forum/tmail-dev) sur Google Groups pour discuter du projet. N'hésitez pas à soumettre vos suggestions.
 
 ### Note sur l'utilisation des ports inférieurs à 1024
 Sur un système linux un processus ne peut ouvrir un port inférieur à 1024 que si il est root.
@@ -139,6 +141,8 @@ TMAIL_SMTPD_DSNS="151.80.115.83:2525:false;151.80.115.83:5877:false;151.80.115.8
 
 * TMAIL_DELIVERD_QUEUE_LIFETIME: correspond au temps de rétention en queue avant qu'un mail ne soit bouncé si tmail n'arrive pas à l’expédier. Par défaut le temps est très court, si il vous prend l'envie d'utiliser tmail en prod (ce que je ne vous conseille pas de faire en l'état) augmentez le.
 
+
+Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, [consultez ce billet](/doc/filtrage-smtp-antivirus-clamav)
 
 Un fois cette configuration faite, on peut lancer lancer tmail. 
 

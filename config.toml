@@ -4,4 +4,5 @@ title = "tmail"
 
 [Params]
 	Description = "devblog"
-	Author = "Stephane Depierrepont"
+	Author = "Stephane Depierrepont aka toorop"
+	disqusShortname = "tmail"

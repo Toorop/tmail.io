@@ -19,6 +19,8 @@ Pour chaque mail en queue les informations suivantes sont retournées:
 * Status: status du mail. Actuellement les status sont "Delivery in progress", "Scheduled", "Will be discarded", "Will be bounced"
 * Next delivery process scheduled at: Dans le cas ou un mail est en attente dans la queue ce paramètre indique le moment (approximatif) où le mail sera représenté au process tmail qui traite les message en queue. 
 
+<!--more-->
+
 Cas où il n'y a pas de message en queue:
 
 	tmail queue list

@@ -9,8 +9,64 @@
     
     
     
-    <lastBuildDate>Thu, 29 Jan 2015 17:00:44 &#43;0100</lastBuildDate>
+    <lastBuildDate>Wed, 18 Feb 2015 14:19:22 &#43;0100</lastBuildDate>
     <atom:link href="http://tmail.io/doc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Filtrage antivirus en utilisant Clamav</title>
+      <link>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</link>
+      <pubDate>Wed, 18 Feb 2015 14:19:22 &#43;0100</pubDate>
+      
+      <guid>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</guid>
+      <description>
+
+&lt;p&gt;Vous trouverez dans ce billet les explications nécessaires pour installer l&amp;rsquo;antivirus opensource &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;Clamav&lt;/a&gt; et activer le filtrage de votre flux SMTP par tmail.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation-de-clamav:7da83a8da26892e0f6b1ccff72984fde&#34;&gt;Installation de clamav&lt;/h3&gt;
+
+&lt;p&gt;Je vais prendre le cas où vous utilisez une distribution Linux Debian ou Ubuntu, dans ce cas l’installation de Clamav est on ne peut plus simple :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install clamav
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Comme tout antivirus il est nécessaire de maintenir à jour la base de signatures du scanner, normalement l&amp;rsquo;installation de Clamav va aussi entraîner l&amp;rsquo;installation de l&amp;rsquo;outil &lt;em&gt;freshclam&lt;/em&gt; dédié à cet effet.&lt;/p&gt;
+
+&lt;p&gt;Il ne nous reste plus qu&amp;rsquo;à lancer les services, le scanner en tant que tel:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service clamav-daemon start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;et le daemon freshclam qui va maintenir à jour la base de signatures:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service clamav-freshclam start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;configuration-de-tmail-pour-activer-le-filtrage-antivirus:7da83a8da26892e0f6b1ccff72984fde&#34;&gt;Configuration de tmail pour activer le filtrage antivirus&lt;/h3&gt;
+
+&lt;p&gt;Il y à deux paramètres à configurer/vérifier pour activer le filtrage de votre flux SMTP. Tout d&amp;rsquo;abord il faut indiquer à tmail le socket unix sur lequel écoute le scanner. Le fichier de config contient le chemin par défaut lors d&amp;rsquo;une installation sous Ubuntu, si vous n&amp;rsquo;utilisez pas cette distribution, vous trouverez le chemin dans votre fichier de configuration de clamav.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Clamd DSNS
+export TMAIL_SMTPD_SCAN_CLAMAV_DSNS=&amp;quot;/var/run/clamav/clamd.ctl&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ensuite il ne reste plus qu&amp;rsquo;a activer le filtrage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Clamav
+export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Et voila !&lt;/p&gt;
+
+&lt;p&gt;Il faut savoir qu&amp;rsquo;actuellement le comportement va être le suivant:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Les mails vont êtres filtrés durant la transaction SMTP.&lt;/li&gt;
+&lt;li&gt;Si un virus est détecté le mail va être refusé.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A terme je pense ajouter des option permettant par exemple de taguer les mails.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Installer et configurer tmail</title>
@@ -22,7 +78,7 @@
 
 &lt;p&gt;&lt;br&gt;
 &lt;div style=&#34;text-align:center&#34;&gt;
-&lt;iframe align=&#34;center&#34; width=&#34;640&#34; height=&#34;360&#34; src=&#34;https://www.youtube.com/embed/Jn9xSfHXsoM?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe align=&#34;center&#34; width=&#34;640&#34; height=&#34;360&#34; src=&#34;https://www.youtube.com/embed/Ncs3AZKPqKU?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;br&gt;&lt;/p&gt;
 
@@ -78,7 +134,7 @@
 
 &lt;h3 id=&#34;discuter-du-projet:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Discuter du projet&lt;/h3&gt;
 
-&lt;p&gt;J&amp;rsquo;ai mis en place &lt;a href=&#34;https://groups.google.com/d/forum/tmail-dev&#34;&gt;un groupe de discutions&lt;/a&gt; sur Google Groups pour discuter du projet. N&amp;rsquo;hésitez pas à soumettre vos suggestions.&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;ai mis en place &lt;a href=&#34;https://groups.google.com/d/forum/tmail-dev&#34;&gt;un groupe de discussion&lt;/a&gt; sur Google Groups pour discuter du projet. N&amp;rsquo;hésitez pas à soumettre vos suggestions.&lt;/p&gt;
 
 &lt;h3 id=&#34;note-sur-l-utilisation-des-ports-inférieurs-à-1024:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Note sur l&amp;rsquo;utilisation des ports inférieurs à 1024&lt;/h3&gt;
 
@@ -171,6 +227,8 @@ TMAIL_SMTPD_DSNS=&amp;ldquo;151.80.115.83:2525:false;151.80.115.83:5877:false;15
 
 &lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_QUEUE_LIFETIME: correspond au temps de rétention en queue avant qu&amp;rsquo;un mail ne soit bouncé si tmail n&amp;rsquo;arrive pas à l’expédier. Par défaut le temps est très court, si il vous prend l&amp;rsquo;envie d&amp;rsquo;utiliser tmail en prod (ce que je ne vous conseille pas de faire en l&amp;rsquo;état) augmentez le.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, &lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav&#34;&gt;consultez ce billet&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Un fois cette configuration faite, on peut lancer lancer tmail.&lt;/p&gt;
 

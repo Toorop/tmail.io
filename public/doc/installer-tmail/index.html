@@ -53,7 +53,7 @@
 
 <p><br>
 <div style="text-align:center">
-<iframe align="center" width="640" height="360" src="https://www.youtube.com/embed/Jn9xSfHXsoM?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe align="center" width="640" height="360" src="https://www.youtube.com/embed/Ncs3AZKPqKU?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 <br></p>
 
@@ -109,7 +109,7 @@
 
 <h3 id="discuter-du-projet:b68dafd7755f74812ae92f74ce38ff42">Discuter du projet</h3>
 
-<p>J&rsquo;ai mis en place <a href="https://groups.google.com/d/forum/tmail-dev">un groupe de discutions</a> sur Google Groups pour discuter du projet. N&rsquo;hésitez pas à soumettre vos suggestions.</p>
+<p>J&rsquo;ai mis en place <a href="https://groups.google.com/d/forum/tmail-dev">un groupe de discussion</a> sur Google Groups pour discuter du projet. N&rsquo;hésitez pas à soumettre vos suggestions.</p>
 
 <h3 id="note-sur-l-utilisation-des-ports-inférieurs-à-1024:b68dafd7755f74812ae92f74ce38ff42">Note sur l&rsquo;utilisation des ports inférieurs à 1024</h3>
 
@@ -202,6 +202,8 @@ TMAIL_SMTPD_DSNS=&ldquo;151.80.115.83:2525:false;151.80.115.83:5877:false;151.80
 
 <li><p>TMAIL_DELIVERD_QUEUE_LIFETIME: correspond au temps de rétention en queue avant qu&rsquo;un mail ne soit bouncé si tmail n&rsquo;arrive pas à l’expédier. Par défaut le temps est très court, si il vous prend l&rsquo;envie d&rsquo;utiliser tmail en prod (ce que je ne vous conseille pas de faire en l&rsquo;état) augmentez le.</p></li>
 </ul>
+
+<p>Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, <a href="/doc/filtrage-smtp-antivirus-clamav">consultez ce billet</a></p>
 
 <p>Un fois cette configuration faite, on peut lancer lancer tmail.</p>
 
@@ -315,6 +317,33 @@ Connection closed by foreign host.
 <p>Bon tests ;)</p>
 
 </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'tmail';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59890382-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
   </body>
 </html>
