@@ -3,16 +3,18 @@ date = "2015-01-14T14:14:40+01:00"
 draft = false
 title = "FAQ"
 [menu.main]
-name = "FAQ"
+name = "Faq"
 weight = 5
 +++
 
 * [Qu'est ce que tmail ? ]({{<ref "#tmail" >}})
 * [Est ce que tmail est opensource ? ]({{<ref "#opensource" >}})
 * [Peut on tester tmail ? ]({{<ref "#tester-tmail" >}})
+* [tmail est codé en quel langage ? ]({{<ref "#golang-tmail" >}})
 * [J'ai trouvé un bug !]({{<ref "#bugtracker" >}})
 * [J'ai une suggestion]({{<ref "#suggestion" >}})
-* [tmail est codé en quel langage ? ]({{<ref "#golang-tmail" >}})
+* [J'ai une question ]({{<ref "#question" >}})
+
 
 <!--more-->
 
@@ -48,13 +50,14 @@ La raison principale est que le projet est trop jeune, je préfère attendre que
 Oui vous avez [la procédure pour installer tmail ici](/doc/installer-tmail/)
 Bien entendu les versions proposées seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs. 
 
+## tmail est codé en quel langage ? {#golang-tmail}
+<a href="http://golang.org/" target="_blank" title="golang">Go</a>
+
 ## J'ai trouvé un bug {#bugtracker}
 Utilisez le [bugtracker dédié sur Github](https://github.com/Toorop/tmail-bugtracker) pour me le remonter.
 
 ## J'ai une suggestion {#suggestion}
 Un [un groupe de discutions](https://groups.google.com/d/forum/tmail-dev) est à votre disposition pour discuter de tmail. Toute suggestion est la bienvenue ;)
 
-
-## tmail est codé en quel langage ? {#golang-tmail}
-<a href="http://golang.org/" target="_blank" title="golang">Go</a>
-
+## J'ai une question {#question}
+Si vous avez une question postez la dans les commentaires en bas de page. 

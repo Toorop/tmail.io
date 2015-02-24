@@ -2,13 +2,14 @@
 <body>
 {{ partial "sidebar.html" . }}
 <div class="content container">
+<p>Vous venez d'arriver sur ce site, vous etes un peu perdu ? 
+<a href="/faq/">Consultez la faq</a></p>
 <div class="posts">
-{{ range first 10 .Data.Pages }}
+{{ range first 10 (where .Data.Pages "Section" "not in" "rechercher") }}
   <div class="post">
     <h1 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
     <span class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
     {{ .Summary }}
-    <br>
       {{ if .Truncated }}
     <a href="{{ .RelPermalink }}">Lire la suite…</a>
   {{ end }}

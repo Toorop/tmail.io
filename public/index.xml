@@ -9,8 +9,39 @@
     
     
     
-    <lastBuildDate>Wed, 18 Feb 2015 14:19:22 &#43;0100</lastBuildDate>
+    <lastBuildDate>Mon, 23 Feb 2015 17:19:30 &#43;0100</lastBuildDate>
     <atom:link href="http://tmail.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #0: Présentations</title>
+      <link>http://tmail.io/podcast/episode-0/</link>
+      <pubDate>Mon, 23 Feb 2015 17:19:30 &#43;0100</pubDate>
+      
+      <guid>http://tmail.io/podcast/episode-0/</guid>
+      <description>
+
+&lt;p&gt;&lt;audio id=&#34;tmail-podcast-ep0&#34; src=&#34;http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3&#34; controls=&#34;controls&#34; preload=&#34;none&#34;  &gt;&lt;/p&gt;
+
+&lt;p&gt;Dans cette épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&amp;rsquo;etre de ce podcast.&lt;/p&gt;
+
+&lt;h4 id=&#34;les-liens-évcoqués-dans-cet-épisode:1fb66ffb196bf90087cd053f7e7a043c&#34;&gt;Les liens évcoqués dans cet épisode:&lt;/h4&gt;
+
+&lt;p&gt;Site du projet tmail: &lt;a href=&#34;http://tmail.io&#34;&gt;http://tmail.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mon github: &lt;a href=&#34;https://github.com/Toorop&#34;&gt;https://github.com/Toorop&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Pour me suivre sur twitter c&amp;rsquo;est par ici: &lt;a href=&#34;https://twitter.com/poroot&#34;&gt;https://twitter.com/poroot&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rechercher</title>
+      <link>http://tmail.io/recherche/</link>
+      <pubDate>Mon, 23 Feb 2015 16:22:25 &#43;0100</pubDate>
+      
+      <guid>http://tmail.io/recherche/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Filtrage antivirus en utilisant Clamav</title>
@@ -601,9 +632,10 @@ There is no message in queue.
 &lt;li&gt;&lt;a href=&#34;#tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Qu&amp;rsquo;est ce que tmail ? &lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#opensource:4a1318da06786ac52626178ca960109e&#34;&gt;Est ce que tmail est opensource ? &lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#tester-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Peut on tester tmail ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ? &lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#bugtracker:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai trouvé un bug !&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#suggestion:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai une suggestion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#question:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai une question &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Qu&amp;rsquo;est ce que tmail ?&lt;/h2&gt;
@@ -639,6 +671,10 @@ Parce que :&lt;/p&gt;
 &lt;p&gt;Oui vous avez &lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;la procédure pour installer tmail ici&lt;/a&gt;
 Bien entendu les versions proposées seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs.&lt;/p&gt;
 
+&lt;h2 id=&#34;golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ?&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang.org/&#34; target=&#34;_blank&#34; title=&#34;golang&#34;&gt;Go&lt;/a&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;bugtracker:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai trouvé un bug&lt;/h2&gt;
 
 &lt;p&gt;Utilisez le &lt;a href=&#34;https://github.com/Toorop/tmail-bugtracker&#34;&gt;bugtracker dédié sur Github&lt;/a&gt; pour me le remonter.&lt;/p&gt;
@@ -647,9 +683,9 @@ Bien entendu les versions proposées seront des versions de dev qui implémenter
 
 &lt;p&gt;Un &lt;a href=&#34;https://groups.google.com/d/forum/tmail-dev&#34;&gt;un groupe de discutions&lt;/a&gt; est à votre disposition pour discuter de tmail. Toute suggestion est la bienvenue ;)&lt;/p&gt;
 
-&lt;h2 id=&#34;golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ?&lt;/h2&gt;
+&lt;h2 id=&#34;question:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai une question&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://golang.org/&#34; target=&#34;_blank&#34; title=&#34;golang&#34;&gt;Go&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si vous avez une question postez la dans les commentaires en bas de page.&lt;/p&gt;
 </description>
     </item>
     

@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="http://tmail.io/css/poole.css">
   <link rel="stylesheet" href="http://tmail.io/css/syntax.css">
   <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
+
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
@@ -28,32 +29,43 @@
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1>tmail</h1>
-      <p class="lead">
-       devblog 
-      </p>
     </div>
 
     <ul class="sidebar-nav">
       <li><a href="/">Home</a> </li>
       
-        <li><a href="http://tmail.io/faq/"> FAQ </a></li>
+        <li><a href="http://tmail.io/faq/"> Faq </a></li>
       
+        <li><a href="http://tmail.io/recherche/"> Rechercher </a></li>
+      
+      <li><a href="/podcast/">Podcast</a></li>
+       <li><a href="/index.xml" target="_blank"> RSS </a></li>
       <li><a href="mailto:toorop@toorop.fr"> Contact </a></li>
     </ul>
 
-    
   </div>
 </div>
 
 <div class="content container">
+<p>Vous venez d'arriver sur ce site, vous etes un peu perdu ? 
+<a href="/faq/">Consultez la faq</a></p>
 <div class="posts">
+
+  <div class="post">
+    <h1 class="post-title"><a href="/podcast/episode-0/">Podcast #0: Présentations</a></h1>
+    <span class="post-date">Mon, Feb 23, 2015</span>
+    <p><audio id="tmail-podcast-ep0" src="http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3" controls="controls" preload="none"  ></p>
+
+      
+    <a href="/podcast/episode-0/">Lire la suite…</a>
+  
+  </div>
 
   <div class="post">
     <h1 class="post-title"><a href="/doc/filtrage-smtp-antivirus-clamav/">Filtrage antivirus en utilisant Clamav</a></h1>
     <span class="post-date">Wed, Feb 18, 2015</span>
     <p>Vous trouverez dans ce billet les explications nécessaires pour installer l&rsquo;antivirus opensource <a href="http://www.clamav.net/index.html">Clamav</a> et activer le filtrage de votre flux SMTP par tmail.</p>
 
-    <br>
       
     <a href="/doc/filtrage-smtp-antivirus-clamav/">Lire la suite…</a>
   
@@ -76,7 +88,6 @@
 
 <p>Pour le moment tmail est très basique, mais il devrait cependant vous permettre d&rsquo;envoyer et de relayer des mails.</p>
 
-    <br>
       
     <a href="/doc/installer-tmail/">Lire la suite…</a>
   
@@ -89,7 +100,6 @@
 
 <p>Avant d&rsquo;aller plus loin je vous recommande la lecture de la <a href="doc/routes-smtp-sortantes/">documentation expliquant le fonctionnement des routes SMTP</a> principalement pour savoir l&rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.</p>
 
-    <br>
       
     <a href="/doc/cli-gestion-route-smtp/">Lire la suite…</a>
   
@@ -115,7 +125,6 @@
 <li>Next delivery process scheduled at: Dans le cas ou un mail est en attente dans la queue ce paramètre indique le moment (approximatif) où le mail sera représenté au process tmail qui traite les message en queue.</li>
 </ul>
 
-    <br>
       
     <a href="/doc/cli-gestion-queue/">Lire la suite…</a>
   
@@ -128,27 +137,8 @@
 
 <p>Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&rsquo;est le fonctionnement classique d&rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.</p>
 
-    <br>
       
     <a href="/doc/routes-smtp-sortantes/">Lire la suite…</a>
-  
-  </div>
-
-  <div class="post">
-    <h1 class="post-title"><a href="/faq/">FAQ</a></h1>
-    <span class="post-date">Wed, Jan 14, 2015</span>
-    <ul>
-<li><a href="#tmail:4a1318da06786ac52626178ca960109e">Qu&rsquo;est ce que tmail ? </a></li>
-<li><a href="#opensource:4a1318da06786ac52626178ca960109e">Est ce que tmail est opensource ? </a></li>
-<li><a href="#tester-tmail:4a1318da06786ac52626178ca960109e">Peut on tester tmail ? </a></li>
-<li><a href="#bugtracker:4a1318da06786ac52626178ca960109e">J&rsquo;ai trouvé un bug !</a></li>
-<li><a href="#suggestion:4a1318da06786ac52626178ca960109e">J&rsquo;ai une suggestion</a></li>
-<li><a href="#golang-tmail:4a1318da06786ac52626178ca960109e">tmail est codé en quel langage ? </a></li>
-</ul>
-
-    <br>
-      
-    <a href="/faq/">Lire la suite…</a>
   
   </div>
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Doc on tmail</title>
+    <link>http://tmail.io/categories/doc/</link>
+    <description>Recent content in Doc on tmail</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    
+    
+    
+    <lastBuildDate>Wed, 18 Feb 2015 14:19:22 &#43;0100</lastBuildDate>
+    <atom:link href="http://tmail.io/categories/doc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Filtrage antivirus en utilisant Clamav</title>
+      <link>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</link>
+      <pubDate>Wed, 18 Feb 2015 14:19:22 &#43;0100</pubDate>
+      
+      <guid>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</guid>
+      <description>
+
+&lt;p&gt;Vous trouverez dans ce billet les explications nécessaires pour installer l&amp;rsquo;antivirus opensource &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;Clamav&lt;/a&gt; et activer le filtrage de votre flux SMTP par tmail.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation-de-clamav:7da83a8da26892e0f6b1ccff72984fde&#34;&gt;Installation de clamav&lt;/h3&gt;
+
+&lt;p&gt;Je vais prendre le cas où vous utilisez une distribution Linux Debian ou Ubuntu, dans ce cas l’installation de Clamav est on ne peut plus simple :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install clamav
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Comme tout antivirus il est nécessaire de maintenir à jour la base de signatures du scanner, normalement l&amp;rsquo;installation de Clamav va aussi entraîner l&amp;rsquo;installation de l&amp;rsquo;outil &lt;em&gt;freshclam&lt;/em&gt; dédié à cet effet.&lt;/p&gt;
+
+&lt;p&gt;Il ne nous reste plus qu&amp;rsquo;à lancer les services, le scanner en tant que tel:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service clamav-daemon start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;et le daemon freshclam qui va maintenir à jour la base de signatures:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service clamav-freshclam start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;configuration-de-tmail-pour-activer-le-filtrage-antivirus:7da83a8da26892e0f6b1ccff72984fde&#34;&gt;Configuration de tmail pour activer le filtrage antivirus&lt;/h3&gt;
+
+&lt;p&gt;Il y à deux paramètres à configurer/vérifier pour activer le filtrage de votre flux SMTP. Tout d&amp;rsquo;abord il faut indiquer à tmail le socket unix sur lequel écoute le scanner. Le fichier de config contient le chemin par défaut lors d&amp;rsquo;une installation sous Ubuntu, si vous n&amp;rsquo;utilisez pas cette distribution, vous trouverez le chemin dans votre fichier de configuration de clamav.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Clamd DSNS
+export TMAIL_SMTPD_SCAN_CLAMAV_DSNS=&amp;quot;/var/run/clamav/clamd.ctl&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ensuite il ne reste plus qu&amp;rsquo;a activer le filtrage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Clamav
+export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Et voila !&lt;/p&gt;
+
+&lt;p&gt;Il faut savoir qu&amp;rsquo;actuellement le comportement va être le suivant:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Les mails vont êtres filtrés durant la transaction SMTP.&lt;/li&gt;
+&lt;li&gt;Si un virus est détecté le mail va être refusé.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A terme je pense ajouter des option permettant par exemple de taguer les mails.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

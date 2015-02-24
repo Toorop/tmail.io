@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recherches on tmail</title>
+    <link>http://tmail.io/recherche/</link>
+    <description>Recent content in Recherches on tmail</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    
+    
+    
+    <lastBuildDate>Mon, 23 Feb 2015 16:22:25 &#43;0100</lastBuildDate>
+    <atom:link href="http://tmail.io/recherche/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Rechercher</title>
+      <link>http://tmail.io/recherche/</link>
+      <pubDate>Mon, 23 Feb 2015 16:22:25 &#43;0100</pubDate>
+      
+      <guid>http://tmail.io/recherche/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
