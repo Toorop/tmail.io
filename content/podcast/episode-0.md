@@ -1,6 +1,6 @@
 +++
 date = "2015-02-23T17:19:30+01:00"
-draft = true
+draft = false
 title = "Podcast #0: Présentations"
 
 +++
@@ -9,7 +9,7 @@ title = "Podcast #0: Présentations"
 
 <!--more-->
 
-Dans cette épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d'etre de ce podcast.
+Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d'etre de ce podcast.
 
 #### Les liens évoqués dans cet épisode:
 

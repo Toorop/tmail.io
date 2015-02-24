@@ -2,27 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Podcasts on tmail</title>
-    <link>http://tmail.io/podcast/</link>
+    <link>http://localhost:1313/podcast/</link>
     <description>Recent content in Podcasts on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     
     
     
-    <lastBuildDate>Mon, 23 Feb 2015 17:19:30 &#43;0100</lastBuildDate>
-    <atom:link href="http://tmail.io/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Feb 2015 12:03:26 &#43;0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/podcast/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #1: Antivirus</title>
+      <link>http://localhost:1313/podcast/episode-1-antivirus/</link>
+      <pubDate>Tue, 24 Feb 2015 12:03:26 &#43;0100</pubDate>
+      
+      <guid>http://localhost:1313/podcast/episode-1-antivirus/</guid>
+      <description>
+
+&lt;p&gt;&lt;audio id=&#34;tmail-podcast-ep0&#34; src=&#34;http://podcasts.toorop.fr/tmail/enclosures/ep1.mp3&#34; controls=&#34;controls&#34; preload=&#34;none&#34;  &gt;&lt;/p&gt;
+
+&lt;p&gt;Dans cet épisode je vais vous parler de l&amp;rsquo;intégration du filtrage antivirus au sein de tmail en utilisant le scanner opensource Clamav.&lt;/p&gt;
+
+&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:40c3dac850556cdd847a1f627701aeae&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Billet vous expliquant comment activer le filtrage antivirus dans tmail: &lt;a href=&#34;http://tmail.io&#34;&gt;http://tmail.io&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Site du scanner antivirus Clamav: &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;http://www.clamav.net/index.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Pour me suivre sur twitter c&amp;rsquo;est par ici: &lt;a href=&#34;https://twitter.com/poroot&#34;&gt;https://twitter.com/poroot&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Podcast #0: Présentations</title>
-      <link>http://tmail.io/podcast/episode-0/</link>
+      <link>http://localhost:1313/podcast/episode-0/</link>
       <pubDate>Mon, 23 Feb 2015 17:19:30 &#43;0100</pubDate>
       
-      <guid>http://tmail.io/podcast/episode-0/</guid>
+      <guid>http://localhost:1313/podcast/episode-0/</guid>
       <description>
 
 &lt;p&gt;&lt;audio id=&#34;tmail-podcast-ep0&#34; src=&#34;http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3&#34; controls=&#34;controls&#34; preload=&#34;none&#34;  &gt;&lt;/p&gt;
 
-&lt;p&gt;Dans cette épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&amp;rsquo;etre de ce podcast.&lt;/p&gt;
+&lt;p&gt;Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&amp;rsquo;etre de ce podcast.&lt;/p&gt;
 
 &lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:1fb66ffb196bf90087cd053f7e7a043c&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
 
