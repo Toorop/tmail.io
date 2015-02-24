@@ -11,7 +11,7 @@ title = "Podcast #0: Présentations"
 
 Dans cette épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d'etre de ce podcast.
 
-#### Les liens évcoqués dans cet épisode:
+#### Les liens évoqués dans cet épisode:
 
 Site du projet tmail: http://tmail.io 
 
