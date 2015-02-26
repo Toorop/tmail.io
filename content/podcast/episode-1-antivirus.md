@@ -14,7 +14,5 @@ Dans cet épisode je vais vous parler de l'intégration du filtrage antivirus au
 #### Les liens évoqués dans cet épisode:
 
 * Billet vous expliquant comment activer le filtrage antivirus dans tmail: http://tmail.io 
-
 * Site du scanner antivirus Clamav: http://www.clamav.net/index.html
-
 * Pour me suivre sur twitter c'est par ici: https://twitter.com/poroot

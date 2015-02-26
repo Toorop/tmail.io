@@ -7,12 +7,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> Podcast #0: Présentations &middot; tmail </title>
+  <title> Wishlist &middot; tmail </title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/syntax.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
 
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
@@ -24,9 +24,8 @@
   <link href="" rel="alternate" type="application/rss+xml" title="tmail" />
 </head>
 
-
 <body>
-    <div class="sidebar">
+<div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1>tmail</h1>
@@ -35,13 +34,13 @@
     <ul class="sidebar-nav">
       <li><a href="/">Home</a> </li>
       
-        <li><a href="http://tmail.io/changelog/"> Changelog </a></li>
+        <li><a href="http://localhost:1313/changelog/"> Changelog </a></li>
       
-        <li><a href="http://tmail.io/wishlist/"> Wishlist </a></li>
+        <li><a href="http://localhost:1313/whishlist/"> Wishlist </a></li>
       
-        <li><a href="http://tmail.io/faq/"> Faq </a></li>
+        <li><a href="http://localhost:1313/faq/"> Faq </a></li>
       
-        <li><a href="http://tmail.io/recherche/"> Rechercher </a></li>
+        <li><a href="http://localhost:1313/recherche/"> Rechercher </a></li>
       
       <li><a href="/podcast/">Podcast</a></li>
        <li><a href="/index.xml" target="_blank"> RSS </a></li>
@@ -52,33 +51,25 @@
 </div>
 
     <div class="content container">
-        <div class="post">
-            <h1>Podcast #0: Présentations</h1>
-            <span class="post-date">Mon, Feb 23, 2015</span> 
+<div class="post">
+  <h1>Wishlist</h1>
+  <span class="post-date">Thu, Feb 26, 2015</span>
+      
 
-<p><audio id="tmail-podcast-ep0" src="http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3" controls="controls" preload="none"  ></p>
-
-<p>Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&rsquo;etre de ce podcast.</p>
-
-<h4 id="les-liens-évoqués-dans-cet-épisode:1fb66ffb196bf90087cd053f7e7a043c">Les liens évoqués dans cet épisode:</h4>
+<h2 id="en-cours-de-discussion:4a35d20bab2a6b318264031415663f98">En cours de discussion</h2>
 
 <ul>
-<li>Site du projet tmail: <a href="http://tmail.io">http://tmail.io</a></li>
-<li>Mon github: <a href="https://github.com/Toorop">https://github.com/Toorop</a></li>
-<li>Pour me suivre sur twitter c&rsquo;est par ici: <a href="https://twitter.com/poroot">https://twitter.com/poroot</a></li>
+<li><a href="https://groups.google.com/forum/#!topic/tmail-dev/-zIJiRoIFDc">Alias et listes de discussions</a></li>
+<li><a href="https://groups.google.com/forum/#!topic/tmail-dev/hFF8BlEWeXQ">Restriction sur le déclaré d&rsquo;un mail en fonction de l&rsquo;utilisateur SMTP</a></li>
+<li><a href="https://groups.google.com/forum/#!topic/tmail-dev/4yfkxNB7LYA">Pourvoir rediriger les logs ailleurs que vers stdout</a></li>
 </ul>
 
-            <h4 id="abonnez-vous">Abonnez vous !</h4>
+<h2 id="approuvés-à-implémenter:4a35d20bab2a6b318264031415663f98">Approuvés, à implémenter</h2>
 
-            <p>Pour etre informé des nouveaux épisodes de ce podcast abonnez vous depuis votre lecteur de podcasts préféré.</p>
-            <ul>
-                <li><a href="http://podcasts.toorop.fr/tmail/tmail_devcast.xml">Flux RSS du podcast</a>
-                </li>
-                <li><a href="https://itunes.apple.com/fr/podcast/tmail-devcast/id969150533?l=fr">Abonnement depuis iTunes</a>
-                </li>
-            </ul>
-        </div>
-        <div id="disqus_thread"></div>
+<h2 id="implémentés:4a35d20bab2a6b318264031415663f98">Implémentés</h2>
+
+</div>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
 
 (function() {
@@ -95,8 +86,8 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-    </div>
-    <script>
+</div>
+<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -106,6 +97,8 @@
   ga('send', 'pageview');
 
 </script>
-</body>
-
+  <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>
