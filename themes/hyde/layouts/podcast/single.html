@@ -1,0 +1,24 @@
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "sidebar.html" . }}
+    <div class="content container">
+        <div class="post">
+            <h1>{{ .Title }}</h1>
+            <span class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span> {{ .Content }}
+            <h4 id="abonnez-vous">Abonnez vous !</h4>
+
+            <p>Pour etre informé des nouveaux épisodes de ce podcast abonnez vous depuis votre lecteur de podcasts préféré.</p>
+            <ul>
+                <li><a href="http://podcasts.toorop.fr/tmail/tmail_devcast.xml">Flux RSS du podcast</a>
+                </li>
+                <li><a href="https://itunes.apple.com/fr/podcast/tmail-devcast/id969150533?l=fr">Abonnement depuis iTunes</a>
+                </li>
+            </ul>
+        </div>
+        {{ partial "disqus.html" . }}
+    </div>
+    {{ partial "analytics.html" . }}
+</body>
+
+</html>
