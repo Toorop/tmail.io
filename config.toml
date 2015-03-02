@@ -1,12 +1,13 @@
 baseurl = "http://tmail.io"
 languageCode = "fr-fr"
 title = "tmail"
+Paginate = "5"
 
 [Params]
 	Description = "devblog"
 	Author = "Stephane Depierrepont aka toorop"
 	disqusShortname = "tmail"
-	paginate = 10
+	Paginate = 5
 
 [Taxonomies]
   tag = "tags"
