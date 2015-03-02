@@ -1,22 +1,42 @@
 {{ partial "head.html" . }}
+
 <body>
-{{ partial "sidebar.html" . }}
-<div class="content container">
-<p>Vous venez d'arriver sur ce site, vous êtes un peu perdu ? 
-<a href="/faq/">Consultez la faq</a></p>
-<div class="posts">
-{{ range first 10 (where .Data.Pages "Section" "not in" "rechercher") }}
-  <div class="post">
-    <h1 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-    <span class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
-    {{ .Summary }}
-      {{ if .Truncated }}
-    <a href="{{ .RelPermalink }}">Lire la suite…</a>
-  {{ end }}
-  </div>
-{{ end }}
-</div>
-</div>
-{{ partial "analytics.html" . }}
+    {{ partial "sidebar.html" . }}
+    <div class="content container">
+        <p>Vous venez d'arriver sur ce site, vous êtes un peu perdu ?
+            <a href="/faq/">Consultez la faq</a>
+        </p>
+        <div class="posts">
+            {{ range first 10 (where .Data.Pages "Section" "not in" "rechercher") }}
+            <div class="post">
+                <h1 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+                <span class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span> {{ .Summary }} {{ if .Truncated }}
+                <a href="{{ .RelPermalink }}">Lire la suite…</a> {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        {{ template "_internal/pagination.html" . }} 
+    </div>
+    {{ partial "analytics.html" . }}
+    <!-- Load SVG defs -->
+    <!-- You should bundle all SVG/Icons into one file using a build tool such as gulp and svg store -->
+    <script>
+    (function(d, p) {
+        var a = new XMLHttpRequest(),
+            b = d.body;
+        a.open("GET", p, !0);
+        a.send();
+        a.onload = function() {
+            var c = d.createElement("div");
+            c.style.display = "none";
+            c.innerHTML = a.responseText;
+            b.insertBefore(c, b.childNodes[0])
+        }
+    })(document, "{{ .Site.BaseUrl }}/libs/plyr/sprite.svg");
+    </script>
+
+    <!-- Plyr core script -->
+    <script src="{{ .Site.BaseUrl }}/libs/plyr/plyr.js"></script>
 </body>
+
 </html>

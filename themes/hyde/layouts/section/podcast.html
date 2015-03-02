@@ -3,18 +3,15 @@
 <body>
     {{ partial "sidebar.html" . }}
     <div class="content container">
-    <h1>Podcast tmail</h1>
-    <p>
-    J'ai décidé de créer un podcast pour vous permettre de suivre le développement de ce projet.
-    Chaque épisode fera un résumé des évolutions de tmail depuis l'épisode précédent, il m'arrivera aussi de parler de sujets liés, comme par exemple les problématiques liées aux emails.
-    </p>
-    <p> Pour vous abonnez depuis votre lecteur de podcasts utilisez ce flux RSS: <a href="http://podcasts.toorop.fr/tmail/tmail_devcast.xml"> http://podcasts.toorop.fr/tmail/tmail_devcast.xml </a>.
-    Vous pouvez aussi <a href="https://itunes.apple.com/fr/podcast/tmail-devcast/id969150533?l=fr">vous abonnez depuis iTunes en cliquant sur ce lien</a>.
-    </p>
-    <p>N'hésitez pas à laisser des commentaires pour m'aider à améliorer ce podcast.</p>
-    <p><strong>Bonne écoute !</strong></p>
-    <br>
-
+        <h1>Podcast tmail</h1>
+        <p>
+            J'ai décidé de créer un podcast pour vous permettre de suivre le développement de ce projet. Chaque épisode fera un résumé des évolutions de tmail depuis l'épisode précédent, il m'arrivera aussi de parler de sujets liés, comme par exemple les problématiques liées aux emails.
+        </p>
+        <p> Pour vous abonnez depuis votre lecteur de podcasts utilisez ce flux RSS: <a href="http://podcasts.toorop.fr/tmail/tmail_devcast.xml"> http://podcasts.toorop.fr/tmail/tmail_devcast.xml </a>. Vous pouvez aussi <a href="https://itunes.apple.com/fr/podcast/tmail-devcast/id969150533?l=fr">vous abonnez depuis iTunes en cliquant sur ce lien</a>.
+        </p>
+        <p>N'hésitez pas à laisser des commentaires pour m'aider à améliorer ce podcast.</p>
+        <p><strong>Bonne écoute !</strong>
+        </p>
         <div class="posts">
             {{ range .Data.Pages }}
             <div class="post">
@@ -26,6 +23,25 @@
         </div>
     </div>
     {{ partial "analytics.html" . }}
+    <!-- Load SVG defs -->
+    <!-- You should bundle all SVG/Icons into one file using a build tool such as gulp and svg store -->
+    <script>
+    (function(d, p) {
+        var a = new XMLHttpRequest(),
+            b = d.body;
+        a.open("GET", p, !0);
+        a.send();
+        a.onload = function() {
+            var c = d.createElement("div");
+            c.style.display = "none";
+            c.innerHTML = a.responseText;
+            b.insertBefore(c, b.childNodes[0])
+        }
+    })(document, "{{ .Site.BaseUrl }}/libs/plyr/sprite.svg");
+    </script>
+
+    <!-- Plyr core script -->
+    <script src="{{ .Site.BaseUrl }}/libs/plyr/plyr.js"></script>
 </body>
 
 </html>

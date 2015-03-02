@@ -5,12 +5,20 @@ title = "Podcast #0: Présentations"
 
 +++
 
-<audio id="tmail-podcast-ep0" src="http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3" controls="controls" preload="none"  >
-
-<!--more-->
-
 Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d'etre de ce podcast.
+<div class="player">
+    <audio controls>
+        <!-- Audio files -->
+        <source src="http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3" type="audio/mp3">
 
+        <!-- Fallback for browsers that don't support the <audio> element -->
+        <div>
+            <a href="http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3">Download</a>
+        </div>
+    </audio>
+</div>
+<br>
+<!--more-->
 #### Les liens évoqués dans cet épisode:
 
 * Site du projet tmail: http://tmail.io 

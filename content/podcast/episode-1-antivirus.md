@@ -5,12 +5,19 @@ title = "Podcast #1: Antivirus"
 
 +++
 
-<audio id="tmail-podcast-ep0" src="http://podcasts.toorop.fr/tmail/enclosures/ep1.mp3" controls="controls" preload="none"  >
-
-<!--more-->
-
 Dans cet épisode je vais vous parler de l'intégration du filtrage antivirus au sein de tmail en utilisant le scanner opensource Clamav.
-
+<div class="player">
+    <audio controls>
+        <!-- Audio files -->
+        <source src="//podcasts.toorop.fr/tmail/enclosures/ep1.mp3" type="audio/mp3">
+        <!-- Fallback for browsers that don't support the <audio> element -->
+        <div>
+            <a href="http://podcasts.toorop.fr/tmail/enclosures/ep1.mp3">Download</a>
+        </div>
+    </audio>
+</div>
+<br>
+<!--more-->
 #### Les liens évoqués dans cet épisode:
 
 * Billet vous expliquant comment activer le filtrage antivirus dans tmail: http://tmail.io 
