@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Podcasts on tmail</title>
-    <link>http://localhost:1313/podcast/</link>
+    <link>http://tmail.io/podcast/</link>
     <description>Recent content in Podcasts on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Tue, 24 Feb 2015 12:03:26 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tmail.io/podcast/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Podcast #1: Antivirus</title>
-      <link>http://localhost:1313/podcast/episode-1-antivirus/</link>
+      <link>http://tmail.io/podcast/episode-1-antivirus/</link>
       <pubDate>Tue, 24 Feb 2015 12:03:26 +0100</pubDate>
       
-      <guid>http://localhost:1313/podcast/episode-1-antivirus/</guid>
+      <guid>http://tmail.io/podcast/episode-1-antivirus/</guid>
       <description>
 
 &lt;p&gt;Dans cet épisode je vais vous parler de l&amp;rsquo;intégration du filtrage antivirus au sein de tmail en utilisant le scanner opensource Clamav.
@@ -42,10 +42,10 @@
     
     <item>
       <title>Podcast #0: Présentations</title>
-      <link>http://localhost:1313/podcast/episode-0/</link>
+      <link>http://tmail.io/podcast/episode-0/</link>
       <pubDate>Mon, 23 Feb 2015 17:19:30 +0100</pubDate>
       
-      <guid>http://localhost:1313/podcast/episode-0/</guid>
+      <guid>http://tmail.io/podcast/episode-0/</guid>
       <description>
 
 &lt;p&gt;Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&amp;rsquo;etre de ce podcast.

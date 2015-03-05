@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Antivirus on tmail</title>
-    <link>http://localhost:1313/tags/antivirus/</link>
+    <link>http://tmail.io/tags/antivirus/</link>
     <description>Recent content in Antivirus on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Wed, 18 Feb 2015 14:19:22 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/antivirus/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tmail.io/tags/antivirus/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Filtrage antivirus en utilisant Clamav</title>
-      <link>http://localhost:1313/doc/filtrage-smtp-antivirus-clamav/</link>
+      <link>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</link>
       <pubDate>Wed, 18 Feb 2015 14:19:22 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/filtrage-smtp-antivirus-clamav/</guid>
+      <guid>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</guid>
       <description>
 
 &lt;p&gt;Vous trouverez dans ce billet les explications nécessaires pour installer l&amp;rsquo;antivirus opensource &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;Clamav&lt;/a&gt; et activer le filtrage de votre flux SMTP par tmail.&lt;/p&gt;

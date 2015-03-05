@@ -6,7 +6,7 @@ title = "Gestion des routes SMTP en utilisant le CLI"
 
 Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.
 
-Avant d'aller plus loin je vous recommande la lecture de la [documentation expliquant le fonctionnement des routes SMTP](doc/routes-smtp-sortantes/) principalement pour savoir l'ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.
+Avant d'aller plus loin je vous recommande la lecture de la [documentation expliquant le fonctionnement des routes SMTP](/doc/routes-smtp-sortantes/) principalement pour savoir l'ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.
 
 
 <!--more-->
