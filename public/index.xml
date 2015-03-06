@@ -6,8 +6,38 @@
     <description>Recent content on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 26 Feb 2015 12:01:43 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2015 07:50:04 +0100</lastBuildDate>
     <atom:link href="http://tmail.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #2: Toc toc...</title>
+      <link>http://tmail.io/podcast/episode-2/</link>
+      <pubDate>Fri, 06 Mar 2015 07:50:04 +0100</pubDate>
+      
+      <guid>http://tmail.io/podcast/episode-2/</guid>
+      <description>
+
+&lt;p&gt;Dans cet épisode je vais vous parler des suggestions qui m&amp;rsquo;ont été faites concernant les fonctionnalités de tmail.
+&lt;div class=&#34;player&#34;&gt;
+    &lt;audio controls&gt;
+        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
+        &lt;source src=&#34;//podcasts.toorop.fr/tmail/enclosures/tmail-devcast-ep2.mp3&#34; type=&#34;audio/mp3&#34;&gt;
+        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
+        &lt;div&gt;
+            &lt;a href=&#34;//podcasts.toorop.fr/tmail/enclosures/tmail-devcast-ep2.mp3&#34;&gt;Download&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/audio&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;liens-de-l-épisode:51ade350eab725e837a47d1a4253ca0c&#34;&gt;Liens de l&amp;rsquo;épisode&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34;&gt;Venez discuter sur notre groupe Google&lt;/a&gt;. Vous y retrouverez les suggestions évoquées dans cet épisode et vous pourrez donnez votre avis.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.dovecot.org/&#34;&gt;Dovecot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Changelog</title>
