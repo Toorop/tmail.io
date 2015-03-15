@@ -1,0 +1,15 @@
+name = "tmail"
+license = "MIT"
+description = "An elegant open source and mobile first theme, extended with new integrations and layout improvements"
+tags = ["blog", "technical", "personal"]
+features = ["blog", "technical", "personal"]
+
+[author]
+    name = "Stéphane Depierrepont"
+    homepage = "http://tmail.io"
+
+# If Porting existing theme
+[original]
+    author =  "Hyde-X"
+    homepage = "http://hyde.getpoole.com"
+    repo = "https://github.com/poole/hyde"

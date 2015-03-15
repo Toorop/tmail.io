@@ -3,11 +3,16 @@ languageCode = "fr-fr"
 title = "tmail"
 Paginate = "5"
 
+[Author]
+	name = "Stéphane Depierrepont"
+	googleAuthorship = "+St%C3%A9phaneDepierrepont"
+
 [Params]
-	Description = "devblog"
-	Author = "Stephane Depierrepont aka toorop"
-	disqusShortname = "tmail"
+	Description = "Journal de développement d'un serveur SMTP"
+	DefaultKeywords = ["tmail", "smtp", "develloppement", "golang"]
+	DisqusShortname = "tmail"
 	Paginate = 5
+
 
 [Taxonomies]
   tag = "tags"

@@ -1,0 +1,16 @@
+<ul class="navigation">
+    <li class="nav-item"><a href="/">Home</a> </li>
+    {{ range .Site.Menus.main }}
+    <li class="nav-item"><a href="{{.Url}}"> {{ .Name }} </a>
+    </li>
+    {{end}}
+    <li class="nav-item"><a href="/podcast/">Podcast</a>
+    </li>
+    <li class="nav-item"><a href="/index.xml" target="_blank"> RSS </a>
+    </li>
+    <li class="nav-item"><a href="mailto:toorop@toorop.fr"> Contact </a>
+    </li>
+</ul>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger"></label>

@@ -12,20 +12,20 @@
 
     
 
-    <link rel="stylesheet" href="http://tmail.io//css/poole.css">
-    <link rel="stylesheet" href="http://tmail.io//css/syntax.css">
-    <link rel="stylesheet" href="http://tmail.io//css/hyde.css">
+    <link rel="stylesheet" href="http://localhost:1313//css/poole.css">
+    <link rel="stylesheet" href="http://localhost:1313//css/syntax.css">
+    <link rel="stylesheet" href="http://localhost:1313//css/hyde.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
     
-    <link rel="stylesheet" href="http://tmail.io//libs/plyr/plyr.css">
+    <link rel="stylesheet" href="http://localhost:1313//libs/plyr/plyr.css">
 
     
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="/favicon.ico">
 
     
-    <link href="http://tmail.io/index.xml" rel="alternate" type="application/rss+xml" title="tmail" />
+    <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="tmail" />
 
 
 </head>
@@ -69,16 +69,13 @@
 <div class="player">
     <audio controls preload="none">
         &lt;!&ndash; Audio files &ndash;&gt;
-        <source src="http://podcasts.toorop.fr/tmail/ep3-2.mp3" type="audio/mp3"></p>
-
-<pre><code>    &lt;!-- Fallback for browsers that don't support the &lt;audio&gt; element --&gt;
-    &lt;div&gt;
-        &lt;a href=&quot;http://podcasts.toorop.fr/tmail/ep3-2.mp3&quot;&gt;Download&lt;/a&gt;
-    &lt;/div&gt;
-&lt;/audio&gt;
-</code></pre>
-
-<p></div>
+        <source src="http://podcasts.toorop.fr/tmail/ep3-2.mp3" type="audio/mp3">
+        &lt;!&ndash; Fallback for browsers that don&rsquo;t support the <audio> element &ndash;&gt;
+        <div>
+            <a href="http://podcasts.toorop.fr/tmail/ep3-2.mp3">Download</a>
+        </div>
+    </audio>
+</div>
 <br></p>
  
                 <a href="/podcast/3/">Lire la suite…</a> 
@@ -234,11 +231,14 @@
             c.innerHTML = a.responseText;
             b.insertBefore(c, b.childNodes[0])
         }
-    })(document, "http:\/\/tmail.io\//libs/plyr/sprite.svg");
+    })(document, "http:\/\/localhost:1313\//libs/plyr/sprite.svg");
     </script>
 
     
-    <script src="http://tmail.io//libs/plyr/plyr.js"></script>
-</body>
+    <script src="http://localhost:1313//libs/plyr/plyr.js"></script>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 
 </html>

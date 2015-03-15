@@ -33,7 +33,7 @@ html {
 .topbar {
   position: relative;
   padding: 3em 0 6em 0;
-  background: url("/images/cover.jpg");
+  background: url("/images/cover.png");
   background-size: cover;
   zoom: 1;
   width: 100%;

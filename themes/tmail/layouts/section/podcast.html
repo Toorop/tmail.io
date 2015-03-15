@@ -1,0 +1,33 @@
+{{ partial "head.html" . }} {{ partial "navigation.html" . }}
+
+<div class="site-wrap">
+    {{ partial "hero.html" . }}
+    <div class="content container">
+        <h1>Podcast tmail</h1>
+        <p>
+            J'ai décidé de créer un podcast pour vous permettre de suivre le développement de ce projet. Chaque épisode fera un résumé des évolutions de tmail depuis l'épisode précédent, il m'arrivera aussi de parler de sujets liés, comme par exemple les problématiques liées aux emails.
+        </p>
+        <p> Pour vous abonnez depuis votre lecteur de podcasts utilisez ce flux RSS: <a href="http://podcasts.toorop.fr/tmail/tmail_devcast.xml"> http://podcasts.toorop.fr/tmail/tmail_devcast.xml </a>. Vous pouvez aussi <a href="https://itunes.apple.com/fr/podcast/tmail-devcast/id969150533?l=fr">vous abonnez depuis iTunes en cliquant sur ce lien</a>.
+        </p>
+        <p>N'hésitez pas à laisser des commentaires pour m'aider à améliorer ce podcast.</p>
+        <p><strong>Bonne écoute !</strong>
+        </p>
+        <div class="posts">
+            {{ range .Data.Pages }}
+            <div class="post">
+                <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                <span class="post-date">{{ .Date.Format "Jan 2, 2006" }} &middot; Temps de lecture: {{ .ReadingTime }} min {{ if .Site.Params.DisqusShortname }} &middot; <a href="{{ .Permalink }}#disqus_thread">Comments</a>{{ end }}
+      {{ if isset .Params "categories" }}
+      <br/>
+      {{ $baseUrl := .Site.BaseUrl }}
+      {{ range .Params.categories }}<a class="label" href="{{ $baseUrl }}/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}
+      {{ end }}</span> <p>{{ .Summary }} {{ if .Truncated }}
+                <a href="{{ .RelPermalink }}">Voir les notes, laisser un commentaire,...</a> {{ end }}
+                </p>
+            </div>
+            {{ end }}
+        </div>
+        {{ partial "disqus.html" . }}
+    </div>
+</div>
+{{ partial "plyr.html" . }} {{ partial "foot.html" . }}
