@@ -9,7 +9,7 @@ categories = [ "podcast"]
 
 Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d'etre de ce podcast.
 <div class="player">
-    <audio controls>
+    <audio controls preload="none">
         <!-- Audio files -->
         <source src="http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3" type="audio/mp3">
 

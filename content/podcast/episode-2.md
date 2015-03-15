@@ -8,7 +8,7 @@ categories = [ "podcast"]
 +++
 Dans cet épisode je vais vous parler des suggestions qui m'ont été faites concernant les fonctionnalités de tmail.
 <div class="player">
-    <audio controls>
+    <audio controls preload="none">
         <!-- Audio files -->
         <source src="//podcasts.toorop.fr/tmail/enclosures/tmail-devcast-ep2.mp3" type="audio/mp3">
         <!-- Fallback for browsers that don't support the <audio> element -->

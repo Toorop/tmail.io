@@ -6,8 +6,45 @@
     <description>Recent content in Podcast on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 06 Mar 2015 07:50:04 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2015 19:38:45 +0100</lastBuildDate>
     <atom:link href="http://tmail.io/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #3: Nouvelle rubrique</title>
+      <link>http://tmail.io/podcast/3/</link>
+      <pubDate>Sat, 14 Mar 2015 19:38:45 +0100</pubDate>
+      
+      <guid>http://tmail.io/podcast/3/</guid>
+      <description>
+
+&lt;p&gt;Les nouvelles du projet, avec cette semaine, des corrections de bugs, du refactoring et&amp;hellip; une nouvelle rubrique.
+&lt;div class=&#34;player&#34;&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
+        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
+        &lt;source src=&#34;http://podcasts.toorop.fr/tmail/ep3-2.mp3&#34; type=&#34;audio/mp3&#34;&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;!-- Fallback for browsers that don&#39;t support the &amp;lt;audio&amp;gt; element --&amp;gt;
+    &amp;lt;div&amp;gt;
+        &amp;lt;a href=&amp;quot;http://podcasts.toorop.fr/tmail/ep3-2.mp3&amp;quot;&amp;gt;Download&amp;lt;/a&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/audio&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;Si vous avez des remarques concernant cet épisode, aussi bein sur le fond, que la forme, n&amp;rsquo;hésitez pas à me laisser un commentaire en bas de page.&lt;/p&gt;
+
+&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:ae9997a2769c75053f068259cadd520a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://addons.mozilla.org/fr/firefox/addon/sqlite-manager/&#34; target=&#34;_blank&#34;&gt;SQLite manager&lt;/a&gt;: GUI pour gérer vos bases SQLite.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/flosse/sloc&#34; target=&#34;_blank&#34;&gt;Sloc&lt;/a&gt;: Un utilitaire vous permettant de compter les lignes de code d&amp;rsquo;un projet.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/#!forum/tmail-dev&#34; target=&#34;_blank&#34;&gt;Venez discuter du projet sur notre goupe de discussions.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Retrouvez moi sur twitter &lt;a href=&#34;https://twitter.com/poroot&#34; target=&#34;_blank&#34;&gt; @poroot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Podcast #2: Toc toc...</title>
@@ -19,7 +56,7 @@
 
 &lt;p&gt;Dans cet épisode je vais vous parler des suggestions qui m&amp;rsquo;ont été faites concernant les fonctionnalités de tmail.
 &lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
         &lt;source src=&#34;//podcasts.toorop.fr/tmail/enclosures/tmail-devcast-ep2.mp3&#34; type=&#34;audio/mp3&#34;&gt;
         &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
@@ -49,7 +86,7 @@
 
 &lt;p&gt;Dans cet épisode je vais vous parler de l&amp;rsquo;intégration du filtrage antivirus au sein de tmail en utilisant le scanner opensource Clamav.
 &lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
         &lt;source src=&#34;//podcasts.toorop.fr/tmail/enclosures/ep1.mp3&#34; type=&#34;audio/mp3&#34;&gt;
         &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
@@ -80,7 +117,7 @@
 
 &lt;p&gt;Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&amp;rsquo;etre de ce podcast.
 &lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
         &lt;source src=&#34;http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3&#34; type=&#34;audio/mp3&#34;&gt;&lt;/p&gt;
 
