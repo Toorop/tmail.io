@@ -2,8 +2,8 @@
 date = "2015-02-18T14:19:22+01:00"
 draft = false
 title = "Filtrage antivirus en utilisant Clamav"
-tags = [ "filtrage", "antivirus" ]
 categories = [ "doc"]
+tags = [ "filtrage", "antivirus" ]
 
 +++
 Vous trouverez dans ce billet les explications nécessaires pour installer l'antivirus opensource [Clamav](http://www.clamav.net/index.html) et activer le filtrage de votre flux SMTP par tmail.

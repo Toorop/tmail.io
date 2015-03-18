@@ -72,6 +72,10 @@
         <div class="post">
             <h1>Installer et configurer tmail</h1>
             <span class="post-date">Jan 29, 2015 &middot; Temps de lecture: 9 min  &middot; <a href="http://localhost:1313/doc/installer-tmail/#disqus_thread">Comments</a>
+      
+      <br/>
+      
+      <a class="label" href="http://localhost:1313//categories/doc">doc</a>
       </span> 
 
 <p><br>
@@ -99,7 +103,7 @@
 
 <h2 id="prérequis:b68dafd7755f74812ae92f74ce38ff42">Prérequis</h2>
 
-<p>Pour le moment je ne fournis que le binaire Linux 64bits, vous n&rsquo;avez donc besoin de rien d&rsquo;autre pour tester qu&rsquo;une machine sous Linux. Pour cet exemple je vais utiliser un <a href="https://www.ovh.com/fr/vps/vps-classic.xml">VPS Classic 1 OVH</a> sous <em>Ubuntu server 64bits</em>.</p>
+<p>Vous n&rsquo;avez donc besoin de rien d&rsquo;autre pour tester qu&rsquo;une machine sous Linux. Pour cet exemple je vais utiliser un <a href="https://www.ovh.com/fr/vps/vps-classic.xml">VPS Classic 1 OVH</a> sous <em>Ubuntu server 64bits</em>.</p>
 
 <p>Pensez à vous assurer que vous pouvez utiliser les ports SMTP (ou alors testez sur des ports alternatifs).</p>
 
@@ -107,32 +111,23 @@
 
 <p>Pensez aussi à renseigner les SPF des domaines que vous allez utiliser comme émetteurs le cas échéant.</p>
 
-<p>A noter que comme backend pour la base de données vous pouvez utiliser sqlite, MySQl (et dérivés) ou Postgresql. Pour cette première phase je vous encourage chaudement à utiliser sqlite, ce sera amplement suffisant.</p>
+<p>A noter que comme backend pour la base de données vous pouvez utiliser sqlite, MySQl (et dérivés) ou Postgresql. Je tiens cependant à signaler que je n&rsquo;ai pas fais de tests sous PosgreSQL.
+Si vous hésitez, je vous encourage à utiliser sqlite, il n&rsquo;y a aucune installation spécifique, c&rsquo;est rapide et sera amplement suffisant pour le moment.</p>
 
 <p>A terme, tmail sera splitté en composants sous forme de containers Docker, dans ce qui suit je vais juste expliquer l&rsquo;installation &ldquo;standalone&rdquo; (vs cluster).</p>
 
 <h3 id="dependances-outils:b68dafd7755f74812ae92f74ce38ff42">Dependances &amp; outils</h3>
 
-<p>tmail est un binaire statique, vous n&rsquo;avez besoin d&rsquo;aucune librairie spécifique.</p>
-
-<p>Par contre votre serveur devra disposer des softs suivant:</p>
+<p>Votre serveur devra disposer des softs suivant:</p>
 
 <ul>
-<li>unzip: pour décrompresser l&rsquo;archive contenant le necessaire à la mise en place de tmail. Pour ceux qui se posent la question de savoir pourquoi j&rsquo;utilise la format zip plutot qu&rsquo;un format plus &ldquo;générique&rdquo; dans un environement *nix, la réponse est que tmail sera dispo sur plusieurs plateformes et du coup je préfére utiliser un format trés courant.</li>
+<li>unzip: pour décrompresser l&rsquo;archive contenant le necessaire à la mise en place de tmail.</li>
 </ul>
 
 <p>Si vous etes sous Debian/Ubuntu:</p>
 
 <pre><code>apt-get install unzip
 </code></pre>
-
-<h3 id="vous-avez-trouvé-un-bug:b68dafd7755f74812ae92f74ce38ff42">Vous avez trouvé un bug ?</h3>
-
-<p>Utilisez le <a href="https://github.com/Toorop/tmail-bugtracker">bugtracker dédié sur Github</a></p>
-
-<h3 id="discuter-du-projet:b68dafd7755f74812ae92f74ce38ff42">Discuter du projet</h3>
-
-<p>J&rsquo;ai mis en place <a href="https://groups.google.com/d/forum/tmail-dev">un groupe de discussion</a> sur Google Groups pour discuter du projet. N&rsquo;hésitez pas à soumettre vos suggestions.</p>
 
 <h3 id="note-sur-l-utilisation-des-ports-inférieurs-à-1024:b68dafd7755f74812ae92f74ce38ff42">Note sur l&rsquo;utilisation des ports inférieurs à 1024</h3>
 
@@ -185,6 +180,11 @@ drwxrwxr-x 2 tmail tmail     4096 déc.  29 11:20 tpl
 mkdir store 
 </code></pre>
 
+<p>si vous souhaitez gérer des boites mail, vous pouvez créer le dossiers <em>mailboxes</em> qui contiendra les différents comptes.</p>
+
+<pre><code>mkdir mailboxes     
+</code></pre>
+
 <ul>
 <li>conf: contient, oh surprise, le fichier de configuration.</li>
 <li>run: est un mini script qui va charger la config et lancer tmail.</li>
@@ -193,6 +193,7 @@ mkdir store
 <li>tpl: contient des templates, par exemple pour les bounces.</li>
 <li>db: contiendra la base sqlite (si vous utilisez sqlite&hellip;)</li>
 <li>store: va servir au stockage des mails en queue. Vous pouvez le mettre ailleurs mais pensez à faire la modification dans le fichier de configuration. A terme, il va y avoir d&rsquo;autre type se <em>store</em> que du stockage sur le disque local.</li>
+<li>mailboxes: les boites mails des utilisateurs</li>
 </ul>
 
 <h2 id="configuration:b68dafd7755f74812ae92f74ce38ff42">Configuration</h2>
@@ -227,6 +228,8 @@ TMAIL_SMTPD_DSNS=&ldquo;151.80.115.83:2525:false;151.80.115.83:5877:false;151.80
 </ul>
 
 <p>Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, <a href="/doc/filtrage-smtp-antivirus-clamav">consultez ce billet</a></p>
+
+<p>Si vous souhaitez gérer des boites mail consulter ce billet: <a href="/doc/mailboxes/">Gérez vos boites mail avec tmail</a></p>
 
 <p>Un fois cette configuration faite, on peut lancer lancer tmail.</p>
 
@@ -276,10 +279,17 @@ Pour le moment le mail est refusé car nous n&rsquo;avons défini aucune autoris
 
 <h3 id="prise-en-charge-des-mails-du-domaine-toorop-fr:b68dafd7755f74812ae92f74ce38ff42">Prise en charge des mails du domaine toorop.fr</h3>
 
-<p>Pour que tmail prenne en charge les mails du domaine toorop.fr il suffit tout simplement deexécuter la commande suivante:</p>
+<p>Pour que tmail prenne en charge les mails du domaine toorop.fr il suffit tout simplement d&rsquo;exécuter la commande suivante:</p>
 
-<pre><code>tmail smtpd addRcpthost toorop.fr
+<pre><code>tmail rcpthost add toorop.fr
 </code></pre>
+
+<p>Par défaut tmail va considérer qu&rsquo;il doit juste relayer les mails du domaine concerné, si vous voulez que tmail considere ce domaine comme local, dans le cas ou vous voulez que tmail gére les boites mail du domaine voud devez ajouter l&rsquo;option -l true:</p>
+
+<pre><code>tmail rcpthost add -l toorop.fr
+</code></pre>
+
+<p>Pour ce premier test, on va juste demander à tmail de prendre en charge les mails du domaine et de les relayer, donc n&rsquo;ajouter pas cette option.</p>
 
 <p>Si vous avez une erreur du type:</p>
 
@@ -329,13 +339,44 @@ Connection closed by foreign host.
 
 <p>Si vous souhaitez ajouter un utilisateur <em>toorop@toorop.fr</em> qui pourra envoyer des mails via tmail en s&rsquo;authentifiant via SMTPAUTH avec le mot de passe <em>password</em>:</p>
 
-<pre><code>tmail smtpd addUser toorop@toorop.fr password
+<pre><code>tmail user add -r toorop@toorop.fr password 
 </code></pre>
+
+<p>L&rsquo;option -r signifie que l&rsquo;utilisateur, si il s&rsquo;authentifie, est authorisé à relayé.</p>
 
 <p>Pour supprimer un utilisateur:</p>
 
-<pre><code>tmail smtpd delUser toorop@toorop.fr
+<pre><code>tmail user del toorop@toorop.fr
 </code></pre>
+
+<h3 id="tmux:b68dafd7755f74812ae92f74ce38ff42">tmux</h3>
+
+<p>Pour que tmail ne s&rsquo;arrete pas lorsque vous quitterez votre session, vous avez pouvez le lancer en utilisant:</p>
+
+<pre><code>    ./run &amp;
+</code></pre>
+
+<p>mais tmail affichant ces logs sur la sortie standard je vous recommande plutot d&rsquo;utilser tmux (ou screen):</p>
+
+<pre><code>apt-get install tmux
+tmux
+./run
+</code></pre>
+
+<p>Pour vous détacher de la session:</p>
+
+<pre><code>&lt;Ctrl&gt; + &lt;b&gt; suivi de &lt;d&gt;
+</code></pre>
+
+<p><a href="http://doc.ubuntu-fr.org/tmux" target="_blank"> Plus d&rsquo;information sur tmux.</a></p>
+
+<h3 id="vous-avez-trouvé-un-bug:b68dafd7755f74812ae92f74ce38ff42">Vous avez trouvé un bug ?</h3>
+
+<p>Utilisez le <a href="https://github.com/Toorop/tmail-bugtracker">bugtracker dédié sur Github</a></p>
+
+<h3 id="discuter-du-projet:b68dafd7755f74812ae92f74ce38ff42">Discuter du projet</h3>
+
+<p>J&rsquo;ai mis en place <a href="https://groups.google.com/d/forum/tmail-dev">un groupe de discussion</a> sur Google Groups pour discuter du projet. N&rsquo;hésitez pas à soumettre vos suggestions.</p>
 
 <p>Bon tests ;)</p>
 

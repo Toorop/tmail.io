@@ -1,6 +1,6 @@
 +++
 date = "2015-02-26T12:00:11+01:00"
-draft = true
+draft = false
 title = "Wishlist"
 [menu.main]
 name = "Wishlist"

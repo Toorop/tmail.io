@@ -2,6 +2,7 @@
 date = "2015-01-29T17:00:44+01:00"
 draft = false
 title = "Installer et configurer tmail"
+categories = ["doc"]
 
 +++
 <br>
@@ -11,8 +12,6 @@ title = "Installer et configurer tmail"
 <br>
 
   
-
-
 Durant tout le cycle de développement de tmail je vais mettre à disposition le nécessaire pour qu'il soit possible de tester les fonctionnalités qui sont implémentées.
 
 Qu'il n'y ait pas de malentendu, on ne parle pas ici de version bêta, ni même alpha, ce sera à chaque fois une version de développement, avec plein de choses non implémentées et forcement de nombreux bugs.
@@ -31,7 +30,7 @@ On va partir sur une installation qui va nous permettre de mettre en place un se
 * permettre à l'utilisateur *toorop@toorop.fr* ayant comme mot de passe *password* d'utiliser le service pour envoyer des mails (quelque soit la destination).
 
 ## Prérequis
-Pour le moment je ne fournis que le binaire Linux 64bits, vous n'avez donc besoin de rien d'autre pour tester qu'une machine sous Linux. Pour cet exemple je vais utiliser un [VPS Classic 1 OVH](https://www.ovh.com/fr/vps/vps-classic.xml) sous *Ubuntu server 64bits*.
+Vous n'avez donc besoin de rien d'autre pour tester qu'une machine sous Linux. Pour cet exemple je vais utiliser un [VPS Classic 1 OVH](https://www.ovh.com/fr/vps/vps-classic.xml) sous *Ubuntu server 64bits*. 
 
 Pensez à vous assurer que vous pouvez utiliser les ports SMTP (ou alors testez sur des ports alternatifs).
 
@@ -39,27 +38,21 @@ Si vous comptez utiliser tmail pour envoyer des mails, pensez à mettre un rever
 
 Pensez aussi à renseigner les SPF des domaines que vous allez utiliser comme émetteurs le cas échéant.
 
-A noter que comme backend pour la base de données vous pouvez utiliser sqlite, MySQl (et dérivés) ou Postgresql. Pour cette première phase je vous encourage chaudement à utiliser sqlite, ce sera amplement suffisant.
+A noter que comme backend pour la base de données vous pouvez utiliser sqlite, MySQl (et dérivés) ou Postgresql. Je tiens cependant à signaler que je n'ai pas fais de tests sous PosgreSQL.
+Si vous hésitez, je vous encourage à utiliser sqlite, il n'y a aucune installation spécifique, c'est rapide et sera amplement suffisant pour le moment.
 
 A terme, tmail sera splitté en composants sous forme de containers Docker, dans ce qui suit je vais juste expliquer l'installation "standalone" (vs cluster).
 
 ### Dependances & outils 
-tmail est un binaire statique, vous n'avez besoin d'aucune librairie spécifique.
 
-Par contre votre serveur devra disposer des softs suivant:
+Votre serveur devra disposer des softs suivant:
 
-* unzip: pour décrompresser l'archive contenant le necessaire à la mise en place de tmail. Pour ceux qui se posent la question de savoir pourquoi j'utilise la format zip plutot qu'un format plus "générique" dans un environement *nix, la réponse est que tmail sera dispo sur plusieurs plateformes et du coup je préfére utiliser un format trés courant.
+* unzip: pour décrompresser l'archive contenant le necessaire à la mise en place de tmail.
 
 Si vous etes sous Debian/Ubuntu:
 
 	apt-get install unzip
 
-
-### Vous avez trouvé un bug ? 
-Utilisez le [bugtracker dédié sur Github](https://github.com/Toorop/tmail-bugtracker)
-
-### Discuter du projet
-J'ai mis en place [un groupe de discussion](https://groups.google.com/d/forum/tmail-dev) sur Google Groups pour discuter du projet. N'hésitez pas à soumettre vos suggestions.
 
 ### Note sur l'utilisation des ports inférieurs à 1024
 Sur un système linux un processus ne peut ouvrir un port inférieur à 1024 que si il est root.
@@ -104,6 +97,10 @@ et on va rajouter deux répertoires:
 	mkdir db
 	mkdir store	
 
+si vous souhaitez gérer des boites mail, vous pouvez créer le dossiers *mailboxes* qui contiendra les différents comptes.
+	
+	mkdir mailboxes  	
+
 * conf: contient, oh surprise, le fichier de configuration.
 * run: est un mini script qui va charger la config et lancer tmail.
 * ssl: est le répertoire contenant le nécessaire pour gérer le SSL. Vous pouvez utiliser ce qui est inclus dans la distribution dans le cadre de tests mais pensez à créer vos propres certificat et clé en prod (si besoin je ferais un tuto).
@@ -111,6 +108,7 @@ et on va rajouter deux répertoires:
 * tpl: contient des templates, par exemple pour les bounces. 
 * db: contiendra la base sqlite (si vous utilisez sqlite...)
 * store: va servir au stockage des mails en queue. Vous pouvez le mettre ailleurs mais pensez à faire la modification dans le fichier de configuration. A terme, il va y avoir d'autre type se *store* que du stockage sur le disque local. 
+* mailboxes: les boites mails des utilisateurs
 
 ## Configuration
 
@@ -143,6 +141,8 @@ TMAIL_SMTPD_DSNS="151.80.115.83:2525:false;151.80.115.83:5877:false;151.80.115.8
 
 
 Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, [consultez ce billet](/doc/filtrage-smtp-antivirus-clamav)
+
+Si vous souhaitez gérer des boites mail consulter ce billet: [Gérez vos boites mail avec tmail](/doc/mailboxes/) 
 
 Un fois cette configuration faite, on peut lancer lancer tmail. 
 
@@ -186,9 +186,16 @@ Parfait !
 Pour le moment le mail est refusé car nous n'avons défini aucune autorisation.
 
 ### Prise en charge des mails du domaine toorop.fr
-Pour que tmail prenne en charge les mails du domaine toorop.fr il suffit tout simplement deexécuter la commande suivante:
+Pour que tmail prenne en charge les mails du domaine toorop.fr il suffit tout simplement d'exécuter la commande suivante:
 	
-	tmail smtpd addRcpthost toorop.fr
+	tmail rcpthost add toorop.fr
+
+Par défaut tmail va considérer qu'il doit juste relayer les mails du domaine concerné, si vous voulez que tmail considere ce domaine comme local, dans le cas ou vous voulez que tmail gére les boites mail du domaine voud devez ajouter l'option -l true:
+
+	tmail rcpthost add -l toorop.fr
+
+Pour ce premier test, on va juste demander à tmail de prendre en charge les mails du domaine et de les relayer, donc n'ajouter pas cette option.
+
 
 Si vous avez une erreur du type:
 
@@ -235,11 +242,38 @@ Je vous invite lire la documentation sur les [régles de routage SMTP](/doc/cli-
 
 Si vous souhaitez ajouter un utilisateur *toorop@toorop.fr* qui pourra envoyer des mails via tmail en s'authentifiant via SMTPAUTH avec le mot de passe *password*:
 
-	tmail smtpd addUser toorop@toorop.fr password
+	tmail user add -r toorop@toorop.fr password 
+
+L'option -r signifie que l'utilisateur, si il s'authentifie, est authorisé à relayé.
 
 Pour supprimer un utilisateur:
 
-	tmail smtpd delUser toorop@toorop.fr
+	tmail user del toorop@toorop.fr
+
+
+### tmux
+
+Pour que tmail ne s'arrete pas lorsque vous quitterez votre session, vous avez pouvez le lancer en utilisant:
+	
+		./run &
+
+mais tmail affichant ces logs sur la sortie standard je vous recommande plutot d'utilser tmux (ou screen):
+
+	apt-get install tmux
+	tmux
+	./run
+
+Pour vous détacher de la session:
+
+	<Ctrl> + <b> suivi de <d>
+
+<a href="http://doc.ubuntu-fr.org/tmux" target="_blank"> Plus d'information sur tmux.</a> 	
+
+### Vous avez trouvé un bug ? 
+Utilisez le [bugtracker dédié sur Github](https://github.com/Toorop/tmail-bugtracker)
+
+### Discuter du projet
+J'ai mis en place [un groupe de discussion](https://groups.google.com/d/forum/tmail-dev) sur Google Groups pour discuter du projet. N'hésitez pas à soumettre vos suggestions.
+
 
 Bon tests ;)	
-

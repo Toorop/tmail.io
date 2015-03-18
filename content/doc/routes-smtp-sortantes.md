@@ -2,6 +2,8 @@
 date = "2015-01-19T16:38:23+01:00"
 draft = false
 title = "Routes smtp sortantes"
+categories = [ "doc"]
+tags = [ "smtp", "routes" ]
 
 +++
 **tmail vous permet de spécifier des routes sortantes pour les mails qu'il a à expédier.**  

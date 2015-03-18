@@ -2,6 +2,8 @@
 date = "2015-01-28T09:15:12+01:00"
 draft = false
 title = "Gestion des routes SMTP en utilisant le CLI"
+categories = [ "doc"]
+tags = [ "cli","routes","smtp"]
 +++
 
 Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.
