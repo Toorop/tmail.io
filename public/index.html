@@ -74,11 +74,28 @@
             
             <div class="post">
                 <h1 class="post-title">
-        <a href="http://localhost:1313/doc/mailboxes/">Gérez vos boites mail avec tmail</a>
+        <a href="http://localhost:1313/doc/mailboxes/">Gérez vos boites mail avec tmail et Dovecot</a>
       </h1>
-                <span class="post-date">Mar 18, 2015 &middot; Temps de lecture: 5 min  &middot; <a href="http://localhost:1313/doc/mailboxes/#disqus_thread">Comments</a>
+                <span class="post-date">Mar 18, 2015 &middot; Temps de lecture: 9 min  &middot; <a href="http://localhost:1313/doc/mailboxes/#disqus_thread">Comments</a>
+      
+      <br/>
+      
+      <a class="label" href="http://localhost:1313//categories/doc">doc</a>
       </span>
-                <p>Initialement j&rsquo;avais prévu d&rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP. Le fait que l&rsquo;on me demande si ça allait être bientôt disponible m&rsquo;a fait réaliser que gérer des comptes mails était quand même l&rsquo;usage principal d&rsquo;un serveur de messagerie, j&rsquo;ai donc décidé de remonter cette tache dans ma todo-list. Pour vous proposer cette fonctionnalité plus rapidement, j&rsquo;ai fait quelques compromis sur ce que je voulais initialement faire.</p>
+                <p><p>Initialement j&rsquo;avais prévu d&rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.<br />
+Le fait que l&rsquo;on m&rsquo;ait demandé si ça allait être bientôt disponible m&rsquo;a fait réaliser que gérer des comptes mails était quand même l&rsquo;usage principal d&rsquo;un serveur de messagerie, j&rsquo;ai donc décidé de remonter cette tache dans ma todo-list.</p>
+
+<p>Pour vous proposer cette fonctionnalité plus rapidement, j&rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une simple <strong>interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.</strong></p>
+
+<p>L’intérêt de cette solution c&rsquo;est que l&rsquo;on peut implémenter l&rsquo;interface pour une multitude de types de stockage &ldquo;physique&rdquo;, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou plus proche de nous du Runabove.
+Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie adaptés et pourquoi pas des &ldquo;connecteurs/proxy&rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP).</p>
+
+<p>Rassurez vous - ou pas - je n&rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&rsquo;utiliser tmail comme serveur mail classique, j&rsquo;ai décidé de prendre un raccourcis en implémentant le nécessaire pour utiliser Dovecot avec tmail.</p>
+
+<p><strong>Concrètement il est donc aujourd&rsquo;hui possible d&rsquo;utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d&rsquo;accéder aux boites mails via POP et IMAP.</strong></p>
+
+<p>Voila pour cette - longue - introduction, passons à la pratique.</p>
+</p>
                 <a href="http://localhost:1313/doc/mailboxes/">Lire la suite &rarr;</a>
             </div>
             

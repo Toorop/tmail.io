@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Gérez vos boites mail avec tmail &middot; Journal de développement d&#39;un serveur SMTP</title>
+  <title>Gérez vos boites mail avec tmail et Dovecot &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
   <link rel="stylesheet" href="http://localhost:1313//css/poole.css">
@@ -70,21 +70,25 @@
 
     <div class="content container">
         <div class="post">
-            <h1>Gérez vos boites mail avec tmail</h1>
-            <span class="post-date">Mar 18, 2015 &middot; Temps de lecture: 5 min  &middot; <a href="http://localhost:1313/doc/mailboxes/#disqus_thread">Comments</a>
+            <h1>Gérez vos boites mail avec tmail et Dovecot</h1>
+            <span class="post-date">Mar 18, 2015 &middot; Temps de lecture: 9 min  &middot; <a href="http://localhost:1313/doc/mailboxes/#disqus_thread">Comments</a>
+      
+      <br/>
+      
+      <a class="label" href="http://localhost:1313//categories/doc">doc</a>
       </span> 
 
 <p>Initialement j&rsquo;avais prévu d&rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.<br />
-Le fait que l&rsquo;on me demande si ça allait être bientôt disponible m&rsquo;a fait réaliser que gérer des comptes mails était quand même l&rsquo;usage principal d&rsquo;un serveur de messagerie, j&rsquo;ai donc décidé de remonter cette tache dans ma todo-list.</p>
+Le fait que l&rsquo;on m&rsquo;ait demandé si ça allait être bientôt disponible m&rsquo;a fait réaliser que gérer des comptes mails était quand même l&rsquo;usage principal d&rsquo;un serveur de messagerie, j&rsquo;ai donc décidé de remonter cette tache dans ma todo-list.</p>
 
-<p>Pour vous proposer cette fonctionnalité plus rapidement, j&rsquo;ai fait quelques compromis sur ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une simple <strong>interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.</strong></p>
+<p>Pour vous proposer cette fonctionnalité plus rapidement, j&rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une simple <strong>interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.</strong></p>
 
-<p>L’intérêt de cette solution solution c&rsquo;est que l&rsquo;on peut implémenter l&rsquo;interface pour une multitude de types de stockage &ldquo;physique&rdquo;, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou plus proche de nous du Runabove.
-Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie adaptés et pourquoi des &ldquo;connecteurs/proxy&rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP).</p>
+<p>L’intérêt de cette solution c&rsquo;est que l&rsquo;on peut implémenter l&rsquo;interface pour une multitude de types de stockage &ldquo;physique&rdquo;, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou plus proche de nous du Runabove.
+Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie adaptés et pourquoi pas des &ldquo;connecteurs/proxy&rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP).</p>
 
-<p>Rassurez vous - ou pas - je n&rsquo;ai pas abandonné ces idées, ce sera implémenté, mai en attendant pour offrir le plus rapidement la possibilité d&rsquo;utiliser tmail comme serveur mail classique, j&rsquo;ai décidé de prendre un raccourcis en implémentant le nécessaire pour utiliser Dovecot avec tmail.</p>
+<p>Rassurez vous - ou pas - je n&rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&rsquo;utiliser tmail comme serveur mail classique, j&rsquo;ai décidé de prendre un raccourcis en implémentant le nécessaire pour utiliser Dovecot avec tmail.</p>
 
-<p><strong>Concrètement il est aujourd&rsquo;hui possible d&rsquo;utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d&rsquo;accéder aux boites mails via POP et IMAP.</strong></p>
+<p><strong>Concrètement il est donc aujourd&rsquo;hui possible d&rsquo;utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d&rsquo;accéder aux boites mails via POP et IMAP.</strong></p>
 
 <p>Voila pour cette - longue - introduction, passons à la pratique.</p>
 
@@ -113,61 +117,61 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
 
 <p>Il va vous être demandé si vous souhaitez créer un certificat SSL, répondez <em>oui</em>, cela va générer un certificat auto-signé.</p>
 
-<p>Il va maintenant falloir installer le support de base de données pour que dovecot puisse se connecter à la base de données utilisée par tmail. Il faudra donc en fonction de vos besoin installer soit dovecot-sqlite si vous utilisez SQLite, soit dovecot-mysql si vous utilisez MySQL,soit dovecot-pgsql si vous utilisez PostgreSQL.</p>
+<p>Il va maintenant falloir installer le support de base de données pour que Dovecot puisse se connecter à la base de données utilisée par tmail. Il faudra donc en fonction de vos besoins installer soit dovecot-sqlite si vous utilisez SQLite, soit dovecot-mysql si vous utilisez MySQL,soit dovecot-pgsql si vous utilisez PostgreSQL.</p>
 
-<p>Dans mon cas comme je vais avoir besoin de tester sur les 3 SGDB, j&rsquo;installe les trois:</p>
+<p>Dans mon cas comme je vais avoir besoin de tester sur les 3 SGDB, j&rsquo;installe les donc trois:</p>
 
 <pre><code>apt-get install dovecot-sqlite dovecot-mysql dovecot-pgsql
 </code></pre>
 
-<p>On va en rester là pour le moment, on ferra la configuration aprés avoir installé tmail.</p>
+<p>On va en rester là pour le moment, on ferra la configuration après avoir installé tmail.</p>
 
 <h3 id="installation-de-tmail:4002a66b7442538ff5ec29eb457b2fec">Installation de tmail</h3>
 
-<p>Si vous avez déja tmail installé, je vous recommande de supprimer les tables de votre base de données.
+<p>Si vous avez déjà tmail installé, je vous recommande de supprimer les tables de votre base de données.
 Beaucoup de modifications on été faites et il est plus prudent de repartir de zéro.</p>
 
-<p>Dans un premier temps suivez ce tutoriel: <a href="/doc/installer-tmail/">installer tmail</a></p>
+<p>Suivez ce tutoriel pour <a href="/doc/installer-tmail/">installer tmail</a></p>
 
 <h3 id="configuration-de-tmail:4002a66b7442538ff5ec29eb457b2fec">Configuration de tmail</h3>
 
-<p>Nous avons besoin de configurer trois parametres</p>
+<p>Nous avons besoin de configurer trois paramètres</p>
 
-<p>Le répertoire dans lequel seront stockes les boites mails, par défaut c&rsquo;est /home/tmail/dist/mailboxes.<br />
-Assurez vosu que l&rsquo;utilisateur tmail ait les droits de lecture et d&rsquo;écriture sur ce répertoire.</p>
+<p>Le répertoire dans lequel seront stockés les boites mails, par défaut c&rsquo;est /home/tmail/dist/mailboxes.<br />
+Assurez vous que l&rsquo;utilisateur tmail ait les droits de lecture et d&rsquo;écriture sur ce répertoire.</p>
 
 <pre><code># Base path for users &quot;home&quot;. Currently ysed to store mailboxes
 export TMAIL_USERS_HOME_BASE=&quot;/home/tmail/dist/mailboxes&quot;
 </code></pre>
 
-<p>On doit ensuite activer le support de Dovecot</p>
+<p>On doit ensuite activer le support de Dovecot:</p>
 
 <pre><code># Enabled dovecot for local deliveries
 export TMAIL_DOVECOT_SUPPORT_ENABLED=true
 </code></pre>
 
-<p>Et enfin indiquer à tmail où se trouve l&rsquo;agent de livraison de dovecot</p>
+<p>Et enfin indiquer à tmail où se trouve l&rsquo;agent de livraison dovecot-lda:</p>
 
 <pre><code># Dovecot LDA path
 export TMAIL_DOVECOT_LDA=&quot;/usr/lib/dovecot/dovecot-lda&quot;
 </code></pre>
 
-<h3 id="creation-d-une-boite-mail:4002a66b7442538ff5ec29eb457b2fec">Creation d&rsquo;une boite mail</h3>
+<h3 id="création-d-une-boite-mail:4002a66b7442538ff5ec29eb457b2fec">Création d&rsquo;une boite mail</h3>
 
-<p>Dans cet exemple tmail devra gerer les boites du domaine tmail.io.
-Si dans votre cas vous avez déja utilisé le domaine sur lequel vous souhaitez créer des boites vopus devez le supprimer.</p>
+<p>Dans cet exemple tmail devra gérer les boites du domaine tmail.io.
+Si dans votre cas vous avez déjà utilisé le domaine sur lequel vous souhaitez créer des boites vous devez le supprimer car le cli ne permet pas pour le moment de modifier la configuration d&rsquo;un domaine.</p>
 
 <pre><code>tmail rcpthost del tmail.io
 </code></pre>
 
-<p>On crée le compte toorop@tmail.io avec l&rsquo;option <em>-m</em> pour signifier à tmail que cet utilisateur aura une boite mail et avec loption <em>-r</em> pour indiquer que cet utilisateur pour utiliser tmaiul comme relais SMTP (aprés authentification).</p>
+<p>On crée le compte toorop@tmail.io avec l&rsquo;option <em>-m</em> pour signifier à tmail que cet utilisateur aura une boite mail et avec l’option <em>-r</em> pour lui indiquer que cet utilisateur pourra utiliser tmail comme relais SMTP (après authentification).</p>
 
 <pre><code>tmail user add -m -r toorop@tmail.io MOT_DE_PASSE
 </code></pre>
 
-<h3 id="configuration-de-dovecot:4002a66b7442538ff5ec29eb457b2fec">Configuration de dovecot</h3>
+<h3 id="configuration-de-dovecot:4002a66b7442538ff5ec29eb457b2fec">Configuration de Dovecot</h3>
 
-<p>La premiere chose à faire est d&rsquo;augmenter au maximum les niveaux de logs, comme ça si il y a un probléme ce sera plus facile de le localiser.</p>
+<p>La première chose à faire est d&rsquo;augmenter au maximum les niveaux de logs, comme ça si il y a un problème ce sera plus facile de le localiser.</p>
 
 <p>Pour cela on édite le ficher <em>/usr/share/dovecot/conf.d/10-logging.conf</em> et on modifie les parametres suivant:</p>
 
@@ -177,8 +181,8 @@ auth_debug_passwords = yes
 mail_debug = yes
 </code></pre>
 
-<p>On va à présent devoir indiquer à dovecot comment allez récuperer les info sur les utilisateurs.
-Pour cela on va lui indiquer la requete SQL qu&rsquo;il doit executer.
+<p>On va à présent devoir indiquer à Dovecot comment allez récupérer les informations sur les utilisateurs.
+Pour cela on va lui indiquer la requête SQL qu&rsquo;il doit exécuter.
 On édite le fichier: <em>/etc/dovecot/dovecot-sql.conf.ext</em></p>
 
 <p>Il faut d&rsquo;abord spécifier le driver que l&rsquo;on va utiliser, dans mon cas sqlite:</p>
@@ -187,57 +191,180 @@ On édite le fichier: <em>/etc/dovecot/dovecot-sql.conf.ext</em></p>
 driver = sqlite
 </code></pre>
 
-<p>Ensuite la &ldquo;connection string&rdquo;, autrement dit les indications qui vont permettre à dovecot de se connecter à la base de données tmail:</p>
+<p>Ensuite la &ldquo;connection string&rdquo;, autrement dit les indications qui vont permettre à Dovecot de se connecter à la base de données tmail:</p>
 
 <pre><code>connect = /home/tmail/dist/db/tmail.db   
 </code></pre>
 
-<p>L&rsquo;algorytme utilisé pour hasher les mots de passe:</p>
+<p>l&rsquo;algorithme utilisé pour &ldquo;hasher&rdquo; les mots de passe:</p>
 
 <pre><code>default_pass_scheme = SHA512-CRYPT
 </code></pre>
 
-<p>La requete pour réaliser un authetification:</p>
+<p>La requête pour réaliser une authentification:</p>
 
 <pre><code>password_query = SELECT login AS user, dove_passwd AS password \
 FROM users WHERE login = '%u' AND active = 'Y'  
 </code></pre>
 
-<p>Pour la requete suivante, celle qui va permettre a dovecot de récuperer des informations sur l&rsquo;utilisateur, on va avoir besoin de connaitre les UID/GID de l&rsquo;utilisateur tmail sur votre systéme, pour cela exécuter en root la commande suivante:</p>
+<p>Pour la requête suivante, celle qui va permettre à Dovecot de récupérer des informations sur l&rsquo;utilisateur, on va avoir besoin de connaître les UID/GID de l&rsquo;utilisateur tmail sur votre système, pour cela exécuter en root la commande suivante:</p>
 
 <pre><code>cat /etc/passwd | grep tmail
 tmail:x:1000:1000:,,,:/home/tmail:/bin/bash
 </code></pre>
 
-<p>Dans mon cas l&rsquo;UID de tmail est 1000 son GID est aussi 1000, la requete user_query va donc être:</p>
+<p>Dans mon cas l&rsquo;UID de tmail est 1000 son GID est aussi 1000.</p>
 
-<pre><code>user_query = SELECT home, 1000 AS uid, 1000 AS gid FROM users WHERE login = '%u'
+<p>Cette requête va varier en fonction du SGDB que vous utilisez, si vous utilisez SQLite ou PostgreSQL utilisez cette requête:</p>
+
+<pre><code>user_query = SELECT 1000 AS uid, 1000 AS gid, home, \
+'*:bytes=' || mailbox_quota AS quota_rule \
+FROM users WHERE login = '%u'
 </code></pre>
 
-<p>Il faut à présent spécifier à dovecot que l&rsquo;on souhaite utiliser l&rsquo;authentifcation via SQL, on édite <em>/etc/dovecot/conf.d/10-auth.conf</em> et on commente :</p>
+<p>si vous utilisez MySQL:</p>
+
+<pre><code>user_query = SELECT 1000 as uid, 1000 as gid, home, \
+concat('*:bytes=', mailbox_quota) AS quota_rule \
+FROM users WHERE login = '%u'   
+</code></pre>
+
+<p>Il faut à présent spécifier à Dovecot que l&rsquo;on souhaite utiliser l’authentification via SQL, on édite <em>/etc/dovecot/conf.d/10-auth.conf</em> et on commente :</p>
 
 <pre><code>#!include auth-system.conf.ext
 </code></pre>
 
-<p>et on décommente:</p>
+<p>et on dé-commente:</p>
 
 <pre><code>!include auth-sql.conf.ext
 </code></pre>
 
-<p>Il nous reste à configurer le format de stockage des boites mails, on va utiliser Mailbox.
+<p>Ensuite <strong>on configure l&rsquo;agent de livraison dovecot-lda</strong>, en éditant le fichier <em>/etc/dovecot/conf.d/10-mail.conf</em>.</p>
+
+<p>L&rsquo;adresse postmaster: cette adresse va être, entre utilisée, si EDovecot à besoin d&rsquo;envoyer des mails pour informer d&rsquo;un problème. Par exemple pour bouncer un mail. Il va sans dire que cette adresse doit exister et je vous recommande fortement d&rsquo;utiliser une adresse du type postmaster@domain (on pourra utiliser un alias quand ce sera implémenté en attendant créez une boite via <em>tmail user add -m postmaster@tmail.io MOT_DE_PASSE</em>).</p>
+
+<pre><code>postmaster_address = postmaster@tmail.io
+</code></pre>
+
+<p>Dovecot doit pouvoir utiliser tmail pour envoyer des mails, par exemple les bounces évoqués au dessus, on va donc le configurer pour:</p>
+
+<pre><code>submission_host = 127.0.0.1:2525        
+</code></pre>
+
+<p>Bien entendu il faut que dans votre configuration vous ayez dit à tmail d&rsquo;écouter, entre autre, sur l&rsquo;IP 127.0.0.1 et sur le port 2525 (<em>export TMAIL_SMTPD_DSNS=&ldquo;127.0.0.1:2525:false;IP:PORT:true&rdquo;</em> par exemple) et il faut également que l&rsquo;IP qui va contacter tmail soit autorisée à relayer, pour ça il vous suffit d’exécuter la commande :</p>
+
+<pre><code>tmail relayip add 127.0.0.1
+</code></pre>
+
+<p>Il nous faut à présent <strong>configurer le format de stockage des boites mails</strong>, on va utiliser Maildir.<br />
 On édite le fichier  <em>/etc/dovecot/conf.d/10-mail.conf</em>:</p>
 
 <pre><code>mail_location = maildir:~/Maildir
 </code></pre>
 
-<p>Il ne vous reste plus qu&rsquo;a relancer dovecot:</p>
+<p><strong>On va activer les quotas</strong>, ce n&rsquo;est pas une obligation mais je vous recommande fortement de le faire sinon vous courrez le risque de voir votre partition saturée si vous veniez à recevoir de nombreux mails.</p>
+
+<p>Toujours dans le fichier <em>/etc/dovecot/conf.d/10-mail.conf</em> :</p>
+
+<pre><code>mail_plugins = $mail_plugins quota
+</code></pre>
+
+<p>Il nous faut aussi l&rsquo;activer pour IMAP ce qui va nous permettre de connaître l&rsquo;usage de la boite mail depuis le client IMAP. On édite le fichier <em>/etc/dovecot/conf.d/20-imap.conf</em>:</p>
+
+<pre><code># Space separated list of plugins to load (default is global mail_plugins).
+mail_plugins = $mail_plugins quota imap_quota
+</code></pre>
+
+<p>et dire à Dovecot ce qu&rsquo;il doit utiliser comme méthode pour calculer les quotas. Ici on va faire au plus simple, il va directement regarder l&rsquo;espace disque utilisé.<br />
+Éditez  <em>/etc/dovecot/conf.d/90-quota.conf</em> et de-commentez la ligne:</p>
+
+<pre><code>quota = dirsize:User quota  
+</code></pre>
+
+<p>Coté client, si vous utilisez Thunderbird voici<a href="https://addons.mozilla.org/fr/thunderbird/addon/display-quota/?src=search" target="_blank">un plugin vous permettant d&rsquo;afficher le quota de votre boite mail</a></p>
+
+<p>Voila c&rsquo;est fini, il ne vous reste plus qu&rsquo;a relancer Dovecot:</p>
 
 <pre><code>service dovecot restart
 </code></pre>
 
-<p>Voila normalement tout devrait fonctionner, si ce n&rsquo;est pas le cas, consultez les logs dovecot et tmail, et si vous ne trouvez pas poster un SOS en commentaire de cet article.</p>
+<p>Normalement tout devrait fonctionner, si ce n&rsquo;est pas le cas, consultez les logs de Dovecot et de tmail, et si vous n&rsquo;arriver pas à résoudre le problème, postez un SOS en commentaire de cet article (si ça fonctionne vous pouvez aussi laisser un commentaire ;))</p>
 
-<p>Si tout fonctionne bien reduisez petit à petit le niveau de log de dovecot.</p>
+<p>Si tout fonctionne correctement penser à réduire le niveau de log de Dovecot.</p>
+
+<h2 id="sieve:4002a66b7442538ff5ec29eb457b2fec">Sieve</h2>
+
+<p>Ce qui suit n&rsquo;est pas du tout indispensable, mais puisque vous avez les mains dans le cambouis je vous encourage à faire encore un petit effort, vous ne le regretterez pas.</p>
+
+<h3 id="qu-est-ce-que-sieve:4002a66b7442538ff5ec29eb457b2fec">Qu&rsquo;est ce que Sieve ?</h3>
+
+<p>Je vais reprendre la <a href="http://fr.wikipedia.org/wiki/Sieve" target="_blank"> définition donnée par Wikipédia </a>:
+<blockquote cite="http://fr.wikipedia.org/wiki/Sieve">Sieve (du mot anglais crible comme dans le crible d&rsquo;Ératosthène) est un langage de filtrage du courrier électronique. Il est normalisé dans le RFC 5228. Sieve permet de filtrer sur les en-têtes d&rsquo;un message qui suit le format du RFC 5322, c&rsquo;est-à-dire un message Internet typique.</blockquote></p>
+
+<p>Dans notre cas, Sieve va être utilisé par l&rsquo;agent de livraison, dovecot-lda, il va nous permettre, entre autre, de classer les mails dans différents dossiers. Je vous donnerais quelques exemples plus bas.</p>
+
+<h3 id="installation-de-du-plugin-sieve-et-de-managesieve:4002a66b7442538ff5ec29eb457b2fec">Installation de du plugin sieve et de manageSieve</h3>
+
+<p>ManageSieve est un serveur qui va vous permettre de modifier vos règles Sieve depuis votre client de messagerie. Bien entendu il faut que le client le supporte.</p>
+
+<p>Sur Debian et dérivés un simple:</p>
+
+<pre><code>apt-get install dovecot-sieve dovecot-managesieved
+</code></pre>
+
+<p>va vous installer le nécessaire.</p>
+
+<p>Pour les autres je vous renvoie vers <a href="http://wiki2.dovecot.org/Pigeonhole/Sieve" target="_blank">la documentation officielle de Pigeonhole Sieve</a> où vous trouverez le nécessaire pour installer le plugin Sieve et ManageSieve.</p>
+
+<h3 id="configuration:4002a66b7442538ff5ec29eb457b2fec">Configuration</h3>
+
+<p>On édite le fichier <em>/etc/dovecot/conf.d/15-lda.conf</em> pour signifier à dovecot qu&rsquo;il doit charger le plugin Sieve:</p>
+
+<pre><code>   mail_plugins = $mail_plugins sieve
+</code></pre>
+
+<p>Il faut que l&rsquo;agent de livraison soit capable de créer un sous dossier si il n&rsquo;existe pas:</p>
+
+<pre><code>lda_mailbox_autocreate = yes    
+</code></pre>
+
+<p>On va aussi activer l&rsquo;abonnement automatique aux dossiers créés:</p>
+
+<pre><code>lda_mailbox_autosubscribe = yes    
+</code></pre>
+
+<p>Le fichier de configuration de sieve est <em>/etc/dovecot/conf.d/90-sieve.conf</em>, la configuration par défaut est suffisante, on ne va donc rien modifier. Je vous invite quand même à y jeter un œil.</p>
+
+<p>Pour ManageSieve, le fichier de configuration est <em>/etc/dovecot/conf.d/30-managesieve.conf</em> et comme pour sieve la configuration par défaut nous convient.</p>
+
+<p>Vous pouvez relancer dovecot.</p>
+
+<h3 id="quelques-exemples-d-utilisation-de-sieve:4002a66b7442538ff5ec29eb457b2fec">Quelques exemples d&rsquo;utilisation de Sieve</h3>
+
+<p>Si comme moi vous utiliser Thunderbird comme client mail, n&rsquo;utilise pas le module Sieve présent sur le repo Mozilla, cette version ne fonctionne pas avec les version récente de Thunderbird. <a href="https://github.com/thsmi/sieve/tree/master/nightly/">télachargez la derniere version du plugin ManageSieve pour thunderbird ici</a>.</p>
+
+<p>En début de script ajoutez :</p>
+
+<pre><code>require &quot;fileinto&quot;;
+</code></pre>
+
+<p>Classer les messages de la mailing-list bar@ovh.net dans le dossier Inbox/ml/bar@ovh</p>
+
+<pre><code>if address :is [&quot;To&quot;,&quot;Cc&quot;] &quot;users@spamassassin.apache.org&quot; {
+    fileinto &quot;ml.bar@ovh&quot;;
+    stop;
+}
+</code></pre>
+
+<p>Classer les spams dans un dossier Inbox/Spams si le sujet commence par [SPAM]</p>
+
+<pre><code>if header :comparator &quot;i;ascii-casemap&quot; :contains &quot;Subject&quot; &quot;[SPAM]&quot;  {
+    fileinto &quot;spams&quot;;
+    stop;
+}
+</code></pre>
+
+<p>Pour aller plus loin, voici <a href="http://wiki2.dovecot.org/Pigeonhole/Sieve/Examples" target="_blank"> des exemples de scripts Sieve </a></p>
 
         </div>
         <div id="disqus_thread"></div>
