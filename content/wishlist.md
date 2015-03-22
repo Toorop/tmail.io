@@ -24,3 +24,4 @@ Si vous avez une fonctionnalité que vous aimeriez voir intégrée:
 
 
 ## Implémentés
+*  Livraison locale, gestion de boites mails et compatiblilité Dovecot. <a href="https://groups.google.com/forum/#!topic/tmail-dev/niW_EtXkZKQ" target="_blank"> Discussion </a> - [Documentation](/doc/mailboxes/)

@@ -6,26 +6,67 @@
     <description>Recent content on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 18 Mar 2015 14:34:28 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2015 09:38:58 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Gérez vos boites mail avec tmail et Dovecot</title>
+      <title>Podcast #4 - Titi et Toto</title>
+      <link>http://localhost:1313/podcast/4/</link>
+      <pubDate>Sun, 22 Mar 2015 09:38:58 +0100</pubDate>
+      
+      <guid>http://localhost:1313/podcast/4/</guid>
+      <description>
+
+&lt;p&gt;Cette semaine je vous parle des nouveautés de la version 0.0.4, de sieve, et je réponds à la question existentielle: Qu&amp;rsquo;est ce qu&amp;rsquo;un mail ?&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
+        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
+        &lt;source src=&#34;http://podcasts.toorop.fr/tmail/ep4.mp3&#34; type=&#34;audio/mp3&#34;&gt;
+        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
+        &lt;div&gt;
+            &lt;a href=&#34;http://podcasts.toorop.fr/tmail/ep4.mp3&#34;&gt;Download&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/audio&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;Un petite illustration valant mieux qu&amp;rsquo;un long discours, voici un schéma représentant la structure d&amp;rsquo;un email.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;center&#34; src=&#34;http://localhost:1313/img/structure-email.png&#34;&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:e7fd8297e2196d1a566a3e2e51cbb23a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/mailboxes/&#34; title=&#34;installation dovecot sieve tmail&#34;&gt;Installer et configurer Dovecot pour tmail&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve&#34; title=&#34;Extension Sieve pour Dovecot&#34; target=&#34;_blank&#34;&gt;Extension Sieve Pigeonhole pour Dovecot&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve/Examples&#34; title=&#34;Exemples de scripts Sieve&#34; target=&#34;_blank&#34;&gt;Exemples de scripts Sieve&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#34;http://memcached.org/&#34; title=&#34;memcached&#34; target=&#34;_blank&#34;&gt;memcached&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
+</description>
+    </item>
+    
+    <item>
+      <title>Gérez vos boites mail avec Dovecot</title>
       <link>http://localhost:1313/doc/mailboxes/</link>
-      <pubDate>Wed, 18 Mar 2015 14:34:28 +0100</pubDate>
+      <pubDate>Fri, 20 Mar 2015 16:34:28 +0100</pubDate>
       
       <guid>http://localhost:1313/doc/mailboxes/</guid>
       <description>
 
 &lt;p&gt;Initialement j&amp;rsquo;avais prévu d&amp;rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.&lt;br /&gt;
-Le fait que l&amp;rsquo;on m&amp;rsquo;ait demandé si ça allait être bientôt disponible m&amp;rsquo;a fait réaliser que gérer des comptes mails était quand même l&amp;rsquo;usage principal d&amp;rsquo;un serveur de messagerie, j&amp;rsquo;ai donc décidé de remonter cette tache dans ma todo-list.&lt;/p&gt;
+Le fait que l&amp;rsquo;on m&amp;rsquo;ait demandé si ça allait être bientôt disponible m&amp;rsquo;a fait réaliser que gérer des comptes mails était quand même l&amp;rsquo;usage principal d&amp;rsquo;un serveur de messagerie - gnééééé&amp;hellip; - , j&amp;rsquo;ai donc décidé de remonter cette tache dans ma todo-list.&lt;/p&gt;
 
-&lt;p&gt;Pour vous proposer cette fonctionnalité plus rapidement, j&amp;rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une simple &lt;strong&gt;interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pour vous proposer cette fonctionnalité plus rapidement, j&amp;rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une &lt;strong&gt;interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;L’intérêt de cette solution c&amp;rsquo;est que l&amp;rsquo;on peut implémenter l&amp;rsquo;interface pour une multitude de types de stockage &amp;ldquo;physique&amp;rdquo;, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou plus proche de nous du Runabove.
-Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie adaptés et pourquoi pas des &amp;ldquo;connecteurs/proxy&amp;rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP).&lt;/p&gt;
+&lt;p&gt;L’intérêt de cette solution c&amp;rsquo;est que l&amp;rsquo;on peut implémenter l&amp;rsquo;interface pour une multitude de types de stockage, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou encore du Runabove.
+Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie, des &amp;ldquo;connecteurs/proxy&amp;rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP), mais aussi d&amp;rsquo;interfacer simplement de nombreux outils au service de messagerie.&lt;/p&gt;
 
-&lt;p&gt;Rassurez vous - ou pas - je n&amp;rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&amp;rsquo;utiliser tmail comme serveur mail classique, j&amp;rsquo;ai décidé de prendre un raccourcis en implémentant le nécessaire pour utiliser Dovecot avec tmail.&lt;/p&gt;
+&lt;p&gt;Rassurez vous - ou pas - je n&amp;rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&amp;rsquo;utiliser tmail comme serveur mail classique, j&amp;rsquo;ai décidé de prendre un raccourci en implémentant le nécessaire pour utiliser Dovecot avec tmail.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Concrètement il est donc aujourd&amp;rsquo;hui possible d&amp;rsquo;utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d&amp;rsquo;accéder aux boites mails via POP et IMAP.&lt;/strong&gt;&lt;/p&gt;
 
@@ -178,7 +219,7 @@ FROM users WHERE login = &#39;%u&#39;
 &lt;pre&gt;&lt;code&gt;!include auth-sql.conf.ext
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Ensuite &lt;strong&gt;on configure l&amp;rsquo;agent de livraison dovecot-lda&lt;/strong&gt;, en éditant le fichier &lt;em&gt;/etc/dovecot/conf.d/10-mail.conf&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ensuite &lt;strong&gt;on configure l&amp;rsquo;agent de livraison dovecot-lda&lt;/strong&gt;, en éditant le fichier &lt;em&gt;/etc/dovecot/conf.d/15-lda.conf&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;L&amp;rsquo;adresse postmaster: cette adresse va être, entre utilisée, si EDovecot à besoin d&amp;rsquo;envoyer des mails pour informer d&amp;rsquo;un problème. Par exemple pour bouncer un mail. Il va sans dire que cette adresse doit exister et je vous recommande fortement d&amp;rsquo;utiliser une adresse du type postmaster@domain (on pourra utiliser un alias quand ce sera implémenté en attendant créez une boite via &lt;em&gt;tmail user add -m postmaster@tmail.io MOT_DE_PASSE&lt;/em&gt;).&lt;/p&gt;
 
@@ -280,7 +321,7 @@ mail_plugins = $mail_plugins quota imap_quota
 
 &lt;h3 id=&#34;quelques-exemples-d-utilisation-de-sieve:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Quelques exemples d&amp;rsquo;utilisation de Sieve&lt;/h3&gt;
 
-&lt;p&gt;Si comme moi vous utiliser Thunderbird comme client mail, n&amp;rsquo;utilise pas le module Sieve présent sur le repo Mozilla, cette version ne fonctionne pas avec les version récente de Thunderbird. &lt;a href=&#34;https://github.com/thsmi/sieve/tree/master/nightly/&#34;&gt;télachargez la derniere version du plugin ManageSieve pour thunderbird ici&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Si comme moi vous utiliser Thunderbird comme client mail, n&amp;rsquo;utilise pas le module Sieve présent sur le repo Mozilla, cette version ne fonctionne pas avec les version récente de Thunderbird. &lt;a href=&#34;https://github.com/thsmi/sieve/tree/master/nightly/&#34;&gt;téléchargez la dernière version du plugin ManageSieve pour thunderbird ici&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;En début de script ajoutez :&lt;/p&gt;
 
@@ -289,7 +330,7 @@ mail_plugins = $mail_plugins quota imap_quota
 
 &lt;p&gt;Classer les messages de la mailing-list bar@ovh.net dans le dossier Inbox/ml/bar@ovh&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;if address :is [&amp;quot;To&amp;quot;,&amp;quot;Cc&amp;quot;] &amp;quot;users@spamassassin.apache.org&amp;quot; {
+&lt;pre&gt;&lt;code&gt;if address :is [&amp;quot;To&amp;quot;,&amp;quot;Cc&amp;quot;] &amp;quot;bar@ml.ovh.net&amp;quot; {
     fileinto &amp;quot;ml.bar@ovh&amp;quot;;
     stop;
 }
@@ -314,6 +355,18 @@ mail_plugins = $mail_plugins quota imap_quota
       
       <guid>http://localhost:1313/changelog/</guid>
       <description>
+
+&lt;h2 id=&#34;v-0-0-4:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.4&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add local deliveries&lt;/li&gt;
+&lt;li&gt;Dovecot support&lt;/li&gt;
+&lt;li&gt;SmtpUser replaced by Use&lt;/li&gt;
+&lt;li&gt;Cli&lt;/li&gt;
+&lt;li&gt;Refactoring&lt;/li&gt;
+&lt;li&gt;Refactoring&lt;/li&gt;
+&lt;li&gt;Refactoring&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;v-0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.3&lt;/h2&gt;
 
@@ -351,7 +404,7 @@ mail_plugins = $mail_plugins quota imap_quota
 &lt;/div&gt;
 &lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;Si vous avez des remarques concernant cet épisode, aussi bin sur le fond, que la forme, n&amp;rsquo;hésitez pas à me laisser un commentaire en bas de page.&lt;/p&gt;
+&lt;p&gt;Si vous avez des remarques concernant cet épisode, aussi bien sur le fond, que la forme, n&amp;rsquo;hésitez pas à me laisser un commentaire en bas de page.&lt;/p&gt;
 
 &lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:ae9997a2769c75053f068259cadd520a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
 
@@ -421,6 +474,10 @@ Si vous avez une fonctionnalité que vous aimeriez voir intégrée:&lt;/p&gt;
 &lt;h2 id=&#34;approuvés-à-implémenter:88f30e4ec261bd5d2da2e6b82c2c10c8&#34;&gt;Approuvés, à implémenter&lt;/h2&gt;
 
 &lt;h2 id=&#34;implémentés:88f30e4ec261bd5d2da2e6b82c2c10c8&#34;&gt;Implémentés&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Livraison locale, gestion de boites mails et compatiblilité Dovecot. &lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/niW_EtXkZKQ&#34; target=&#34;_blank&#34;&gt; Discussion &lt;/a&gt; - &lt;a href=&#34;http://localhost:1313/doc/mailboxes/&#34;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

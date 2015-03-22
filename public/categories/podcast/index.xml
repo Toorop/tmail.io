@@ -6,8 +6,49 @@
     <description>Recent content in Podcast on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 14 Mar 2015 19:38:45 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2015 09:38:58 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/podcast/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #4 - Titi et Toto</title>
+      <link>http://localhost:1313/podcast/4/</link>
+      <pubDate>Sun, 22 Mar 2015 09:38:58 +0100</pubDate>
+      
+      <guid>http://localhost:1313/podcast/4/</guid>
+      <description>
+
+&lt;p&gt;Cette semaine je vous parle des nouveautés de la version 0.0.4, de sieve, et je réponds à la question existentielle: Qu&amp;rsquo;est ce qu&amp;rsquo;un mail ?&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
+        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
+        &lt;source src=&#34;http://podcasts.toorop.fr/tmail/ep4.mp3&#34; type=&#34;audio/mp3&#34;&gt;
+        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
+        &lt;div&gt;
+            &lt;a href=&#34;http://podcasts.toorop.fr/tmail/ep4.mp3&#34;&gt;Download&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/audio&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;Un petite illustration valant mieux qu&amp;rsquo;un long discours, voici un schéma représentant la structure d&amp;rsquo;un email.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;center&#34; src=&#34;http://localhost:1313/img/structure-email.png&#34;&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:e7fd8297e2196d1a566a3e2e51cbb23a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/mailboxes/&#34; title=&#34;installation dovecot sieve tmail&#34;&gt;Installer et configurer Dovecot pour tmail&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve&#34; title=&#34;Extension Sieve pour Dovecot&#34; target=&#34;_blank&#34;&gt;Extension Sieve Pigeonhole pour Dovecot&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve/Examples&#34; title=&#34;Exemples de scripts Sieve&#34; target=&#34;_blank&#34;&gt;Exemples de scripts Sieve&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#34;http://memcached.org/&#34; title=&#34;memcached&#34; target=&#34;_blank&#34;&gt;memcached&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
+</description>
+    </item>
     
     <item>
       <title>Podcast #3: Nouvelle rubrique</title>
@@ -30,7 +71,7 @@
 &lt;/div&gt;
 &lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;Si vous avez des remarques concernant cet épisode, aussi bin sur le fond, que la forme, n&amp;rsquo;hésitez pas à me laisser un commentaire en bas de page.&lt;/p&gt;
+&lt;p&gt;Si vous avez des remarques concernant cet épisode, aussi bien sur le fond, que la forme, n&amp;rsquo;hésitez pas à me laisser un commentaire en bas de page.&lt;/p&gt;
 
 &lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:ae9997a2769c75053f068259cadd520a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
 

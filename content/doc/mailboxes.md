@@ -1,20 +1,20 @@
 +++
-date = "2015-03-18T14:34:28+01:00"
-draft = true
-title = "Gérez vos boites mail avec tmail et Dovecot"
+date = "2015-03-20T16:34:28+01:00"
+draft = false
+title = "Gérez vos boites mail avec Dovecot"
 categories = ["doc"]
 
 +++
 
 Initialement j'avais prévu d'ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.  
-Le fait que l'on m'ait demandé si ça allait être bientôt disponible m'a fait réaliser que gérer des comptes mails était quand même l'usage principal d'un serveur de messagerie, j'ai donc décidé de remonter cette tache dans ma todo-list.  
+Le fait que l'on m'ait demandé si ça allait être bientôt disponible m'a fait réaliser que gérer des comptes mails était quand même l'usage principal d'un serveur de messagerie - gnééééé... - , j'ai donc décidé de remonter cette tache dans ma todo-list.  
 
-Pour vous proposer cette fonctionnalité plus rapidement, j'ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une simple **interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.** 
+Pour vous proposer cette fonctionnalité plus rapidement, j'ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une **interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.** 
 
-L’intérêt de cette solution c'est que l'on peut implémenter l'interface pour une multitude de types de stockage "physique", du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou plus proche de nous du Runabove.
-Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie adaptés et pourquoi pas des "connecteurs/proxy" pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP).
+L’intérêt de cette solution c'est que l'on peut implémenter l'interface pour une multitude de types de stockage, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou encore du Runabove.
+Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie, des "connecteurs/proxy" pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP), mais aussi d'interfacer simplement de nombreux outils au service de messagerie.
 
-Rassurez vous - ou pas - je n'ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d'utiliser tmail comme serveur mail classique, j'ai décidé de prendre un raccourcis en implémentant le nécessaire pour utiliser Dovecot avec tmail.
+Rassurez vous - ou pas - je n'ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d'utiliser tmail comme serveur mail classique, j'ai décidé de prendre un raccourci en implémentant le nécessaire pour utiliser Dovecot avec tmail.
 
 **Concrètement il est donc aujourd'hui possible d'utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d'accéder aux boites mails via POP et IMAP.**
 
@@ -152,7 +152,7 @@ et on dé-commente:
 	!include auth-sql.conf.ext
 
 
-Ensuite **on configure l'agent de livraison dovecot-lda**, en éditant le fichier */etc/dovecot/conf.d/10-mail.conf*.
+Ensuite **on configure l'agent de livraison dovecot-lda**, en éditant le fichier */etc/dovecot/conf.d/15-lda.conf*.
 
 L'adresse postmaster: cette adresse va être, entre utilisée, si EDovecot à besoin d'envoyer des mails pour informer d'un problème. Par exemple pour bouncer un mail. Il va sans dire que cette adresse doit exister et je vous recommande fortement d'utiliser une adresse du type postmaster@domain (on pourra utiliser un alias quand ce sera implémenté en attendant créez une boite via *tmail user add -m postmaster@tmail.io MOT_DE_PASSE*).
 
@@ -242,7 +242,7 @@ Pour ManageSieve, le fichier de configuration est */etc/dovecot/conf.d/30-manage
 Vous pouvez relancer dovecot.	   
 
 ### Quelques exemples d'utilisation de Sieve
-Si comme moi vous utiliser Thunderbird comme client mail, n'utilise pas le module Sieve présent sur le repo Mozilla, cette version ne fonctionne pas avec les version récente de Thunderbird. <a href="https://github.com/thsmi/sieve/tree/master/nightly/">télachargez la derniere version du plugin ManageSieve pour thunderbird ici</a>.
+Si comme moi vous utiliser Thunderbird comme client mail, n'utilise pas le module Sieve présent sur le repo Mozilla, cette version ne fonctionne pas avec les version récente de Thunderbird. <a href="https://github.com/thsmi/sieve/tree/master/nightly/">téléchargez la dernière version du plugin ManageSieve pour thunderbird ici</a>.
 
 En début de script ajoutez :
 	
@@ -250,7 +250,7 @@ En début de script ajoutez :
 
 Classer les messages de la mailing-list bar@ovh.net dans le dossier Inbox/ml/bar@ovh
 
-	if address :is ["To","Cc"] "users@spamassassin.apache.org" {
+	if address :is ["To","Cc"] "bar@ml.ovh.net" {
    		fileinto "ml.bar@ovh";
    		stop;
 	}

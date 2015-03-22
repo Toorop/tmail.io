@@ -7,6 +7,16 @@ name = "Changelog"
 weight = 3
 
 +++
+## v 0.0.4 
+* Add local deliveries
+* Dovecot support
+* SmtpUser replaced by Use
+* Cli
+* Refactoring
+* Refactoring
+* Refactoring
+
+
 ## v 0.0.3
 * Bugfix: MySQL Datetime to Golang time.Time
 * BugFix: Optimise/fix queries for Mysql

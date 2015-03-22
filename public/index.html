@@ -57,7 +57,6 @@
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 <label for="nav-trigger"></label>
 
-
 <div class="site-wrap">
     <div class="topbar">
   <div class="color-overlay"></div>
@@ -68,29 +67,75 @@
     </div>
   </div>
 </div>
+<div id="social">
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="poroot">Tweet</a>
+<script>
+! function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+        p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+}(document, 'script', 'twitter-wjs');
+</script>
+
+
+</div>
 
     <div class="content container">
         <div class="posts">
             
             <div class="post">
                 <h1 class="post-title">
-        <a href="http://localhost:1313/doc/mailboxes/">Gérez vos boites mail avec tmail et Dovecot</a>
+        <a href="http://localhost:1313/podcast/4/">Podcast #4 - Titi et Toto</a>
       </h1>
-                <span class="post-date">Mar 18, 2015 &middot; Temps de lecture: 9 min  &middot; <a href="http://localhost:1313/doc/mailboxes/#disqus_thread">Comments</a>
+                <span class="post-date">Mar 22, 2015 &middot; Temps de lecture: 1 min  &middot; <a href="http://localhost:1313/podcast/4/#disqus_thread">Comments</a>
+      
+      <br/>
+      
+      <a class="label" href="http://localhost:1313//categories/podcast">podcast</a>
+      
+      </span>
+                <p><p>Cette semaine je vous parle des nouveautés de la version 0.0.4, de sieve, et je réponds à la question existentielle: Qu&rsquo;est ce qu&rsquo;un mail ?</p>
+
+<p><div class="player">
+    <audio controls preload="none">
+        &lt;!&ndash; Audio files &ndash;&gt;
+        <source src="http://podcasts.toorop.fr/tmail/ep4.mp3" type="audio/mp3">
+        &lt;!&ndash; Fallback for browsers that don&rsquo;t support the <audio> element &ndash;&gt;
+        <div>
+            <a href="http://podcasts.toorop.fr/tmail/ep4.mp3">Download</a>
+        </div>
+    </audio>
+</div>
+<br></p>
+</p>
+                <a href="http://localhost:1313/podcast/4/">Lire la suite &rarr;</a>
+            </div>
+            
+            <div class="post">
+                <h1 class="post-title">
+        <a href="http://localhost:1313/doc/mailboxes/">Gérez vos boites mail avec Dovecot</a>
+      </h1>
+                <span class="post-date">Mar 20, 2015 &middot; Temps de lecture: 9 min  &middot; <a href="http://localhost:1313/doc/mailboxes/#disqus_thread">Comments</a>
       
       <br/>
       
       <a class="label" href="http://localhost:1313//categories/doc">doc</a>
+      
       </span>
                 <p><p>Initialement j&rsquo;avais prévu d&rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.<br />
-Le fait que l&rsquo;on m&rsquo;ait demandé si ça allait être bientôt disponible m&rsquo;a fait réaliser que gérer des comptes mails était quand même l&rsquo;usage principal d&rsquo;un serveur de messagerie, j&rsquo;ai donc décidé de remonter cette tache dans ma todo-list.</p>
+Le fait que l&rsquo;on m&rsquo;ait demandé si ça allait être bientôt disponible m&rsquo;a fait réaliser que gérer des comptes mails était quand même l&rsquo;usage principal d&rsquo;un serveur de messagerie - gnééééé&hellip; - , j&rsquo;ai donc décidé de remonter cette tache dans ma todo-list.</p>
 
-<p>Pour vous proposer cette fonctionnalité plus rapidement, j&rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une simple <strong>interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.</strong></p>
+<p>Pour vous proposer cette fonctionnalité plus rapidement, j&rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une <strong>interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.</strong></p>
 
-<p>L’intérêt de cette solution c&rsquo;est que l&rsquo;on peut implémenter l&rsquo;interface pour une multitude de types de stockage &ldquo;physique&rdquo;, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou plus proche de nous du Runabove.
-Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie adaptés et pourquoi pas des &ldquo;connecteurs/proxy&rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP).</p>
+<p>L’intérêt de cette solution c&rsquo;est que l&rsquo;on peut implémenter l&rsquo;interface pour une multitude de types de stockage, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou encore du Runabove.
+Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie, des &ldquo;connecteurs/proxy&rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP), mais aussi d&rsquo;interfacer simplement de nombreux outils au service de messagerie.</p>
 
-<p>Rassurez vous - ou pas - je n&rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&rsquo;utiliser tmail comme serveur mail classique, j&rsquo;ai décidé de prendre un raccourcis en implémentant le nécessaire pour utiliser Dovecot avec tmail.</p>
+<p>Rassurez vous - ou pas - je n&rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&rsquo;utiliser tmail comme serveur mail classique, j&rsquo;ai décidé de prendre un raccourci en implémentant le nécessaire pour utiliser Dovecot avec tmail.</p>
 
 <p><strong>Concrètement il est donc aujourd&rsquo;hui possible d&rsquo;utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d&rsquo;accéder aux boites mails via POP et IMAP.</strong></p>
 
@@ -108,6 +153,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
       <br/>
       
       <a class="label" href="http://localhost:1313//categories/podcast">podcast</a>
+      
       </span>
                 <p><p>Les nouvelles du projet, avec cette semaine, des corrections de bugs, du refactoring et&hellip; une nouvelle rubrique.
 <div class="player">
@@ -134,6 +180,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
       <br/>
       
       <a class="label" href="http://localhost:1313//categories/podcast">podcast</a>
+      
       </span>
                 <p><p>Dans cet épisode je vais vous parler des suggestions qui m&rsquo;ont été faites concernant les fonctionnalités de tmail.
 <div class="player">
@@ -160,6 +207,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
       <br/>
       
       <a class="label" href="http://localhost:1313//categories/podcast">podcast</a>
+      
       </span>
                 <p><p>Dans cet épisode je vais vous parler de l&rsquo;intégration du filtrage antivirus au sein de tmail en utilisant le scanner opensource Clamav.
 <div class="player">
@@ -186,6 +234,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
       <br/>
       
       <a class="label" href="http://localhost:1313//categories/podcast">podcast</a>
+      
       </span>
                 <p><p>Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&rsquo;etre de ce podcast.
 <div class="player">
@@ -215,6 +264,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
       <br/>
       
       <a class="label" href="http://localhost:1313//categories/doc">doc</a>
+      
       </span>
                 <p><p>Vous trouverez dans ce billet les explications nécessaires pour installer l&rsquo;antivirus opensource <a href="http://www.clamav.net/index.html">Clamav</a> et activer le filtrage de votre flux SMTP par tmail.</p>
 </p>
@@ -230,6 +280,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
       <br/>
       
       <a class="label" href="http://localhost:1313//categories/doc">doc</a>
+      
       </span>
                 <p><p><br>
 <div style="text-align:center">
@@ -257,6 +308,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
       <br/>
       
       <a class="label" href="http://localhost:1313//categories/doc">doc</a>
+      
       </span>
                 <p><p>Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.</p>
 
@@ -274,6 +326,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
       <br/>
       
       <a class="label" href="http://localhost:1313//categories/doc">doc</a>
+      
       </span>
                 <p><h4 id="lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead">Lister les messages en queue</h4>
 
@@ -293,23 +346,6 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
 </ul>
 </p>
                 <a href="http://localhost:1313/doc/cli-gestion-queue/">Lire la suite &rarr;</a>
-            </div>
-            
-            <div class="post">
-                <h1 class="post-title">
-        <a href="http://localhost:1313/doc/routes-smtp-sortantes/">Routes smtp sortantes</a>
-      </h1>
-                <span class="post-date">Jan 19, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="http://localhost:1313/doc/routes-smtp-sortantes/#disqus_thread">Comments</a>
-      
-      <br/>
-      
-      <a class="label" href="http://localhost:1313//categories/doc">doc</a>
-      </span>
-                <p><p><strong>tmail vous permet de spécifier des routes sortantes pour les mails qu&rsquo;il a à expédier.</strong></p>
-
-<p>Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&rsquo;est le fonctionnement classique d&rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.</p>
-</p>
-                <a href="http://localhost:1313/doc/routes-smtp-sortantes/">Lire la suite &rarr;</a>
             </div>
             
         </div>

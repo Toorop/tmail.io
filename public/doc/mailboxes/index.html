@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Gérez vos boites mail avec tmail et Dovecot &middot; Journal de développement d&#39;un serveur SMTP</title>
+  <title>Gérez vos boites mail avec Dovecot &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
   <link rel="stylesheet" href="http://localhost:1313//css/poole.css">
@@ -67,11 +67,28 @@
     </div>
   </div>
 </div>
+<div id="social">
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="poroot">Tweet</a>
+<script>
+! function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+        p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+}(document, 'script', 'twitter-wjs');
+</script>
+
+
+</div>
 
     <div class="content container">
         <div class="post">
-            <h1>Gérez vos boites mail avec tmail et Dovecot</h1>
-            <span class="post-date">Mar 18, 2015 &middot; Temps de lecture: 9 min  &middot; <a href="http://localhost:1313/doc/mailboxes/#disqus_thread">Comments</a>
+            <h1 class="post-title">Gérez vos boites mail avec Dovecot</h1>
+            <span class="post-date">Mar 20, 2015 &middot; Temps de lecture: 9 min  &middot; <a href="http://localhost:1313/doc/mailboxes/#disqus_thread">Comments</a>
       
       <br/>
       
@@ -79,14 +96,14 @@
       </span> 
 
 <p>Initialement j&rsquo;avais prévu d&rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.<br />
-Le fait que l&rsquo;on m&rsquo;ait demandé si ça allait être bientôt disponible m&rsquo;a fait réaliser que gérer des comptes mails était quand même l&rsquo;usage principal d&rsquo;un serveur de messagerie, j&rsquo;ai donc décidé de remonter cette tache dans ma todo-list.</p>
+Le fait que l&rsquo;on m&rsquo;ait demandé si ça allait être bientôt disponible m&rsquo;a fait réaliser que gérer des comptes mails était quand même l&rsquo;usage principal d&rsquo;un serveur de messagerie - gnééééé&hellip; - , j&rsquo;ai donc décidé de remonter cette tache dans ma todo-list.</p>
 
-<p>Pour vous proposer cette fonctionnalité plus rapidement, j&rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une simple <strong>interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.</strong></p>
+<p>Pour vous proposer cette fonctionnalité plus rapidement, j&rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une <strong>interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.</strong></p>
 
-<p>L’intérêt de cette solution c&rsquo;est que l&rsquo;on peut implémenter l&rsquo;interface pour une multitude de types de stockage &ldquo;physique&rdquo;, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou plus proche de nous du Runabove.
-Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie adaptés et pourquoi pas des &ldquo;connecteurs/proxy&rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP).</p>
+<p>L’intérêt de cette solution c&rsquo;est que l&rsquo;on peut implémenter l&rsquo;interface pour une multitude de types de stockage, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou encore du Runabove.
+Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie, des &ldquo;connecteurs/proxy&rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP), mais aussi d&rsquo;interfacer simplement de nombreux outils au service de messagerie.</p>
 
-<p>Rassurez vous - ou pas - je n&rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&rsquo;utiliser tmail comme serveur mail classique, j&rsquo;ai décidé de prendre un raccourcis en implémentant le nécessaire pour utiliser Dovecot avec tmail.</p>
+<p>Rassurez vous - ou pas - je n&rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&rsquo;utiliser tmail comme serveur mail classique, j&rsquo;ai décidé de prendre un raccourci en implémentant le nécessaire pour utiliser Dovecot avec tmail.</p>
 
 <p><strong>Concrètement il est donc aujourd&rsquo;hui possible d&rsquo;utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d&rsquo;accéder aux boites mails via POP et IMAP.</strong></p>
 
@@ -239,7 +256,7 @@ FROM users WHERE login = '%u'
 <pre><code>!include auth-sql.conf.ext
 </code></pre>
 
-<p>Ensuite <strong>on configure l&rsquo;agent de livraison dovecot-lda</strong>, en éditant le fichier <em>/etc/dovecot/conf.d/10-mail.conf</em>.</p>
+<p>Ensuite <strong>on configure l&rsquo;agent de livraison dovecot-lda</strong>, en éditant le fichier <em>/etc/dovecot/conf.d/15-lda.conf</em>.</p>
 
 <p>L&rsquo;adresse postmaster: cette adresse va être, entre utilisée, si EDovecot à besoin d&rsquo;envoyer des mails pour informer d&rsquo;un problème. Par exemple pour bouncer un mail. Il va sans dire que cette adresse doit exister et je vous recommande fortement d&rsquo;utiliser une adresse du type postmaster@domain (on pourra utiliser un alias quand ce sera implémenté en attendant créez une boite via <em>tmail user add -m postmaster@tmail.io MOT_DE_PASSE</em>).</p>
 
@@ -341,7 +358,7 @@ mail_plugins = $mail_plugins quota imap_quota
 
 <h3 id="quelques-exemples-d-utilisation-de-sieve:4002a66b7442538ff5ec29eb457b2fec">Quelques exemples d&rsquo;utilisation de Sieve</h3>
 
-<p>Si comme moi vous utiliser Thunderbird comme client mail, n&rsquo;utilise pas le module Sieve présent sur le repo Mozilla, cette version ne fonctionne pas avec les version récente de Thunderbird. <a href="https://github.com/thsmi/sieve/tree/master/nightly/">télachargez la derniere version du plugin ManageSieve pour thunderbird ici</a>.</p>
+<p>Si comme moi vous utiliser Thunderbird comme client mail, n&rsquo;utilise pas le module Sieve présent sur le repo Mozilla, cette version ne fonctionne pas avec les version récente de Thunderbird. <a href="https://github.com/thsmi/sieve/tree/master/nightly/">téléchargez la dernière version du plugin ManageSieve pour thunderbird ici</a>.</p>
 
 <p>En début de script ajoutez :</p>
 
@@ -350,7 +367,7 @@ mail_plugins = $mail_plugins quota imap_quota
 
 <p>Classer les messages de la mailing-list bar@ovh.net dans le dossier Inbox/ml/bar@ovh</p>
 
-<pre><code>if address :is [&quot;To&quot;,&quot;Cc&quot;] &quot;users@spamassassin.apache.org&quot; {
+<pre><code>if address :is [&quot;To&quot;,&quot;Cc&quot;] &quot;bar@ml.ovh.net&quot; {
     fileinto &quot;ml.bar@ovh&quot;;
     stop;
 }

@@ -2,6 +2,12 @@ html {
   font-family: "Lato", sans-serif
 }
 
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
 .btn {
   position: relative;
   font-weight: 400;
@@ -15,7 +21,7 @@ html {
 }
 
 .content {
-  padding-top: 2em;
+  padding-top: 0em;
 }
 
 .content h1 {
@@ -32,7 +38,7 @@ html {
 
 .topbar {
   position: relative;
-  padding: 3em 0 6em 0;
+  padding: 0em 0 1em 0;
   background: url("/images/cover.png");
   background-size: cover;
   zoom: 1;
@@ -237,4 +243,11 @@ label[for="nav-trigger"] {
 body {
     /* Without this, the body has excess horizontal scroll when the menu is open */
   overflow-x: hidden;
+}
+
+#social {
+    padding-top: 10px;  
+    padding-left: 10px;
+    margin-bottom: 10px;
+    text-align: right;
 }

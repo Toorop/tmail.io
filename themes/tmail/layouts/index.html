@@ -1,5 +1,4 @@
 {{ partial "head.html" . }} {{ partial "navigation.html" . }}
-
 <div class="site-wrap">
     {{ partial "hero.html" . }}
     <div class="content container">
@@ -14,7 +13,8 @@
       <br/>
       {{ $baseUrl := .Site.BaseUrl }}
       {{ range .Params.categories }}<a class="label" href="{{ $baseUrl }}/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}
-      {{ end }}</span>
+      {{ end }}
+      </span>
                 <p>{{ .Summary }}</p>
                 <a href="{{ .Permalink }}">Lire la suite &rarr;</a>
             </div>

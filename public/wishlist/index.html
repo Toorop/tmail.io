@@ -67,10 +67,27 @@
     </div>
   </div>
 </div>
+<div id="social">
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="poroot">Tweet</a>
+<script>
+! function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+        p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+}(document, 'script', 'twitter-wjs');
+</script>
+
+
+</div>
 
     <div class="content container">
         <div class="post">
-            <h1>Wishlist</h1>
+            <h1 class="post-title">Wishlist</h1>
             <span class="post-date">Feb 26, 2015 &middot; Temps de lecture: 1 min  &middot; <a href="http://localhost:1313/wishlist/#disqus_thread">Comments</a>
       </span> 
 
@@ -93,6 +110,10 @@ Si vous avez une fonctionnalité que vous aimeriez voir intégrée:</p>
 <h2 id="approuvés-à-implémenter:88f30e4ec261bd5d2da2e6b82c2c10c8">Approuvés, à implémenter</h2>
 
 <h2 id="implémentés:88f30e4ec261bd5d2da2e6b82c2c10c8">Implémentés</h2>
+
+<ul>
+<li>Livraison locale, gestion de boites mails et compatiblilité Dovecot. <a href="https://groups.google.com/forum/#!topic/tmail-dev/niW_EtXkZKQ" target="_blank"> Discussion </a> - <a href="/doc/mailboxes/">Documentation</a></li>
+</ul>
 
         </div>
         <div id="disqus_thread"></div>
