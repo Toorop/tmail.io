@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Podcast &middot; Journal de développement d&#39;un serveur SMTP</title>
+  <title>Documentation &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
   <link rel="stylesheet" href="http://tmail.io//css/poole.css">
@@ -24,14 +24,14 @@
   <link href="/favicon.png" rel="icon">
 
   
-  <link href="http://tmail.io/tags/podcast/index.xml" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
+  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
 
   <meta name="description" content="Journal de développement d&#39;un serveur SMTP">
   <meta name="keywords" content="[tmail smtp develloppement golang]">
   <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
 </head>
 <body>
-<ul class="navigation">
+ <ul class="navigation">
     <li class="nav-item"><a href="/">Home</a> </li>
     
     <li class="nav-item"><a href="/documentation/"> Documentation </a>
@@ -89,46 +89,56 @@
 </div>
 
     <div class="content container">
-        <ul class="posts">
-            
-            <li><a href="http://tmail.io/podcast/3/">Podcast #3: Nouvelle rubrique</a>  &middot;  <a class="label" href="http://tmail.io//categories/podcast">podcast</a> </span>
-                &middot;
-                <time>Mar 14, 2015</time>
-            </li>
-            
-            <li><a href="http://tmail.io/podcast/episode-2/">Podcast #2: Toc toc...</a>  &middot;  <a class="label" href="http://tmail.io//categories/podcast">podcast</a> </span>
-                &middot;
-                <time>Mar 6, 2015</time>
-            </li>
-            
-            <li><a href="http://tmail.io/podcast/episode-1-antivirus/">Podcast #1: Antivirus</a>  &middot;  <a class="label" href="http://tmail.io//categories/podcast">podcast</a> </span>
-                &middot;
-                <time>Feb 24, 2015</time>
-            </li>
-            
-            <li><a href="http://tmail.io/podcast/episode-0/">Podcast #0: Présentations</a>  &middot;  <a class="label" href="http://tmail.io//categories/podcast">podcast</a> </span>
-                &middot;
-                <time>Feb 23, 2015</time>
-            </li>
-            
-        </ul>
+        <div class="post">
+            <h1 class="post-title">Documentation</h1>
+            <span class="post-date">Mar 22, 2015 &middot; Temps de lecture: 1 min  &middot; <a href="http://tmail.io/documentation/#disqus_thread">Comments</a>
+      </span> 
+
+<h1 id="installation:519b3731c0b3c26bafa462d3efdcc120">Installation</h1>
+
+<ul>
+<li><a href="/doc/installer-tmail/">Installation et configuration de base</a></li>
+<li><a href="/doc/mailboxes/">Boites locales</a></li>
+<li><a href="/doc/filtrage-smtp-antivirus-clamav/">Filtrage antivirus via Clamav</a></li>
+</ul>
+
+<h1 id="cli:519b3731c0b3c26bafa462d3efdcc120">Cli</h1>
+
+<ul>
+<li><a href="/doc/cli-gestion-queue/">Gestion de la queue</a></li>
+<li><a href="/doc/routes-smtp-sortantes/">Routage</a></li>
+<li>Gestion des utilisateurs <em>todo</em></li>
+<li>Gestion des domaines pris en charge <em>todo</em></li>
+<li>Gestion des IP authorisées à relayer <em>todo</em></li>
+</ul>
+
+<h1 id="smtp-sortant:519b3731c0b3c26bafa462d3efdcc120">SMTP sortant</h1>
+
+<ul>
+<li><a href="/doc/routes-smtp-sortantes/">Principe de fonctionnement des règles de routage</a></li>
+</ul>
+
+        </div>
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = '';
+    dsq.src = '//tmail.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
     </div>
 </div>
-
-<script type="text/javascript">
-var disqus_shortname = {
-    {.
-    }
-};
-(function() {
-    var s = document.createElement('script');
-    s.async = true;
-    s.type = 'text/javascript';
-    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
-</script>
- <script>
+<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

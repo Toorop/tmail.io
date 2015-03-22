@@ -38,7 +38,7 @@ Les règles sont testées dans l'ordre suivant:
 * tmail va chercher une règle par défaut (wildcard "*" sur le domaine de destination)
 
 
-Par *règle liée à l'utilisateur authentifié* j'entends une règle lié au login complet de cet utilisateur, ou si il n'y en a pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld
+Par *règle liée à l'utilisateur authentifié* j'entends une règle liée au login complet de cet utilisateur, ou si il n'y en a pas et que ce login est de la forme user@domaine.tld un règle liée à domaine.tld
 
 
-#### A venir: Création des règles de routage
+[Vous pouvez configurer les règles de routage en utilisante le CLI](/doc/cli-gestion-queue/)

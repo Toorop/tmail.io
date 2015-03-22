@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Routes on tmail</title>
-    <link>http://localhost:1313/tags/routes/</link>
+    <link>http://tmail.io/tags/routes/</link>
     <description>Recent content in Routes on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Wed, 28 Jan 2015 09:15:12 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/routes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tmail.io/tags/routes/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gestion des routes SMTP en utilisant le CLI</title>
-      <link>http://localhost:1313/doc/cli-gestion-route-smtp/</link>
+      <link>http://tmail.io/doc/cli-gestion-route-smtp/</link>
       <pubDate>Wed, 28 Jan 2015 09:15:12 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/cli-gestion-route-smtp/</guid>
+      <guid>http://tmail.io/doc/cli-gestion-route-smtp/</guid>
       <description>
 
 &lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
 
-&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;http://localhost:1313/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;
+&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;
 
 &lt;h3 id=&#34;lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f&#34;&gt;Lister toutes les routes&lt;/h3&gt;
 
@@ -133,13 +133,11 @@ tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
     
     <item>
       <title>Routes smtp sortantes</title>
-      <link>http://localhost:1313/doc/routes-smtp-sortantes/</link>
+      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
       <pubDate>Mon, 19 Jan 2015 16:38:23 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/routes-smtp-sortantes/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
+      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;
 
@@ -174,9 +172,9 @@ tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
 &lt;li&gt;&lt;p&gt;tmail va chercher une règle par défaut (wildcard &amp;ldquo;*&amp;rdquo; sur le domaine de destination)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle lié au login complet de cet utilisateur, ou si il n&amp;rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld&lt;/p&gt;
+&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle liée au login complet de cet utilisateur, ou si il n&amp;rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle liée à domaine.tld&lt;/p&gt;
 
-&lt;h4 id=&#34;a-venir-création-des-règles-de-routage:5e9d67da96eda8e125d0b466af0f081e&#34;&gt;A venir: Création des règles de routage&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Vous pouvez configurer les règles de routage en utilisante le CLI&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

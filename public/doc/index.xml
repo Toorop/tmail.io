@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on tmail</title>
-    <link>http://localhost:1313/doc/</link>
+    <link>http://tmail.io/doc/</link>
     <description>Recent content in Docs on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Fri, 20 Mar 2015 16:34:28 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/doc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tmail.io/doc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gérez vos boites mail avec Dovecot</title>
-      <link>http://localhost:1313/doc/mailboxes/</link>
+      <link>http://tmail.io/doc/mailboxes/</link>
       <pubDate>Fri, 20 Mar 2015 16:34:28 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/mailboxes/</guid>
+      <guid>http://tmail.io/doc/mailboxes/</guid>
       <description>
 
 &lt;p&gt;Initialement j&amp;rsquo;avais prévu d&amp;rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.&lt;br /&gt;
@@ -70,7 +70,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
 &lt;p&gt;Si vous avez déjà tmail installé, je vous recommande de supprimer les tables de votre base de données.
 Beaucoup de modifications on été faites et il est plus prudent de repartir de zéro.&lt;/p&gt;
 
-&lt;p&gt;Suivez ce tutoriel pour &lt;a href=&#34;http://localhost:1313/doc/installer-tmail/&#34;&gt;installer tmail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Suivez ce tutoriel pour &lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;installer tmail&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;configuration-de-tmail:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Configuration de tmail&lt;/h3&gt;
 
@@ -309,10 +309,10 @@ mail_plugins = $mail_plugins quota imap_quota
     
     <item>
       <title>Filtrage antivirus en utilisant Clamav</title>
-      <link>http://localhost:1313/doc/filtrage-smtp-antivirus-clamav/</link>
+      <link>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</link>
       <pubDate>Wed, 18 Feb 2015 14:19:22 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/filtrage-smtp-antivirus-clamav/</guid>
+      <guid>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</guid>
       <description>
 
 &lt;p&gt;Vous trouverez dans ce billet les explications nécessaires pour installer l&amp;rsquo;antivirus opensource &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;Clamav&lt;/a&gt; et activer le filtrage de votre flux SMTP par tmail.&lt;/p&gt;
@@ -365,10 +365,10 @@ export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
     
     <item>
       <title>Installer et configurer tmail</title>
-      <link>http://localhost:1313/doc/installer-tmail/</link>
+      <link>http://tmail.io/doc/installer-tmail/</link>
       <pubDate>Thu, 29 Jan 2015 17:00:44 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/installer-tmail/</guid>
+      <guid>http://tmail.io/doc/installer-tmail/</guid>
       <description>
 
 &lt;p&gt;&lt;br&gt;
@@ -520,9 +520,9 @@ TMAIL_SMTPD_DSNS=&amp;ldquo;151.80.115.83:2525:false;151.80.115.83:5877:false;15
 &lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_QUEUE_LIFETIME: correspond au temps de rétention en queue avant qu&amp;rsquo;un mail ne soit bouncé si tmail n&amp;rsquo;arrive pas à l’expédier. Par défaut le temps est très court, si il vous prend l&amp;rsquo;envie d&amp;rsquo;utiliser tmail en prod (ce que je ne vous conseille pas de faire en l&amp;rsquo;état) augmentez le.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, &lt;a href=&#34;http://localhost:1313/doc/filtrage-smtp-antivirus-clamav&#34;&gt;consultez ce billet&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, &lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav&#34;&gt;consultez ce billet&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Si vous souhaitez gérer des boites mail consulter ce billet: &lt;a href=&#34;http://localhost:1313/doc/mailboxes/&#34;&gt;Gérez vos boites mail avec tmail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si vous souhaitez gérer des boites mail consulter ce billet: &lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Gérez vos boites mail avec tmail&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Un fois cette configuration faite, on peut lancer lancer tmail.&lt;/p&gt;
 
@@ -626,7 +626,7 @@ Connection closed by foreign host.
 &lt;pre&gt;&lt;code&gt;tmail routes add -d toorop.fr -rh mail.toorop.fr
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Je vous invite lire la documentation sur les &lt;a href=&#34;http://localhost:1313/doc/cli-gestion-route-smtp/&#34;&gt;régles de routage SMTP&lt;/a&gt; pour connaitre les possibilités offertes par tmail.&lt;/p&gt;
+&lt;p&gt;Je vous invite lire la documentation sur les &lt;a href=&#34;http://tmail.io/doc/cli-gestion-route-smtp/&#34;&gt;régles de routage SMTP&lt;/a&gt; pour connaitre les possibilités offertes par tmail.&lt;/p&gt;
 
 &lt;h3 id=&#34;ajout-de-utilisateur-smtp-toorop-toorop-fr:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Ajout de utilisateur SMTP toorop@toorop.fr&lt;/h3&gt;
 
@@ -677,15 +677,15 @@ tmux
     
     <item>
       <title>Gestion des routes SMTP en utilisant le CLI</title>
-      <link>http://localhost:1313/doc/cli-gestion-route-smtp/</link>
+      <link>http://tmail.io/doc/cli-gestion-route-smtp/</link>
       <pubDate>Wed, 28 Jan 2015 09:15:12 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/cli-gestion-route-smtp/</guid>
+      <guid>http://tmail.io/doc/cli-gestion-route-smtp/</guid>
       <description>
 
 &lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
 
-&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;http://localhost:1313/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;
+&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;
 
 &lt;h3 id=&#34;lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f&#34;&gt;Lister toutes les routes&lt;/h3&gt;
 
@@ -799,10 +799,10 @@ tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
     
     <item>
       <title>Gestion de la queue en utilisant le CLI</title>
-      <link>http://localhost:1313/doc/cli-gestion-queue/</link>
+      <link>http://tmail.io/doc/cli-gestion-queue/</link>
       <pubDate>Wed, 21 Jan 2015 14:20:24 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/cli-gestion-queue/</guid>
+      <guid>http://tmail.io/doc/cli-gestion-queue/</guid>
       <description>
 
 &lt;h4 id=&#34;lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Lister les messages en queue&lt;/h4&gt;
@@ -874,13 +874,11 @@ There is no message in queue.
     
     <item>
       <title>Routes smtp sortantes</title>
-      <link>http://localhost:1313/doc/routes-smtp-sortantes/</link>
+      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
       <pubDate>Mon, 19 Jan 2015 16:38:23 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/routes-smtp-sortantes/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
+      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;
 
@@ -915,9 +913,9 @@ There is no message in queue.
 &lt;li&gt;&lt;p&gt;tmail va chercher une règle par défaut (wildcard &amp;ldquo;*&amp;rdquo; sur le domaine de destination)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle lié au login complet de cet utilisateur, ou si il n&amp;rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle lié à domaine.tld&lt;/p&gt;
+&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle liée au login complet de cet utilisateur, ou si il n&amp;rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle liée à domaine.tld&lt;/p&gt;
 
-&lt;h4 id=&#34;a-venir-création-des-règles-de-routage:5e9d67da96eda8e125d0b466af0f081e&#34;&gt;A venir: Création des règles de routage&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Vous pouvez configurer les règles de routage en utilisante le CLI&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

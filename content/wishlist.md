@@ -4,7 +4,7 @@ draft = false
 title = "Wishlist"
 [menu.main]
 name = "Wishlist"
-weight = 3
+weight = 4
 +++
 
 Cette page recense les fonctionnalités que vous souhaitez voir implémentées dans tmail.
