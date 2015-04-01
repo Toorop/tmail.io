@@ -2,19 +2,151 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tmail</title>
-    <link>http://tmail.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 27 Mar 2015 15:50:03 +0100</lastBuildDate>
-    <atom:link href="http://tmail.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Apr 2015 15:05:07 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>API REST tmail</title>
+      <link>http://localhost:1313/doc/rest-api/</link>
+      <pubDate>Wed, 01 Apr 2015 15:05:07 +0200</pubDate>
+      
+      <guid>http://localhost:1313/doc/rest-api/</guid>
+      <description>
+
+&lt;p&gt;tmail embarque un &lt;a href=&#34;http://fr.wikipedia.org/wiki/Serveur_HTTP&#34; target=&#34;_blank&#34; title=&#34;qu&#39;est ce qu&#39;un serveur HTTP&#34;&gt; serveur HTTP&lt;/a&gt; qui expose une &lt;a href=&#34;http://fr.wikipedia.org/wiki/Representational_State_Transfer&#34; target=&#34;_blank&#34; title=&#34;Qu&#39;est ce qu&#39;une API REST&#34;&gt;API REST&lt;/a&gt;. Cette API vous permet d’administrer votre serveur tmail et &lt;em&gt;&amp;lt;teasing&amp;gt;&lt;/em&gt; dans un futur &amp;ldquo;proche&amp;rdquo; votre cluster SMTP tmail&lt;em&gt;&amp;lt;/teasing&amp;gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;activation-et-configuration-de-l-api-rest:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Activation et configuration de l&amp;rsquo;API REST.&lt;/h3&gt;
+
+&lt;p&gt;Vous devez d&amp;rsquo;abord spécifier que vous souhaitez activer le service:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Launch REST server
+export TMAIL_REST_SERVER_LAUNCH=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Puis définir sur quelle IP il doit écouter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# REST server IP
+export TMAIL_REST_SERVER_IP=&amp;quot;127.0.0.1&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Et sur quel port:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# REST server port
+export TMAIL_REST_SERVER_PORT=8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ce paramètre vous permet d&amp;rsquo;activer (ou non) le chiffrement de votre connexion:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# REST server is TLS (https) ?
+export TMAIL_REST_SERVER_IS_TLS=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;tmail va utiliser le certificat dist/ssl/web_server.crt et la clé dist/ssl/web_server.key pour chiffrer les transactions. Vous pouvez utiliser ceux inclus dans la distribution pour vos tests mais attention cela va générer des alertes auprès des clients REST que vous allez utiliser.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Si votre serveur REST écoute sur une IP publique, activer TLS n&amp;rsquo;est pas une option, c&amp;rsquo;est impératif car l&amp;rsquo;authentification se fait avec des mots de passe en clair  &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;(authentification HTTP Basic)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Enfin vous devez définir vos identifiants de connexion:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Login for HTTP auth
+export TMAIL_REST_SERVER_LOGIN=&amp;quot;admin&amp;quot;
+
+# Passwd for HTTP auth
+export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;test:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Test&lt;/h4&gt;
+
+&lt;p&gt;Après avoir relancé tmail vous devriez voir dans vos logs une ligne de ce type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/01 15:32:06.467484 INFO - httpd 127.0.0.1:8080 TLS launched
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vous pouvez tester le fonctionnement de l&amp;rsquo;API en appelant la ressource /ping. Par exemple avec &lt;a href=&#34;http://curl.haxx.se/&#34; target=&#34;_blank&#34; title=&#34;tester une API REST avec curl&#34;&gt;curl&lt;/a&gt; :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -k https://127.0.0.1:8080/ping
+{&amp;quot;msg&amp;quot;: &amp;quot;pong&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;La ligne de log correspondant à cette requête :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/01 15:48:58.183360 INFO - http 127.0.0.1:49536 - GET /ping - 200 OK 16.419µs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Note: Non il n&amp;rsquo;y à pas d&amp;rsquo;erreur la requête à bien mis 0.000016 seconde pour être exécutée ;-)&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;généralités:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Généralités&lt;/h2&gt;
+
+&lt;h3 id=&#34;authentification:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Authentification&lt;/h3&gt;
+
+&lt;p&gt;L&amp;rsquo;API utilise l&amp;rsquo;authentification &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;HTTP Basic&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pourquoi ce type d’authentification ?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;simple à mettre en œuvre&lt;/li&gt;
+&lt;li&gt;compatible avec tous les clients HTTP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;requêtes:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Requêtes&lt;/h3&gt;
+
+&lt;p&gt;Si il est nécessaire de transmettre des éléments à l&amp;rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.&lt;/p&gt;
+
+&lt;h3 id=&#34;réponses:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Réponses&lt;/h3&gt;
+
+&lt;p&gt;Le corps, si il existe est lui aussi un message JSON.&lt;/p&gt;
+
+&lt;h3 id=&#34;codes-http:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Codes HTTP&lt;/h3&gt;
+
+&lt;p&gt;Succès :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;200 OK: La requête à été exécuté avec succès, la réponse contient un corps.&lt;/li&gt;
+&lt;li&gt;201 Created: L&amp;rsquo;entité à été crée.&lt;/li&gt;
+&lt;li&gt;204 No Content: La requête à été exécuté avec succès, le corps de la réponse est vide.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Erreurs :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;400 Bad Request: Le requête est mal formée.&lt;/li&gt;
+&lt;li&gt;401 Unauthorized: Une autorisation est nécessaire.&lt;/li&gt;
+&lt;li&gt;403 Forbidden: L’accès est refusé.&lt;/li&gt;
+&lt;li&gt;404 Not Found: La ressource demandée n&amp;rsquo;existe pas.&lt;/li&gt;
+&lt;li&gt;422 Unprocessable Entry: La requête visant à créer ou modifier une entité n&amp;rsquo;a pas pu être exécutée car les données transmises n&amp;rsquo;étaient pas conformes.&lt;/li&gt;
+&lt;li&gt;500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;erreurs:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Erreurs&lt;/h3&gt;
+
+&lt;p&gt;En cas d&amp;rsquo;erreur (4** ou 5**), un message sous forme d&amp;rsquo;un objet JSON est retourné.
+Le message contient deux champs:
+* msg: le message d&amp;rsquo;erreur générée par l&amp;rsquo;application
+* raw: l&amp;rsquo;erreur levée (quand elle existe)&lt;/p&gt;
+
+&lt;p&gt;Exemple, si on essaye de créer un utilisateur qui existe déjà:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -H &amp;quot;Content-Type: application/json&amp;quot; -X POST -d &#39;{&amp;quot;passwd&amp;quot;:&amp;quot;motdepasse&amp;quot;,&amp;quot;authRelay&amp;quot;:true,&amp;quot;haveMailbox&amp;quot;:true,&amp;quot;mailboxQuota&amp;quot;:&amp;quot;1G&amp;quot;}&#39; -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
+
+&amp;lt; HTTP/1.1 422 status code 422
+&amp;lt; Content-Type: application/json; charset=UTF-8
+&amp;lt; Date: Wed, 01 Apr 2015 15:01:21 GMT
+&amp;lt; Content-Length: 85
+
+{&amp;quot;msg&amp;quot;:&amp;quot;unable to create new user&amp;quot;,&amp;quot;raw&amp;quot;:&amp;quot;UNIQUE constraint failed: users.login&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Podcast #5 - Heu non c&#39;est l&#39;inverse</title>
-      <link>http://tmail.io/podcast/5/</link>
+      <link>http://localhost:1313/podcast/5/</link>
       <pubDate>Fri, 27 Mar 2015 15:50:03 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/5/</guid>
+      <guid>http://localhost:1313/podcast/5/</guid>
       <description>
 
 &lt;p&gt;Cette semaine il est question de logs, de message-id, de majuscules qui deviennent des minuscules (ou l&amp;rsquo;inverse je ne sais plus), de verbes et pour finir je vous parle du client de podcasts que j&amp;rsquo;utilise.&lt;/p&gt;
@@ -34,7 +166,7 @@
 &lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:4108045d631e1ffc0a8f9e461e342847&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/logs/&#34; title=&#34;configuration des logs du serveur SMTP tmail&#34;&gt;Configurer les logs tmail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/logs/&#34; title=&#34;configuration des logs du serveur SMTP tmail&#34;&gt;Configurer les logs tmail&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.shiftyjelly.com/pocketcasts&#34; title=&#34;Pocketcasts: application pour lire vos podcasts&#34;&gt;Pocketcasts&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/Toorop/My-subscribed-podcasts/master/podcasts_opml.xml&#34; target=&#34;_blank&#34;&gt;De quoi nourrir votre lecteur de podcasts avec mes abonnements&lt;/a&gt;&lt;/li&gt;
 
@@ -44,10 +176,10 @@
     
     <item>
       <title>Gestion des logs tmail</title>
-      <link>http://tmail.io/doc/logs/</link>
+      <link>http://localhost:1313/doc/logs/</link>
       <pubDate>Fri, 27 Mar 2015 14:03:12 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/logs/</guid>
+      <guid>http://localhost:1313/doc/logs/</guid>
       <description>&lt;p&gt;Par défaut tmail va afficher les logs sur la sortie standard &lt;em&gt;stdout&lt;/em&gt;.&lt;br /&gt;
 Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fichier texte.&lt;/p&gt;
 
@@ -99,26 +231,26 @@ Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fi
     
     <item>
       <title>Documentation</title>
-      <link>http://tmail.io/documentation/</link>
+      <link>http://localhost:1313/documentation/</link>
       <pubDate>Sun, 22 Mar 2015 19:09:52 +0100</pubDate>
       
-      <guid>http://tmail.io/documentation/</guid>
+      <guid>http://localhost:1313/documentation/</guid>
       <description>
 
 &lt;h1 id=&#34;installation:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;Installation&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;Installation et configuration de base&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Boites locales&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav/&#34;&gt;Filtrage antivirus via Clamav&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/logs&#34;&gt;Gestion des logs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/installer-tmail/&#34;&gt;Installation et configuration de base&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/mailboxes/&#34;&gt;Boites locales&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/filtrage-smtp-antivirus-clamav/&#34;&gt;Filtrage antivirus via Clamav&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/logs&#34;&gt;Gestion des logs&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&#34;cli:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;Cli&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Gestion de la queue&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;Routage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/cli-gestion-queue/&#34;&gt;Gestion de la queue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/routes-smtp-sortantes/&#34;&gt;Routage&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Gestion des utilisateurs &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Gestion des domaines pris en charge &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Gestion des IP authorisées à relayer &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
@@ -127,17 +259,17 @@ Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fi
 &lt;h1 id=&#34;smtp-sortant:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;SMTP sortant&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;Principe de fonctionnement des règles de routage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/routes-smtp-sortantes/&#34;&gt;Principe de fonctionnement des règles de routage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Podcast #4 - Titi et Toto</title>
-      <link>http://tmail.io/podcast/4/</link>
+      <link>http://localhost:1313/podcast/4/</link>
       <pubDate>Sun, 22 Mar 2015 09:38:58 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/4/</guid>
+      <guid>http://localhost:1313/podcast/4/</guid>
       <description>
 
 &lt;p&gt;Cette semaine je vous parle des nouveautés de la version 0.0.4, de sieve, et je réponds à la question existentielle: Qu&amp;rsquo;est ce qu&amp;rsquo;un mail ?&lt;/p&gt;
@@ -156,12 +288,12 @@ Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fi
 
 &lt;p&gt;Un petite illustration valant mieux qu&amp;rsquo;un long discours, voici un schéma représentant la structure d&amp;rsquo;un email.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&#34;center&#34; src=&#34;http://tmail.io/img/structure-email.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&#34;center&#34; src=&#34;http://localhost:1313/img/structure-email.png&#34;&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:e7fd8297e2196d1a566a3e2e51cbb23a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34; title=&#34;installation dovecot sieve tmail&#34;&gt;Installer et configurer Dovecot pour tmail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/doc/mailboxes/&#34; title=&#34;installation dovecot sieve tmail&#34;&gt;Installer et configurer Dovecot pour tmail&lt;/a&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve&#34; title=&#34;Extension Sieve pour Dovecot&#34; target=&#34;_blank&#34;&gt;Extension Sieve Pigeonhole pour Dovecot&lt;/a&gt;&lt;/li&gt;
 
@@ -175,10 +307,10 @@ Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fi
     
     <item>
       <title>Gérez vos boites mail avec Dovecot</title>
-      <link>http://tmail.io/doc/mailboxes/</link>
+      <link>http://localhost:1313/doc/mailboxes/</link>
       <pubDate>Fri, 20 Mar 2015 16:34:28 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/mailboxes/</guid>
+      <guid>http://localhost:1313/doc/mailboxes/</guid>
       <description>
 
 &lt;p&gt;Initialement j&amp;rsquo;avais prévu d&amp;rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.&lt;br /&gt;
@@ -234,7 +366,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
 &lt;p&gt;Si vous avez déjà tmail installé, je vous recommande de supprimer les tables de votre base de données.
 Beaucoup de modifications on été faites et il est plus prudent de repartir de zéro.&lt;/p&gt;
 
-&lt;p&gt;Suivez ce tutoriel pour &lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;installer tmail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Suivez ce tutoriel pour &lt;a href=&#34;http://localhost:1313/doc/installer-tmail/&#34;&gt;installer tmail&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;configuration-de-tmail:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Configuration de tmail&lt;/h3&gt;
 
@@ -473,10 +605,10 @@ mail_plugins = $mail_plugins quota imap_quota
     
     <item>
       <title>Changelog</title>
-      <link>http://tmail.io/changelog/</link>
+      <link>http://localhost:1313/changelog/</link>
       <pubDate>Sat, 14 Mar 2015 19:38:45 +0100</pubDate>
       
-      <guid>http://tmail.io/changelog/</guid>
+      <guid>http://localhost:1313/changelog/</guid>
       <description>
 
 &lt;h2 id=&#34;v-0-0-5:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.5&lt;/h2&gt;
@@ -515,10 +647,10 @@ mail_plugins = $mail_plugins quota imap_quota
     
     <item>
       <title>Podcast #3: Nouvelle rubrique</title>
-      <link>http://tmail.io/podcast/3/</link>
+      <link>http://localhost:1313/podcast/3/</link>
       <pubDate>Sat, 14 Mar 2015 19:38:45 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/3/</guid>
+      <guid>http://localhost:1313/podcast/3/</guid>
       <description>
 
 &lt;p&gt;Les nouvelles du projet, avec cette semaine, des corrections de bugs, du refactoring et&amp;hellip; une nouvelle rubrique.
@@ -549,10 +681,10 @@ mail_plugins = $mail_plugins quota imap_quota
     
     <item>
       <title>Podcast #2: Toc toc...</title>
-      <link>http://tmail.io/podcast/episode-2/</link>
+      <link>http://localhost:1313/podcast/episode-2/</link>
       <pubDate>Fri, 06 Mar 2015 07:50:04 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/episode-2/</guid>
+      <guid>http://localhost:1313/podcast/episode-2/</guid>
       <description>
 
 &lt;p&gt;Dans cet épisode je vais vous parler des suggestions qui m&amp;rsquo;ont été faites concernant les fonctionnalités de tmail.
@@ -579,10 +711,10 @@ mail_plugins = $mail_plugins quota imap_quota
     
     <item>
       <title>Wishlist</title>
-      <link>http://tmail.io/wishlist/</link>
+      <link>http://localhost:1313/wishlist/</link>
       <pubDate>Thu, 26 Feb 2015 12:00:11 +0100</pubDate>
       
-      <guid>http://tmail.io/wishlist/</guid>
+      <guid>http://localhost:1313/wishlist/</guid>
       <description>
 
 &lt;p&gt;Cette page recense les fonctionnalités que vous souhaitez voir implémentées dans tmail.
@@ -606,17 +738,17 @@ Si vous avez une fonctionnalité que vous aimeriez voir intégrée:&lt;/p&gt;
 &lt;h2 id=&#34;implémentés:88f30e4ec261bd5d2da2e6b82c2c10c8&#34;&gt;Implémentés&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Livraison locale, gestion de boites mails et compatiblilité Dovecot. &lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/niW_EtXkZKQ&#34; target=&#34;_blank&#34;&gt; Discussion &lt;/a&gt; - &lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Livraison locale, gestion de boites mails et compatiblilité Dovecot. &lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/niW_EtXkZKQ&#34; target=&#34;_blank&#34;&gt; Discussion &lt;/a&gt; - &lt;a href=&#34;http://localhost:1313/doc/mailboxes/&#34;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Podcast #1: Antivirus</title>
-      <link>http://tmail.io/podcast/episode-1-antivirus/</link>
+      <link>http://localhost:1313/podcast/episode-1-antivirus/</link>
       <pubDate>Tue, 24 Feb 2015 12:03:26 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/episode-1-antivirus/</guid>
+      <guid>http://localhost:1313/podcast/episode-1-antivirus/</guid>
       <description>
 
 &lt;p&gt;Dans cet épisode je vais vous parler de l&amp;rsquo;intégration du filtrage antivirus au sein de tmail en utilisant le scanner opensource Clamav.
@@ -644,10 +776,10 @@ Si vous avez une fonctionnalité que vous aimeriez voir intégrée:&lt;/p&gt;
     
     <item>
       <title>Podcast #0: Présentations</title>
-      <link>http://tmail.io/podcast/episode-0/</link>
+      <link>http://localhost:1313/podcast/episode-0/</link>
       <pubDate>Mon, 23 Feb 2015 17:19:30 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/episode-0/</guid>
+      <guid>http://localhost:1313/podcast/episode-0/</guid>
       <description>
 
 &lt;p&gt;Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&amp;rsquo;etre de ce podcast.
@@ -678,19 +810,19 @@ Si vous avez une fonctionnalité que vous aimeriez voir intégrée:&lt;/p&gt;
     
     <item>
       <title>Rechercher</title>
-      <link>http://tmail.io/recherche/</link>
+      <link>http://localhost:1313/recherche/</link>
       <pubDate>Mon, 23 Feb 2015 16:22:25 +0100</pubDate>
       
-      <guid>http://tmail.io/recherche/</guid>
+      <guid>http://localhost:1313/recherche/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Filtrage antivirus en utilisant Clamav</title>
-      <link>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</link>
+      <link>http://localhost:1313/doc/filtrage-smtp-antivirus-clamav/</link>
       <pubDate>Wed, 18 Feb 2015 14:19:22 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</guid>
+      <guid>http://localhost:1313/doc/filtrage-smtp-antivirus-clamav/</guid>
       <description>
 
 &lt;p&gt;Vous trouverez dans ce billet les explications nécessaires pour installer l&amp;rsquo;antivirus opensource &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;Clamav&lt;/a&gt; et activer le filtrage de votre flux SMTP par tmail.&lt;/p&gt;
@@ -743,10 +875,10 @@ export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
     
     <item>
       <title>Installer et configurer tmail</title>
-      <link>http://tmail.io/doc/installer-tmail/</link>
+      <link>http://localhost:1313/doc/installer-tmail/</link>
       <pubDate>Thu, 29 Jan 2015 17:00:44 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/installer-tmail/</guid>
+      <guid>http://localhost:1313/doc/installer-tmail/</guid>
       <description>
 
 &lt;p&gt;&lt;br&gt;
@@ -898,9 +1030,9 @@ TMAIL_SMTPD_DSNS=&amp;ldquo;151.80.115.83:2525:false;151.80.115.83:5877:false;15
 &lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_QUEUE_LIFETIME: correspond au temps de rétention en queue avant qu&amp;rsquo;un mail ne soit bouncé si tmail n&amp;rsquo;arrive pas à l’expédier. Par défaut le temps est très court, si il vous prend l&amp;rsquo;envie d&amp;rsquo;utiliser tmail en prod (ce que je ne vous conseille pas de faire en l&amp;rsquo;état) augmentez le.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, &lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav&#34;&gt;consultez ce billet&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, &lt;a href=&#34;http://localhost:1313/doc/filtrage-smtp-antivirus-clamav&#34;&gt;consultez ce billet&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Si vous souhaitez gérer des boites mail consulter ce billet: &lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Gérez vos boites mail avec tmail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si vous souhaitez gérer des boites mail consulter ce billet: &lt;a href=&#34;http://localhost:1313/doc/mailboxes/&#34;&gt;Gérez vos boites mail avec tmail&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Un fois cette configuration faite, on peut lancer lancer tmail.&lt;/p&gt;
 
@@ -1004,7 +1136,7 @@ Connection closed by foreign host.
 &lt;pre&gt;&lt;code&gt;tmail routes add -d toorop.fr -rh mail.toorop.fr
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Je vous invite lire la documentation sur les &lt;a href=&#34;http://tmail.io/doc/cli-gestion-route-smtp/&#34;&gt;régles de routage SMTP&lt;/a&gt; pour connaitre les possibilités offertes par tmail.&lt;/p&gt;
+&lt;p&gt;Je vous invite lire la documentation sur les &lt;a href=&#34;http://localhost:1313/doc/cli-gestion-route-smtp/&#34;&gt;régles de routage SMTP&lt;/a&gt; pour connaitre les possibilités offertes par tmail.&lt;/p&gt;
 
 &lt;h3 id=&#34;ajout-de-utilisateur-smtp-toorop-toorop-fr:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Ajout de utilisateur SMTP toorop@toorop.fr&lt;/h3&gt;
 
@@ -1050,128 +1182,6 @@ tmux
 &lt;p&gt;J&amp;rsquo;ai mis en place &lt;a href=&#34;https://groups.google.com/d/forum/tmail-dev&#34;&gt;un groupe de discussion&lt;/a&gt; sur Google Groups pour discuter du projet. N&amp;rsquo;hésitez pas à soumettre vos suggestions.&lt;/p&gt;
 
 &lt;p&gt;Bon tests ;)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Gestion des routes SMTP en utilisant le CLI</title>
-      <link>http://tmail.io/doc/cli-gestion-route-smtp/</link>
-      <pubDate>Wed, 28 Jan 2015 09:15:12 +0100</pubDate>
-      
-      <guid>http://tmail.io/doc/cli-gestion-route-smtp/</guid>
-      <description>
-
-&lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
-
-&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;
-
-&lt;h3 id=&#34;lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f&#34;&gt;Lister toutes les routes&lt;/h3&gt;
-
-&lt;p&gt;La commande pour lister les routes est:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes list
-
-1 - Destination host: toorop.fr - Prority: 1 - Local IPs: default - Remote host: mail.toorop.fr:25
-2 - Destination host: tmail.io - Prority: 1 - Local IPs: default - Remote host: mail.tmail.io:25
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pour le moment il n&amp;rsquo;y a pas de paramètres pour spécifier des critères de recherche. Si vous avez besoin de rechercher une route particulière, le plus simple pour le moment est d&amp;rsquo;utiliser l&amp;rsquo;outil &lt;em&gt;grep&lt;/em&gt; pour filtrer la sortie de la commande &lt;em&gt;tmail routes list&lt;/em&gt;.&lt;br /&gt;
-Par exemple si vous voulez chercher les routes faisant référence au domaine tmail.io :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes list | grep tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;ajouter-une-régle-de-routage-smtp:253091a785f27e2f20aac978da09c51f&#34;&gt;Ajouter une régle de routage SMTP&lt;/h3&gt;
-
-&lt;h4 id=&#34;aide-en-ligne:253091a785f27e2f20aac978da09c51f&#34;&gt;Aide en ligne&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add --help
-NAME:
-    add - Add a route
-USAGE:
-    command add [command options] [arguments...]
-DESCRIPTION:
-    tmail routes add -d DESTINATION_HOST -rh REMOTE_HOST [-rp REMOTE_PORT] [-p PRORITY] [-l LOCAL_IP] [-u AUTHENTIFIED_USER] [-f MAIL_FROM] [-rl REMOTE_LOGIN] [-rpwd REMOTE_PASSWD]
-
-OPTIONS:
-    --destination, -d       hostame destination, eg domain in rcpt user@domain
-    --remote host, --rh         remote host, eg where email should be deliver
-    --remotePort, --rp &amp;quot;25&amp;quot; Route port
-    --priority, -p &amp;quot;1&amp;quot;      Route priority. Lowest-numbered priority routes are the most preferred
-    --localIp, -l       Local IP(s) to use. If you want to add multiple IP separate them by | for round-robin or &amp;amp; for failover. Don&#39;t mix &amp;amp; and |
-    --smtpUser, -u      Routes for authentified user user.
-    --mailFrom, -f      Routes for MAIL FROM. User need to be authentified
-    --remoteLogin, --rl         SMTPauth login for remote host
-    --remotePasswd, --rpwd  SMTPauth passwd for remote host
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;exemples:253091a785f27e2f20aac978da09c51f&#34;&gt;Exemples&lt;/h4&gt;
-
-&lt;p&gt;Ajouter une route pour relayer les mails à destination du domaine tmail.io vers mail.tmail.io&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add -d tmail.io -rh mail.tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vous pouvez spécifier un port distant&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add -d tmail.io -rh mail.tmail.io -rp 2525 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si le serveur distant nécessite une authentification SMTP ajouter les options rl et rpwd&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh mail.tmail.io -rp 587 -rl login -rpwd passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vous pouvez créer des routes qui vont agir en fonction de l&amp;rsquo;utilisateur qui à soumis le mail ( à la condition bien entendu qu&amp;rsquo;il se soit authentifié via SMTPAUTH). Imaginons par exemple que vous souhaitiez router les mails soumis par l&amp;rsquo;utilisateur toorop@tmail.io vers le relais premium.tmail.io&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -rh premium.tmail.io -u toorop@tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si vous voulez attribuer une route spécifique à tous les utilisateurs d&amp;rsquo;un domaine, la solution consiste  à utiliser leur adresse email comme login SMTP et ensuite de créer une règle en mettant le domaine comme valeur pour l&amp;rsquo;option u. Par exemple si vous souhaitez que les mails de tous les utilisateurs identifiés comme faisant partie du domaine domaine tmail.io aient leurs mails routés par Mailjet :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -rh in.mailjet.com -u tmail.io -rl mailjet_login -rpwd mailjet_passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si vous voulez ajouter comme contrainte que l’expéditeur du mail (MAIL FROM) doit etre en @tmail.io :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; tmail route add -rh in.mailjet.com -u tmail.io -f tmail.io -rl mailjet_login -rpwd mailjet_passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;round-robin:253091a785f27e2f20aac978da09c51f&#34;&gt;Round Robin&lt;/h4&gt;
-
-&lt;p&gt;Vous pouvez mettre deux (ou plus) routes identiques. Bien entendu ça n&amp;rsquo;a aucun intérêt si ce sont les seules routes pour une destination donnée, mais dans le cas contraire cela permet de repartir les mails vers plusieurs relais en leur attribuant un poids. Par exemple imaginons que nous souhaitions faire passer deux fois plus de mails par big.smtp.tmail.io que par small.smtp.tmail.io :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh big.smtp.tmail.io
-tmail route add -d tmail.io -rh big.smtp.tmail.io
-tmail route add -d tmail.io -rh small.smtp.tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;failover:253091a785f27e2f20aac978da09c51f&#34;&gt;Failover&lt;/h4&gt;
-
-&lt;p&gt;En ajoutant un paramètre de priorité, vous pouvez créer des routes secondaires qui vont qui vont etres utilisé sur les routes de priorité plus élevées sont en échecs.&lt;/p&gt;
-
-&lt;p&gt;Par exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh main.smtp.tmail.io -p 1
-tmail route add -d tmail.io -rh alt1.smtp.tmail.io -p 2
-tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Dans ce cas tmail va d&amp;rsquo;abord tenter de transmettre le mail à main.smtp.tmail.io puis ça ça échoue à alt1.smtp.tmail.io et si ça échoue toujours à alt2.smtp.tmail.io&lt;/p&gt;
-
-&lt;p&gt;Notez que vous pouvez mixer failover et roundrobin, par exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh main.smtp.tmail.io -p 1
-tmail route add -d tmail.io -rh alt1.smtp.tmail.io -p 2
-tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Dans ce cas si tmail n&amp;rsquo;arrive pas a transmettre le mail à main.smtp.tmail.io il va faire le second essais vers alt1 ou alt2.&lt;/p&gt;
-
-&lt;h3 id=&#34;supprimer-une-règle-de-routage-smtp:253091a785f27e2f20aac978da09c51f&#34;&gt;Supprimer une règle de routage SMTP&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes del ROUTE_ID
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

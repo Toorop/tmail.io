@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Queue on tmail</title>
-    <link>http://tmail.io/tags/queue/</link>
+    <link>http://localhost:1313/tags/queue/</link>
     <description>Recent content in Queue on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Wed, 21 Jan 2015 14:20:24 +0100</lastBuildDate>
-    <atom:link href="http://tmail.io/tags/queue/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/queue/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gestion de la queue en utilisant le CLI</title>
-      <link>http://tmail.io/doc/cli-gestion-queue/</link>
+      <link>http://localhost:1313/doc/cli-gestion-queue/</link>
       <pubDate>Wed, 21 Jan 2015 14:20:24 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/cli-gestion-queue/</guid>
+      <guid>http://localhost:1313/doc/cli-gestion-queue/</guid>
       <description>
 
 &lt;h4 id=&#34;lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Lister les messages en queue&lt;/h4&gt;
