@@ -3,7 +3,9 @@ date = "2015-01-19T16:38:23+01:00"
 draft = false
 title = "Routes smtp sortantes"
 categories = [ "doc"]
-tags = [ "smtp", "routes" ]
+description = "Gestion du routage SMTP en utilisant le CLI tamil"
+keywords = ["isntallation", "serveur", "smtp","tmail"]
+tags = [ "smtp", "routes","cli" ]
 
 +++
 **tmail vous permet de spécifier des routes sortantes pour les mails qu'il a à expédier.**  

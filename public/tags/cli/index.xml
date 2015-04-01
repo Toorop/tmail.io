@@ -206,5 +206,52 @@ There is no message in queue.
 </description>
     </item>
     
+    <item>
+      <title>Routes smtp sortantes</title>
+      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
+      <pubDate>Mon, 19 Jan 2015 16:38:23 +0100</pubDate>
+      
+      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;
+
+&lt;p&gt;Les règles de routage vont êtres définies an fonction des paramètres suivants :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Le domaine de destination.&lt;/li&gt;
+&lt;li&gt;L&amp;rsquo;expéditeur à la condition que le mail ait été originalement transmis à tmail par un utilisateur authentifié (via SMTP AUTH).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lorsque tmail à un mail à transmettre il va chercher parmi les règles suivantes si il y en a une qui correspond.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si il trouve une règle&lt;/strong&gt;, il va utiliser les routes qui correspondent à cette règle. Chaque route à un poids, comme pour les MX classiques, tmail va donc essayer en premier lieu de se connecter au relais suivant en utilisant la route qui a le poids le plus faible. Dans le cas où plusieurs routes ont le même poids, il va les ordonner aléatoirement ce qui va permettre de faire facilement du round-robin.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si il n&amp;rsquo;en trouve pas&lt;/strong&gt;, il va utiliser les MX du domaine de destination.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Les règles sont testées dans l&amp;rsquo;ordre suivant:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond à l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond au domaine de l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle &amp;lsquo;générique&amp;rsquo; liée à l&amp;rsquo;utilisateur authentifié.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tmail va chercher une règle qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tmail va chercher une règle par défaut (wildcard &amp;ldquo;*&amp;rdquo; sur le domaine de destination)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle liée au login complet de cet utilisateur, ou si il n&amp;rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle liée à domaine.tld&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Vous pouvez configurer les règles de routage en utilisante le CLI&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

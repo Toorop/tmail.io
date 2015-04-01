@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wishlist on tmail</title>
+    <link>http://tmail.io/tags/wishlist/</link>
+    <description>Recent content in Wishlist on tmail</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Thu, 26 Feb 2015 12:00:11 +0100</lastBuildDate>
+    <atom:link href="http://tmail.io/tags/wishlist/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Wishlist</title>
+      <link>http://tmail.io/wishlist/</link>
+      <pubDate>Thu, 26 Feb 2015 12:00:11 +0100</pubDate>
+      
+      <guid>http://tmail.io/wishlist/</guid>
+      <description>
+
+&lt;p&gt;Cette page recense les fonctionnalités que vous souhaitez voir implémentées dans tmail.
+Si vous avez une fonctionnalité que vous aimeriez voir intégrée:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Vérifiez qu&amp;rsquo;elle n&amp;rsquo;est pas dans la liste ci dessous.&lt;/li&gt;
+&lt;li&gt;Créez une nouvelle discussion sur le groupe &lt;a href=&#34;https://groups.google.com/forum/#!forum/tmail-dev&#34;&gt;tmail-dev&lt;/a&gt; pour la présenter et nous permettre d&amp;rsquo;en discuter.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;en-cours-de-discussion:88f30e4ec261bd5d2da2e6b82c2c10c8&#34;&gt;En cours de discussion&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/-zIJiRoIFDc&#34;&gt;Alias et listes de discussions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/hFF8BlEWeXQ&#34;&gt;Restrictions sur l&amp;rsquo;expéditeur déclaré d&amp;rsquo;un mail en fonction de l&amp;rsquo;utilisateur SMTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/4yfkxNB7LYA&#34;&gt;Pouvoir rediriger les logs ailleurs que vers stdout&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;approuvés-à-implémenter:88f30e4ec261bd5d2da2e6b82c2c10c8&#34;&gt;Approuvés, à implémenter&lt;/h2&gt;
+
+&lt;h2 id=&#34;implémentés:88f30e4ec261bd5d2da2e6b82c2c10c8&#34;&gt;Implémentés&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Livraison locale, gestion de boites mails et compatiblilité Dovecot. &lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/niW_EtXkZKQ&#34; target=&#34;_blank&#34;&gt; Discussion &lt;/a&gt; - &lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

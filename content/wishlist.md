@@ -2,6 +2,9 @@
 date = "2015-02-26T12:00:11+01:00"
 draft = false
 title = "Wishlist"
+description = "Podcast tmail: épisode 3"
+keywords = ["wislist tmail"]
+tags = [ "wishlist"]
 [menu.main]
 name = "Wishlist"
 weight = 4

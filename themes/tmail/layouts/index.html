@@ -3,7 +3,7 @@
     {{ partial "hero.html" . }}
     <div class="content container">
         <div class="posts">
-            {{ range first 10 (where .Data.Pages "Section" "not in" "rechercher") }}
+            {{ $paginator := .Paginate (where .Data.Pages "Section" "not in" "rechercher") }} {{ range $paginator.Pages}}
             <div class="post">
                 <h1 class="post-title">
         <a href="{{ .Permalink }}">{{ .Title }}</a>
@@ -20,6 +20,7 @@
             </div>
             {{ end }}
         </div>
+        {{ template "_internal/pagination.html" . }}
     </div>
 </div>
 {{ partial "plyr.html" . }} {{ partial "foot.html" . }}

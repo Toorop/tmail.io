@@ -1,7 +1,10 @@
 +++
 date = "2015-03-22T19:09:52+01:00"
-draft = true
+draft = false
 title = "Documentation"
+description = "Documentation du serveur SMTP tmail"
+keywords = ["documentation"]
+tags = [ "doc"]
 [menu.main]
 name = "Documentation"
 weight = 1
@@ -12,6 +15,7 @@ weight = 1
 * [Installation et configuration de base](/doc/installer-tmail/)
 * [Boites locales](/doc/mailboxes/)
 * [Filtrage antivirus via Clamav](/doc/filtrage-smtp-antivirus-clamav/)
+* [Gestion des logs](/doc/logs)
 
 # Cli
 * [Gestion de la queue](/doc/cli-gestion-queue/)

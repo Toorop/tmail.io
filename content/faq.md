@@ -2,6 +2,9 @@
 date = "2015-01-14T14:14:40+01:00"
 draft = false
 title = "FAQ"
+description = "FAQ du serveur SMTP tamil"
+keywords = ["faq"]
+tags = [ "faq","doc"]
 [menu.main]
 name = "Faq"
 weight = 5

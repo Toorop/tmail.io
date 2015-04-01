@@ -1,5 +1,4 @@
 {{ partial "head.html" . }} {{ partial "navigation.html" . }}
-
 <div class="site-wrap">
     {{ partial "hero.html" . }}
     <div class="content container">
@@ -11,9 +10,8 @@
       {{ $baseUrl := .Site.BaseUrl }}
       {{ range .Params.categories }}<a class="label" href="{{ $baseUrl }}/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}
       {{ end }}</span>
-      <p> {{ .Content }} </p>
+            <p> {{ .Content }} </p>
             <h4 id="abonnez-vous">Abonnez vous !</h4>
-
             <p>Pour etre informé des nouveaux épisodes de ce podcast abonnez vous depuis votre lecteur de podcasts préféré.</p>
             <ul>
                 <li><a href="http://podcasts.toorop.fr/tmail/tmail_devcast.xml">Flux RSS du podcast</a>
@@ -21,9 +19,7 @@
                 <li><a href="https://itunes.apple.com/fr/podcast/tmail-devcast/id969150533?l=fr">Abonnement depuis iTunes</a>
                 </li>
             </ul>
+            {{ partial "disqus.html" . }}
         </div>
-        {{ partial "disqus.html" . }}
     </div>
-</div>
-{{ partial "plyr.html" . }}
-{{ partial "foot.html" . }}
+    {{ partial "plyr.html" . }} {{ partial "foot.html" . }}

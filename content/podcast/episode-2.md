@@ -2,8 +2,10 @@
 date = "2015-03-06T07:50:04+01:00"
 draft = false
 title = "Podcast #2: Toc toc..."
-tags = [ "podcast"]
 categories = [ "podcast"]
+description = "Podcast tmail: épisode 2"
+keywords = ["podcast"]
+tags = [ "podcast"]
 
 +++
 Dans cet épisode je vais vous parler des suggestions qui m'ont été faites concernant les fonctionnalités de tmail.

@@ -3,6 +3,9 @@ date = "2015-01-29T17:00:44+01:00"
 draft = false
 title = "Installer et configurer tmail"
 categories = ["doc"]
+description = "Installation et configuration du serveur SMTP tmail"
+keywords = ["isntallation", "serveur", "smtp","tmail"]
+tags = [ "smtp","doc"]
 
 +++
 <br>

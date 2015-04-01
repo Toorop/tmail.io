@@ -2,8 +2,10 @@
 date = "2015-02-24T12:03:26+01:00"
 draft = false
 title = "Podcast #1: Antivirus"
-tags = [ "podcast", "antivirus"]
 categories = [ "podcast"]
+description = "Podcast tmail: épisode 1"
+keywords = ["podcast"]
+tags = [ "podcast"]
 
 +++
 

@@ -3,7 +3,10 @@ date = "2015-01-21T14:20:24+01:00"
 draft = false
 title = "Gestion de la queue en utilisant le CLI"
 categories = [ "doc"]
+description = "Utilisation du CLI tmail pour gérer la queue du serveur smtp."
+keywords = ["cli","smtp","tmail"]
 tags = [ "cli","queue"]
+
 +++
 
 

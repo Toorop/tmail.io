@@ -1,7 +1,7 @@
 baseurl = "http://tmail.io"
 languageCode = "fr-fr"
 title = "tmail"
-Paginate = "5"
+Paginate = "10"
 
 [Author]
 	name = "Stéphane Depierrepont"
@@ -11,8 +11,6 @@ Paginate = "5"
 	Description = "Journal de développement d'un serveur SMTP"
 	DefaultKeywords = ["tmail", "smtp", "develloppement", "golang"]
 	DisqusShortname = "tmail"
-	Paginate = 5
-
 
 [Taxonomies]
   tag = "tags"

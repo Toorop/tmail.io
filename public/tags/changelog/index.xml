@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Changelog on tmail</title>
+    <link>http://tmail.io/tags/changelog/</link>
+    <description>Recent content in Changelog on tmail</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Sat, 14 Mar 2015 19:38:45 +0100</lastBuildDate>
+    <atom:link href="http://tmail.io/tags/changelog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Changelog</title>
+      <link>http://tmail.io/changelog/</link>
+      <pubDate>Sat, 14 Mar 2015 19:38:45 +0100</pubDate>
+      
+      <guid>http://tmail.io/changelog/</guid>
+      <description>
+
+&lt;h2 id=&#34;v-0-0-5:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.5&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Log to file&lt;/li&gt;
+&lt;li&gt;Improve log&lt;/li&gt;
+&lt;li&gt;Case sensitivity on local part&lt;/li&gt;
+&lt;li&gt;add RSET and NOOP SMTP verbs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;v-0-0-4:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.4&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add local deliveries&lt;/li&gt;
+&lt;li&gt;Dovecot support&lt;/li&gt;
+&lt;li&gt;SmtpUser replaced by Use&lt;/li&gt;
+&lt;li&gt;Cli&lt;/li&gt;
+&lt;li&gt;Refactoring&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;v-0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.3&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Bugfix: MySQL Datetime to Golang time.Time&lt;/li&gt;
+&lt;li&gt;BugFix: Optimise/fix queries for Mysql&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;v-0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.2&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add Clamav support: &lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav/&#34;&gt;http://tmail.io/doc/filtrage-smtp-antivirus-clamav/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

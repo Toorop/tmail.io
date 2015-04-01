@@ -3,6 +3,8 @@ date = "2015-01-28T09:15:12+01:00"
 draft = false
 title = "Gestion des routes SMTP en utilisant le CLI"
 categories = [ "doc"]
+description = "Utilisation du CLI tmail pour gérer le routage smtp."
+keywords = ["cli","routage","smtp","tmail"]
 tags = [ "cli","routes","smtp"]
 +++
 

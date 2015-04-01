@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Doc on tmail</title>
+    <link>http://tmail.io/tags/doc/</link>
+    <description>Recent content in Doc on tmail</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Sun, 22 Mar 2015 19:09:52 +0100</lastBuildDate>
+    <atom:link href="http://tmail.io/tags/doc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Documentation</title>
+      <link>http://tmail.io/documentation/</link>
+      <pubDate>Sun, 22 Mar 2015 19:09:52 +0100</pubDate>
+      
+      <guid>http://tmail.io/documentation/</guid>
+      <description>
+
+&lt;h1 id=&#34;installation:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;Installation et configuration de base&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Boites locales&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav/&#34;&gt;Filtrage antivirus via Clamav&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/logs&#34;&gt;Gestion des logs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;cli:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;Cli&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Gestion de la queue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;Routage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Gestion des utilisateurs &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Gestion des domaines pris en charge &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Gestion des IP authorisées à relayer &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;smtp-sortant:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;SMTP sortant&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;Principe de fonctionnement des règles de routage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gérez vos boites mail avec Dovecot</title>
+      <link>http://tmail.io/doc/mailboxes/</link>
+      <pubDate>Fri, 20 Mar 2015 16:34:28 +0100</pubDate>
+      
+      <guid>http://tmail.io/doc/mailboxes/</guid>
+      <description>
+
+&lt;p&gt;Initialement j&amp;rsquo;avais prévu d&amp;rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.&lt;br /&gt;
+Le fait que l&amp;rsquo;on m&amp;rsquo;ait demandé si ça allait être bientôt disponible m&amp;rsquo;a fait réaliser que gérer des comptes mails était quand même l&amp;rsquo;usage principal d&amp;rsquo;un serveur de messagerie - gnééééé&amp;hellip; - , j&amp;rsquo;ai donc décidé de remonter cette tache dans ma todo-list.&lt;/p&gt;
+
+&lt;p&gt;Pour vous proposer cette fonctionnalité plus rapidement, j&amp;rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une &lt;strong&gt;interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;L’intérêt de cette solution c&amp;rsquo;est que l&amp;rsquo;on peut implémenter l&amp;rsquo;interface pour une multitude de types de stockage, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou encore du Runabove.
+Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie, des &amp;ldquo;connecteurs/proxy&amp;rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP), mais aussi d&amp;rsquo;interfacer simplement de nombreux outils au service de messagerie.&lt;/p&gt;
+
+&lt;p&gt;Rassurez vous - ou pas - je n&amp;rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&amp;rsquo;utiliser tmail comme serveur mail classique, j&amp;rsquo;ai décidé de prendre un raccourci en implémentant le nécessaire pour utiliser Dovecot avec tmail.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Concrètement il est donc aujourd&amp;rsquo;hui possible d&amp;rsquo;utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d&amp;rsquo;accéder aux boites mails via POP et IMAP.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Voila pour cette - longue - introduction, passons à la pratique.&lt;/p&gt;
+
+&lt;h2 id=&#34;mise-en-œuvre:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Mise en œuvre&lt;/h2&gt;
+
+&lt;h3 id=&#34;pre-requis:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Pre-requis&lt;/h3&gt;
+
+&lt;p&gt;Je vais utiliser une distribution Ubuntu server 14.10, si vous utilisez une distribution Debian ou dérivée l&amp;rsquo;installation devrait être sensiblement la même.&lt;/p&gt;
+
+&lt;p&gt;On commence par s&amp;rsquo;assurer que notre système est a jour:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-get update &amp;amp;&amp;amp; apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Si l’utilisateur tmail n&amp;rsquo;existe pas, on va le créer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adduser tmail
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;installation-de-dovecot:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Installation de Dovecot&lt;/h3&gt;
+
+&lt;p&gt;On va commencer par la base, en fin d&amp;rsquo;article vous trouverez comment ajouter le support de sieve:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-get install dovecot-imapd dovecot-pop3d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Il va vous être demandé si vous souhaitez créer un certificat SSL, répondez &lt;em&gt;oui&lt;/em&gt;, cela va générer un certificat auto-signé.&lt;/p&gt;
+
+&lt;p&gt;Il va maintenant falloir installer le support de base de données pour que Dovecot puisse se connecter à la base de données utilisée par tmail. Il faudra donc en fonction de vos besoins installer soit dovecot-sqlite si vous utilisez SQLite, soit dovecot-mysql si vous utilisez MySQL,soit dovecot-pgsql si vous utilisez PostgreSQL.&lt;/p&gt;
+
+&lt;p&gt;Dans mon cas comme je vais avoir besoin de tester sur les 3 SGDB, j&amp;rsquo;installe les donc trois:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-get install dovecot-sqlite dovecot-mysql dovecot-pgsql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On va en rester là pour le moment, on ferra la configuration après avoir installé tmail.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation-de-tmail:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Installation de tmail&lt;/h3&gt;
+
+&lt;p&gt;Si vous avez déjà tmail installé, je vous recommande de supprimer les tables de votre base de données.
+Beaucoup de modifications on été faites et il est plus prudent de repartir de zéro.&lt;/p&gt;
+
+&lt;p&gt;Suivez ce tutoriel pour &lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;installer tmail&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;configuration-de-tmail:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Configuration de tmail&lt;/h3&gt;
+
+&lt;p&gt;Nous avons besoin de configurer trois paramètres&lt;/p&gt;
+
+&lt;p&gt;Le répertoire dans lequel seront stockés les boites mails, par défaut c&amp;rsquo;est /home/tmail/dist/mailboxes.&lt;br /&gt;
+Assurez vous que l&amp;rsquo;utilisateur tmail ait les droits de lecture et d&amp;rsquo;écriture sur ce répertoire.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Base path for users &amp;quot;home&amp;quot;. Currently ysed to store mailboxes
+export TMAIL_USERS_HOME_BASE=&amp;quot;/home/tmail/dist/mailboxes&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On doit ensuite activer le support de Dovecot:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Enabled dovecot for local deliveries
+export TMAIL_DOVECOT_SUPPORT_ENABLED=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Et enfin indiquer à tmail où se trouve l&amp;rsquo;agent de livraison dovecot-lda:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Dovecot LDA path
+export TMAIL_DOVECOT_LDA=&amp;quot;/usr/lib/dovecot/dovecot-lda&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;création-d-une-boite-mail:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Création d&amp;rsquo;une boite mail&lt;/h3&gt;
+
+&lt;p&gt;Dans cet exemple tmail devra gérer les boites du domaine tmail.io.
+Si dans votre cas vous avez déjà utilisé le domaine sur lequel vous souhaitez créer des boites vous devez le supprimer car le cli ne permet pas pour le moment de modifier la configuration d&amp;rsquo;un domaine.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail rcpthost del tmail.io
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On crée le compte toorop@tmail.io avec l&amp;rsquo;option &lt;em&gt;-m&lt;/em&gt; pour signifier à tmail que cet utilisateur aura une boite mail et avec l’option &lt;em&gt;-r&lt;/em&gt; pour lui indiquer que cet utilisateur pourra utiliser tmail comme relais SMTP (après authentification).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail user add -m -r toorop@tmail.io MOT_DE_PASSE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;configuration-de-dovecot:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Configuration de Dovecot&lt;/h3&gt;
+
+&lt;p&gt;La première chose à faire est d&amp;rsquo;augmenter au maximum les niveaux de logs, comme ça si il y a un problème ce sera plus facile de le localiser.&lt;/p&gt;
+
+&lt;p&gt;Pour cela on édite le ficher &lt;em&gt;/usr/share/dovecot/conf.d/10-logging.conf&lt;/em&gt; et on modifie les parametres suivant:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;auth_verbose = yes
+auth_debug = yes
+auth_debug_passwords = yes
+mail_debug = yes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On va à présent devoir indiquer à Dovecot comment allez récupérer les informations sur les utilisateurs.
+Pour cela on va lui indiquer la requête SQL qu&amp;rsquo;il doit exécuter.
+On édite le fichier: &lt;em&gt;/etc/dovecot/dovecot-sql.conf.ext&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Il faut d&amp;rsquo;abord spécifier le driver que l&amp;rsquo;on va utiliser, dans mon cas sqlite:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Database driver: mysql, pgsql, sqlite
+driver = sqlite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ensuite la &amp;ldquo;connection string&amp;rdquo;, autrement dit les indications qui vont permettre à Dovecot de se connecter à la base de données tmail:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;connect = /home/tmail/dist/db/tmail.db   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;l&amp;rsquo;algorithme utilisé pour &amp;ldquo;hasher&amp;rdquo; les mots de passe:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;default_pass_scheme = SHA512-CRYPT
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;La requête pour réaliser une authentification:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;password_query = SELECT login AS user, dove_passwd AS password \
+FROM users WHERE login = &#39;%u&#39; AND active = &#39;Y&#39;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pour la requête suivante, celle qui va permettre à Dovecot de récupérer des informations sur l&amp;rsquo;utilisateur, on va avoir besoin de connaître les UID/GID de l&amp;rsquo;utilisateur tmail sur votre système, pour cela exécuter en root la commande suivante:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /etc/passwd | grep tmail
+tmail:x:1000:1000:,,,:/home/tmail:/bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Dans mon cas l&amp;rsquo;UID de tmail est 1000 son GID est aussi 1000.&lt;/p&gt;
+
+&lt;p&gt;Cette requête va varier en fonction du SGDB que vous utilisez, si vous utilisez SQLite ou PostgreSQL utilisez cette requête:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;user_query = SELECT 1000 AS uid, 1000 AS gid, home, \
+&#39;*:bytes=&#39; || mailbox_quota AS quota_rule \
+FROM users WHERE login = &#39;%u&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;si vous utilisez MySQL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;user_query = SELECT 1000 as uid, 1000 as gid, home, \
+concat(&#39;*:bytes=&#39;, mailbox_quota) AS quota_rule \
+FROM users WHERE login = &#39;%u&#39;   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Il faut à présent spécifier à Dovecot que l&amp;rsquo;on souhaite utiliser l’authentification via SQL, on édite &lt;em&gt;/etc/dovecot/conf.d/10-auth.conf&lt;/em&gt; et on commente :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!include auth-system.conf.ext
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;et on dé-commente:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;!include auth-sql.conf.ext
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ensuite &lt;strong&gt;on configure l&amp;rsquo;agent de livraison dovecot-lda&lt;/strong&gt;, en éditant le fichier &lt;em&gt;/etc/dovecot/conf.d/15-lda.conf&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;L&amp;rsquo;adresse postmaster: cette adresse va être, entre utilisée, si EDovecot à besoin d&amp;rsquo;envoyer des mails pour informer d&amp;rsquo;un problème. Par exemple pour bouncer un mail. Il va sans dire que cette adresse doit exister et je vous recommande fortement d&amp;rsquo;utiliser une adresse du type postmaster@domain (on pourra utiliser un alias quand ce sera implémenté en attendant créez une boite via &lt;em&gt;tmail user add -m postmaster@tmail.io MOT_DE_PASSE&lt;/em&gt;).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;postmaster_address = postmaster@tmail.io
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Dovecot doit pouvoir utiliser tmail pour envoyer des mails, par exemple les bounces évoqués au dessus, on va donc le configurer pour:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;submission_host = 127.0.0.1:2525        
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Bien entendu il faut que dans votre configuration vous ayez dit à tmail d&amp;rsquo;écouter, entre autre, sur l&amp;rsquo;IP 127.0.0.1 et sur le port 2525 (&lt;em&gt;export TMAIL_SMTPD_DSNS=&amp;ldquo;127.0.0.1:2525:false;IP:PORT:true&amp;rdquo;&lt;/em&gt; par exemple) et il faut également que l&amp;rsquo;IP qui va contacter tmail soit autorisée à relayer, pour ça il vous suffit d’exécuter la commande :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail relayip add 127.0.0.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Il nous faut à présent &lt;strong&gt;configurer le format de stockage des boites mails&lt;/strong&gt;, on va utiliser Maildir.&lt;br /&gt;
+On édite le fichier  &lt;em&gt;/etc/dovecot/conf.d/10-mail.conf&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mail_location = maildir:~/Maildir
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;On va activer les quotas&lt;/strong&gt;, ce n&amp;rsquo;est pas une obligation mais je vous recommande fortement de le faire sinon vous courrez le risque de voir votre partition saturée si vous veniez à recevoir de nombreux mails.&lt;/p&gt;
+
+&lt;p&gt;Toujours dans le fichier &lt;em&gt;/etc/dovecot/conf.d/10-mail.conf&lt;/em&gt; :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mail_plugins = $mail_plugins quota
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Il nous faut aussi l&amp;rsquo;activer pour IMAP ce qui va nous permettre de connaître l&amp;rsquo;usage de la boite mail depuis le client IMAP. On édite le fichier &lt;em&gt;/etc/dovecot/conf.d/20-imap.conf&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Space separated list of plugins to load (default is global mail_plugins).
+mail_plugins = $mail_plugins quota imap_quota
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;et dire à Dovecot ce qu&amp;rsquo;il doit utiliser comme méthode pour calculer les quotas. Ici on va faire au plus simple, il va directement regarder l&amp;rsquo;espace disque utilisé.&lt;br /&gt;
+Éditez  &lt;em&gt;/etc/dovecot/conf.d/90-quota.conf&lt;/em&gt; et de-commentez la ligne:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;quota = dirsize:User quota  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Coté client, si vous utilisez Thunderbird voici&lt;a href=&#34;https://addons.mozilla.org/fr/thunderbird/addon/display-quota/?src=search&#34; target=&#34;_blank&#34;&gt;un plugin vous permettant d&amp;rsquo;afficher le quota de votre boite mail&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Voila c&amp;rsquo;est fini, il ne vous reste plus qu&amp;rsquo;a relancer Dovecot:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;service dovecot restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Normalement tout devrait fonctionner, si ce n&amp;rsquo;est pas le cas, consultez les logs de Dovecot et de tmail, et si vous n&amp;rsquo;arriver pas à résoudre le problème, postez un SOS en commentaire de cet article (si ça fonctionne vous pouvez aussi laisser un commentaire ;))&lt;/p&gt;
+
+&lt;p&gt;Si tout fonctionne correctement penser à réduire le niveau de log de Dovecot.&lt;/p&gt;
+
+&lt;h2 id=&#34;sieve:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Sieve&lt;/h2&gt;
+
+&lt;p&gt;Ce qui suit n&amp;rsquo;est pas du tout indispensable, mais puisque vous avez les mains dans le cambouis je vous encourage à faire encore un petit effort, vous ne le regretterez pas.&lt;/p&gt;
+
+&lt;h3 id=&#34;qu-est-ce-que-sieve:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Qu&amp;rsquo;est ce que Sieve ?&lt;/h3&gt;
+
+&lt;p&gt;Je vais reprendre la &lt;a href=&#34;http://fr.wikipedia.org/wiki/Sieve&#34; target=&#34;_blank&#34;&gt; définition donnée par Wikipédia &lt;/a&gt;:
+&lt;blockquote cite=&#34;http://fr.wikipedia.org/wiki/Sieve&#34;&gt;Sieve (du mot anglais crible comme dans le crible d&amp;rsquo;Ératosthène) est un langage de filtrage du courrier électronique. Il est normalisé dans le RFC 5228. Sieve permet de filtrer sur les en-têtes d&amp;rsquo;un message qui suit le format du RFC 5322, c&amp;rsquo;est-à-dire un message Internet typique.&lt;/blockquote&gt;&lt;/p&gt;
+
+&lt;p&gt;Dans notre cas, Sieve va être utilisé par l&amp;rsquo;agent de livraison, dovecot-lda, il va nous permettre, entre autre, de classer les mails dans différents dossiers. Je vous donnerais quelques exemples plus bas.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation-de-du-plugin-sieve-et-de-managesieve:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Installation de du plugin sieve et de manageSieve&lt;/h3&gt;
+
+&lt;p&gt;ManageSieve est un serveur qui va vous permettre de modifier vos règles Sieve depuis votre client de messagerie. Bien entendu il faut que le client le supporte.&lt;/p&gt;
+
+&lt;p&gt;Sur Debian et dérivés un simple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-get install dovecot-sieve dovecot-managesieved
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;va vous installer le nécessaire.&lt;/p&gt;
+
+&lt;p&gt;Pour les autres je vous renvoie vers &lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve&#34; target=&#34;_blank&#34;&gt;la documentation officielle de Pigeonhole Sieve&lt;/a&gt; où vous trouverez le nécessaire pour installer le plugin Sieve et ManageSieve.&lt;/p&gt;
+
+&lt;h3 id=&#34;configuration:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Configuration&lt;/h3&gt;
+
+&lt;p&gt;On édite le fichier &lt;em&gt;/etc/dovecot/conf.d/15-lda.conf&lt;/em&gt; pour signifier à dovecot qu&amp;rsquo;il doit charger le plugin Sieve:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   mail_plugins = $mail_plugins sieve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Il faut que l&amp;rsquo;agent de livraison soit capable de créer un sous dossier si il n&amp;rsquo;existe pas:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lda_mailbox_autocreate = yes    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On va aussi activer l&amp;rsquo;abonnement automatique aux dossiers créés:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lda_mailbox_autosubscribe = yes    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Le fichier de configuration de sieve est &lt;em&gt;/etc/dovecot/conf.d/90-sieve.conf&lt;/em&gt;, la configuration par défaut est suffisante, on ne va donc rien modifier. Je vous invite quand même à y jeter un œil.&lt;/p&gt;
+
+&lt;p&gt;Pour ManageSieve, le fichier de configuration est &lt;em&gt;/etc/dovecot/conf.d/30-managesieve.conf&lt;/em&gt; et comme pour sieve la configuration par défaut nous convient.&lt;/p&gt;
+
+&lt;p&gt;Vous pouvez relancer dovecot.&lt;/p&gt;
+
+&lt;h3 id=&#34;quelques-exemples-d-utilisation-de-sieve:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Quelques exemples d&amp;rsquo;utilisation de Sieve&lt;/h3&gt;
+
+&lt;p&gt;Si comme moi vous utiliser Thunderbird comme client mail, n&amp;rsquo;utilise pas le module Sieve présent sur le repo Mozilla, cette version ne fonctionne pas avec les version récente de Thunderbird. &lt;a href=&#34;https://github.com/thsmi/sieve/tree/master/nightly/&#34;&gt;téléchargez la dernière version du plugin ManageSieve pour thunderbird ici&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;En début de script ajoutez :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &amp;quot;fileinto&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Classer les messages de la mailing-list bar@ovh.net dans le dossier Inbox/ml/bar@ovh&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if address :is [&amp;quot;To&amp;quot;,&amp;quot;Cc&amp;quot;] &amp;quot;bar@ml.ovh.net&amp;quot; {
+    fileinto &amp;quot;ml.bar@ovh&amp;quot;;
+    stop;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Classer les spams dans un dossier Inbox/Spams si le sujet commence par [SPAM]&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if header :comparator &amp;quot;i;ascii-casemap&amp;quot; :contains &amp;quot;Subject&amp;quot; &amp;quot;[SPAM]&amp;quot;  {
+    fileinto &amp;quot;spams&amp;quot;;
+    stop;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pour aller plus loin, voici &lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve/Examples&#34; target=&#34;_blank&#34;&gt; des exemples de scripts Sieve &lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installer et configurer tmail</title>
+      <link>http://tmail.io/doc/installer-tmail/</link>
+      <pubDate>Thu, 29 Jan 2015 17:00:44 +0100</pubDate>
+      
+      <guid>http://tmail.io/doc/installer-tmail/</guid>
+      <description>
+
+&lt;p&gt;&lt;br&gt;
+&lt;div style=&#34;text-align:center&#34;&gt;
+&lt;iframe align=&#34;center&#34; width=&#34;640&#34; height=&#34;360&#34; src=&#34;https://www.youtube.com/embed/Ncs3AZKPqKU?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;Durant tout le cycle de développement de tmail je vais mettre à disposition le nécessaire pour qu&amp;rsquo;il soit possible de tester les fonctionnalités qui sont implémentées.&lt;/p&gt;
+
+&lt;p&gt;Qu&amp;rsquo;il n&amp;rsquo;y ait pas de malentendu, on ne parle pas ici de version bêta, ni même alpha, ce sera à chaque fois une version de développement, avec plein de choses non implémentées et forcement de nombreux bugs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;En clair: ne pas utiliser en production&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Pour le moment tmail est très basique, mais il devrait cependant vous permettre d&amp;rsquo;envoyer et de relayer des mails.&lt;/p&gt;
+
+&lt;p&gt;On va partir sur une installation qui va nous permettre de mettre en place un service SMTP qui va:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;écouter sur les ports 25 et 587 (avec STARTTLS).&lt;/li&gt;
+&lt;li&gt;écouter sur le port 465 en SSL.&lt;/li&gt;
+&lt;li&gt;accepter tous les mails à destination du domaine &lt;em&gt;toorop.fr&lt;/em&gt; et qui va les router vers &lt;em&gt;mail.toorop.fr&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;permettre à l&amp;rsquo;utilisateur &lt;em&gt;toorop@toorop.fr&lt;/em&gt; ayant comme mot de passe &lt;em&gt;password&lt;/em&gt; d&amp;rsquo;utiliser le service pour envoyer des mails (quelque soit la destination).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;prérequis:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Prérequis&lt;/h2&gt;
+
+&lt;p&gt;Vous n&amp;rsquo;avez donc besoin de rien d&amp;rsquo;autre pour tester qu&amp;rsquo;une machine sous Linux. Pour cet exemple je vais utiliser un &lt;a href=&#34;https://www.ovh.com/fr/vps/vps-classic.xml&#34;&gt;VPS Classic 1 OVH&lt;/a&gt; sous &lt;em&gt;Ubuntu server 64bits&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pensez à vous assurer que vous pouvez utiliser les ports SMTP (ou alors testez sur des ports alternatifs).&lt;/p&gt;
+
+&lt;p&gt;Si vous comptez utiliser tmail pour envoyer des mails, pensez à mettre un reverse sur l&amp;rsquo;IP (ou les IP) de votre serveur.&lt;/p&gt;
+
+&lt;p&gt;Pensez aussi à renseigner les SPF des domaines que vous allez utiliser comme émetteurs le cas échéant.&lt;/p&gt;
+
+&lt;p&gt;A noter que comme backend pour la base de données vous pouvez utiliser sqlite, MySQl (et dérivés) ou Postgresql. Je tiens cependant à signaler que je n&amp;rsquo;ai pas fais de tests sous PosgreSQL.
+Si vous hésitez, je vous encourage à utiliser sqlite, il n&amp;rsquo;y a aucune installation spécifique, c&amp;rsquo;est rapide et sera amplement suffisant pour le moment.&lt;/p&gt;
+
+&lt;p&gt;A terme, tmail sera splitté en composants sous forme de containers Docker, dans ce qui suit je vais juste expliquer l&amp;rsquo;installation &amp;ldquo;standalone&amp;rdquo; (vs cluster).&lt;/p&gt;
+
+&lt;h3 id=&#34;dependances-outils:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Dependances &amp;amp; outils&lt;/h3&gt;
+
+&lt;p&gt;Votre serveur devra disposer des softs suivant:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;unzip: pour décrompresser l&amp;rsquo;archive contenant le necessaire à la mise en place de tmail.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Si vous etes sous Debian/Ubuntu:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-get install unzip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;note-sur-l-utilisation-des-ports-inférieurs-à-1024:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Note sur l&amp;rsquo;utilisation des ports inférieurs à 1024&lt;/h3&gt;
+
+&lt;p&gt;Sur un système linux un processus ne peut ouvrir un port inférieur à 1024 que si il est root.
+Une des limitations de Go fait que l&amp;rsquo;on ne peut pas lancer d&amp;rsquo;application sous l&amp;rsquo;utilisateur root pour ouvrir les ports nécessaires et ensuite &lt;em&gt;forker&lt;/em&gt; sous un autre user.&lt;br /&gt;
+Il y à plusieurs autres solutions pour contourner ce problème, la plus simple à mettre en œuvre est d&amp;rsquo;utiliser iptables. C&amp;rsquo;est ce que nous allons faire ici.&lt;/p&gt;
+
+&lt;h2 id=&#34;installation:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;h3 id=&#34;ajout-de-l-utilisateur-tmail:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Ajout de l&amp;rsquo;utilisateur tmail&lt;/h3&gt;
+
+&lt;p&gt;On va commencer par ajouter un utilisateur tmail&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adduser tmail
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;téléchargement-de-tmail:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Téléchargement de tmail&lt;/h3&gt;
+
+&lt;p&gt;J&amp;rsquo;ai mis sur mon FTP une archive comprenant le binaire et divers autre éléments utiles pour installer tmail.&lt;/p&gt;
+
+&lt;p&gt;On va donc commencer par récupérer cette archive et la décompresser.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# su tmail
+$ cd
+$ wget ftp://ftp.toorop.fr/softs/tmail/tmail.zip
+$ unzip tmail.zip
+$ cd dist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Le répertoire &lt;em&gt;dist&lt;/em&gt; contient les éléments nécessaires pour lancer tmail:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ls -la
+drwxrwxr-x 5 tmail tmail     4096 févr.  2 09:08 .
+drwxr-xr-x 3 tmail tmail     4096 févr.  2 09:08 ..
+drwxrwxr-x 2 tmail tmail     4096 févr.  2 09:08 conf
+-rw-rw-r-- 1 tmail tmail       38 janv. 16 15:14 run
+drwx------ 2 tmail tmail     4096 déc.  29 12:02 ssl
+-rwxr-xr-x 1 tmail tmail 14370520 janv. 28 16:34 tmail
+drwxrwxr-x 2 tmail tmail     4096 déc.  29 11:20 tpl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Avant de vous détailler ces différents éléments, on va fixer quelques droits, (il se peut que ce ne soit pas toujours nécessaire mais dans tous les cas pensez à vérifier):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;chmod 700 run tmail 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;et on va rajouter deux répertoires:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir db
+mkdir store 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;si vous souhaitez gérer des boites mail, vous pouvez créer le dossiers &lt;em&gt;mailboxes&lt;/em&gt; qui contiendra les différents comptes.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir mailboxes     
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;conf: contient, oh surprise, le fichier de configuration.&lt;/li&gt;
+&lt;li&gt;run: est un mini script qui va charger la config et lancer tmail.&lt;/li&gt;
+&lt;li&gt;ssl: est le répertoire contenant le nécessaire pour gérer le SSL. Vous pouvez utiliser ce qui est inclus dans la distribution dans le cadre de tests mais pensez à créer vos propres certificat et clé en prod (si besoin je ferais un tuto).&lt;/li&gt;
+&lt;li&gt;tmail: est l&amp;rsquo;exécutable.&lt;/li&gt;
+&lt;li&gt;tpl: contient des templates, par exemple pour les bounces.&lt;/li&gt;
+&lt;li&gt;db: contiendra la base sqlite (si vous utilisez sqlite&amp;hellip;)&lt;/li&gt;
+&lt;li&gt;store: va servir au stockage des mails en queue. Vous pouvez le mettre ailleurs mais pensez à faire la modification dans le fichier de configuration. A terme, il va y avoir d&amp;rsquo;autre type se &lt;em&gt;store&lt;/em&gt; que du stockage sur le disque local.&lt;/li&gt;
+&lt;li&gt;mailboxes: les boites mails des utilisateurs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;configuration:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Configuration&lt;/h2&gt;
+
+&lt;p&gt;On va commencer par copier le ficher tmail.cfg.base vers tmail.cfg car c&amp;rsquo;est ce dernier qui sera pris en compte:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd conf
+cp tmail.cfg.base tmail.cfg
+chmod 600 tmail.cfg 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Je ne vais parler que des options qu&amp;rsquo;il va être nécessaire de modifier:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;TMAIL_ME: C&amp;rsquo;est le nom d’hôte de votre serveur, celui qui va être utilisé, entre autre, dans la commande HELO/EHLO. Personnalisez cette valeur pour qu&amp;rsquo;elle corresponde au reverse de votre IP.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TMAIL_DEBUG_ENABLED: si positionné à &lt;em&gt;true&lt;/em&gt; vous allez avoir toutes les info de debug. Pour une sortie moins verbeuse mettez false, mais je ne vous le conseille pas dans le cadre de ces tests.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TMAIL_DB_DRIVER: la base de données utilisées. Notez que pour le moment j&amp;rsquo;utilise exclusivement sqlite3, les autres devraient fonctionner mais je ne garantis rien.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TMAIL_DB_SOURCE: la source des données.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TMAIL_SMTPD_DSNS: cette option va nous permettre de définir les IP:port d&amp;rsquo;écoute de tmail et si on doit activer SSL ou pas. A noter que si SSL n&amp;rsquo;est pas activé on a tout de même l&amp;rsquo;option ESMTP STARTTLS qui permet d&amp;rsquo;avoir des transactions chiffrées si le client supporte STARTTLS.
+Dans notre cas on veut que tmail écoute sur l&amp;rsquo;IP publique du serveur 151.80.115.83, sur les port 25 et 587 et sur le port 465 en SSL. Comme l&amp;rsquo;utilisateur tmail ne peut ouvrir ces ports on va utiliser 2525 5877 et 4655 et on fera de la redirection de port. On a donc:
+TMAIL_SMTPD_DSNS=&amp;ldquo;151.80.115.83:2525:false;151.80.115.83:5877:false;151.80.115.83:4655:true&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_LOCAL_IPS: c&amp;rsquo;est l&amp;rsquo;IP (ou les IP) locale(s) à utiliser pour envoyer des mails. Pour ce premier test on va faire simple, on va utiliser une seule adresse, celle par défaut du serveur: export TMAIL_DELIVERD_LOCAL_IPS=&amp;ldquo;151.80.115.83&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_MAX_IN_FLIGHT: correspond au nombre de &amp;ldquo;delivery&amp;rdquo;, autrement dit d&amp;rsquo;envois concurrents.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_QUEUE_LIFETIME: correspond au temps de rétention en queue avant qu&amp;rsquo;un mail ne soit bouncé si tmail n&amp;rsquo;arrive pas à l’expédier. Par défaut le temps est très court, si il vous prend l&amp;rsquo;envie d&amp;rsquo;utiliser tmail en prod (ce que je ne vous conseille pas de faire en l&amp;rsquo;état) augmentez le.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, &lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav&#34;&gt;consultez ce billet&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Si vous souhaitez gérer des boites mail consulter ce billet: &lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Gérez vos boites mail avec tmail&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Un fois cette configuration faite, on peut lancer lancer tmail.&lt;/p&gt;
+
+&lt;p&gt;Vu que c&amp;rsquo;est un premier lancement tmail va détecter que la base de données n&amp;rsquo;est pas initialisée et il va vous demander si il peut le faire:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail@dev:~/dist$ ./run 
+Database &#39;driver: sqlite3, source: /home/tmail/dist/db/tmail.db&#39; misses some tables.
+Should i create them ? (y/n): y
+
+je vous passe les info de debug..
+
+[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.449597 INFO - smtpd 151.80.115.83:2525 launched.
+[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.449931 INFO - smtpd 151.80.115.83:5877 launched.
+[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.450011 INFO - smtpd 151.80.115.83:4655 SSL launched.
+[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.499728 INFO - deliverd launched
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;redirection-de-ports-via-iptables:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Redirection de ports via iptables&lt;/h3&gt;
+
+&lt;p&gt;Pour que tmail écoute sur les ports standards nous allons mettre en place les trois règles suivantes. Attention assurez vous que vous n&amp;rsquo;avez pas déjà un serveur SMTP qui écoute sur ces ports, si c&amp;rsquo;est le cas et que vous ne souhaitez pas l’arrêter, utilisez simplement tmail sur les port alternatifs.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;iptables -t nat -A PREROUTING -p tcp --dport 25 -j REDIRECT --to-port 2525
+iptables -t nat -A PREROUTING -p tcp --dport 465 -j REDIRECT --to-port 4655
+iptables -t nat -A PREROUTING -p tcp --dport 587 -j REDIRECT --to-port 5877
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;le-moment-est-venu-de-faire-un-premier-test:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Le moment est venu de faire un premier test&lt;/h3&gt;
+
+&lt;p&gt;Vous pouvez faire le test depuis la même machine mais tant qu&amp;rsquo;a faire, faites le depuis une autre.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ telnet dev.tmail.io 25
+Trying 151.80.115.83...
+Connected to dev.tmail.io.
+Escape character is &#39;^]&#39;.
+220 tmail.io  tmail ESMTP f22815e0988b8766b6fe69cbc73fb0d965754f60
+HELO toto
+250 tmail.io
+MAIL FROM: toorop@toorop.fr
+250 ok
+RCPT TO: toorop@toorop.fr
+554 5.7.1 &amp;lt;toorop@toorop.fr&amp;gt;: Relay access denied.
+Connection closed by foreign host.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Parfait !
+Pour le moment le mail est refusé car nous n&amp;rsquo;avons défini aucune autorisation.&lt;/p&gt;
+
+&lt;h3 id=&#34;prise-en-charge-des-mails-du-domaine-toorop-fr:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Prise en charge des mails du domaine toorop.fr&lt;/h3&gt;
+
+&lt;p&gt;Pour que tmail prenne en charge les mails du domaine toorop.fr il suffit tout simplement d&amp;rsquo;exécuter la commande suivante:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail rcpthost add toorop.fr
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Par défaut tmail va considérer qu&amp;rsquo;il doit juste relayer les mails du domaine concerné, si vous voulez que tmail considere ce domaine comme local, dans le cas ou vous voulez que tmail gére les boites mail du domaine voud devez ajouter l&amp;rsquo;option -l true:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail rcpthost add -l toorop.fr
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pour ce premier test, on va juste demander à tmail de prendre en charge les mails du domaine et de les relayer, donc n&amp;rsquo;ajouter pas cette option.&lt;/p&gt;
+
+&lt;p&gt;Si vous avez une erreur du type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2015/02/02 15:51:30 unable to load config from env, TMAIL_ME variable is missing.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;C&amp;rsquo;est parce que la configuration n&amp;rsquo;est pas chargée dans votre environnement, pour y remédier exécuter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;. /home/tmail/dist/conf/tmail.cfg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vérifions que tmail accepte les mails pour toorop.fr:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ telnet dev.tmail.io 25
+Trying 151.80.115.83...
+Connected to dev.tmail.io.
+Escape character is &#39;^]&#39;.
+220 tmail.io  tmail ESMTP 96b78ef8f850253cc956820a874e8ce40773bfb7
+HELO toto
+250 tmail.io
+mail from: toorop@toorop.fr
+250 ok
+rcpt to: toorop@toorop.fr
+250 ok
+data
+354 End data with &amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;.&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;
+subject: test tmail
+
+blabla
+.
+250 2.0.0 Ok: queued 2736698d73c044fd7f1994e76814d737c702a25e
+quit
+221 2.0.0 Bye
+Connection closed by foreign host.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;router-les-mails-à-destination-du-domaine-toorop-fr-vers-mail-toorop-fr:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Router les mails à destination du domaine toorop.fr vers mail.toorop.fr&lt;/h3&gt;
+
+&lt;p&gt;Par défaut quand tmail doit router un mail, il va utiliser les enregistrements DNS MX du domaine pour savoir à qui le transmettre. Mais nous pouvons aussi créer des routes &amp;ldquo;en dur&amp;rdquo;. Par exemple si nous souhaitons que tmail transmette les mails à destination du domaine toorop.fr au relais mail.toorop.fr il suffit de lui indiquer via cette commande :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail routes add -d toorop.fr -rh mail.toorop.fr
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Je vous invite lire la documentation sur les &lt;a href=&#34;http://tmail.io/doc/cli-gestion-route-smtp/&#34;&gt;régles de routage SMTP&lt;/a&gt; pour connaitre les possibilités offertes par tmail.&lt;/p&gt;
+
+&lt;h3 id=&#34;ajout-de-utilisateur-smtp-toorop-toorop-fr:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Ajout de utilisateur SMTP toorop@toorop.fr&lt;/h3&gt;
+
+&lt;p&gt;Si vous souhaitez ajouter un utilisateur &lt;em&gt;toorop@toorop.fr&lt;/em&gt; qui pourra envoyer des mails via tmail en s&amp;rsquo;authentifiant via SMTPAUTH avec le mot de passe &lt;em&gt;password&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail user add -r toorop@toorop.fr password 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;L&amp;rsquo;option -r signifie que l&amp;rsquo;utilisateur, si il s&amp;rsquo;authentifie, est authorisé à relayé.&lt;/p&gt;
+
+&lt;p&gt;Pour supprimer un utilisateur:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tmail user del toorop@toorop.fr
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;tmux:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;tmux&lt;/h3&gt;
+
+&lt;p&gt;Pour que tmail ne s&amp;rsquo;arrete pas lorsque vous quitterez votre session, vous avez pouvez le lancer en utilisant:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    ./run &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;mais tmail affichant ces logs sur la sortie standard je vous recommande plutot d&amp;rsquo;utilser tmux (ou screen):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-get install tmux
+tmux
+./run
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pour vous détacher de la session:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;Ctrl&amp;gt; + &amp;lt;b&amp;gt; suivi de &amp;lt;d&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://doc.ubuntu-fr.org/tmux&#34; target=&#34;_blank&#34;&gt; Plus d&amp;rsquo;information sur tmux.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;vous-avez-trouvé-un-bug:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Vous avez trouvé un bug ?&lt;/h3&gt;
+
+&lt;p&gt;Utilisez le &lt;a href=&#34;https://github.com/Toorop/tmail-bugtracker&#34;&gt;bugtracker dédié sur Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;discuter-du-projet:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Discuter du projet&lt;/h3&gt;
+
+&lt;p&gt;J&amp;rsquo;ai mis en place &lt;a href=&#34;https://groups.google.com/d/forum/tmail-dev&#34;&gt;un groupe de discussion&lt;/a&gt; sur Google Groups pour discuter du projet. N&amp;rsquo;hésitez pas à soumettre vos suggestions.&lt;/p&gt;
+
+&lt;p&gt;Bon tests ;)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>http://tmail.io/faq/</link>
+      <pubDate>Wed, 14 Jan 2015 14:14:40 +0100</pubDate>
+      
+      <guid>http://tmail.io/faq/</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Qu&amp;rsquo;est ce que tmail ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#opensource:4a1318da06786ac52626178ca960109e&#34;&gt;Est ce que tmail est opensource ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tester-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Peut on tester tmail ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bugtracker:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai trouvé un bug !&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#suggestion:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai une suggestion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#question:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai une question &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Qu&amp;rsquo;est ce que tmail ?&lt;/h2&gt;
+
+&lt;p&gt;Réponse courte: tmail est un serveur &lt;a href=&#34;http://fr.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol&#34;&gt;SMTP&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mais pourquoi créer un nouveau serveur smtp !?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Oui c&amp;rsquo;est vrai ça pourquoi créer un nouveau serveur SMTP alors qu&amp;rsquo;il existe déjà qmail, postfix, exim, sendmail, .. ?&lt;br /&gt;
+Parce que :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Ces serveurs ont été conçu à une époque où les problématiques et donc les besoins liés à l’émail étaient différents. Je pense en particulier à la problématique du spam, aujourd&amp;rsquo;hui il est indispensable de filtrer ce qui entre et ce qui sort d&amp;rsquo;un serveur SMTP, d&amp;rsquo;établir de règles strictes quant à l&amp;rsquo;usage du service: par exemple l&amp;rsquo;user X ne peux envoyer plus de x mails par jour, chaque mail ne doit pas faire plus de x Mo et il ne peut utiliser le service le week-end ou encore de pas envoyer plus de x mails par minute vers telle destination&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Avoir un système fiable et parfaitement redondant nécessite pas mal de compromis.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;La scalabilité apportée par les solutions actuelles n&amp;rsquo;est pas simple à mettre en place et est difficilement linéaire.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Plus globalement, la mise en place et l&amp;rsquo;administration de ces serveurs n&amp;rsquo;est pas forcement simple non plus. Attention le but n&amp;rsquo;est pas de permettre à n&amp;rsquo;importe qui ne mettre en place un service SMTP, mais plutôt de libérer les sysadmins de contraintes inutiles.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enfin ça fait des années que je travaille dans ce secteur (pour &lt;a href=&#34;http://protecmail.com/&#34; target=&#34;_blank&#34; title=&#34;Protection de messagerie&#34;&gt;Protecmail&lt;/a&gt;) et ça fait presque aussi longtemps que je me dis:&lt;br /&gt;
+&lt;em&gt;Un jour je coderais mon propre serveur&lt;/em&gt; ;)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;opensource:4a1318da06786ac52626178ca960109e&#34;&gt;Est ce que tmail est opensource ?&lt;/h2&gt;
+
+&lt;p&gt;Pour le moment je ne souhaite pas &amp;ldquo;libérer&amp;rdquo; les sources, mais à terme ce sera le cas.&lt;/p&gt;
+
+&lt;p&gt;La raison principale est que le projet est trop jeune, je préfère attendre que les grandes lignes soient posées, que ce que j&amp;rsquo;ai prévu soit implémenté - au moins en partie - pour éviter d&amp;rsquo;une part trop de dispersions et d&amp;rsquo;autre part pour pouvoir concentrer mon temps disponible au code plutôt qu&amp;rsquo;à la gestion du projet.&lt;/p&gt;
+
+&lt;h2 id=&#34;tester-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;Peut on tester tmail ?&lt;/h2&gt;
+
+&lt;p&gt;Oui vous avez &lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;la procédure pour installer tmail ici&lt;/a&gt;
+Bien entendu les versions proposées seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs.&lt;/p&gt;
+
+&lt;h2 id=&#34;golang-tmail:4a1318da06786ac52626178ca960109e&#34;&gt;tmail est codé en quel langage ?&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang.org/&#34; target=&#34;_blank&#34; title=&#34;golang&#34;&gt;Go&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;bugtracker:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai trouvé un bug&lt;/h2&gt;
+
+&lt;p&gt;Utilisez le &lt;a href=&#34;https://github.com/Toorop/tmail-bugtracker&#34;&gt;bugtracker dédié sur Github&lt;/a&gt; pour me le remonter.&lt;/p&gt;
+
+&lt;h2 id=&#34;suggestion:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai une suggestion&lt;/h2&gt;
+
+&lt;p&gt;Un &lt;a href=&#34;https://groups.google.com/d/forum/tmail-dev&#34;&gt;un groupe de discutions&lt;/a&gt; est à votre disposition pour discuter de tmail. Toute suggestion est la bienvenue ;)&lt;/p&gt;
+
+&lt;h2 id=&#34;question:4a1318da06786ac52626178ca960109e&#34;&gt;J&amp;rsquo;ai une question&lt;/h2&gt;
+
+&lt;p&gt;Si vous avez une question postez la dans les commentaires en bas de page.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

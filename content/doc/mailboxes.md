@@ -3,6 +3,9 @@ date = "2015-03-20T16:34:28+01:00"
 draft = false
 title = "Gérez vos boites mail avec Dovecot"
 categories = ["doc"]
+description = "Configuere tmail pour gérer vos boites mail locales"
+keywords = ["installation", "serveur", "smtp","tmail","dovecot","imap","sieve"]
+tags = [ "imap","doc", "sieve"]
 
 +++
 
