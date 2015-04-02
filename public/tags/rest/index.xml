@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rest on tmail</title>
+    <link>http://tmail.io/tags/rest/</link>
+    <description>Recent content in Rest on tmail</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Thu, 02 Apr 2015 11:14:47 +0200</lastBuildDate>
+    <atom:link href="http://tmail.io/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Utilisez l&#39;API REST</title>
+      <link>http://tmail.io/doc/api-rest/</link>
+      <pubDate>Thu, 02 Apr 2015 11:14:47 +0200</pubDate>
+      
+      <guid>http://tmail.io/doc/api-rest/</guid>
+      <description>
+
+&lt;p&gt;Vous trouverez dans ce document toutes les informations nécessaires pour utiliser l&amp;rsquo;API REST tmail.&lt;/p&gt;
+
+&lt;h2 id=&#34;sommaire:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Sommaire&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#authentification:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Authentification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#requetes:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Requêtes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#http_code:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Codes HTTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#erreurs:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Erreurs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#users:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion des utilisateurs&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#usersAdd:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Ajouter un utilisateur&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usersDel:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un utilisateur&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usersGetOne:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver un utilisateur&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usersGetAll:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver tous les utilisateurs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;authentification:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Authentification&lt;/h3&gt;
+
+&lt;p&gt;L&amp;rsquo;API utilise l&amp;rsquo;authentification &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;HTTP Basic&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pourquoi ce type d’authentification ?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;simple à mettre en œuvre&lt;/li&gt;
+&lt;li&gt;compatible avec tous les clients HTTP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple avec curl:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;requetes:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Requêtes&lt;/h3&gt;
+
+&lt;p&gt;Si il est nécessaire de transmettre des éléments à l&amp;rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.&lt;/p&gt;
+
+&lt;h3 id=&#34;reponses:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Réponses&lt;/h3&gt;
+
+&lt;p&gt;Le corps, si il existe est lui aussi un message JSON.&lt;/p&gt;
+
+&lt;h3 id=&#34;http_code:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Codes HTTP&lt;/h3&gt;
+
+&lt;p&gt;Succès :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;200 OK: La requête à été exécuté avec succès, la réponse contient un corps.&lt;/li&gt;
+&lt;li&gt;201 Created: L&amp;rsquo;entité à été crée.&lt;/li&gt;
+&lt;li&gt;204 No Content: La requête à été exécuté avec succès, le corps de la réponse est vide.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Erreurs :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;400 Bad Request: Le requête est mal formée.&lt;/li&gt;
+&lt;li&gt;401 Unauthorized: Une autorisation est nécessaire.&lt;/li&gt;
+&lt;li&gt;403 Forbidden: L’accès est refusé.&lt;/li&gt;
+&lt;li&gt;404 Not Found: La ressource demandée n&amp;rsquo;existe pas.&lt;/li&gt;
+&lt;li&gt;422 Unprocessable Entry: La requête visant à créer ou modifier une entité n&amp;rsquo;a pas pu être exécutée car les données transmises n&amp;rsquo;étaient pas conformes.&lt;/li&gt;
+&lt;li&gt;500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;erreurs:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Erreurs&lt;/h3&gt;
+
+&lt;p&gt;En cas d&amp;rsquo;erreur (4** ou 5**), un message sous forme d&amp;rsquo;un objet JSON est retourné.
+Le message contient deux champs:
+* msg: le message d&amp;rsquo;erreur générée par l&amp;rsquo;application
+* raw: l&amp;rsquo;erreur levée (quand elle existe)&lt;/p&gt;
+
+&lt;p&gt;Exemple, si on essaye de créer un utilisateur qui existe déjà:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -H &amp;quot;Content-Type: application/json&amp;quot; -X POST -d &#39;{&amp;quot;passwd&amp;quot;:&amp;quot;motdepasse&amp;quot;,&amp;quot;authRelay&amp;quot;:true,&amp;quot;haveMailbox&amp;quot;:true,&amp;quot;mailboxQuota&amp;quot;:&amp;quot;1G&amp;quot;}&#39; -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
+
+&amp;lt; HTTP/1.1 422 status code 422
+&amp;lt; Content-Type: application/json; charset=UTF-8
+&amp;lt; Date: Wed, 01 Apr 2015 15:01:21 GMT
+&amp;lt; Content-Length: 85
+
+{&amp;quot;msg&amp;quot;:&amp;quot;unable to create new user&amp;quot;,&amp;quot;raw&amp;quot;:&amp;quot;UNIQUE constraint failed: users.login&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;users:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion des utilisateurs&lt;/h2&gt;
+
+&lt;h3 id=&#34;usersAdd:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Ajouter un utilisateur&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /users/LOGIN&lt;/li&gt;
+&lt;li&gt;Méthode: POST&lt;/li&gt;
+&lt;li&gt;Body:
+
+&lt;ul&gt;
+&lt;li&gt;passwd (string): mot de passe de l&amp;rsquo;utilisateur.&lt;/li&gt;
+&lt;li&gt;authRelay (bool): défini si l&amp;rsquo;utilisateur peut utiliser tmail pour relayer.&lt;/li&gt;
+&lt;li&gt;haveMailbox (bool): défini si l&amp;rsquo;utilisateur à une boite email.&lt;/li&gt;
+&lt;li&gt;mailboxQuota (string): le quota de la boite email de l&amp;rsquo;utilisateur en bytes. Vous pouvez utiliser K, M, ou G pour fénir les unités (par exemple 1G signifie un GB)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k -H &amp;quot;Content-Type: application/json&amp;quot; -X POST -d &#39;{&amp;quot;passwd&amp;quot;: &amp;quot;mot de passe&amp;quot;, &amp;quot;authRelay&amp;quot;: true, &amp;quot;haveMailbox&amp;quot;: true, &amp;quot;mailboxQuota&amp;quot;: &amp;quot;1G&amp;quot;}&#39; https://127.0.0.1:8080/users/test@tmail.io
+
+&amp;lt; HTTP/1.1 201 Created
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;usersDel:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un utilisateur&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /users/LOGIN&lt;/li&gt;
+&lt;li&gt;Méthode: DELETE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k  -X DELETE https://127.0.0.1:8080/users/test@tmail.io
+
+&amp;lt; HTTP/1.1 200 OK
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;usersGetOne:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver un utilisateur&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /users/LOGIN&lt;/li&gt;
+&lt;li&gt;Méthode: GET&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/users/test@tmail.io
+
+&amp;lt; HTTP/1.1 200 OK
+&amp;lt; Content-Type: application/json; charset=UTF-8
+
+{&amp;quot;Id&amp;quot;:10,&amp;quot;Login&amp;quot;:&amp;quot;test@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$TGg8af6X08KFvWDnjljAqeBpwkXuQ78sc.xyTUrHN6nRzm1wMyIT.&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$06a585cd9d0540d2$OYGaBsyonWxeuoRQkxsokLRkW/vUtx1qbZoEC1DG9DcX7NmHqgrqQtIuL0N6r0RuPpOOhgMdiXPYr/0Dg.wA41&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:true,&amp;quot;HaveMailbox&amp;quot;:true,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;1G&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;/home/toorop/Projects/Go/src/github.com/toorop/tmail/dist/mailboxes/t/tmail.io/t/test&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;usersGetAll:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver tous les utilisateurs&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /users&lt;/li&gt;
+&lt;li&gt;Méthode: GET&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/users
+
+&amp;lt; HTTP/1.1 200 OK
+&amp;lt; Content-Type: application/json; charset=UTF-8
+
+[{&amp;quot;Id&amp;quot;:4,&amp;quot;Login&amp;quot;:&amp;quot;texset@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$rih8MngreLiYl6KzB72jVuufgtIHYFF08c4Q.GNIx2UObPOrL18QW&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$ba3b4fb33607b031$5.FuzhmYBHK5fBIGSMamG7nv7G/OfHxGBuGPBkfSU0FiE6AvWAJIplz/RJP5AQoTFrKC.vYulBeKlKm/Ua7Gj.&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:false,&amp;quot;HaveMailbox&amp;quot;:false,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;&amp;quot;},{&amp;quot;Id&amp;quot;:5,&amp;quot;Login&amp;quot;:&amp;quot;texsdet@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$Lnvy5ViilsKwAKKLsxhrZOhlcZkW.gbDvffEpyEif6Fefc5NU0iOe&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$8c69e981ea71fa91$WRbtGb6AnEKQo.wSRd2VecOkjiHKCr/SVK0ww.qqK/O.wAjLNUn6ztEpONycwFYwiLWU82rI52A8rLzqrNsE./&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:false,&amp;quot;HaveMailbox&amp;quot;:false,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;&amp;quot;}]
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Activer l&#39;API REST</title>
+      <link>http://tmail.io/doc/activer-api-rest/</link>
+      <pubDate>Wed, 01 Apr 2015 15:05:07 +0200</pubDate>
+      
+      <guid>http://tmail.io/doc/activer-api-rest/</guid>
+      <description>
+
+&lt;p&gt;tmail embarque un &lt;a href=&#34;http://fr.wikipedia.org/wiki/Serveur_HTTP&#34; target=&#34;_blank&#34; title=&#34;qu&#39;est ce qu&#39;un serveur HTTP&#34;&gt; serveur HTTP&lt;/a&gt; qui expose une &lt;a href=&#34;http://fr.wikipedia.org/wiki/Representational_State_Transfer&#34; target=&#34;_blank&#34; title=&#34;Qu&#39;est ce qu&#39;une API REST&#34;&gt;API REST&lt;/a&gt;. Cette API vous permet d’administrer votre serveur tmail et &lt;em&gt;&amp;lt;teasing&amp;gt;&lt;/em&gt; dans un futur &amp;ldquo;proche&amp;rdquo; votre cluster SMTP tmail&lt;em&gt;&amp;lt;/teasing&amp;gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;activation-et-configuration-de-l-api-rest:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Activation et configuration de l&amp;rsquo;API REST.&lt;/h3&gt;
+
+&lt;p&gt;Vous devez d&amp;rsquo;abord spécifier que vous souhaitez activer le service:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Launch REST server
+export TMAIL_REST_SERVER_LAUNCH=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Puis définir sur quelle IP il doit écouter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# REST server IP
+export TMAIL_REST_SERVER_IP=&amp;quot;127.0.0.1&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Et sur quel port:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# REST server port
+export TMAIL_REST_SERVER_PORT=8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ce paramètre vous permet d&amp;rsquo;activer (ou non) le chiffrement de votre connexion:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# REST server is TLS (https) ?
+export TMAIL_REST_SERVER_IS_TLS=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;tmail va utiliser le certificat dist/ssl/web_server.crt et la clé dist/ssl/web_server.key pour chiffrer les transactions. Vous pouvez utiliser ceux inclus dans la distribution pour vos tests mais attention cela va générer des alertes auprès des clients REST que vous allez utiliser.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Si votre serveur REST écoute sur une IP publique, activer TLS n&amp;rsquo;est pas une option, c&amp;rsquo;est impératif car l&amp;rsquo;authentification se fait avec des mots de passe en clair  &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;(authentification HTTP Basic)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Enfin vous devez définir vos identifiants de connexion:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Login for HTTP auth
+export TMAIL_REST_SERVER_LOGIN=&amp;quot;admin&amp;quot;
+
+# Passwd for HTTP auth
+export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;test:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Test&lt;/h4&gt;
+
+&lt;p&gt;Après avoir relancé tmail vous devriez voir dans vos logs une ligne de ce type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/01 15:32:06.467484 INFO - httpd 127.0.0.1:8080 TLS launched
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vous pouvez tester le fonctionnement de l&amp;rsquo;API en appelant la ressource /ping. Par exemple avec &lt;a href=&#34;http://curl.haxx.se/&#34; target=&#34;_blank&#34; title=&#34;tester une API REST avec curl&#34;&gt;curl&lt;/a&gt; :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -k https://127.0.0.1:8080/ping
+{&amp;quot;msg&amp;quot;: &amp;quot;pong&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;La ligne de log correspondant à cette requête :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/02 11:09:51.647899 INFO - http 127.0.0.1:54423 - GET /ping - 200 OK 4.638µs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Note: Non il n&amp;rsquo;y à pas d&amp;rsquo;erreur la requête à bien mis 0.000004 seconde pour être exécutée ;-)&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;généralités:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Généralités&lt;/h2&gt;
+
+&lt;h3 id=&#34;authentification:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Authentification&lt;/h3&gt;
+
+&lt;p&gt;L&amp;rsquo;API utilise l&amp;rsquo;authentification &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;HTTP Basic&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pourquoi ce type d’authentification ?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;simple à mettre en œuvre&lt;/li&gt;
+&lt;li&gt;compatible avec tous les clients HTTP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;requêtes:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Requêtes&lt;/h3&gt;
+
+&lt;p&gt;Si il est nécessaire de transmettre des éléments à l&amp;rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.&lt;/p&gt;
+
+&lt;h3 id=&#34;réponses:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Réponses&lt;/h3&gt;
+
+&lt;p&gt;Le corps, si il existe est lui aussi un message JSON.&lt;/p&gt;
+
+&lt;h3 id=&#34;codes-http:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Codes HTTP&lt;/h3&gt;
+
+&lt;p&gt;Succès :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;200 OK: La requête à été exécuté avec succès, la réponse contient un corps.&lt;/li&gt;
+&lt;li&gt;201 Created: L&amp;rsquo;entité à été crée.&lt;/li&gt;
+&lt;li&gt;204 No Content: La requête à été exécuté avec succès, le corps de la réponse est vide.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Erreurs :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;400 Bad Request: Le requête est mal formée.&lt;/li&gt;
+&lt;li&gt;401 Unauthorized: Une autorisation est nécessaire.&lt;/li&gt;
+&lt;li&gt;403 Forbidden: L’accès est refusé.&lt;/li&gt;
+&lt;li&gt;404 Not Found: La ressource demandée n&amp;rsquo;existe pas.&lt;/li&gt;
+&lt;li&gt;422 Unprocessable Entry: La requête visant à créer ou modifier une entité n&amp;rsquo;a pas pu être exécutée car les données transmises n&amp;rsquo;étaient pas conformes.&lt;/li&gt;
+&lt;li&gt;500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;erreurs:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Erreurs&lt;/h3&gt;
+
+&lt;p&gt;En cas d&amp;rsquo;erreur (4** ou 5**), un message sous forme d&amp;rsquo;un objet JSON est retourné.
+Le message contient deux champs:
+* msg: le message d&amp;rsquo;erreur générée par l&amp;rsquo;application
+* raw: l&amp;rsquo;erreur levée (quand elle existe)&lt;/p&gt;
+
+&lt;p&gt;Exemple, si on essaye de créer un utilisateur qui existe déjà:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -H &amp;quot;Content-Type: application/json&amp;quot; -X POST -d &#39;{&amp;quot;passwd&amp;quot;:&amp;quot;motdepasse&amp;quot;,&amp;quot;authRelay&amp;quot;:true,&amp;quot;haveMailbox&amp;quot;:true,&amp;quot;mailboxQuota&amp;quot;:&amp;quot;1G&amp;quot;}&#39; -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
+
+&amp;lt; HTTP/1.1 422 status code 422
+&amp;lt; Content-Type: application/json; charset=UTF-8
+&amp;lt; Date: Wed, 01 Apr 2015 15:01:21 GMT
+&amp;lt; Content-Length: 85
+
+{&amp;quot;msg&amp;quot;:&amp;quot;unable to create new user&amp;quot;,&amp;quot;raw&amp;quot;:&amp;quot;UNIQUE constraint failed: users.login&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
