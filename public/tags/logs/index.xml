@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Logs on tmail</title>
-    <link>http://localhost:1313/tags/logs/</link>
+    <link>http://tmail.io/tags/logs/</link>
     <description>Recent content in Logs on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Fri, 27 Mar 2015 14:03:12 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/logs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tmail.io/tags/logs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gestion des logs tmail</title>
-      <link>http://localhost:1313/doc/logs/</link>
+      <link>http://tmail.io/doc/logs/</link>
       <pubDate>Fri, 27 Mar 2015 14:03:12 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/logs/</guid>
+      <guid>http://tmail.io/doc/logs/</guid>
       <description>&lt;p&gt;Par défaut tmail va afficher les logs sur la sortie standard &lt;em&gt;stdout&lt;/em&gt;.&lt;br /&gt;
 Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fichier texte.&lt;/p&gt;
 

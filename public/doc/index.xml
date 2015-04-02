@@ -2,24 +2,189 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on tmail</title>
-    <link>http://localhost:1313/doc/</link>
+    <link>http://tmail.io/doc/</link>
     <description>Recent content in Docs on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 01 Apr 2015 15:05:07 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/doc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Apr 2015 11:14:47 +0200</lastBuildDate>
+    <atom:link href="http://tmail.io/doc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>API REST tmail</title>
-      <link>http://localhost:1313/doc/rest-api/</link>
+      <title>Utilisez l&#39;API REST</title>
+      <link>http://tmail.io/doc/api-rest/</link>
+      <pubDate>Thu, 02 Apr 2015 11:14:47 +0200</pubDate>
+      
+      <guid>http://tmail.io/doc/api-rest/</guid>
+      <description>
+
+&lt;p&gt;Vous trouverez dans ce document toutes les informations nécessaires pour utiliser l&amp;rsquo;API REST tmail.&lt;/p&gt;
+
+&lt;h2 id=&#34;sommaire:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Sommaire&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#authentification:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Authentification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#requetes:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Requêtes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#http_code:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Codes HTTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#erreurs:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Erreurs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#users:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion des utilisateurs&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#usersAdd:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Ajouter un utilisateur&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usersDel:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un utilisateur&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usersGetOne:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver un utilisateur&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usersGetAll:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver tous les utilisateurs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;authentification:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Authentification&lt;/h3&gt;
+
+&lt;p&gt;L&amp;rsquo;API utilise l&amp;rsquo;authentification &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;HTTP Basic&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pourquoi ce type d’authentification ?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;simple à mettre en œuvre&lt;/li&gt;
+&lt;li&gt;compatible avec tous les clients HTTP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple avec curl:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;requetes:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Requêtes&lt;/h3&gt;
+
+&lt;p&gt;Si il est nécessaire de transmettre des éléments à l&amp;rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.&lt;/p&gt;
+
+&lt;h3 id=&#34;reponses:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Réponses&lt;/h3&gt;
+
+&lt;p&gt;Le corps, si il existe est lui aussi un message JSON.&lt;/p&gt;
+
+&lt;h3 id=&#34;http_code:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Codes HTTP&lt;/h3&gt;
+
+&lt;p&gt;Succès :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;200 OK: La requête à été exécuté avec succès, la réponse contient un corps.&lt;/li&gt;
+&lt;li&gt;201 Created: L&amp;rsquo;entité à été crée.&lt;/li&gt;
+&lt;li&gt;204 No Content: La requête à été exécuté avec succès, le corps de la réponse est vide.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Erreurs :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;400 Bad Request: Le requête est mal formée.&lt;/li&gt;
+&lt;li&gt;401 Unauthorized: Une autorisation est nécessaire.&lt;/li&gt;
+&lt;li&gt;403 Forbidden: L’accès est refusé.&lt;/li&gt;
+&lt;li&gt;404 Not Found: La ressource demandée n&amp;rsquo;existe pas.&lt;/li&gt;
+&lt;li&gt;422 Unprocessable Entry: La requête visant à créer ou modifier une entité n&amp;rsquo;a pas pu être exécutée car les données transmises n&amp;rsquo;étaient pas conformes.&lt;/li&gt;
+&lt;li&gt;500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;erreurs:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Erreurs&lt;/h3&gt;
+
+&lt;p&gt;En cas d&amp;rsquo;erreur (4** ou 5**), un message sous forme d&amp;rsquo;un objet JSON est retourné.
+Le message contient deux champs:
+* msg: le message d&amp;rsquo;erreur générée par l&amp;rsquo;application
+* raw: l&amp;rsquo;erreur levée (quand elle existe)&lt;/p&gt;
+
+&lt;p&gt;Exemple, si on essaye de créer un utilisateur qui existe déjà:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -H &amp;quot;Content-Type: application/json&amp;quot; -X POST -d &#39;{&amp;quot;passwd&amp;quot;:&amp;quot;motdepasse&amp;quot;,&amp;quot;authRelay&amp;quot;:true,&amp;quot;haveMailbox&amp;quot;:true,&amp;quot;mailboxQuota&amp;quot;:&amp;quot;1G&amp;quot;}&#39; -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
+
+&amp;lt; HTTP/1.1 422 status code 422
+&amp;lt; Content-Type: application/json; charset=UTF-8
+&amp;lt; Date: Wed, 01 Apr 2015 15:01:21 GMT
+&amp;lt; Content-Length: 85
+
+{&amp;quot;msg&amp;quot;:&amp;quot;unable to create new user&amp;quot;,&amp;quot;raw&amp;quot;:&amp;quot;UNIQUE constraint failed: users.login&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;users:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion des utilisateurs&lt;/h2&gt;
+
+&lt;h3 id=&#34;usersAdd:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Ajouter un utilisateur&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /users/LOGIN&lt;/li&gt;
+&lt;li&gt;Méthode: POST&lt;/li&gt;
+&lt;li&gt;Body:
+
+&lt;ul&gt;
+&lt;li&gt;passwd (string): mot de passe de l&amp;rsquo;utilisateur.&lt;/li&gt;
+&lt;li&gt;authRelay (bool): défini si l&amp;rsquo;utilisateur peut utiliser tmail pour relayer.&lt;/li&gt;
+&lt;li&gt;haveMailbox (bool): défini si l&amp;rsquo;utilisateur à une boite email.&lt;/li&gt;
+&lt;li&gt;mailboxQuota (string): le quota de la boite email de l&amp;rsquo;utilisateur en bytes. Vous pouvez utiliser K, M, ou G pour fénir les unités (par exemple 1G signifie un GB)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k -H &amp;quot;Content-Type: application/json&amp;quot; -X POST -d &#39;{&amp;quot;passwd&amp;quot;: &amp;quot;mot de passe&amp;quot;, &amp;quot;authRelay&amp;quot;: true, &amp;quot;haveMailbox&amp;quot;: true, &amp;quot;mailboxQuota&amp;quot;: &amp;quot;1G&amp;quot;}&#39; https://127.0.0.1:8080/users/test@tmail.io
+
+&amp;lt; HTTP/1.1 201 Created
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;usersDel:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un utilisateur&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /users/LOGIN&lt;/li&gt;
+&lt;li&gt;Méthode: DELETE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k  -X DELETE https://127.0.0.1:8080/users/test@tmail.io
+
+&amp;lt; HTTP/1.1 200 OK
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;usersGetOne:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver un utilisateur&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /users/LOGIN&lt;/li&gt;
+&lt;li&gt;Méthode: GET&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/users/test@tmail.io
+
+&amp;lt; HTTP/1.1 200 OK
+&amp;lt; Content-Type: application/json; charset=UTF-8
+
+{&amp;quot;Id&amp;quot;:10,&amp;quot;Login&amp;quot;:&amp;quot;test@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$TGg8af6X08KFvWDnjljAqeBpwkXuQ78sc.xyTUrHN6nRzm1wMyIT.&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$06a585cd9d0540d2$OYGaBsyonWxeuoRQkxsokLRkW/vUtx1qbZoEC1DG9DcX7NmHqgrqQtIuL0N6r0RuPpOOhgMdiXPYr/0Dg.wA41&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:true,&amp;quot;HaveMailbox&amp;quot;:true,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;1G&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;/home/toorop/Projects/Go/src/github.com/toorop/tmail/dist/mailboxes/t/tmail.io/t/test&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;usersGetAll:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver tous les utilisateurs&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /users&lt;/li&gt;
+&lt;li&gt;Méthode: GET&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/users
+
+&amp;lt; HTTP/1.1 200 OK
+&amp;lt; Content-Type: application/json; charset=UTF-8
+
+[{&amp;quot;Id&amp;quot;:4,&amp;quot;Login&amp;quot;:&amp;quot;texset@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$rih8MngreLiYl6KzB72jVuufgtIHYFF08c4Q.GNIx2UObPOrL18QW&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$ba3b4fb33607b031$5.FuzhmYBHK5fBIGSMamG7nv7G/OfHxGBuGPBkfSU0FiE6AvWAJIplz/RJP5AQoTFrKC.vYulBeKlKm/Ua7Gj.&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:false,&amp;quot;HaveMailbox&amp;quot;:false,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;&amp;quot;},{&amp;quot;Id&amp;quot;:5,&amp;quot;Login&amp;quot;:&amp;quot;texsdet@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$Lnvy5ViilsKwAKKLsxhrZOhlcZkW.gbDvffEpyEif6Fefc5NU0iOe&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$8c69e981ea71fa91$WRbtGb6AnEKQo.wSRd2VecOkjiHKCr/SVK0ww.qqK/O.wAjLNUn6ztEpONycwFYwiLWU82rI52A8rLzqrNsE./&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:false,&amp;quot;HaveMailbox&amp;quot;:false,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;&amp;quot;}]
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Activer l&#39;API REST</title>
+      <link>http://tmail.io/doc/activer-api-rest/</link>
       <pubDate>Wed, 01 Apr 2015 15:05:07 +0200</pubDate>
       
-      <guid>http://localhost:1313/doc/rest-api/</guid>
+      <guid>http://tmail.io/doc/activer-api-rest/</guid>
       <description>
 
 &lt;p&gt;tmail embarque un &lt;a href=&#34;http://fr.wikipedia.org/wiki/Serveur_HTTP&#34; target=&#34;_blank&#34; title=&#34;qu&#39;est ce qu&#39;un serveur HTTP&#34;&gt; serveur HTTP&lt;/a&gt; qui expose une &lt;a href=&#34;http://fr.wikipedia.org/wiki/Representational_State_Transfer&#34; target=&#34;_blank&#34; title=&#34;Qu&#39;est ce qu&#39;une API REST&#34;&gt;API REST&lt;/a&gt;. Cette API vous permet d’administrer votre serveur tmail et &lt;em&gt;&amp;lt;teasing&amp;gt;&lt;/em&gt; dans un futur &amp;ldquo;proche&amp;rdquo; votre cluster SMTP tmail&lt;em&gt;&amp;lt;/teasing&amp;gt;&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;activation-et-configuration-de-l-api-rest:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Activation et configuration de l&amp;rsquo;API REST.&lt;/h3&gt;
+&lt;h3 id=&#34;activation-et-configuration-de-l-api-rest:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Activation et configuration de l&amp;rsquo;API REST.&lt;/h3&gt;
 
 &lt;p&gt;Vous devez d&amp;rsquo;abord spécifier que vous souhaitez activer le service:&lt;/p&gt;
 
@@ -58,7 +223,7 @@ export TMAIL_REST_SERVER_LOGIN=&amp;quot;admin&amp;quot;
 export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;test:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Test&lt;/h4&gt;
+&lt;h4 id=&#34;test:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Test&lt;/h4&gt;
 
 &lt;p&gt;Après avoir relancé tmail vous devriez voir dans vos logs une ligne de ce type:&lt;/p&gt;
 
@@ -73,14 +238,14 @@ export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
 
 &lt;p&gt;La ligne de log correspondant à cette requête :&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/01 15:48:58.183360 INFO - http 127.0.0.1:49536 - GET /ping - 200 OK 16.419µs
+&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/02 11:09:51.647899 INFO - http 127.0.0.1:54423 - GET /ping - 200 OK 4.638µs
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;em&gt;Note: Non il n&amp;rsquo;y à pas d&amp;rsquo;erreur la requête à bien mis 0.000016 seconde pour être exécutée ;-)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: Non il n&amp;rsquo;y à pas d&amp;rsquo;erreur la requête à bien mis 0.000004 seconde pour être exécutée ;-)&lt;/em&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;généralités:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Généralités&lt;/h2&gt;
+&lt;h2 id=&#34;généralités:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Généralités&lt;/h2&gt;
 
-&lt;h3 id=&#34;authentification:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Authentification&lt;/h3&gt;
+&lt;h3 id=&#34;authentification:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Authentification&lt;/h3&gt;
 
 &lt;p&gt;L&amp;rsquo;API utilise l&amp;rsquo;authentification &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;HTTP Basic&lt;/a&gt;.&lt;/p&gt;
 
@@ -91,15 +256,15 @@ export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
 &lt;li&gt;compatible avec tous les clients HTTP&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;requêtes:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Requêtes&lt;/h3&gt;
+&lt;h3 id=&#34;requêtes:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Requêtes&lt;/h3&gt;
 
 &lt;p&gt;Si il est nécessaire de transmettre des éléments à l&amp;rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.&lt;/p&gt;
 
-&lt;h3 id=&#34;réponses:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Réponses&lt;/h3&gt;
+&lt;h3 id=&#34;réponses:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Réponses&lt;/h3&gt;
 
 &lt;p&gt;Le corps, si il existe est lui aussi un message JSON.&lt;/p&gt;
 
-&lt;h3 id=&#34;codes-http:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Codes HTTP&lt;/h3&gt;
+&lt;h3 id=&#34;codes-http:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Codes HTTP&lt;/h3&gt;
 
 &lt;p&gt;Succès :&lt;/p&gt;
 
@@ -120,7 +285,7 @@ export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
 &lt;li&gt;500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;erreurs:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Erreurs&lt;/h3&gt;
+&lt;h3 id=&#34;erreurs:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Erreurs&lt;/h3&gt;
 
 &lt;p&gt;En cas d&amp;rsquo;erreur (4** ou 5**), un message sous forme d&amp;rsquo;un objet JSON est retourné.
 Le message contient deux champs:
@@ -143,10 +308,10 @@ Le message contient deux champs:
     
     <item>
       <title>Gestion des logs tmail</title>
-      <link>http://localhost:1313/doc/logs/</link>
+      <link>http://tmail.io/doc/logs/</link>
       <pubDate>Fri, 27 Mar 2015 14:03:12 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/logs/</guid>
+      <guid>http://tmail.io/doc/logs/</guid>
       <description>&lt;p&gt;Par défaut tmail va afficher les logs sur la sortie standard &lt;em&gt;stdout&lt;/em&gt;.&lt;br /&gt;
 Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fichier texte.&lt;/p&gt;
 
@@ -198,10 +363,10 @@ Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fi
     
     <item>
       <title>Gérez vos boites mail avec Dovecot</title>
-      <link>http://localhost:1313/doc/mailboxes/</link>
+      <link>http://tmail.io/doc/mailboxes/</link>
       <pubDate>Fri, 20 Mar 2015 16:34:28 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/mailboxes/</guid>
+      <guid>http://tmail.io/doc/mailboxes/</guid>
       <description>
 
 &lt;p&gt;Initialement j&amp;rsquo;avais prévu d&amp;rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.&lt;br /&gt;
@@ -257,7 +422,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
 &lt;p&gt;Si vous avez déjà tmail installé, je vous recommande de supprimer les tables de votre base de données.
 Beaucoup de modifications on été faites et il est plus prudent de repartir de zéro.&lt;/p&gt;
 
-&lt;p&gt;Suivez ce tutoriel pour &lt;a href=&#34;http://localhost:1313/doc/installer-tmail/&#34;&gt;installer tmail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Suivez ce tutoriel pour &lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;installer tmail&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;configuration-de-tmail:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Configuration de tmail&lt;/h3&gt;
 
@@ -496,10 +661,10 @@ mail_plugins = $mail_plugins quota imap_quota
     
     <item>
       <title>Filtrage antivirus en utilisant Clamav</title>
-      <link>http://localhost:1313/doc/filtrage-smtp-antivirus-clamav/</link>
+      <link>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</link>
       <pubDate>Wed, 18 Feb 2015 14:19:22 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/filtrage-smtp-antivirus-clamav/</guid>
+      <guid>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</guid>
       <description>
 
 &lt;p&gt;Vous trouverez dans ce billet les explications nécessaires pour installer l&amp;rsquo;antivirus opensource &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;Clamav&lt;/a&gt; et activer le filtrage de votre flux SMTP par tmail.&lt;/p&gt;
@@ -552,10 +717,10 @@ export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
     
     <item>
       <title>Installer et configurer tmail</title>
-      <link>http://localhost:1313/doc/installer-tmail/</link>
+      <link>http://tmail.io/doc/installer-tmail/</link>
       <pubDate>Thu, 29 Jan 2015 17:00:44 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/installer-tmail/</guid>
+      <guid>http://tmail.io/doc/installer-tmail/</guid>
       <description>
 
 &lt;p&gt;&lt;br&gt;
@@ -707,9 +872,9 @@ TMAIL_SMTPD_DSNS=&amp;ldquo;151.80.115.83:2525:false;151.80.115.83:5877:false;15
 &lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_QUEUE_LIFETIME: correspond au temps de rétention en queue avant qu&amp;rsquo;un mail ne soit bouncé si tmail n&amp;rsquo;arrive pas à l’expédier. Par défaut le temps est très court, si il vous prend l&amp;rsquo;envie d&amp;rsquo;utiliser tmail en prod (ce que je ne vous conseille pas de faire en l&amp;rsquo;état) augmentez le.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, &lt;a href=&#34;http://localhost:1313/doc/filtrage-smtp-antivirus-clamav&#34;&gt;consultez ce billet&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, &lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav&#34;&gt;consultez ce billet&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Si vous souhaitez gérer des boites mail consulter ce billet: &lt;a href=&#34;http://localhost:1313/doc/mailboxes/&#34;&gt;Gérez vos boites mail avec tmail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si vous souhaitez gérer des boites mail consulter ce billet: &lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Gérez vos boites mail avec tmail&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Un fois cette configuration faite, on peut lancer lancer tmail.&lt;/p&gt;
 
@@ -813,7 +978,7 @@ Connection closed by foreign host.
 &lt;pre&gt;&lt;code&gt;tmail routes add -d toorop.fr -rh mail.toorop.fr
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Je vous invite lire la documentation sur les &lt;a href=&#34;http://localhost:1313/doc/cli-gestion-route-smtp/&#34;&gt;régles de routage SMTP&lt;/a&gt; pour connaitre les possibilités offertes par tmail.&lt;/p&gt;
+&lt;p&gt;Je vous invite lire la documentation sur les &lt;a href=&#34;http://tmail.io/doc/cli-gestion-route-smtp/&#34;&gt;régles de routage SMTP&lt;/a&gt; pour connaitre les possibilités offertes par tmail.&lt;/p&gt;
 
 &lt;h3 id=&#34;ajout-de-utilisateur-smtp-toorop-toorop-fr:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Ajout de utilisateur SMTP toorop@toorop.fr&lt;/h3&gt;
 
@@ -864,15 +1029,15 @@ tmux
     
     <item>
       <title>Gestion des routes SMTP en utilisant le CLI</title>
-      <link>http://localhost:1313/doc/cli-gestion-route-smtp/</link>
+      <link>http://tmail.io/doc/cli-gestion-route-smtp/</link>
       <pubDate>Wed, 28 Jan 2015 09:15:12 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/cli-gestion-route-smtp/</guid>
+      <guid>http://tmail.io/doc/cli-gestion-route-smtp/</guid>
       <description>
 
 &lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
 
-&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;http://localhost:1313/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;
+&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;
 
 &lt;h3 id=&#34;lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f&#34;&gt;Lister toutes les routes&lt;/h3&gt;
 
@@ -986,10 +1151,10 @@ tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
     
     <item>
       <title>Gestion de la queue en utilisant le CLI</title>
-      <link>http://localhost:1313/doc/cli-gestion-queue/</link>
+      <link>http://tmail.io/doc/cli-gestion-queue/</link>
       <pubDate>Wed, 21 Jan 2015 14:20:24 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/cli-gestion-queue/</guid>
+      <guid>http://tmail.io/doc/cli-gestion-queue/</guid>
       <description>
 
 &lt;h4 id=&#34;lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead&#34;&gt;Lister les messages en queue&lt;/h4&gt;
@@ -1061,10 +1226,10 @@ There is no message in queue.
     
     <item>
       <title>Routes smtp sortantes</title>
-      <link>http://localhost:1313/doc/routes-smtp-sortantes/</link>
+      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
       <pubDate>Mon, 19 Jan 2015 16:38:23 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/routes-smtp-sortantes/</guid>
+      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
       <description>&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;
@@ -1102,7 +1267,7 @@ There is no message in queue.
 
 &lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle liée au login complet de cet utilisateur, ou si il n&amp;rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle liée à domaine.tld&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/doc/cli-gestion-queue/&#34;&gt;Vous pouvez configurer les règles de routage en utilisante le CLI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Vous pouvez configurer les règles de routage en utilisante le CLI&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

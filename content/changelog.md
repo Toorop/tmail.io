@@ -10,6 +10,10 @@ name = "Changelog"
 weight = 4
 
 +++
+## v 0.0.6
+ * REST API base
+ * REST API /users
+
 ## v 0.0.5
  * Log to file
  * Improve log

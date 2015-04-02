@@ -24,6 +24,10 @@ weight = 1
 * Gestion des domaines pris en charge *todo*
 * Gestion des IP authorisées à relayer *todo*
 
+# API REST
+* [Activer l'API REST](/doc/activer-api-rest/)
+* [Utiliser l'API REST](/doc/api-rest/)
+
 # SMTP sortant
 * [Principe de fonctionnement des règles de routage](/doc/routes-smtp-sortantes/) 
 

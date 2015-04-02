@@ -10,16 +10,16 @@
     <atom:link href="http://localhost:1313/tags/http/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>API REST tmail</title>
-      <link>http://localhost:1313/doc/rest-api/</link>
+      <title>Activer l&#39;API REST</title>
+      <link>http://localhost:1313/doc/activer-api-rest/</link>
       <pubDate>Wed, 01 Apr 2015 15:05:07 +0200</pubDate>
       
-      <guid>http://localhost:1313/doc/rest-api/</guid>
+      <guid>http://localhost:1313/doc/activer-api-rest/</guid>
       <description>
 
 &lt;p&gt;tmail embarque un &lt;a href=&#34;http://fr.wikipedia.org/wiki/Serveur_HTTP&#34; target=&#34;_blank&#34; title=&#34;qu&#39;est ce qu&#39;un serveur HTTP&#34;&gt; serveur HTTP&lt;/a&gt; qui expose une &lt;a href=&#34;http://fr.wikipedia.org/wiki/Representational_State_Transfer&#34; target=&#34;_blank&#34; title=&#34;Qu&#39;est ce qu&#39;une API REST&#34;&gt;API REST&lt;/a&gt;. Cette API vous permet d’administrer votre serveur tmail et &lt;em&gt;&amp;lt;teasing&amp;gt;&lt;/em&gt; dans un futur &amp;ldquo;proche&amp;rdquo; votre cluster SMTP tmail&lt;em&gt;&amp;lt;/teasing&amp;gt;&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;activation-et-configuration-de-l-api-rest:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Activation et configuration de l&amp;rsquo;API REST.&lt;/h3&gt;
+&lt;h3 id=&#34;activation-et-configuration-de-l-api-rest:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Activation et configuration de l&amp;rsquo;API REST.&lt;/h3&gt;
 
 &lt;p&gt;Vous devez d&amp;rsquo;abord spécifier que vous souhaitez activer le service:&lt;/p&gt;
 
@@ -58,7 +58,7 @@ export TMAIL_REST_SERVER_LOGIN=&amp;quot;admin&amp;quot;
 export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;test:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Test&lt;/h4&gt;
+&lt;h4 id=&#34;test:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Test&lt;/h4&gt;
 
 &lt;p&gt;Après avoir relancé tmail vous devriez voir dans vos logs une ligne de ce type:&lt;/p&gt;
 
@@ -73,14 +73,14 @@ export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
 
 &lt;p&gt;La ligne de log correspondant à cette requête :&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/01 15:48:58.183360 INFO - http 127.0.0.1:49536 - GET /ping - 200 OK 16.419µs
+&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/02 11:09:51.647899 INFO - http 127.0.0.1:54423 - GET /ping - 200 OK 4.638µs
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;em&gt;Note: Non il n&amp;rsquo;y à pas d&amp;rsquo;erreur la requête à bien mis 0.000016 seconde pour être exécutée ;-)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: Non il n&amp;rsquo;y à pas d&amp;rsquo;erreur la requête à bien mis 0.000004 seconde pour être exécutée ;-)&lt;/em&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;généralités:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Généralités&lt;/h2&gt;
+&lt;h2 id=&#34;généralités:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Généralités&lt;/h2&gt;
 
-&lt;h3 id=&#34;authentification:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Authentification&lt;/h3&gt;
+&lt;h3 id=&#34;authentification:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Authentification&lt;/h3&gt;
 
 &lt;p&gt;L&amp;rsquo;API utilise l&amp;rsquo;authentification &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;HTTP Basic&lt;/a&gt;.&lt;/p&gt;
 
@@ -91,15 +91,15 @@ export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
 &lt;li&gt;compatible avec tous les clients HTTP&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;requêtes:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Requêtes&lt;/h3&gt;
+&lt;h3 id=&#34;requêtes:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Requêtes&lt;/h3&gt;
 
 &lt;p&gt;Si il est nécessaire de transmettre des éléments à l&amp;rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.&lt;/p&gt;
 
-&lt;h3 id=&#34;réponses:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Réponses&lt;/h3&gt;
+&lt;h3 id=&#34;réponses:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Réponses&lt;/h3&gt;
 
 &lt;p&gt;Le corps, si il existe est lui aussi un message JSON.&lt;/p&gt;
 
-&lt;h3 id=&#34;codes-http:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Codes HTTP&lt;/h3&gt;
+&lt;h3 id=&#34;codes-http:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Codes HTTP&lt;/h3&gt;
 
 &lt;p&gt;Succès :&lt;/p&gt;
 
@@ -120,7 +120,7 @@ export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
 &lt;li&gt;500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;erreurs:ec3e4958451e5256ed16afd222059e6d&#34;&gt;Erreurs&lt;/h3&gt;
+&lt;h3 id=&#34;erreurs:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Erreurs&lt;/h3&gt;
 
 &lt;p&gt;En cas d&amp;rsquo;erreur (4** ou 5**), un message sous forme d&amp;rsquo;un objet JSON est retourné.
 Le message contient deux champs:

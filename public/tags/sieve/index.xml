@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sieve on tmail</title>
-    <link>http://localhost:1313/tags/sieve/</link>
+    <link>http://tmail.io/tags/sieve/</link>
     <description>Recent content in Sieve on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Fri, 20 Mar 2015 16:34:28 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/sieve/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tmail.io/tags/sieve/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gérez vos boites mail avec Dovecot</title>
-      <link>http://localhost:1313/doc/mailboxes/</link>
+      <link>http://tmail.io/doc/mailboxes/</link>
       <pubDate>Fri, 20 Mar 2015 16:34:28 +0100</pubDate>
       
-      <guid>http://localhost:1313/doc/mailboxes/</guid>
+      <guid>http://tmail.io/doc/mailboxes/</guid>
       <description>
 
 &lt;p&gt;Initialement j&amp;rsquo;avais prévu d&amp;rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.&lt;br /&gt;
@@ -70,7 +70,7 @@ Par ailleurs proposer une API REST pour gérer les mails permettait de développ
 &lt;p&gt;Si vous avez déjà tmail installé, je vous recommande de supprimer les tables de votre base de données.
 Beaucoup de modifications on été faites et il est plus prudent de repartir de zéro.&lt;/p&gt;
 
-&lt;p&gt;Suivez ce tutoriel pour &lt;a href=&#34;http://localhost:1313/doc/installer-tmail/&#34;&gt;installer tmail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Suivez ce tutoriel pour &lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;installer tmail&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;configuration-de-tmail:4002a66b7442538ff5ec29eb457b2fec&#34;&gt;Configuration de tmail&lt;/h3&gt;
 
