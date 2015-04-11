@@ -25,14 +25,25 @@
 &lt;li&gt;&lt;a href=&#34;#authentification:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Authentification&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#requetes:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Requêtes&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#http_code:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Codes HTTP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#erreurs:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Erreurs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#users:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion des utilisateurs&lt;/a&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;#erreurs:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Erreurs&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;#users:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion des utilisateurs&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#usersAdd:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Ajouter un utilisateur&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#usersDel:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un utilisateur&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#usersGetOne:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver un utilisateur&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#usersGetAll:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver tous les utilisateurs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;#queue:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion de la queue&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#queueListMessages:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Lister les messages en queue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#queueGetMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Récuperer les information concernant un message&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#queueDiscardMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un message&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#queueBounceMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Bouncer un message&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -170,6 +181,70 @@ Le message contient deux champs:
 &amp;lt; Content-Type: application/json; charset=UTF-8
 
 [{&amp;quot;Id&amp;quot;:4,&amp;quot;Login&amp;quot;:&amp;quot;texset@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$rih8MngreLiYl6KzB72jVuufgtIHYFF08c4Q.GNIx2UObPOrL18QW&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$ba3b4fb33607b031$5.FuzhmYBHK5fBIGSMamG7nv7G/OfHxGBuGPBkfSU0FiE6AvWAJIplz/RJP5AQoTFrKC.vYulBeKlKm/Ua7Gj.&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:false,&amp;quot;HaveMailbox&amp;quot;:false,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;&amp;quot;},{&amp;quot;Id&amp;quot;:5,&amp;quot;Login&amp;quot;:&amp;quot;texsdet@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$Lnvy5ViilsKwAKKLsxhrZOhlcZkW.gbDvffEpyEif6Fefc5NU0iOe&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$8c69e981ea71fa91$WRbtGb6AnEKQo.wSRd2VecOkjiHKCr/SVK0ww.qqK/O.wAjLNUn6ztEpONycwFYwiLWU82rI52A8rLzqrNsE./&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:false,&amp;quot;HaveMailbox&amp;quot;:false,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;&amp;quot;}]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;queue:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion de la queue&lt;/h2&gt;
+
+&lt;h3 id=&#34;queueListMessages:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Lister les messages en queue&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /queue&lt;/li&gt;
+&lt;li&gt;Méthode: GET&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/queue
+
+&amp;lt; HTTP/1.1 200 OK
+&amp;lt; Content-Type: application/json; charset=UTF-8
+
+[{&amp;quot;Id&amp;quot;:1,&amp;quot;Uuid&amp;quot;:&amp;quot;5217dfdc96d7216d7074b329f88d11f76dee997b&amp;quot;,&amp;quot;Key&amp;quot;:&amp;quot;84855041283d1badc5224231b2afa57f6e1b12e2&amp;quot;,&amp;quot;MailFrom&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;AuthUser&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;RcptTo&amp;quot;:&amp;quot;toorop@toorop.fr&amp;quot;,&amp;quot;MessageId&amp;quot;:&amp;quot;5528C725.8060007@tmail.io&amp;quot;,&amp;quot;Host&amp;quot;:&amp;quot;toorop.fr&amp;quot;,&amp;quot;AddedAt&amp;quot;:&amp;quot;2015-04-11T09:03:02.737629459+02:00&amp;quot;,&amp;quot;NextDeliveryScheduledAt&amp;quot;:&amp;quot;2015-04-11T16:44:35.994411773+02:00&amp;quot;,&amp;quot;Status&amp;quot;:2,&amp;quot;DeliveryFailedCount&amp;quot;:0},{&amp;quot;Id&amp;quot;:2,&amp;quot;Uuid&amp;quot;:&amp;quot;bd36f47dab0e27482ce5db8605415e32978f0185&amp;quot;,&amp;quot;Key&amp;quot;:&amp;quot;38b27d32311b21f1e6afa6215a756c8f696979a8&amp;quot;,&amp;quot;MailFrom&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;AuthUser&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;RcptTo&amp;quot;:&amp;quot;stephane@protecmail.com&amp;quot;,&amp;quot;MessageId&amp;quot;:&amp;quot;5529331C.3050308@tmail.io&amp;quot;,&amp;quot;Host&amp;quot;:&amp;quot;protecmail.com&amp;quot;,&amp;quot;AddedAt&amp;quot;:&amp;quot;2015-04-11T16:43:41.965596115+02:00&amp;quot;,&amp;quot;NextDeliveryScheduledAt&amp;quot;:&amp;quot;0001-01-01T00:09:21+00:09&amp;quot;,&amp;quot;Status&amp;quot;:0,&amp;quot;DeliveryFailedCount&amp;quot;:0}]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;queueGetMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Récuperer les information concernant un message&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /queue/ID&lt;/li&gt;
+&lt;li&gt;Méthode: GET&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/queue/1
+
+&amp;lt; HTTP/1.1 200 OK
+&amp;lt; Content-Type: application/json; charset=UTF-8
+
+{&amp;quot;Id&amp;quot;:1,&amp;quot;Uuid&amp;quot;:&amp;quot;5217dfdc96d7216d7074b329f88d11f76dee997b&amp;quot;,&amp;quot;Key&amp;quot;:&amp;quot;84855041283d1badc5224231b2afa57f6e1b12e2&amp;quot;,&amp;quot;MailFrom&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;AuthUser&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;RcptTo&amp;quot;:&amp;quot;toorop@toorop.fr&amp;quot;,&amp;quot;MessageId&amp;quot;:&amp;quot;5528C725.8060007@tmail.io&amp;quot;,&amp;quot;Host&amp;quot;:&amp;quot;toorop.fr&amp;quot;,&amp;quot;AddedAt&amp;quot;:&amp;quot;2015-04-11T09:03:02.737629459+02:00&amp;quot;,&amp;quot;NextDeliveryScheduledAt&amp;quot;:&amp;quot;2015-04-11T17:15:36.290267337+02:00&amp;quot;,&amp;quot;Status&amp;quot;:2,&amp;quot;DeliveryFailedCount&amp;quot;:0}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;queueDiscardMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un message&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /queue/discard/ID&lt;/li&gt;
+&lt;li&gt;Méthode: DELETE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -X DELETE -k https://127.0.0.1:8080/queue/discard/1
+
+&amp;lt; HTTP/1.1 200 OK
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;queueBounceMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Bouncer un message&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ressource: /queue/bounce/ID&lt;/li&gt;
+&lt;li&gt;Méthode: DELETE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -X DELETE -k https://127.0.0.1:8080/queue/bounce/1
+
+&amp;lt; HTTP/1.1 200 OK
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
