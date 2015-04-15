@@ -6,8 +6,32 @@
     <description>Recent content on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 02 Apr 2015 17:18:22 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2015 11:02:17 +0200</lastBuildDate>
     <atom:link href="http://tmail.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #7: J&#39;ai testé pour vous</title>
+      <link>http://tmail.io/podcast/7/</link>
+      <pubDate>Sun, 12 Apr 2015 11:02:17 +0200</pubDate>
+      
+      <guid>http://tmail.io/podcast/7/</guid>
+      <description>&lt;p&gt;Les nouvelles de la semaine concernant le développement du serveur SMTP tmail: API REST, tests unitaires, race detection,…&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
+        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/7&#34; type=&#34;audio/mp3&#34;&gt;
+        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
+        &lt;div&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/7&#34;&gt;Download&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/audio&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&amp;rsquo;est par ici&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Podcast #6: Cocktail</title>
@@ -24,10 +48,10 @@
 &lt;p&gt;&lt;div class=&#34;player&#34;&gt;
     &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podcasts.toorop.fr/tmail/ep6.mp3&#34; type=&#34;audio/mp3&#34;&gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/6&#34; type=&#34;audio/mp3&#34;&gt;
         &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
         &lt;div&gt;
-            &lt;a href=&#34;http://podcasts.toorop.fr/tmail/ep5.mp3&#34;&gt;Download&lt;/a&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/6&#34;&gt;Download&lt;/a&gt;
         &lt;/div&gt;
     &lt;/audio&gt;
 &lt;/div&gt;
@@ -438,10 +462,10 @@ Le message contient deux champs:
 &lt;p&gt;&lt;div class=&#34;player&#34;&gt;
     &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podcasts.toorop.fr/tmail/ep5.mp3&#34; type=&#34;audio/mp3&#34;&gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/5&#34; type=&#34;audio/mp3&#34;&gt;
         &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
         &lt;div&gt;
-            &lt;a href=&#34;http://podcasts.toorop.fr/tmail/ep5.mp3&#34;&gt;Download&lt;/a&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/5&#34;&gt;Download&lt;/a&gt;
         &lt;/div&gt;
     &lt;/audio&gt;
 &lt;/div&gt;
@@ -568,10 +592,10 @@ Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fi
 &lt;p&gt;&lt;div class=&#34;player&#34;&gt;
     &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podcasts.toorop.fr/tmail/ep4.mp3&#34; type=&#34;audio/mp3&#34;&gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/4&#34; type=&#34;audio/mp3&#34;&gt;
         &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
         &lt;div&gt;
-            &lt;a href=&#34;http://podcasts.toorop.fr/tmail/ep4.mp3&#34;&gt;Download&lt;/a&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/4&#34;&gt;Download&lt;/a&gt;
         &lt;/div&gt;
     &lt;/audio&gt;
 &lt;/div&gt;
@@ -955,10 +979,10 @@ mail_plugins = $mail_plugins quota imap_quota
 &lt;div class=&#34;player&#34;&gt;
     &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podcasts.toorop.fr/tmail/ep3-2.mp3&#34; type=&#34;audio/mp3&#34;&gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/3&#34; type=&#34;audio/mp3&#34;&gt;
         &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
         &lt;div&gt;
-            &lt;a href=&#34;http://podcasts.toorop.fr/tmail/ep3-2.mp3&#34;&gt;Download&lt;/a&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/3&#34;&gt;Download&lt;/a&gt;
         &lt;/div&gt;
     &lt;/audio&gt;
 &lt;/div&gt;
@@ -989,10 +1013,10 @@ mail_plugins = $mail_plugins quota imap_quota
 &lt;div class=&#34;player&#34;&gt;
     &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;//podcasts.toorop.fr/tmail/enclosures/tmail-devcast-ep2.mp3&#34; type=&#34;audio/mp3&#34;&gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/2&#34; type=&#34;audio/mp3&#34;&gt;
         &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
         &lt;div&gt;
-            &lt;a href=&#34;//podcasts.toorop.fr/tmail/enclosures/tmail-devcast-ep2.mp3&#34;&gt;Download&lt;/a&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/2&#34;&gt;Download&lt;/a&gt;
         &lt;/div&gt;
     &lt;/audio&gt;
 &lt;/div&gt;
@@ -1053,10 +1077,10 @@ Si vous avez une fonctionnalité que vous aimeriez voir intégrée:&lt;/p&gt;
 &lt;div class=&#34;player&#34;&gt;
     &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;//podcasts.toorop.fr/tmail/enclosures/ep1.mp3&#34; type=&#34;audio/mp3&#34;&gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/1&#34; type=&#34;audio/mp3&#34;&gt;
         &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
         &lt;div&gt;
-            &lt;a href=&#34;http://podcasts.toorop.fr/tmail/enclosures/ep1.mp3&#34;&gt;Download&lt;/a&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/1&#34;&gt;Download&lt;/a&gt;
         &lt;/div&gt;
     &lt;/audio&gt;
 &lt;/div&gt;
@@ -1084,11 +1108,11 @@ Si vous avez une fonctionnalité que vous aimeriez voir intégrée:&lt;/p&gt;
 &lt;div class=&#34;player&#34;&gt;
     &lt;audio controls preload=&#34;none&#34;&gt;
         &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3&#34; type=&#34;audio/mp3&#34;&gt;&lt;/p&gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/0&#34; type=&#34;audio/mp3&#34;&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;    &amp;lt;!-- Fallback for browsers that don&#39;t support the &amp;lt;audio&amp;gt; element --&amp;gt;
     &amp;lt;div&amp;gt;
-        &amp;lt;a href=&amp;quot;http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3&amp;quot;&amp;gt;Download&amp;lt;/a&amp;gt;
+        &amp;lt;a href=&amp;quot;http://podstats.toorop.fr/p/tmail/0&amp;quot;&amp;gt;Download&amp;lt;/a&amp;gt;
     &amp;lt;/div&amp;gt;
 &amp;lt;/audio&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -1104,15 +1128,6 @@ Si vous avez une fonctionnalité que vous aimeriez voir intégrée:&lt;/p&gt;
 &lt;li&gt;Pour me suivre sur twitter c&amp;rsquo;est par ici: &lt;a href=&#34;https://twitter.com/poroot&#34;&gt;https://twitter.com/poroot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Rechercher</title>
-      <link>http://tmail.io/recherche/</link>
-      <pubDate>Mon, 23 Feb 2015 16:22:25 +0100</pubDate>
-      
-      <guid>http://tmail.io/recherche/</guid>
-      <description></description>
     </item>
     
   </channel>

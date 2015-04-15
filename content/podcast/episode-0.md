@@ -13,11 +13,11 @@ Dans cet épisode je vais me présenter, vous présenter le projet de serveur SM
 <div class="player">
     <audio controls preload="none">
         <!-- Audio files -->
-        <source src="http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3" type="audio/mp3">
+        <source src="http://podstats.toorop.fr/p/tmail/0" type="audio/mp3">
 
         <!-- Fallback for browsers that don't support the <audio> element -->
         <div>
-            <a href="http://podcasts.toorop.fr/tmail/enclosures/episode0.mp3">Download</a>
+            <a href="http://podstats.toorop.fr/p/tmail/0">Download</a>
         </div>
     </audio>
 </div>

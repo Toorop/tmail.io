@@ -13,10 +13,10 @@ Dans cet épisode je vais vous parler de l'intégration du filtrage antivirus au
 <div class="player">
     <audio controls preload="none">
         <!-- Audio files -->
-        <source src="//podcasts.toorop.fr/tmail/enclosures/ep1.mp3" type="audio/mp3">
+        <source src="http://podstats.toorop.fr/p/tmail/1" type="audio/mp3">
         <!-- Fallback for browsers that don't support the <audio> element -->
         <div>
-            <a href="http://podcasts.toorop.fr/tmail/enclosures/ep1.mp3">Download</a>
+            <a href="http://podstats.toorop.fr/p/tmail/1">Download</a>
         </div>
     </audio>
 </div>
