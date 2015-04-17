@@ -6,8 +6,39 @@
     <description>Recent content in Podcast on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 12 Apr 2015 11:02:17 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2015 17:34:34 +0200</lastBuildDate>
     <atom:link href="http://tmail.io/categories/podcast/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #8: Les aventures de Nick Sarasse</title>
+      <link>http://tmail.io/podcast/8/</link>
+      <pubDate>Thu, 16 Apr 2015 17:34:34 +0200</pubDate>
+      
+      <guid>http://tmail.io/podcast/8/</guid>
+      <description>
+
+&lt;p&gt;Cette semaine: la suite de la chasse aux &amp;ldquo;races conditions&amp;rdquo;, l&amp;rsquo;implémentation d&amp;rsquo;un système permettant de limiter le nombre de connexions entrantes, un petit projet annexe de mesure d&amp;rsquo;audience pour le podcast et &amp;hellip; on fait les valises !&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
+        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/8&#34; type=&#34;audio/mp3&#34;&gt;
+        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
+        &lt;div&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/8&#34;&gt;Download&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/audio&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:f5241d3893893fe6fff8f57bd2dbf29a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://podstats.toorop.fr/&#34; title=&#34;Statistiques d&#39;écoute du podcast tmail&#34; target=&#34;_blank&#34;&gt;Les stats du podcast&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Toorop/podstats&#34; title=&#34;Podstats: analytics for you podcast&#34; target=&#34;_blank&#34;&gt;Podstats les sources de l&#39;outil de mesure d&#39;audience du podcast&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
+</description>
+    </item>
     
     <item>
       <title>Podcast #7: J&#39;ai testé pour vous</title>
