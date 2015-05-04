@@ -216,13 +216,14 @@ label[for="nav-trigger"] {
   z-index: 2;
   
   /* non-critical apperance styles */
-  height: 40px;
+  height: 35px;
   width: 40px;
   cursor: pointer;
   font-size: 30px;
   font-weight: bold;
   color: white;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='40px' height='40px' viewBox='0 0 50 50' enable-background='new 0 0 30 30' xml:space='preserve'><rect fill='#c74438' width='50' height='8'/><rect fill='#c74438' y='32' width='50' height='8'/><rect fill='#c74438' y='16' width='50' height='8'/></svg>");
+  /*background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='40px' height='40px' viewBox='0 0 50 50' enable-background='new 0 0 30 30' xml:space='preserve'><rect fill='#c74438' width='50' height='8'/><rect fill='#c74438' y='32' width='50' height='8'/><rect fill='#c74438' y='16' width='50' height='8'/></svg>");*/
+  background-image: url("/img/hamburger.png");
   background-size: contain;
 }
 
