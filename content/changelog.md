@@ -10,6 +10,16 @@ name = "Changelog"
 weight = 4
 
 +++
+
+## v 0.0.8
+* DKIM: sign outgoing message (test)
+
+## v 0.0.7
+* BugFix message-id
+* REST /queue
+* Bugfix: race condition on deliverd
+* Add concurrency limits on smtpd
+
 ## v 0.0.6
  * REST API base
  * REST API /users

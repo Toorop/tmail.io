@@ -17,6 +17,21 @@
       <guid>http://tmail.io/changelog/</guid>
       <description>
 
+&lt;h2 id=&#34;v-0-0-8:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.8&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DKIM: sign outgoing message (test)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;v-0-0-7:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.7&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BugFix message-id&lt;/li&gt;
+&lt;li&gt;REST /queue&lt;/li&gt;
+&lt;li&gt;Bugfix: race condition on deliverd&lt;/li&gt;
+&lt;li&gt;Add concurrency limits on smtpd&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&#34;v-0-0-6:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.6&lt;/h2&gt;
 
 &lt;ul&gt;

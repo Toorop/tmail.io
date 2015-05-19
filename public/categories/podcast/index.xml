@@ -6,8 +6,42 @@
     <description>Recent content in Podcast on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 03 May 2015 20:52:01 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2015 20:52:01 +0200</lastBuildDate>
     <atom:link href="http://tmail.io/categories/podcast/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #10: Microservices &amp;&amp; Protocol Buffers</title>
+      <link>http://tmail.io/podcast/10/</link>
+      <pubDate>Mon, 18 May 2015 20:52:01 +0200</pubDate>
+      
+      <guid>http://tmail.io/podcast/10/</guid>
+      <description>
+
+&lt;p&gt;Je me suis finalement décidé sur la techno à utiliser pour étendre les fonctionnalités de tmail, ce sera par le biais de microservices. Dans cet épisode je vous explique le bidule, enfin j&amp;rsquo;essaye&amp;hellip; ;)&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
+        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/10&#34; type=&#34;audio/mp3&#34;&gt;
+        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
+        &lt;div&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/10&#34;&gt;Download&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/audio&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:308567cfbd1525551cff24e29a6013b6&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Toorop/go-dkim&#34; title=&#34;DKIM package for go (golang)&#34; target=&#34;_blank&#34;&gt;Librairie DKIM pour Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim/&#34; title=&#34;DKIM et tmail&#34; target=&#34;_blank&#34;&gt;tmail: activer DKIM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/protocol-buffers/&#34; title=&#34;Specs protocol buffers&#34; target=&#34;_blank&#34;&gt;Protocol Buffer en détail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt; 
+&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34; title=&#34;Groupe de discussions tmail&#34; target=&#34;_blank&#34;&gt;Le &#34;Google group&#34; tmail&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Podcast #9: DKIM: Mythes et légendes</title>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Changelog &middot; Journal de développement d&#39;un serveur SMTP</title>
+  <title>DKIM &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
   <link rel="stylesheet" href="http://tmail.io//css/poole.css">
@@ -26,8 +26,8 @@
   
   <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
 
-  <meta name="description" content="changelog du serveur smtp tmail">
-  <meta name="keywords" content="changelog,smtp,tmail">
+  <meta name="description" content="tmail et DKIM ">
+  <meta name="keywords" content="dkim">
   <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
 </head>
 <body>
@@ -90,63 +90,64 @@
 
     <div class="content container">
         <div class="post">
-            <h1 class="post-title">Changelog</h1>
-            <span class="post-date">Mar 14, 2015 &middot; Temps de lecture: 1 min  &middot; <a href="http://tmail.io/changelog/#disqus_thread">Comments</a>
+            <h1 class="post-title">DKIM</h1>
+            <span class="post-date">May 15, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="http://tmail.io/doc/dkim/#disqus_thread">Comments</a>
+      
+      <br/>
+      
+      <a class="label" href="http://tmail.io//categories/doc">doc</a>
       </span> 
 
-<h2 id="v-0-0-8:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.8</h2>
+<p>Vous trouverez dans cette section les informations vous permettant d&rsquo;activer et de configurer DKIM.</p>
+
+<p>Tout d&rsquo;abord un petit rappel sur ce qu&rsquo;est DKIM.</p>
+
+<p>Pour faire court DKIM permet :</p>
 
 <ul>
-<li>DKIM: sign outgoing message (test)</li>
+<li>De faire le lien entre un mail et une autorité, celle qui l&rsquo;a signé.</li>
+<li>De s&rsquo;assurer de l&rsquo;intégrité d&rsquo;un mail, autrement dit qu&rsquo;il n&rsquo;a pas été modifié entre le moment où il à été signé et le moment où la signature à été vérifiée.</li>
 </ul>
 
-<h2 id="v-0-0-7:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.7</h2>
+<p>Attention aux légendes urbaines:</p>
 
 <ul>
-<li>BugFix message-id</li>
-<li>REST /queue</li>
-<li>Bugfix: race condition on deliverd</li>
-<li>Add concurrency limits on smtpd</li>
+<li>Ce n&rsquo;est pas parce qu&rsquo;un mail ayant comme expéditeur contact@mabanque.com à une signature DKIM valide que ce mail  vient de contact@mabanque.com et plus globalement qu&rsquo;il n&rsquo;est pas un spam ou un phishing.</li>
+<li>Ce n&rsquo;est pas parce qu’un mail à une signature DKIM non valide que c&rsquo;est un spam ou un phishing.</li>
 </ul>
 
-<h2 id="v-0-0-6:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.6</h2>
+<p><strong>Comme toutes les sections de cette documentation, cette page reflète ce qui est implémenté dans tmail au moment de sa rédaction. Autrement dit pensez à visiter cette page régulièrement car elle sera fréquemment mise à jour</strong></p>
+
+<h2 id="support-de-dkim:c99c24afa10a30bd9bfec7a5439680ab">Support de DKIM</h2>
+
+<p>Le support de DKIM à été introduit dans la version 0.0.8.
+Pour le moment il est sommaire, le but est avant tout de tester l&rsquo;implémentation. Autrement dit, actuellement si vous activez DKIM:</p>
 
 <ul>
-<li>REST API base</li>
-<li>REST API /users</li>
+<li>Aucune vérification n&rsquo;est faite sur les mails entrant.</li>
+<li>Tous les mails sortant sont signés en utilisant la même clé privée, le domaine &ldquo;tmail.io&rdquo; et le &lsquo;selector&rsquo; &ldquo;test&rdquo;.</li>
+<li>La clé publique, ou plus exactement sa représentation, contient le flag indiquant que c&rsquo;est une signature de test. Autrement dit, l&rsquo;entité qui va vérifier la signature, ne doit pas tenir compte du résultat de cette vérification si elle échoue.</li>
 </ul>
 
-<h2 id="v-0-0-5:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.5</h2>
+<p>Dans la pratique, vous ne prenez aucun risque à activer DKIM et comme ça va être très utile par valider l&rsquo;implémentation je ne peux que vous encourager à la faire.</p>
 
-<ul>
-<li>Log to file</li>
-<li>Improve log</li>
-<li>Case sensitivity on local part</li>
-<li>add RSET and NOOP SMTP verbs</li>
-</ul>
+<h2 id="activer-dkim:c99c24afa10a30bd9bfec7a5439680ab">Activer DKIM</h2>
 
-<h2 id="v-0-0-4:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.4</h2>
+<p>D&rsquo;abord assurez vous d&rsquo;avoir une version de tmail supérieure ou égale à la 0.0.8.</p>
 
-<ul>
-<li>Add local deliveries</li>
-<li>Dovecot support</li>
-<li>SmtpUser replaced by Use</li>
-<li>Cli</li>
-<li>Refactoring</li>
-</ul>
+<p>Ensuite il vous suffit juste de modifier:</p>
 
-<h2 id="v-0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.3</h2>
+<pre><code># DKIM sign outgoing (remote) emails
+export TMAIL_DELIVERD_DKIM_SIGN=false
+</code></pre>
 
-<ul>
-<li>Bugfix: MySQL Datetime to Golang time.Time</li>
-<li>BugFix: Optimise/fix queries for Mysql</li>
-</ul>
+<p>pour:</p>
 
-<h2 id="v-0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.2</h2>
+<pre><code># DKIM sign outgoing (remote) emails
+export TMAIL_DELIVERD_DKIM_SIGN=true
+</code></pre>
 
-<ul>
-<li>add Clamav support: <a href="http://tmail.io/doc/filtrage-smtp-antivirus-clamav/">http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</a></li>
-</ul>
+<p>Et de relancer tmail.</p>
 
         </div>
         <div id="disqus_thread"></div>

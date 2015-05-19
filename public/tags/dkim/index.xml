@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dkim on tmail</title>
+    <link>http://tmail.io/tags/dkim/</link>
+    <description>Recent content in Dkim on tmail</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Fri, 15 May 2015 14:33:39 +0200</lastBuildDate>
+    <atom:link href="http://tmail.io/tags/dkim/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>DKIM</title>
+      <link>http://tmail.io/doc/dkim/</link>
+      <pubDate>Fri, 15 May 2015 14:33:39 +0200</pubDate>
+      
+      <guid>http://tmail.io/doc/dkim/</guid>
+      <description>
+
+&lt;p&gt;Vous trouverez dans cette section les informations vous permettant d&amp;rsquo;activer et de configurer DKIM.&lt;/p&gt;
+
+&lt;p&gt;Tout d&amp;rsquo;abord un petit rappel sur ce qu&amp;rsquo;est DKIM.&lt;/p&gt;
+
+&lt;p&gt;Pour faire court DKIM permet :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;De faire le lien entre un mail et une autorité, celle qui l&amp;rsquo;a signé.&lt;/li&gt;
+&lt;li&gt;De s&amp;rsquo;assurer de l&amp;rsquo;intégrité d&amp;rsquo;un mail, autrement dit qu&amp;rsquo;il n&amp;rsquo;a pas été modifié entre le moment où il à été signé et le moment où la signature à été vérifiée.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Attention aux légendes urbaines:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ce n&amp;rsquo;est pas parce qu&amp;rsquo;un mail ayant comme expéditeur contact@mabanque.com à une signature DKIM valide que ce mail  vient de contact@mabanque.com et plus globalement qu&amp;rsquo;il n&amp;rsquo;est pas un spam ou un phishing.&lt;/li&gt;
+&lt;li&gt;Ce n&amp;rsquo;est pas parce qu’un mail à une signature DKIM non valide que c&amp;rsquo;est un spam ou un phishing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Comme toutes les sections de cette documentation, cette page reflète ce qui est implémenté dans tmail au moment de sa rédaction. Autrement dit pensez à visiter cette page régulièrement car elle sera fréquemment mise à jour&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;support-de-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Support de DKIM&lt;/h2&gt;
+
+&lt;p&gt;Le support de DKIM à été introduit dans la version 0.0.8.
+Pour le moment il est sommaire, le but est avant tout de tester l&amp;rsquo;implémentation. Autrement dit, actuellement si vous activez DKIM:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Aucune vérification n&amp;rsquo;est faite sur les mails entrant.&lt;/li&gt;
+&lt;li&gt;Tous les mails sortant sont signés en utilisant la même clé privée, le domaine &amp;ldquo;tmail.io&amp;rdquo; et le &amp;lsquo;selector&amp;rsquo; &amp;ldquo;test&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;La clé publique, ou plus exactement sa représentation, contient le flag indiquant que c&amp;rsquo;est une signature de test. Autrement dit, l&amp;rsquo;entité qui va vérifier la signature, ne doit pas tenir compte du résultat de cette vérification si elle échoue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Dans la pratique, vous ne prenez aucun risque à activer DKIM et comme ça va être très utile par valider l&amp;rsquo;implémentation je ne peux que vous encourager à la faire.&lt;/p&gt;
+
+&lt;h2 id=&#34;activer-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Activer DKIM&lt;/h2&gt;
+
+&lt;p&gt;D&amp;rsquo;abord assurez vous d&amp;rsquo;avoir une version de tmail supérieure ou égale à la 0.0.8.&lt;/p&gt;
+
+&lt;p&gt;Ensuite il vous suffit juste de modifier:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# DKIM sign outgoing (remote) emails
+export TMAIL_DELIVERD_DKIM_SIGN=false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;pour:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# DKIM sign outgoing (remote) emails
+export TMAIL_DELIVERD_DKIM_SIGN=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Et de relancer tmail.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -93,6 +93,62 @@
              
             <div class="post">
                 <h1 class="post-title">
+        <a href="http://tmail.io/podcast/4/">Podcast #4 - Titi et Toto</a>
+      </h1>
+                <span class="post-date">Mar 22, 2015 &middot; Temps de lecture: 1 min  &middot; <a href="http://tmail.io/podcast/4/#disqus_thread">Comments</a>
+      
+      <br/>
+      
+      <a class="label" href="http://tmail.io//categories/podcast">podcast</a>
+      
+      </span>
+                <p><p>Cette semaine je vous parle des nouveautés de la version 0.0.4, de sieve, et je réponds à la question existentielle: Qu&rsquo;est ce qu&rsquo;un mail ?</p>
+
+<p><div class="player">
+    <audio controls preload="none">
+        &lt;!&ndash; Audio files &ndash;&gt;
+        <source src="http://podstats.toorop.fr/p/tmail/4" type="audio/mp3">
+        &lt;!&ndash; Fallback for browsers that don&rsquo;t support the <audio> element &ndash;&gt;
+        <div>
+            <a href="http://podstats.toorop.fr/p/tmail/4">Download</a>
+        </div>
+    </audio>
+</div>
+<br></p>
+</p>
+                <a href="http://tmail.io/podcast/4/">Lire la suite &rarr;</a>
+            </div>
+            
+            <div class="post">
+                <h1 class="post-title">
+        <a href="http://tmail.io/doc/mailboxes/">Gérez vos boites mail avec Dovecot</a>
+      </h1>
+                <span class="post-date">Mar 20, 2015 &middot; Temps de lecture: 9 min  &middot; <a href="http://tmail.io/doc/mailboxes/#disqus_thread">Comments</a>
+      
+      <br/>
+      
+      <a class="label" href="http://tmail.io//categories/doc">doc</a>
+      
+      </span>
+                <p><p>Initialement j&rsquo;avais prévu d&rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.<br />
+Le fait que l&rsquo;on m&rsquo;ait demandé si ça allait être bientôt disponible m&rsquo;a fait réaliser que gérer des comptes mails était quand même l&rsquo;usage principal d&rsquo;un serveur de messagerie - gnééééé&hellip; - , j&rsquo;ai donc décidé de remonter cette tache dans ma todo-list.</p>
+
+<p>Pour vous proposer cette fonctionnalité plus rapidement, j&rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une <strong>interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.</strong></p>
+
+<p>L’intérêt de cette solution c&rsquo;est que l&rsquo;on peut implémenter l&rsquo;interface pour une multitude de types de stockage, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou encore du Runabove.
+Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie, des &ldquo;connecteurs/proxy&rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP), mais aussi d&rsquo;interfacer simplement de nombreux outils au service de messagerie.</p>
+
+<p>Rassurez vous - ou pas - je n&rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&rsquo;utiliser tmail comme serveur mail classique, j&rsquo;ai décidé de prendre un raccourci en implémentant le nécessaire pour utiliser Dovecot avec tmail.</p>
+
+<p><strong>Concrètement il est donc aujourd&rsquo;hui possible d&rsquo;utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d&rsquo;accéder aux boites mails via POP et IMAP.</strong></p>
+
+<p>Voila pour cette - longue - introduction, passons à la pratique.</p>
+</p>
+                <a href="http://tmail.io/doc/mailboxes/">Lire la suite &rarr;</a>
+            </div>
+            
+            <div class="post">
+                <h1 class="post-title">
         <a href="http://tmail.io/podcast/3/">Podcast #3: Nouvelle rubrique</a>
       </h1>
                 <span class="post-date">Mar 14, 2015 &middot; Temps de lecture: 1 min  &middot; <a href="http://tmail.io/podcast/3/#disqus_thread">Comments</a>
@@ -295,24 +351,6 @@
                 <a href="http://tmail.io/doc/cli-gestion-queue/">Lire la suite &rarr;</a>
             </div>
             
-            <div class="post">
-                <h1 class="post-title">
-        <a href="http://tmail.io/doc/routes-smtp-sortantes/">Routes smtp sortantes</a>
-      </h1>
-                <span class="post-date">Jan 19, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="http://tmail.io/doc/routes-smtp-sortantes/#disqus_thread">Comments</a>
-      
-      <br/>
-      
-      <a class="label" href="http://tmail.io//categories/doc">doc</a>
-      
-      </span>
-                <p><p><strong>tmail vous permet de spécifier des routes sortantes pour les mails qu&rsquo;il a à expédier.</strong></p>
-
-<p>Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&rsquo;est le fonctionnement classique d&rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.</p>
-</p>
-                <a href="http://tmail.io/doc/routes-smtp-sortantes/">Lire la suite &rarr;</a>
-            </div>
-            
         </div>
         
     
@@ -334,12 +372,15 @@
         class="active"><a href="/page/2/">2</a></li>
         
         <li
-        class="disabled">
-        <a href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+        ><a href="/page/3/">3</a></li>
+        
+        <li
+        >
+        <a href="/page/3/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
         </li>
         
         <li>
-            <a href="/page/2/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+            <a href="/page/3/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
         </li>
         
     </ul>

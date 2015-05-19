@@ -6,8 +6,103 @@
     <description>Recent content on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 03 May 2015 20:52:01 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2015 20:52:01 +0200</lastBuildDate>
     <atom:link href="http://tmail.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #10: Microservices &amp;&amp; Protocol Buffers</title>
+      <link>http://tmail.io/podcast/10/</link>
+      <pubDate>Mon, 18 May 2015 20:52:01 +0200</pubDate>
+      
+      <guid>http://tmail.io/podcast/10/</guid>
+      <description>
+
+&lt;p&gt;Je me suis finalement décidé sur la techno à utiliser pour étendre les fonctionnalités de tmail, ce sera par le biais de microservices. Dans cet épisode je vous explique le bidule, enfin j&amp;rsquo;essaye&amp;hellip; ;)&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
+        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/10&#34; type=&#34;audio/mp3&#34;&gt;
+        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
+        &lt;div&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/10&#34;&gt;Download&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/audio&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:308567cfbd1525551cff24e29a6013b6&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Toorop/go-dkim&#34; title=&#34;DKIM package for go (golang)&#34; target=&#34;_blank&#34;&gt;Librairie DKIM pour Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim/&#34; title=&#34;DKIM et tmail&#34; target=&#34;_blank&#34;&gt;tmail: activer DKIM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/protocol-buffers/&#34; title=&#34;Specs protocol buffers&#34; target=&#34;_blank&#34;&gt;Protocol Buffer en détail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt; 
+&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34; title=&#34;Groupe de discussions tmail&#34; target=&#34;_blank&#34;&gt;Le &#34;Google group&#34; tmail&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DKIM</title>
+      <link>http://tmail.io/doc/dkim/</link>
+      <pubDate>Fri, 15 May 2015 14:33:39 +0200</pubDate>
+      
+      <guid>http://tmail.io/doc/dkim/</guid>
+      <description>
+
+&lt;p&gt;Vous trouverez dans cette section les informations vous permettant d&amp;rsquo;activer et de configurer DKIM.&lt;/p&gt;
+
+&lt;p&gt;Tout d&amp;rsquo;abord un petit rappel sur ce qu&amp;rsquo;est DKIM.&lt;/p&gt;
+
+&lt;p&gt;Pour faire court DKIM permet :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;De faire le lien entre un mail et une autorité, celle qui l&amp;rsquo;a signé.&lt;/li&gt;
+&lt;li&gt;De s&amp;rsquo;assurer de l&amp;rsquo;intégrité d&amp;rsquo;un mail, autrement dit qu&amp;rsquo;il n&amp;rsquo;a pas été modifié entre le moment où il à été signé et le moment où la signature à été vérifiée.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Attention aux légendes urbaines:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ce n&amp;rsquo;est pas parce qu&amp;rsquo;un mail ayant comme expéditeur contact@mabanque.com à une signature DKIM valide que ce mail  vient de contact@mabanque.com et plus globalement qu&amp;rsquo;il n&amp;rsquo;est pas un spam ou un phishing.&lt;/li&gt;
+&lt;li&gt;Ce n&amp;rsquo;est pas parce qu’un mail à une signature DKIM non valide que c&amp;rsquo;est un spam ou un phishing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Comme toutes les sections de cette documentation, cette page reflète ce qui est implémenté dans tmail au moment de sa rédaction. Autrement dit pensez à visiter cette page régulièrement car elle sera fréquemment mise à jour&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;support-de-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Support de DKIM&lt;/h2&gt;
+
+&lt;p&gt;Le support de DKIM à été introduit dans la version 0.0.8.
+Pour le moment il est sommaire, le but est avant tout de tester l&amp;rsquo;implémentation. Autrement dit, actuellement si vous activez DKIM:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Aucune vérification n&amp;rsquo;est faite sur les mails entrant.&lt;/li&gt;
+&lt;li&gt;Tous les mails sortant sont signés en utilisant la même clé privée, le domaine &amp;ldquo;tmail.io&amp;rdquo; et le &amp;lsquo;selector&amp;rsquo; &amp;ldquo;test&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;La clé publique, ou plus exactement sa représentation, contient le flag indiquant que c&amp;rsquo;est une signature de test. Autrement dit, l&amp;rsquo;entité qui va vérifier la signature, ne doit pas tenir compte du résultat de cette vérification si elle échoue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Dans la pratique, vous ne prenez aucun risque à activer DKIM et comme ça va être très utile par valider l&amp;rsquo;implémentation je ne peux que vous encourager à la faire.&lt;/p&gt;
+
+&lt;h2 id=&#34;activer-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Activer DKIM&lt;/h2&gt;
+
+&lt;p&gt;D&amp;rsquo;abord assurez vous d&amp;rsquo;avoir une version de tmail supérieure ou égale à la 0.0.8.&lt;/p&gt;
+
+&lt;p&gt;Ensuite il vous suffit juste de modifier:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# DKIM sign outgoing (remote) emails
+export TMAIL_DELIVERD_DKIM_SIGN=false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;pour:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# DKIM sign outgoing (remote) emails
+export TMAIL_DELIVERD_DKIM_SIGN=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Et de relancer tmail.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Podcast #9: DKIM: Mythes et légendes</title>
@@ -615,6 +710,7 @@ Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fi
 &lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Boites locales&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav/&#34;&gt;Filtrage antivirus via Clamav&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/logs&#34;&gt;Gestion des logs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim&#34;&gt;DKIM&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&#34;cli:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;Cli&lt;/h1&gt;
@@ -989,6 +1085,21 @@ mail_plugins = $mail_plugins quota imap_quota
       <guid>http://tmail.io/changelog/</guid>
       <description>
 
+&lt;h2 id=&#34;v-0-0-8:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.8&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DKIM: sign outgoing message (test)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;v-0-0-7:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.7&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BugFix message-id&lt;/li&gt;
+&lt;li&gt;REST /queue&lt;/li&gt;
+&lt;li&gt;Bugfix: race condition on deliverd&lt;/li&gt;
+&lt;li&gt;Add concurrency limits on smtpd&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&#34;v-0-0-6:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;v 0.0.6&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -1060,70 +1171,6 @@ mail_plugins = $mail_plugins quota imap_quota
 &lt;li&gt;&lt;a href=&#34;https://github.com/flosse/sloc&#34; target=&#34;_blank&#34;&gt;Sloc&lt;/a&gt;: Un utilitaire vous permettant de compter les lignes de code d&amp;rsquo;un projet.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/#!forum/tmail-dev&#34; target=&#34;_blank&#34;&gt;Venez discuter du projet sur notre goupe de discussions.&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Retrouvez moi sur twitter &lt;a href=&#34;https://twitter.com/poroot&#34; target=&#34;_blank&#34;&gt; @poroot&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Podcast #2: Toc toc...</title>
-      <link>http://tmail.io/podcast/episode-2/</link>
-      <pubDate>Fri, 06 Mar 2015 07:50:04 +0100</pubDate>
-      
-      <guid>http://tmail.io/podcast/episode-2/</guid>
-      <description>
-
-&lt;p&gt;Dans cet épisode je vais vous parler des suggestions qui m&amp;rsquo;ont été faites concernant les fonctionnalités de tmail.
-&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/2&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/2&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;liens-de-l-épisode:51ade350eab725e837a47d1a4253ca0c&#34;&gt;Liens de l&amp;rsquo;épisode&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34;&gt;Venez discuter sur notre groupe Google&lt;/a&gt;. Vous y retrouverez les suggestions évoquées dans cet épisode et vous pourrez donnez votre avis.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.dovecot.org/&#34;&gt;Dovecot&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Wishlist</title>
-      <link>http://tmail.io/wishlist/</link>
-      <pubDate>Thu, 26 Feb 2015 12:00:11 +0100</pubDate>
-      
-      <guid>http://tmail.io/wishlist/</guid>
-      <description>
-
-&lt;p&gt;Cette page recense les fonctionnalités que vous souhaitez voir implémentées dans tmail.
-Si vous avez une fonctionnalité que vous aimeriez voir intégrée:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Vérifiez qu&amp;rsquo;elle n&amp;rsquo;est pas dans la liste ci dessous.&lt;/li&gt;
-&lt;li&gt;Créez une nouvelle discussion sur le groupe &lt;a href=&#34;https://groups.google.com/forum/#!forum/tmail-dev&#34;&gt;tmail-dev&lt;/a&gt; pour la présenter et nous permettre d&amp;rsquo;en discuter.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;en-cours-de-discussion:88f30e4ec261bd5d2da2e6b82c2c10c8&#34;&gt;En cours de discussion&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/-zIJiRoIFDc&#34;&gt;Alias et listes de discussions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/hFF8BlEWeXQ&#34;&gt;Restrictions sur l&amp;rsquo;expéditeur déclaré d&amp;rsquo;un mail en fonction de l&amp;rsquo;utilisateur SMTP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/4yfkxNB7LYA&#34;&gt;Pouvoir rediriger les logs ailleurs que vers stdout&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;approuvés-à-implémenter:88f30e4ec261bd5d2da2e6b82c2c10c8&#34;&gt;Approuvés, à implémenter&lt;/h2&gt;
-
-&lt;h2 id=&#34;implémentés:88f30e4ec261bd5d2da2e6b82c2c10c8&#34;&gt;Implémentés&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Livraison locale, gestion de boites mails et compatiblilité Dovecot. &lt;a href=&#34;https://groups.google.com/forum/#!topic/tmail-dev/niW_EtXkZKQ&#34; target=&#34;_blank&#34;&gt; Discussion &lt;/a&gt; - &lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

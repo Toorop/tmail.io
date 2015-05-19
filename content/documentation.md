@@ -16,6 +16,7 @@ weight = 1
 * [Boites locales](/doc/mailboxes/)
 * [Filtrage antivirus via Clamav](/doc/filtrage-smtp-antivirus-clamav/)
 * [Gestion des logs](/doc/logs)
+* [DKIM](/doc/dkim)
 
 # Cli
 * [Gestion de la queue](/doc/cli-gestion-queue/)
