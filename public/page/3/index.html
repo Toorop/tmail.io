@@ -93,6 +93,55 @@
              
             <div class="post">
                 <h1 class="post-title">
+        <a href="http://tmail.io/doc/cli-gestion-route-smtp/">Gestion des routes SMTP en utilisant le CLI</a>
+      </h1>
+                <span class="post-date">Jan 28, 2015 &middot; Temps de lecture: 4 min  &middot; <a href="http://tmail.io/doc/cli-gestion-route-smtp/#disqus_thread">Comments</a>
+      
+      <br/>
+      
+      <a class="label" href="http://tmail.io//categories/doc">doc</a>
+      
+      </span>
+                <p><p>Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.</p>
+
+<p>Avant d&rsquo;aller plus loin je vous recommande la lecture de la <a href="/doc/routes-smtp-sortantes/">documentation expliquant le fonctionnement des routes SMTP</a> principalement pour savoir l&rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.</p>
+</p>
+                <a href="http://tmail.io/doc/cli-gestion-route-smtp/">Lire la suite &rarr;</a>
+            </div>
+            
+            <div class="post">
+                <h1 class="post-title">
+        <a href="http://tmail.io/doc/cli-gestion-queue/">Gestion de la queue en utilisant le CLI</a>
+      </h1>
+                <span class="post-date">Jan 21, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="http://tmail.io/doc/cli-gestion-queue/#disqus_thread">Comments</a>
+      
+      <br/>
+      
+      <a class="label" href="http://tmail.io//categories/doc">doc</a>
+      
+      </span>
+                <p><h4 id="lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead">Lister les messages en queue</h4>
+
+<p>La commande pour lister les messages en queue est:</p>
+
+<pre><code>tmail queue list
+</code></pre>
+
+<p>Pour chaque mail en queue les informations suivantes sont retournées:</p>
+
+<ul>
+<li>Identifiant du mail en queue</li>
+<li>From: expéditeur du mail</li>
+<li>To:  destinataire du mail</li>
+<li>Status: status du mail. Actuellement les status sont &ldquo;Delivery in progress&rdquo;, &ldquo;Scheduled&rdquo;, &ldquo;Will be discarded&rdquo;, &ldquo;Will be bounced&rdquo;</li>
+<li>Next delivery process scheduled at: Dans le cas ou un mail est en attente dans la queue ce paramètre indique le moment (approximatif) où le mail sera représenté au process tmail qui traite les message en queue.</li>
+</ul>
+</p>
+                <a href="http://tmail.io/doc/cli-gestion-queue/">Lire la suite &rarr;</a>
+            </div>
+            
+            <div class="post">
+                <h1 class="post-title">
         <a href="http://tmail.io/doc/routes-smtp-sortantes/">Routes smtp sortantes</a>
       </h1>
                 <span class="post-date">Jan 19, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="http://tmail.io/doc/routes-smtp-sortantes/#disqus_thread">Comments</a>

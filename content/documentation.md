@@ -17,6 +17,7 @@ weight = 1
 * [Filtrage antivirus via Clamav](/doc/filtrage-smtp-antivirus-clamav/)
 * [Gestion des logs](/doc/logs)
 * [DKIM](/doc/dkim)
+* [Déployer un relais SMTP en 5 minutes](/doc/docker-smtp-server/)
 
 # Cli
 * [Gestion de la queue](/doc/cli-gestion-queue/)

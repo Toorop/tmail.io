@@ -2,70 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microservices on tmail</title>
-    <link>http://localhost:1313/tags/microservices/</link>
+    <link>http://tmail.io/tags/microservices/</link>
     <description>Recent content in Microservices on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 17 May 2015 10:24:01 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/microservices/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 May 2015 10:24:01 +0200</lastBuildDate>
+    <atom:link href="http://tmail.io/tags/microservices/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Microservices</title>
-      <link>http://localhost:1313/doc/microservices/</link>
-      <pubDate>Sun, 17 May 2015 10:24:01 +0200</pubDate>
+      <title>Micro-services</title>
+      <link>http://tmail.io/doc/microservices/</link>
+      <pubDate>Thu, 28 May 2015 10:24:01 +0200</pubDate>
       
-      <guid>http://localhost:1313/doc/microservices/</guid>
+      <guid>http://tmail.io/doc/microservices/</guid>
       <description>
 
-&lt;p&gt;Comme il ne peux y avoir autant d&amp;rsquo;usages possibles que de fonctionnalités implémentées, il m&amp;rsquo;a semblé important de pourvoir ajouter très simplement des fonctionnalités à tmail.&lt;/p&gt;
+&lt;p&gt;Comme il ne peux y avoir autant d&amp;rsquo;usages possibles que de fonctionnalités implémentées, il m&amp;rsquo;a semblé important de pourvoir ajouter simplement des fonctionnalités à tmail.&lt;/p&gt;
 
-&lt;p&gt;Après avoir longuement réfléchis à la façon d&amp;rsquo;apporter cette &amp;ldquo;feature&amp;rdquo; il m&amp;rsquo;a semblé que l&amp;rsquo;usage de micro-services était la meilleure solution.&lt;/p&gt;
+&lt;p&gt;Après avoir longuement réfléchis à la façon d&amp;rsquo;implémenter la chose, il m&amp;rsquo;a semblé que l&amp;rsquo;usage de micro-services était la meilleure solution.&lt;/p&gt;
 
 &lt;p&gt;Pourquoi ?&lt;/p&gt;
 
-&lt;p&gt;Les contraintes:&lt;/p&gt;
+&lt;p&gt;Voyons les contraintes:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Fiable: Est il vraiment nécessaire de préciser ce point ? ;)&lt;/li&gt;
-&lt;li&gt;Facile: N&amp;rsquo;importe qui, à condition d&amp;rsquo;avoir quelques base en programmation, doit être en mesure d&amp;rsquo;écrire une extension pour tmail.&lt;/li&gt;
-&lt;li&gt;Multi langage: On ne doit pas être limité à un langage de programmation.&lt;/li&gt;
+&lt;li&gt;Fiable: est il vraiment nécessaire de préciser ce point ? ;)&lt;/li&gt;
+&lt;li&gt;Facile: n&amp;rsquo;importe qui, à condition d&amp;rsquo;avoir quelques base en programmation, doit être en mesure d&amp;rsquo;écrire une extension pour tmail.&lt;/li&gt;
+&lt;li&gt;Multi langage: on ne doit pas être limité à un langage de programmation.&lt;/li&gt;
 &lt;li&gt;Scalable: on doit pouvoir adapter simplement et rapidement les ressources aux besoins.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Les réponses à ces contraintes:&lt;/p&gt;
+&lt;p&gt;Comment y répondre:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;HTTP pour le protocole de transfert: HTTP est un protocole répandu, fiable et maîtrisé par de nombreux dev.&lt;/li&gt;
-&lt;li&gt;Protocol Buffers pour la sérialisation des messages à échanger: il permet un contrôle sur la structure et le type les donnés, par ailleurs il est très performant aussi bien en terme de vitesse de sérialisation/dé-sérialisation qu&amp;rsquo;en terme de bande passante (la taille de la structure sérialisée). Enfin des implémentations existent dans les langages les plus courant.&lt;/li&gt;
+&lt;li&gt;De part leur indépendance vis à vis du logiciel client, ici tmail, les micro-services ne viendront impacter ce dernier en cas de problème. En clair si un micro-service plante, il n&amp;rsquo;y aura pas d&amp;rsquo;impact sur pas la fiabilité et le disponibilité du service.&lt;/li&gt;
+&lt;li&gt;HTTP est un protocole répandu, fiable et maîtrisé par de nombreux dev, il est donc tout à fait adapté comme protocole de communication entre le client (tmail) et les micro-services.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/protocol-buffers/&#34; target=&#34;_blank&#34; title=&#34;Protocol Buffers&#34;&gt; Protocol Buffers &lt;/a&gt; est un format de sérialisation très performant, il permet un contrôle sur la structure et le type des donnés échangées, des implémentations existent dans les langages les plus courant,.. bref il semble le parfait candidat pour ce qui concerne le format d&amp;rsquo;échange de données..&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;sommaire:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Sommaire&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#authentification:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Principes de base &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#principes:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Principes de base &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#configuration:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Configuration &lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#parametres:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Paramètres&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#reponses:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Réponses &lt;/a&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#smtpdreponse:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdResponse &lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hooks:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Points d&amp;rsquo;entré &lt;/a&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#smtpdnewclient:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Initialisation de la connexion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#smtpddata:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Après la commande DATA&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#exempleimpl:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Exemples d&amp;rsquo;implémentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#msas:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Micro-Services As Service&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#greysmtpd:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Grey SMTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Vérification DKIL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;principes-de-base:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Principes de base&lt;/h2&gt;
+&lt;h2 id=&#34;principes:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Principes de base&lt;/h2&gt;
 
-&lt;p&gt;A différentes étapes du traitement tmail va vérifier si des microservices sont configurées et les cas échéant il va les interroger.&lt;/p&gt;
+&lt;p&gt;A différentes étapes du traitement, tmail va vérifier si des micro-services sont configurées et le cas échéant il va les interroger.&lt;/p&gt;
 
-&lt;p&gt;Prenons un exemple concret, pour le moment en guise de &amp;ldquo;proof of concept&amp;rdquo;, il n&amp;rsquo;y a qu&amp;rsquo;à une étape que tmail est extensible par des micro-services, c&amp;rsquo;est à l&amp;rsquo;initialisation d&amp;rsquo;une nouvelle connexion avec un client SMTP qui à un mail (ou plus) à transmettre à tmail.&lt;br /&gt;
-Si un micro-service est configuré, tmail va sérialiser les informations pertinentes, à ce stade l&amp;rsquo;identifiant de la sessions SMTP et l&amp;rsquo;adresse IP du client distant, et va les transmettre via une requête HTTP POST vers le microservice défini par par une URL.&lt;/p&gt;
+&lt;p&gt;Prenons un exemple concret, si un micro-service est configuré pour être interrogé lors de l’établissement d&amp;rsquo;une connexion avec un nouveau client SMTP, tmail va sérialiser l&amp;rsquo;identifiant de la sessions SMTP et l&amp;rsquo;adresse IP du client distant et va les transmettre via une requête HTTP POST vers le micro service.&lt;/p&gt;
 
 &lt;p&gt;Il va attendre (ou pas), là réponse et en fonction de cette dernière, va soit continuer le traitement, soit l&amp;rsquo;interrompre en transmettant un message au client.&lt;/p&gt;
 
+&lt;p&gt;La tache du micro-service pourrait être, par exemple, de vérifier si l&amp;rsquo;IP est blacklistée sur une RBL, et si c&amp;rsquo;est le cas alors le micro-service &amp;ldquo;demanderait&amp;rdquo; à tmail de refuser la connexion. (ce qui en passant n&amp;rsquo;est pas une bonne idée, mais bon, c&amp;rsquo;est pour l&amp;rsquo;exemple ;) )&lt;/p&gt;
+
 &lt;h2 id=&#34;configuration:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Configuration&lt;/h2&gt;
 
-&lt;p&gt;On signifie à tmail qu&amp;rsquo;il doit interroger un microservice à une étape donnée via la configuration, donc pour le moment en éditant le fichier de configuration.&lt;/p&gt;
-
-&lt;p&gt;Pour chaque étape où des microservices sont appelables, vous allez trouver dans le fichier de configuration des variables de ce type :&lt;/p&gt;
+&lt;p&gt;Pour chaque étape où des micro-services sont appelables, vous allez trouver dans le fichier de configuration une variable de ce type :&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# Microservices
 # On new incomming SMTP connection
 TMAIL_MS_SMTPD_NEWCLIENT=&amp;quot;&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Un microservice est défini par une URL:&lt;/p&gt;
+&lt;p&gt;Un micro-service est défini par une URL:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;https://ms.tmail.io/smtpdnewclient?param1=x&amp;amp;param2=y
 &lt;/code&gt;&lt;/pre&gt;
@@ -74,10 +97,10 @@ TMAIL_MS_SMTPD_NEWCLIENT=&amp;quot;&amp;quot;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://ms.tmail.io/smtpdnewclient:&#34;&gt;https://ms.tmail.io/smtpdnewclient:&lt;/a&gt; l&amp;rsquo;URL vers laquelle sera posté les données sérialisées&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;param1=x&amp;amp;param2=y&amp;rdquo; les paramètres de configuration de ce microservice (voir la liste plus bas)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;param1=x&amp;amp;param2=y&amp;rdquo; les paramètres de configuration de ce micro-service (voir la liste plus bas). Attention ces paramètres ne seront pas transmis au micro-services.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Il est possible, d&amp;rsquo;appeler plusieurs microservices en séparant les URL d&amp;rsquo;un point virgule.&lt;/p&gt;
+&lt;p&gt;Il est possible, d&amp;rsquo;appeler plusieurs micro-services en séparant les URL d&amp;rsquo;un point virgule.&lt;/p&gt;
 
 &lt;p&gt;Par exemple :&lt;/p&gt;
 
@@ -86,13 +109,13 @@ TMAIL_MS_SMTPD_NEWCLIENT=&amp;quot;&amp;quot;
 
 &lt;p&gt;Dans ce cas tmail va appeler &lt;a href=&#34;https://ms.tmail.io/check-spamcop&#34;&gt;https://ms.tmail.io/check-spamcop&lt;/a&gt; et ensuite &lt;a href=&#34;https://ms.tmail.io/stats&#34;&gt;https://ms.tmail.io/stats&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;paramètres:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Paramètres&lt;/h3&gt;
+&lt;h3 id=&#34;parametres:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Paramètres&lt;/h3&gt;
 
 &lt;p&gt;Les paramètres d&amp;rsquo;URL actuellement reconnu par tmail sont:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;timeout&lt;/strong&gt; (default: 30): permet d&amp;rsquo;indiquer un timeout en seconde sur un appel. Par défaut il est de 30 secondes.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;onfailure&lt;/strong&gt; (default: continue): permet de spécifier un action si un appel échoue. Globalement un appel échoue si le timeout est déclenché ou si le code de retour HTTP indique une erreur (4xx ou 5xx).
+&lt;li&gt;&lt;strong&gt;timeout&lt;/strong&gt; (default: 30): permet d&amp;rsquo;indiquer un timeout (en seconde) sur un appel. Par défaut il est de 30 secondes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;onfailure&lt;/strong&gt; (default: continue): permet de spécifier une action si un appel échoue. Globalement un appel échoue si le timeout est déclenché ou si le code de retour HTTP indique une erreur (4xx ou 5xx).
 Les valeurs possibles pour ce paramètre sont:
 
 &lt;ul&gt;
@@ -100,16 +123,16 @@ Les valeurs possibles pour ce paramètre sont:
 &lt;li&gt;tempfail: si une erreur à lieu pendant une transaction SMTP entrante, une temporaire (4xx) est retournée au client SMTP (xx), si c&amp;rsquo;est pendant la livraison d&amp;rsquo;un mail ou lors d&amp;rsquo;une transaction sortante le mail est remis en queue.&lt;/li&gt;
 &lt;li&gt;permfail: si une erreur à lieu pendant une transaction SMTP entrante, une erreur permanente (5xx) est retournée au client SMTP, si c&amp;rsquo;est pendant la livraison d&amp;rsquo;un mail ou lors d&amp;rsquo;une transaction sortante le mail est remis en queue.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;fireandforget&lt;/strong&gt; (default false): si ce paramètre est défini à true, tmail va exécuter la requête dans un process parallèle et ne va pas tenir compte de la réponse. Autrement dit ce genre de traitement n&amp;rsquo;a auune incidence sur le traitement réalisé par tmail. Usages types: log, stat,&amp;hellip;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;fireandforget&lt;/strong&gt; (default false): si ce paramètre est défini à true, tmail va exécuter la requête dans un process parallèle et ne va pas tenir compte de la réponse. Autrement dit ce genre de traitement n&amp;rsquo;a aucune incidence sur le traitement réalisé par tmail. Attention cette option n&amp;rsquo;est pas disponible pour tous les hooks.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;réponses:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Réponses&lt;/h2&gt;
+&lt;h2 id=&#34;reponses:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Réponses&lt;/h2&gt;
 
-&lt;p&gt;Les réponses retournée par le microservice sont des structures sérialisés avec protobuf qui sont définies par leur fichier .proto&lt;/p&gt;
+&lt;p&gt;Les réponses retournée par le micro-service sont des structures sérialisés avec protobuf, elles sont définies par leur fichier .proto&lt;/p&gt;
 
-&lt;p&gt;TODO: je vais mettre en lignes le .proto qui défini les messages et les réponses.&lt;/p&gt;
+&lt;p&gt;Vous trouverez le fichier proto &lt;a href=&#34;hhttps://github.com/toorop/tmail-ms-server/tree/master/proto&#34; target=&#34;_blank&#34; title=&#34;tmail proto&#34;&gt; &lt;a href=&#34;https://github.com/toorop/tmail-ms-server/tree/master/proto&#34;&gt;https://github.com/toorop/tmail-ms-server/tree/master/proto&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;smtpdresponse:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdResponse&lt;/h3&gt;
+&lt;h3 id=&#34;smtpdreponse:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdResponse&lt;/h3&gt;
 
 &lt;p&gt;C&amp;rsquo;est cette structure que votre microservice doit retourner si il est appelé durant une transaction SMTP entrante.&lt;/p&gt;
 
@@ -119,9 +142,9 @@ Les valeurs possibles pour ce paramètre sont:
     required int32 smtp_code = 1;   // SMTP code
     required string smtp_msg = 2;   // SMTP message
 
-    optional bool close_connection = 16;        // if true connection wil be closed
-    optional string data_link = 17; // link for downloading additional - large - data (ie raw mail)
-    repeated string headers2add = 18; // headers to add 
+    optional bool close_connection = 16;// if true connection wil be closed
+    optional string data_link = 17;     // link for downloading additional (large) data 
+    repeated string extra_headers = 18; // headers to add 
 }
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -131,17 +154,17 @@ Les valeurs possibles pour ce paramètre sont:
 &lt;li&gt;&lt;strong&gt;smtp_code&lt;/strong&gt; (requis): le code SMTP qui, si il est différent de 0, va être retourné au client.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;smtp_msg&lt;/strong&gt; (requis): le message qui, si il est différent de &amp;ldquo;&amp;rdquo; (chaîne vide), va être associé au code SMTP pour créer la réponse à retourner au client.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;close_connection&lt;/strong&gt; (optionnel, défaut: false): si ce paramètre est à défini sur &lt;em&gt;true&lt;/em&gt; alors tmail, va mettre fin à la transaction après avoir retourné au client les message &amp;ldquo;smtp_code smtp_msg&amp;rdquo; si il est défini, ou un message d&amp;rsquo;erreur temporaire dans le cas contraire.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;data_link&lt;/strong&gt; (optionnel): lien pointant vers des données trop volumineuses pour êtres contenues dans la réponse. (TODO)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;headers2add&lt;/strong&gt; (optionnel): d&amp;rsquo;éventuels headers à ajouter. (TODO)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;data_link&lt;/strong&gt; (optionnel): lien pointant vers des données trop volumineuses pour êtres contenues dans la réponse.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;extra_headers&lt;/strong&gt; (optionnel): d&amp;rsquo;éventuels headers à ajouter.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Je suppose que certain d&amp;rsquo;entre vous se demandent: pourquoi est il passé de 2 à 16 ? Parce que protobuf ne va pas encoder les noms des variables mais va utiliser le &lt;em&gt;flag&lt;/em&gt; qui lui est associé. Si ce flag est inférieur à 16, une fois encodé le flag et le type de la variable vont occuper un byte, à partir de 16, il va falloir utiliser 2 bytes. Autrement dit, il est judicieux de conserver les tags 1 à 15 pour les éléments requis et 16 et plus pour ceux qui sont optionnels histoire de gagner quelque bytes.&lt;/p&gt;
 
-&lt;h2 id=&#34;etapes-hookables:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Etapes &amp;ldquo;hookables&amp;rdquo;&lt;/h2&gt;
+&lt;h2 id=&#34;hooks:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Étapes &amp;ldquo;hookables&amp;rdquo;&lt;/h2&gt;
 
 &lt;p&gt;Voici la liste des points (hook) où il est possible d&amp;rsquo;étendre tmail par l&amp;rsquo;usage de micro-services.&lt;/p&gt;
 
-&lt;h3 id=&#34;smtpdnewclient-établissement-d-une-nouvelle-connexion-smtp-entrante:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdNewClient: Établissement d&amp;rsquo;une nouvelle connexion SMTP entrante&lt;/h3&gt;
+&lt;h3 id=&#34;smtpdnewclient:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdNewClient: Établissement d&amp;rsquo;une nouvelle connexion SMTP entrante&lt;/h3&gt;
 
 &lt;p&gt;Le point d&amp;rsquo;entré dans la configuration est :&lt;/p&gt;
 
@@ -171,14 +194,45 @@ Les valeurs possibles pour ce paramètre sont:
 &lt;p&gt;Vous trouverez sur &lt;a href=&#34;https://github.com/toorop/tmail-ms-server&#34;&gt;https://github.com/toorop/tmail-ms-server&lt;/a&gt; différent exemples de micro-services pour tmail.
 N&amp;rsquo;hésitez pas à participer à ce repo en proposant vos propres exemples. Si vous souhaitez publier un exemple dans un langage qui n&amp;rsquo;a pas encore de dossier spécifique, créez le à la racine du repo.&lt;/p&gt;
 
-&lt;h2 id=&#34;micro-services-as-services-μsas:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Micro-Services As Services - μsas&lt;/h2&gt;
+&lt;h3 id=&#34;smtpddata:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdData: Après la commande SMTP DATA&lt;/h3&gt;
 
-&lt;p&gt;Un des intérêts de cette architecture est qu&amp;rsquo;il est possible de proposer des micro-services as service, autrement dit de mettre à dispositions des utilisateurs de tmail des micro-services que l&amp;rsquo;on a codé et que l&amp;rsquo;on héberge.&lt;/p&gt;
+&lt;p&gt;Le point d&amp;rsquo;entré dans la configuration est :&lt;/p&gt;
 
-&lt;p&gt;C&amp;rsquo;est ce que je vous propose ici, l&amp;rsquo;usage en est totalement libre et gratuit.&lt;br /&gt;
-Le code de ses micro-services est disponible ici: &lt;a href=&#34;https://github.com/toorop/tmail-ms-server/tree/master/golang/ms.tmail.io&#34;&gt;https://github.com/toorop/tmail-ms-server/tree/master/golang/ms.tmail.io&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export TMAIL_MS_SMTPD_DATA=&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;smtpdnewclient-greysmtpd:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdNewClient::GreySmtpd&lt;/h3&gt;
+&lt;p&gt;La structure transmise au micro-service est la suivante:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;message SmtpdDataMsg {
+    required string session_id = 1;
+    required string data_link = 2;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Avec:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;session_id&lt;/strong&gt; (requis): l&amp;rsquo;identifiant de la session SMTP qui traite cette transaction. Cet identifiant va être transmis dans tous les appels qui auront lieu durant une même transaction SMTP, il va donc permettre de suivre cette transaction, coté micro-service, et de lier les requêtes.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;data_link&lt;/strong&gt; (requis): Un lien HTTP depuis lequel le micro-service pourra télécharger le mail transmis par le commande DATA.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La réponse attendue par tmail doit être un message du type &lt;em&gt;SmtpdResponse&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;exempleimpl:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Exemples d&amp;rsquo;implémentation&lt;/h2&gt;
+
+&lt;p&gt;Vous trouverez sur &lt;a href=&#34;https://github.com/toorop/tmail-ms-server&#34;&gt;https://github.com/toorop/tmail-ms-server&lt;/a&gt; différent exemples de micro-services pour tmail.
+N&amp;rsquo;hésitez pas à participer à ce repo en proposant vos propres exemples. Si vous souhaitez publier un exemple dans un langage qui n&amp;rsquo;a pas encore de dossier spécifique, créez le à la racine du repo.&lt;/p&gt;
+
+&lt;h2 id=&#34;msas:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;μsas: Micro-Services As Services&lt;/h2&gt;
+
+&lt;p&gt;Un des autres intérêts de cette architecture est qu&amp;rsquo;il est possible de proposer des &lt;strong&gt;micro-services as service&lt;/strong&gt;, autrement dit de mettre à dispositions des utilisateurs de tmail des micro-services que l&amp;rsquo;on a codé et que l&amp;rsquo;on héberge.&lt;/p&gt;
+
+&lt;p&gt;C&amp;rsquo;est ce que je vous propose ici, l&amp;rsquo;usage en est totalement libre et gratuit.&lt;/p&gt;
+
+&lt;p&gt;Le code de ses micro-services est disponible ici: &lt;a href=&#34;https://github.com/toorop/tmail-ms-server/tree/master/golang/ms.tmail.io&#34;&gt;https://github.com/toorop/tmail-ms-server/tree/master/golang/ms.tmail.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;greysmtpd:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SMTPD_NEWCLIENT: GreySmtpd&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;URL:&lt;/strong&gt; &lt;a href=&#34;https://ms.tmail.io/smtpdnewclientgreysmtpd&#34;&gt;https://ms.tmail.io/smtpdnewclientgreysmtpd&lt;/a&gt;&lt;/p&gt;
 
@@ -192,11 +246,27 @@ Le code de ses micro-services est disponible ici: &lt;a href=&#34;https://github
 &lt;li&gt;Si une IP est suspecte (pas de reverse || listée sur spamcop):
 
 &lt;ul&gt;
-&lt;li&gt;Si elle n&amp;rsquo;est pas en base de données, ou si elle y est depuis moins de 2 heures une erreur temporaire est retournée.&lt;/li&gt;
-&lt;li&gt;Si elle est en DB depuis plus de 2 heures et moins de 36 heures, on continue.&lt;/li&gt;
-&lt;li&gt;Si elle est en DB depuis plus de 36 heures, l&amp;rsquo;horodatage est réinitialisé et une erreur temporaire est retournée.&lt;/li&gt;
+&lt;li&gt;Si elle n&amp;rsquo;est pas connue du micro-service, ou si elle est connue depuis moins de 2 heures, une erreur temporaire est retournée.&lt;/li&gt;
+&lt;li&gt;Si elle est connue depuis plus de 3 heures et moins de 24 heures, on continue.&lt;/li&gt;
+&lt;li&gt;Si elle connue depuis plus de 24 heures, l&amp;rsquo;horodatage est réinitialisé, le micro-service l&amp;rsquo;oubli, et une erreur temporaire est retournée.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&#34;dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SMTPD_DATA: DKIM verification&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;URL:&lt;/strong&gt; &lt;a href=&#34;https://ms.tmail.io/smtpddatadkimverif&#34;&gt;https://ms.tmail.io/smtpddatadkimverif&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ce micro-service va vérifier la signature DKIM du mail, si le mail en a une, et va ajouter un header Authentication-Results.&lt;/p&gt;
+
+&lt;p&gt;Par exemple en cas de succès:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Authentication-Results: dkim=success
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;En cas d&amp;rsquo;échec:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Authentication-Results: dkim=permfail testing body hash did not verify
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
