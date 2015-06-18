@@ -6,8 +6,49 @@
     <description>Recent content in Podcast on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 18 May 2015 20:52:01 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2015 19:52:01 +0200</lastBuildDate>
     <atom:link href="http://tmail.io/categories/podcast/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Podcast #11: One more thing...</title>
+      <link>http://tmail.io/podcast/11/</link>
+      <pubDate>Thu, 18 Jun 2015 19:52:01 +0200</pubDate>
+      
+      <guid>http://tmail.io/podcast/11/</guid>
+      <description>
+
+&lt;p&gt;Après d&amp;rsquo;un mois d&amp;rsquo;attente le voila enfin le nouvel épisode !&lt;br /&gt;
+Cette &amp;ldquo;semaine&amp;rdquo;, je reviens sur l&amp;rsquo;implémentation des micro-services, sur les nouveautés concernant implémentation de DKIM, sur l&amp;rsquo;image Docker, sur la version raspberry pi  de tmail, je parle un peu de crypto et je termine sur&amp;hellip; vous verrez bien.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
+    &lt;audio controls preload=&#34;none&#34;&gt;
+        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
+        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/11&#34; type=&#34;audio/mp3&#34;&gt;
+        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
+        &lt;div&gt;
+            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/11&#34;&gt;Download&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/audio&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;Erratum: Dans le podcast je parle de licence BSD en fait il s&amp;rsquo;agit d&amp;rsquo;une licence MIT.&lt;/p&gt;
+
+&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:0d5879b806136f0fa50ee21553892511&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/microservices/&#34; title=&#34;Les micro-services et tmail&#34; target=&#34;_blank&#34;&gt;Détails sur l&#39;implementation des micro-services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim/&#34; title=&#34;DKIM et tmail&#34; target=&#34;_blank&#34;&gt;Activer DKIM sur votre domaine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/docker-smtp-server/&#34; title=&#34;tmail Docker image&#34; target=&#34;_blank&#34;&gt;Testez tmail avec Docker&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#34;http://dl.toorop.fr/softs/tmail/tmail-armv7&#34; title=&#34;tmail SMTP pour Raspberry&#34; target=&#34;_blank&#34;&gt;La version ARM de tmail pour Rasperry Pi V2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.toorop.fr/pepper-nacl-crypto-boite-noire/&#34; title=&#34;Pepper&#34; target=&#34;_blank&#34;&gt;Pepper: chiffrez,signez, déchiffez messages et fichiers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt; 
+&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34; title=&#34;Groupe de discussions tmail&#34; target=&#34;_blank&#34;&gt;Le &#34;Google group&#34; tmail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/toorop/tmail&#34; title=&#34;tmail on github&#34; target=&#34;_blank&#34;&gt;One more thing...&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Podcast #10: Microservices &amp;&amp; Protocol Buffers</title>

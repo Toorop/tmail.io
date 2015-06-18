@@ -22,9 +22,10 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;Installation et configuration de base&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Boites locales&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/microservices/&#34;&gt;Micro-Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim&#34;&gt;DKIM&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav/&#34;&gt;Filtrage antivirus via Clamav&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/logs&#34;&gt;Gestion des logs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim&#34;&gt;DKIM&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/docker-smtp-server/&#34;&gt;Déployer un relais SMTP en 5 minutes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

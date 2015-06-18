@@ -14,9 +14,10 @@ weight = 1
 # Installation
 * [Installation et configuration de base](/doc/installer-tmail/)
 * [Boites locales](/doc/mailboxes/)
+* [Micro-Services](/doc/microservices/)
+* [DKIM](/doc/dkim)
 * [Filtrage antivirus via Clamav](/doc/filtrage-smtp-antivirus-clamav/)
 * [Gestion des logs](/doc/logs)
-* [DKIM](/doc/dkim)
 * [Déployer un relais SMTP en 5 minutes](/doc/docker-smtp-server/)
 
 # Cli
