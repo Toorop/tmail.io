@@ -22,7 +22,7 @@ weight = 1
 
 # Cli
 * [Gestion de la queue](/doc/cli-gestion-queue/)
-* [Routage](/doc/routes-smtp-sortantes/)
+* [Routage](/doc/cli-gestion-route-smtp/)
 * Gestion des utilisateurs *todo*
 * Gestion des domaines pris en charge *todo*
 * Gestion des IP authorisées à relayer *todo*

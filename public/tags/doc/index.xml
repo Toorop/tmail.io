@@ -33,7 +33,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Gestion de la queue&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;Routage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-route-smtp/&#34;&gt;Routage&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Gestion des utilisateurs &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Gestion des domaines pris en charge &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Gestion des IP authorisées à relayer &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
