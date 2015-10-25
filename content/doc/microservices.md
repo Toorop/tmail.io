@@ -17,7 +17,7 @@ Pourquoi des microservices pour étendre tmail ?
 
 Voyons les contraintes liées à ce besoin:
 
-* Fiable: est il vraiment nécessaire de préciser ce point ? ;)
+* Fiable: est il vraiment nécessaire de préciser la nécessité de ce point ? ;)
 * Facile: n'importe qui, à condition d'avoir quelques base en programmation, doit être en mesure d'étendre tmail pour l'adapter à ses besoins.
 * Multi language: un langage de programmation spécifique ne doit pas être  imposé pour implémenter une nouvelle fonctionnalité.
 * Scalable: on doit pouvoir adapter simplement et rapidement les ressources aux besoins.
@@ -36,15 +36,18 @@ Comment y répondre:
 	* [Paramètres]({{<ref "#parametres" >}})
 * [Structure des messages ]({{<ref "#protobuf" >}})
 	* [SmtpdResponse ]({{<ref "#smtpdreponse" >}})
-* [Points d'entré ]({{<ref "#hooks" >}})
-	* [Initialisation de la connexion]({{<ref "#smtpdnewclient" >}})
-	* [Commande SMTP RCPT TO]({{<ref "#smtpdrcptto" >}})
-	* [Commande SMTP DATA]({{<ref "#smtpddata" >}})
-	* [Livraison: routage dynamique]({{<ref "#deliverdgetroutes" >}})
+* [Points d'entré - Hooks]({{<ref "#hooks" >}})
+	* [smtpd: initialisation de la connexion]({{<ref "#smtpdnewclient" >}})
+	* [smtpd: commande RCPT TO]({{<ref "#smtpdrcptto" >}})
+	* [smtpd: commande DATA]({{<ref "#smtpddata" >}})
+	* [smtpd: modification de l'enveloppe]({{<ref "#smtpdbeforequeuing" >}})
+	* [smtpd: télémétrie]({{<ref "#smtpdtelemetry" >}})
+	* [deliverd; routage dynamique]({{<ref "#deliverdgetroutes" >}})
+	* [deliverd: télémetrie]({{<ref "#deliverdtelemetry" >}})
 * [Exemples d'implémentation]({{<ref "#exempleimpl" >}})
 * [Micro-Services As Service]({{<ref "#msas" >}})
 	* [Grey SMTP]({{<ref "#greysmtpd" >}})
-	* [Vérification DKIL]({{<ref "#dkimverif" >}})
+	* [Vérification DKIM]({{<ref "#dkimverif" >}})
 
 ## Principes de base {#principes}
 
@@ -75,7 +78,7 @@ Avec:
 * "param1=x&param2=y" les paramètres de configuration de ce micro-service (voir la liste plus bas).
 **Attention** ces paramètres ne seront pas transmis au micro-services.
 
-Il est possible, d'appeler plusieurs micro-services en séparant les URL d'un point virgule.  
+Il est possible, d'appeler plusieurs micro-services en séparant les URL d'un point virgule.
 
 Par exemple :
 
@@ -133,7 +136,7 @@ Avec:
 Avec:
 
 * **session_id**: l'identifiant de la session.
-* **smtp_response**: un message de type SmtpResponse qui va permettre de definir, si besoin, la réponse SMTP que tmail doit retourner au client. Vous n'avez pas à sytématiquement renseigner cette structure, faites le uniquement si vous avez besoin de retourner un message spécial au client et faite le en ayant bien conscience des conséquences. Vous trouverez la définition de cette structure un peu plus bas.  
+* **smtp_response**: un message de type SmtpResponse qui va permettre de definir, si besoin, la réponse SMTP que tmail doit retourner au client. Vous n'avez pas à sytématiquement renseigner cette structure, faites le uniquement si vous avez besoin de retourner un message spécial au client et faite le en ayant bien conscience des conséquences. Vous trouverez la définition de cette structure un peu plus bas.
 * **drop_connection**: un boolean qui si il est présent et positionné a *true* va demander a tmail de terminer dés que possible la transaction. N'abusez pas de cette option, couper une transaction SMTP à l'initiative du serveur n'est pas trés RFC compliant.
 
 Structure du message SmtpResponse:
@@ -214,6 +217,87 @@ Avec:
 * **data_link** (optionnel): POas utilisé pour le moment
 * **extra_headers** (optionnel): d'éventuels headers à ajouter.
 
+
+### SmtpdBeforeQueuing: Avant la mise en queue du message, permet la modification de l'enveloppe. {#smtpdbeforequeuing}
+
+Ce hook va permettre de modifier l'enveloppe du message et donc l'expéditeur et le(s) destinataire(s).
+Attention, le mail ne va pas être modifié, c'est juste son enveloppe qui va l'être. Autrement dit si vous modfifiez l'expéditeur d'origine de user@example.com vers user2@example.com, le header From sera toujours 'From: user@ddomaine.com'.
+
+
+#### Stucture du message transmis au microservice
+
+	message SmtpdBeforeQueuing {
+		required string session_id = 1;
+		required string mail_from = 2;
+		repeated string rcpt_to = 3;
+	}
+
+Avec:
+
+* **session_id**: l'identifiant de la session SMTP.
+* **mail_from**: l'adresse email de l'expéditeur.
+* **rcpt_to**: la liste des adresses des destinataires.
+
+#### Structure de la réponse attendue par tmail
+
+Le seul champs requis est session_id, les autres sont facultatifs.
+Si vous modifiez l'expéditeur ou le(s) destinaitaire(s), assurez vous d'utiliser des adresses email valides. un vérification va être faite et uniquement les chaines représentant des adresses emails valides seront prise en compte.
+
+	message SmtpdBeforeQueuingResponse {
+		required string session_id = 1;
+		optional string mail_from  = 2;
+		repeated string rcpt_to = 3;
+		optional SmtpResponse smtp_response = 4;
+		optional bool drop_connection = 5;
+	}
+
+Avec:
+
+* **session_id**: l'identifiant de la session SMTP.
+* **mail_from**: une chaine représentant l'adresse de l'expéditeur.
+* **rcpt_to**: la liste de adresses des destinataires.
+* **smtp_response**: la réponse SMTP à retourner au client si le traitement ne suit pas son cours normal.
+* **drop_connection**: si la conenxion doit être intrrompu.
+
+Attention, assurez vous de savoir ce que vous faites avant d'utiliser les deux dernieres options.
+
+### SmtpdTelemetry
+
+En utilisant ce hook votre microservice va recueillir la télémetrie relative aux processus *smtpd*.
+Dans un souci de performance, le message contenant la télémétrie est envoyé par tmail via une go routine (un processus parallélisé). tmail n'attend pas de réponse à ce message. C'est du "fire and forget".
+
+#### Structure du message envoyé
+
+	message SmtpdTelemetry {
+		required string server_id = 1;
+		required string session_id = 2;
+		required string remote_address = 3;
+		required bool success = 4;
+		required uint32 smtp_response_code = 5;
+		required string env_mailfrom = 6;
+		repeated string env_rcptto = 7;
+		required uint32 message_size = 8;
+		required bool is_tls = 9;
+		required uint32 concurrency = 10;
+		required uint32 exec_time = 11;
+	}
+
+Avec:
+
+* **server_id**: un identifiant du serveur. Par defaut c'est la variable *me* renseignée par le fichier de configuration.
+* **session_id**: l'identifiant de la session SMTP.
+* **remote_adresse**: l'adresse du serveur qui est à l'origine de la transaction. Sous la forme IP:PORT.
+* **succes**: un booleén indiquant si la transaction à réussi ou pas.
+* **smtp_response_code**: le code SMTP qui à été retourné au client.
+* **env_mailfrom**: l'adresse de l'expéditeur.
+* **env_rcptto: les adresses des destinataires.
+* ** message_size**: la taille totale du message (headers compris) au moment de sa transmission (c'est à dire sans les éventuels headers ajoutés par tmail).
+* **is_tls**: indique si la connexion à été sécurisée par TLS ou SSL.
+* **concurency**: représente le nombre de transaction concurentes au moment de la transcations.
+* **exec_time**: durée de la transaction entre la connection du client et la derniére réponse qui lui est envoyée.
+
+
+
 ### DeliverdGetRoutes: Appelé par deliverd pour obtenir le routage d'un mail {#deliverdgetroutes}
 
 Ce *hook* va vous permettre de faire du routage dynamique, d'adapter la route que doit prendre un message à un instant t en fonction de paramètres qui vous sont propres.
@@ -273,7 +357,43 @@ Voici les définitions de la structure *Routes*:
 
 * **smtpaut_passwd**: si le serveur distant requière une authentification, cette variable permet de renseigner le mot de passe.
 
+## DeliverdTelemetry: envoit la télémétrie des processus deliverd {#deliverdtelemetry}
 
+Fonctionne sur les mêmes principes que SmtpdTelemetry, à savoir, le message est généré et envoyé via une go routine, tmail n'attend pas de réponse.
+
+### Stucture du message envoyé
+
+	message DeliverdTelemetry {
+		required string server_id = 1;
+		required string deliverd_id = 2;
+		required bool success = 3; // status of delivery (success or not)
+		required uint32 exec_time = 4; // in nanosecond
+		required uint32 messages_in_queue = 5;
+		required uint32 concurrency_remote = 6;
+		required uint32 concurrency_local = 7;
+		required string from = 8;
+		required string to = 9;
+		required bool is_local = 10;
+		optional string local_address = 11;
+		optional string remote_address =12;
+		optional uint32 remote_smtp_response_code = 13; // 250, 420, 550,...
+	}
+
+Avec:
+
+* **server_id**: identifiant du serveur qui envoit le message (config.me par defaut).
+* **deliverd_id**: identifiant de la session deliverd.
+* **success**: status de la tache.
+* **exec_time**: temps d'exécution.
+* **message_in_queue**: nombre de message en queue au moment de la session.
+* **concurrency_remote**: nombre de processus deliverd concurrents pour des livraisons distantes.
+* **concurrency_local**: nombre de processus deliverd concurrents pour des livraisons locales.
+* **from**: expéditeur du message traité par ce processus deliverd.
+* **to**: destinataire du message traité par ce processus deliverd.
+* **is_local**: le processus est pour une livraison locale ou distante ?
+* **local_address**: adresse locale sous la forme iP:PORT.
+* **remote_address**: addresse distante (dans le cadre d'une livraison de type *remote*) sous la forme IP:PORT.
+* **remote_smtp_response_code**: code SMTP retourné par le serveur distant dans le cadre d'un livraison *remote*.
 
 
 ## Exemples d'implémentation {#exempleimpl}
@@ -286,7 +406,7 @@ N'hésitez pas à participer à ce repo en proposant vos propres exemples. Si vo
 
 Un des autres intérêts de cette architecture est qu'il est possible de proposer des **micro-services as service**, autrement dit de mettre à dispositions des utilisateurs de tmail des micro-services que l'on a codé et que l'on héberge.
 
-C'est ce que je vous propose ici, l'usage en est totalement libre et gratuit.  
+C'est ce que je vous propose ici, l'usage en est totalement libre et gratuit.
 
 Le code de ses micro-services est disponible ici: https://github.com/toorop/tmail-ms-server/tree/master/golang/ms.tmail.io
 

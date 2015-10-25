@@ -91,7 +91,7 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">Micro-services</h1>
-            <span class="post-date">May 28, 2015 &middot; Temps de lecture: 9 min  &middot; <a href="http://tmail.io/doc/microservices/#disqus_thread">Comments</a>
+            <span class="post-date">May 28, 2015 &middot; Temps de lecture: 21 min  &middot; <a href="http://tmail.io/doc/microservices/#disqus_thread">Comments</a>
       
       <br/>
       
@@ -105,7 +105,7 @@
 <p>Voyons les contraintes liées à ce besoin:</p>
 
 <ul>
-<li>Fiable: est il vraiment nécessaire de préciser ce point ? ;)</li>
+<li>Fiable: est il vraiment nécessaire de préciser la nécessité de ce point ? ;)</li>
 <li>Facile: n&rsquo;importe qui, à condition d&rsquo;avoir quelques base en programmation, doit être en mesure d&rsquo;étendre tmail pour l&rsquo;adapter à ses besoins.</li>
 <li>Multi language: un langage de programmation spécifique ne doit pas être  imposé pour implémenter une nouvelle fonctionnalité.</li>
 <li>Scalable: on doit pouvoir adapter simplement et rapidement les ressources aux besoins.</li>
@@ -133,20 +133,23 @@
 <ul>
 <li><a href="#smtpdreponse:24c62ab0ae8d6139f10d3d52cfeca2af">SmtpdResponse </a></li>
 </ul></li>
-<li><a href="#hooks:24c62ab0ae8d6139f10d3d52cfeca2af">Points d&rsquo;entré </a>
+<li><a href="#hooks:24c62ab0ae8d6139f10d3d52cfeca2af">Points d&rsquo;entré - Hooks</a>
 
 <ul>
-<li><a href="#smtpdnewclient:24c62ab0ae8d6139f10d3d52cfeca2af">Initialisation de la connexion</a></li>
-<li><a href="#smtpdrcptto:24c62ab0ae8d6139f10d3d52cfeca2af">Commande SMTP RCPT TO</a></li>
-<li><a href="#smtpddata:24c62ab0ae8d6139f10d3d52cfeca2af">Commande SMTP DATA</a></li>
-<li><a href="#deliverdgetroutes:24c62ab0ae8d6139f10d3d52cfeca2af">Livraison: routage dynamique</a></li>
+<li><a href="#smtpdnewclient:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: initialisation de la connexion</a></li>
+<li><a href="#smtpdrcptto:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: commande RCPT TO</a></li>
+<li><a href="#smtpddata:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: commande DATA</a></li>
+<li><a href="#smtpdbeforequeuing:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: modification de l&rsquo;enveloppe</a></li>
+<li><a href="#smtpdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: télémétrie</a></li>
+<li><a href="#deliverdgetroutes:24c62ab0ae8d6139f10d3d52cfeca2af">deliverd; routage dynamique</a></li>
+<li><a href="#deliverdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af">deliverd: télémetrie</a></li>
 </ul></li>
 <li><a href="#exempleimpl:24c62ab0ae8d6139f10d3d52cfeca2af">Exemples d&rsquo;implémentation</a></li>
 <li><a href="#msas:24c62ab0ae8d6139f10d3d52cfeca2af">Micro-Services As Service</a>
 
 <ul>
 <li><a href="#greysmtpd:24c62ab0ae8d6139f10d3d52cfeca2af">Grey SMTP</a></li>
-<li><a href="#dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af">Vérification DKIL</a></li>
+<li><a href="#dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af">Vérification DKIM</a></li>
 </ul></li>
 </ul>
 
@@ -254,7 +257,7 @@ Les valeurs possibles pour ce paramètre sont:
 
 <ul>
 <li><strong>session_id</strong>: l&rsquo;identifiant de la session.</li>
-<li><strong>smtp_response</strong>: un message de type SmtpResponse qui va permettre de definir, si besoin, la réponse SMTP que tmail doit retourner au client. Vous n&rsquo;avez pas à sytématiquement renseigner cette structure, faites le uniquement si vous avez besoin de retourner un message spécial au client et faite le en ayant bien conscience des conséquences. Vous trouverez la définition de cette structure un peu plus bas.<br /></li>
+<li><strong>smtp_response</strong>: un message de type SmtpResponse qui va permettre de definir, si besoin, la réponse SMTP que tmail doit retourner au client. Vous n&rsquo;avez pas à sytématiquement renseigner cette structure, faites le uniquement si vous avez besoin de retourner un message spécial au client et faite le en ayant bien conscience des conséquences. Vous trouverez la définition de cette structure un peu plus bas.</li>
 <li><strong>drop_connection</strong>: un boolean qui si il est présent et positionné a <em>true</em> va demander a tmail de terminer dés que possible la transaction. N&rsquo;abusez pas de cette option, couper une transaction SMTP à l&rsquo;initiative du serveur n&rsquo;est pas trés RFC compliant.</li>
 </ul>
 
@@ -351,6 +354,92 @@ Les valeurs possibles pour ce paramètre sont:
 <li><strong>extra_headers</strong> (optionnel): d&rsquo;éventuels headers à ajouter.</li>
 </ul>
 
+<h3 id="smtpdbeforequeuing:24c62ab0ae8d6139f10d3d52cfeca2af">SmtpdBeforeQueuing: Avant la mise en queue du message, permet la modification de l&rsquo;enveloppe.</h3>
+
+<p>Ce hook va permettre de modifier l&rsquo;enveloppe du message et donc l&rsquo;expéditeur et le(s) destinataire(s).
+Attention, le mail ne va pas être modifié, c&rsquo;est juste son enveloppe qui va l&rsquo;être. Autrement dit si vous modfifiez l&rsquo;expéditeur d&rsquo;origine de user@example.com vers user2@example.com, le header From sera toujours &lsquo;From: user@ddomaine.com&rsquo;.</p>
+
+<h4 id="stucture-du-message-transmis-au-microservice:24c62ab0ae8d6139f10d3d52cfeca2af">Stucture du message transmis au microservice</h4>
+
+<pre><code>message SmtpdBeforeQueuing {
+    required string session_id = 1;
+    required string mail_from = 2;
+    repeated string rcpt_to = 3;
+}
+</code></pre>
+
+<p>Avec:</p>
+
+<ul>
+<li><strong>session_id</strong>: l&rsquo;identifiant de la session SMTP.</li>
+<li><strong>mail_from</strong>: l&rsquo;adresse email de l&rsquo;expéditeur.</li>
+<li><strong>rcpt_to</strong>: la liste des adresses des destinataires.</li>
+</ul>
+
+<h4 id="structure-de-la-réponse-attendue-par-tmail-3:24c62ab0ae8d6139f10d3d52cfeca2af">Structure de la réponse attendue par tmail</h4>
+
+<p>Le seul champs requis est session_id, les autres sont facultatifs.
+Si vous modifiez l&rsquo;expéditeur ou le(s) destinaitaire(s), assurez vous d&rsquo;utiliser des adresses email valides. un vérification va être faite et uniquement les chaines représentant des adresses emails valides seront prise en compte.</p>
+
+<pre><code>message SmtpdBeforeQueuingResponse {
+    required string session_id = 1;
+    optional string mail_from  = 2;
+    repeated string rcpt_to = 3;
+    optional SmtpResponse smtp_response = 4;
+    optional bool drop_connection = 5;
+}
+</code></pre>
+
+<p>Avec:</p>
+
+<ul>
+<li><strong>session_id</strong>: l&rsquo;identifiant de la session SMTP.</li>
+<li><strong>mail_from</strong>: une chaine représentant l&rsquo;adresse de l&rsquo;expéditeur.</li>
+<li><strong>rcpt_to</strong>: la liste de adresses des destinataires.</li>
+<li><strong>smtp_response</strong>: la réponse SMTP à retourner au client si le traitement ne suit pas son cours normal.</li>
+<li><strong>drop_connection</strong>: si la conenxion doit être intrrompu.</li>
+</ul>
+
+<p>Attention, assurez vous de savoir ce que vous faites avant d&rsquo;utiliser les deux dernieres options.</p>
+
+<h3 id="smtpdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af">SmtpdTelemetry</h3>
+
+<p>En utilisant ce hook votre microservice va recueillir la télémetrie relative aux processus <em>smtpd</em>.
+Dans un souci de performance, le message contenant la télémétrie est envoyé par tmail via une go routine (un processus parallélisé). tmail n&rsquo;attend pas de réponse à ce message. C&rsquo;est du &ldquo;fire and forget&rdquo;.</p>
+
+<h4 id="structure-du-message-envoyé:24c62ab0ae8d6139f10d3d52cfeca2af">Structure du message envoyé</h4>
+
+<pre><code>message SmtpdTelemetry {
+    required string server_id = 1;
+    required string session_id = 2;
+    required string remote_address = 3;
+    required bool success = 4;
+    required uint32 smtp_response_code = 5;
+    required string env_mailfrom = 6;
+    repeated string env_rcptto = 7;
+    required uint32 message_size = 8;
+    required bool is_tls = 9;
+    required uint32 concurrency = 10;
+    required uint32 exec_time = 11;
+}
+</code></pre>
+
+<p>Avec:</p>
+
+<ul>
+<li><strong>server_id</strong>: un identifiant du serveur. Par defaut c&rsquo;est la variable <em>me</em> renseignée par le fichier de configuration.</li>
+<li><strong>session_id</strong>: l&rsquo;identifiant de la session SMTP.</li>
+<li><strong>remote_adresse</strong>: l&rsquo;adresse du serveur qui est à l&rsquo;origine de la transaction. Sous la forme IP:PORT.</li>
+<li><strong>succes</strong>: un booleén indiquant si la transaction à réussi ou pas.</li>
+<li><strong>smtp_response_code</strong>: le code SMTP qui à été retourné au client.</li>
+<li><strong>env_mailfrom</strong>: l&rsquo;adresse de l&rsquo;expéditeur.</li>
+<li>**env_rcptto: les adresses des destinataires.</li>
+<li>** message_size**: la taille totale du message (headers compris) au moment de sa transmission (c&rsquo;est à dire sans les éventuels headers ajoutés par tmail).</li>
+<li><strong>is_tls</strong>: indique si la connexion à été sécurisée par TLS ou SSL.</li>
+<li><strong>concurency</strong>: représente le nombre de transaction concurentes au moment de la transcations.</li>
+<li><strong>exec_time</strong>: durée de la transaction entre la connection du client et la derniére réponse qui lui est envoyée.</li>
+</ul>
+
 <h3 id="deliverdgetroutes:24c62ab0ae8d6139f10d3d52cfeca2af">DeliverdGetRoutes: Appelé par deliverd pour obtenir le routage d&rsquo;un mail</h3>
 
 <p>Ce <em>hook</em> va vous permettre de faire du routage dynamique, d&rsquo;adapter la route que doit prendre un message à un instant t en fonction de paramètres qui vous sont propres.</p>
@@ -379,7 +468,7 @@ Les valeurs possibles pour ce paramètre sont:
 <li><strong>authentified_user</strong>: si l&rsquo;utilisateur qui a transmis le mail via SMTP s&rsquo;est authentifié, alors cette variable contient son login.</li>
 </ul>
 
-<h4 id="structure-de-la-réponse-attendue-par-tmail-3:24c62ab0ae8d6139f10d3d52cfeca2af">Structure de la réponse attendue par tmail</h4>
+<h4 id="structure-de-la-réponse-attendue-par-tmail-4:24c62ab0ae8d6139f10d3d52cfeca2af">Structure de la réponse attendue par tmail</h4>
 
 <pre><code>message DeliverdGetRoutesResponse {
     message Route {
@@ -416,6 +505,47 @@ Les valeurs possibles pour ce paramètre sont:
 <li><p><strong>smtpauth_login</strong>: si le serveur distant requière une authentification, cette variable permet de renseigner le login.</p></li>
 
 <li><p><strong>smtpaut_passwd</strong>: si le serveur distant requière une authentification, cette variable permet de renseigner le mot de passe.</p></li>
+</ul>
+
+<h2 id="deliverdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af">DeliverdTelemetry: envoit la télémétrie des processus deliverd</h2>
+
+<p>Fonctionne sur les mêmes principes que SmtpdTelemetry, à savoir, le message est généré et envoyé via une go routine, tmail n&rsquo;attend pas de réponse.</p>
+
+<h3 id="stucture-du-message-envoyé:24c62ab0ae8d6139f10d3d52cfeca2af">Stucture du message envoyé</h3>
+
+<pre><code>message DeliverdTelemetry {
+    required string server_id = 1;
+    required string deliverd_id = 2;
+    required bool success = 3; // status of delivery (success or not)
+    required uint32 exec_time = 4; // in nanosecond
+    required uint32 messages_in_queue = 5;
+    required uint32 concurrency_remote = 6;
+    required uint32 concurrency_local = 7;
+    required string from = 8;
+    required string to = 9;
+    required bool is_local = 10;
+    optional string local_address = 11;
+    optional string remote_address =12;
+    optional uint32 remote_smtp_response_code = 13; // 250, 420, 550,...
+}
+</code></pre>
+
+<p>Avec:</p>
+
+<ul>
+<li><strong>server_id</strong>: identifiant du serveur qui envoit le message (config.me par defaut).</li>
+<li><strong>deliverd_id</strong>: identifiant de la session deliverd.</li>
+<li><strong>success</strong>: status de la tache.</li>
+<li><strong>exec_time</strong>: temps d&rsquo;exécution.</li>
+<li><strong>message_in_queue</strong>: nombre de message en queue au moment de la session.</li>
+<li><strong>concurrency_remote</strong>: nombre de processus deliverd concurrents pour des livraisons distantes.</li>
+<li><strong>concurrency_local</strong>: nombre de processus deliverd concurrents pour des livraisons locales.</li>
+<li><strong>from</strong>: expéditeur du message traité par ce processus deliverd.</li>
+<li><strong>to</strong>: destinataire du message traité par ce processus deliverd.</li>
+<li><strong>is_local</strong>: le processus est pour une livraison locale ou distante ?</li>
+<li><strong>local_address</strong>: adresse locale sous la forme iP:PORT.</li>
+<li><strong>remote_address</strong>: addresse distante (dans le cadre d&rsquo;une livraison de type <em>remote</em>) sous la forme IP:PORT.</li>
+<li><strong>remote_smtp_response_code</strong>: code SMTP retourné par le serveur distant dans le cadre d&rsquo;un livraison <em>remote</em>.</li>
 </ul>
 
 <h2 id="exempleimpl:24c62ab0ae8d6139f10d3d52cfeca2af">Exemples d&rsquo;implémentation</h2>

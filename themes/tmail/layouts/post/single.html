@@ -7,8 +7,8 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     {{ if isset .Params "categories" }}
     <br/>
-    {{ $baseUrl := .Site.BaseUrl }}
-    {{ range .Params.categories }}<a class="label" href="{{ $baseUrl }}/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}
+    {{ $baseURL := .Site.BaseURL }}
+    {{ range .Params.categories }}<a class="label" href="{{ $baseURL }}/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}
     {{ end }}</span> {{ .Content }}
     </div>
     {{ if .Site.DisqusShortname }}
