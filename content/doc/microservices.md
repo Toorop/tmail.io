@@ -42,7 +42,7 @@ Comment y répondre:
 	* [smtpd: commande DATA]({{<ref "#smtpddata" >}})
 	* [smtpd: modification de l'enveloppe]({{<ref "#smtpdbeforequeuing" >}})
 	* [smtpd: télémétrie]({{<ref "#smtpdtelemetry" >}})
-	* [deliverd; routage dynamique]({{<ref "#deliverdgetroutes" >}})
+	* [deliverd: routage dynamique]({{<ref "#deliverdgetroutes" >}})
 	* [deliverd: télémetrie]({{<ref "#deliverdtelemetry" >}})
 * [Exemples d'implémentation]({{<ref "#exempleimpl" >}})
 * [Micro-Services As Service]({{<ref "#msas" >}})
@@ -218,7 +218,7 @@ Avec:
 * **extra_headers** (optionnel): d'éventuels headers à ajouter.
 
 
-### SmtpdBeforeQueuing: Avant la mise en queue du message, permet la modification de l'enveloppe. {#smtpdbeforequeuing}
+### SmtpdBeforeQueueing: Avant la mise en queue du message, permet la modification de l'enveloppe. {#smtpdbeforequeuing}
 
 Ce hook va permettre de modifier l'enveloppe du message et donc l'expéditeur et le(s) destinataire(s).
 Attention, le mail ne va pas être modifié, c'est juste son enveloppe qui va l'être. Autrement dit si vous modfifiez l'expéditeur d'origine de user@example.com vers user2@example.com, le header From sera toujours 'From: user@ddomaine.com'.
@@ -226,7 +226,7 @@ Attention, le mail ne va pas être modifié, c'est juste son enveloppe qui va l'
 
 #### Stucture du message transmis au microservice
 
-	message SmtpdBeforeQueuing {
+	message SmtpdBeforeQueueing {
 		required string session_id = 1;
 		required string mail_from = 2;
 		repeated string rcpt_to = 3;
@@ -243,7 +243,7 @@ Avec:
 Le seul champs requis est session_id, les autres sont facultatifs.
 Si vous modifiez l'expéditeur ou le(s) destinaitaire(s), assurez vous d'utiliser des adresses email valides. un vérification va être faite et uniquement les chaines représentant des adresses emails valides seront prise en compte.
 
-	message SmtpdBeforeQueuingResponse {
+	message SmtpdBeforeQueueingResponse {
 		required string session_id = 1;
 		optional string mail_from  = 2;
 		repeated string rcpt_to = 3;

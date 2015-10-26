@@ -60,7 +60,7 @@
 &lt;li&gt;&lt;a href=&#34;#smtpddata:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;smtpd: commande DATA&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#smtpdbeforequeuing:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;smtpd: modification de l&amp;rsquo;enveloppe&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#smtpdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;smtpd: télémétrie&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#deliverdgetroutes:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;deliverd; routage dynamique&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#deliverdgetroutes:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;deliverd: routage dynamique&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#deliverdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;deliverd: télémetrie&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#exempleimpl:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Exemples d&amp;rsquo;implémentation&lt;/a&gt;&lt;/li&gt;
@@ -273,14 +273,14 @@ Les valeurs possibles pour ce paramètre sont:
 &lt;li&gt;&lt;strong&gt;extra_headers&lt;/strong&gt; (optionnel): d&amp;rsquo;éventuels headers à ajouter.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;smtpdbeforequeuing:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdBeforeQueuing: Avant la mise en queue du message, permet la modification de l&amp;rsquo;enveloppe.&lt;/h3&gt;
+&lt;h3 id=&#34;smtpdbeforequeuing:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdBeforeQueueing: Avant la mise en queue du message, permet la modification de l&amp;rsquo;enveloppe.&lt;/h3&gt;
 
 &lt;p&gt;Ce hook va permettre de modifier l&amp;rsquo;enveloppe du message et donc l&amp;rsquo;expéditeur et le(s) destinataire(s).
 Attention, le mail ne va pas être modifié, c&amp;rsquo;est juste son enveloppe qui va l&amp;rsquo;être. Autrement dit si vous modfifiez l&amp;rsquo;expéditeur d&amp;rsquo;origine de user@example.com vers user2@example.com, le header From sera toujours &amp;lsquo;From: user@ddomaine.com&amp;rsquo;.&lt;/p&gt;
 
 &lt;h4 id=&#34;stucture-du-message-transmis-au-microservice:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Stucture du message transmis au microservice&lt;/h4&gt;
 
-&lt;pre&gt;&lt;code&gt;message SmtpdBeforeQueuing {
+&lt;pre&gt;&lt;code&gt;message SmtpdBeforeQueueing {
     required string session_id = 1;
     required string mail_from = 2;
     repeated string rcpt_to = 3;
@@ -300,7 +300,7 @@ Attention, le mail ne va pas être modifié, c&amp;rsquo;est juste son enveloppe
 &lt;p&gt;Le seul champs requis est session_id, les autres sont facultatifs.
 Si vous modifiez l&amp;rsquo;expéditeur ou le(s) destinaitaire(s), assurez vous d&amp;rsquo;utiliser des adresses email valides. un vérification va être faite et uniquement les chaines représentant des adresses emails valides seront prise en compte.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;message SmtpdBeforeQueuingResponse {
+&lt;pre&gt;&lt;code&gt;message SmtpdBeforeQueueingResponse {
     required string session_id = 1;
     optional string mail_from  = 2;
     repeated string rcpt_to = 3;
