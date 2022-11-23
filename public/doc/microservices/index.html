@@ -10,12 +10,12 @@
   <title>Micro-services &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://tmail.io/css/tmail.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/poole.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde-x.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/tmail.css">
    
-    <link rel="stylesheet" href="http://tmail.io/libs/plyr/plyr.css">
+    <link rel="stylesheet" href="https://tmail.dpp.st/libs/plyr/plyr.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic">
 
@@ -23,12 +23,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
-
   <meta name="description" content="étendre tmail via des micro-services ">
   <meta name="keywords" content="microservice,plugin">
-  <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
+  
 </head>
 <body>
  <ul class="navigation">
@@ -91,307 +88,228 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">Micro-services</h1>
-            <span class="post-date">May 28, 2015 &middot; Temps de lecture: 21 min  &middot; <a href="http://tmail.io/doc/microservices/#disqus_thread">Comments</a>
+            <span class="post-date">May 28, 2015 &middot; Temps de lecture: 13 min  &middot; <a href="https://tmail.dpp.st/doc/microservices/#disqus_thread">Comments</a>
       
       <br/>
       
-      <a class="label" href="http://tmail.io/categories/doc">doc</a>
-      </span> 
-
-<p>Comme un serveur SMTP peut avoir une infinité de fonctionnalités et que l&rsquo;on ne peut les implémenter toutes, tmail dispose d&rsquo;un systéme permettant d&rsquo;ajouter des fonctionalités par le biais de micro-services servis via HTTP.</p>
-
+      <a class="label" href="https://tmail.dpp.st/categories/doc">doc</a>
+      </span> <p>Comme un serveur SMTP peut avoir une infinité de fonctionnalités et que l&rsquo;on ne peut les implémenter toutes, tmail dispose d&rsquo;un systéme permettant d&rsquo;ajouter des fonctionalités par le biais de micro-services servis via HTTP.</p>
 <p>Pourquoi des microservices pour étendre tmail ?</p>
-
 <p>Voyons les contraintes liées à ce besoin:</p>
-
 <ul>
 <li>Fiable: est il vraiment nécessaire de préciser la nécessité de ce point ? ;)</li>
 <li>Facile: n&rsquo;importe qui, à condition d&rsquo;avoir quelques base en programmation, doit être en mesure d&rsquo;étendre tmail pour l&rsquo;adapter à ses besoins.</li>
 <li>Multi language: un langage de programmation spécifique ne doit pas être  imposé pour implémenter une nouvelle fonctionnalité.</li>
 <li>Scalable: on doit pouvoir adapter simplement et rapidement les ressources aux besoins.</li>
 </ul>
-
 <p>Comment y répondre:</p>
-
 <ul>
 <li>De part leur indépendance vis à vis du logiciel client, les micro-services ne viendront pas impacter tmail en cas de problème. En clair si un micro-service plante, ca ne va pas faire planter tmail.</li>
 <li>HTTP est un protocole répandu, fiable et maîtrisé par de nombreux développeur, il est tout à fait adapté comme protocole de communication entre le client (tmail) et les micro-services. De plus il est facilement scalable.</li>
-<li><a href="https://developers.google.com/protocol-buffers/" target="_blank" title="Protocol Buffers"> Protocol Buffers </a> est un format de sérialisation très performant, il permet un contrôle fin sur la structure et le type des donnés échangées, des implémentations existent dans les langages les plus courant,.. bref il semble le parfait candidat pour ce qui concerne le format d&rsquo;échange de données..</li>
+<li><!-- raw HTML omitted --> Protocol Buffers <!-- raw HTML omitted --> est un format de sérialisation très performant, il permet un contrôle fin sur la structure et le type des donnés échangées, des implémentations existent dans les langages les plus courant,.. bref il semble le parfait candidat pour ce qui concerne le format d&rsquo;échange de données..</li>
 </ul>
-
-<h2 id="sommaire:24c62ab0ae8d6139f10d3d52cfeca2af">Sommaire</h2>
-
+<h2 id="sommaire">Sommaire</h2>
 <ul>
-<li><a href="#principes:24c62ab0ae8d6139f10d3d52cfeca2af">Principes de base </a></li>
-<li><a href="#configuration:24c62ab0ae8d6139f10d3d52cfeca2af">Configuration </a>
-
+<li><a href="#principes">Principes de base </a></li>
+<li><a href="#configuration">Configuration </a>
 <ul>
-<li><a href="#parametres:24c62ab0ae8d6139f10d3d52cfeca2af">Paramètres</a></li>
-</ul></li>
-<li><a href="#protobuf:24c62ab0ae8d6139f10d3d52cfeca2af">Structure des messages </a>
-
-<ul>
-<li><a href="#smtpdreponse:24c62ab0ae8d6139f10d3d52cfeca2af">SmtpdResponse </a></li>
-</ul></li>
-<li><a href="#hooks:24c62ab0ae8d6139f10d3d52cfeca2af">Points d&rsquo;entré - Hooks</a>
-
-<ul>
-<li><a href="#smtpdnewclient:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: initialisation de la connexion</a></li>
-<li><a href="#smtpdrcptto:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: commande RCPT TO</a></li>
-<li><a href="#smtpddata:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: commande DATA</a></li>
-<li><a href="#smtpdbeforequeuing:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: modification de l&rsquo;enveloppe</a></li>
-<li><a href="#smtpdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af">smtpd: télémétrie</a></li>
-<li><a href="#deliverdgetroutes:24c62ab0ae8d6139f10d3d52cfeca2af">deliverd: routage dynamique</a></li>
-<li><a href="#deliverdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af">deliverd: télémetrie</a></li>
-</ul></li>
-<li><a href="#exempleimpl:24c62ab0ae8d6139f10d3d52cfeca2af">Exemples d&rsquo;implémentation</a></li>
-<li><a href="#msas:24c62ab0ae8d6139f10d3d52cfeca2af">Micro-Services As Service</a>
-
-<ul>
-<li><a href="#greysmtpd:24c62ab0ae8d6139f10d3d52cfeca2af">Grey SMTP</a></li>
-<li><a href="#dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af">Vérification DKIM</a></li>
-</ul></li>
+<li><a href="#parametres">Paramètres</a></li>
 </ul>
-
-<h2 id="principes:24c62ab0ae8d6139f10d3d52cfeca2af">Principes de base</h2>
-
+</li>
+<li><a href="#protobuf">Structure des messages </a>
+<ul>
+<li><a href="#smtpdreponse">SmtpdResponse </a></li>
+</ul>
+</li>
+<li><a href="#hooks">Points d&rsquo;entré - Hooks</a>
+<ul>
+<li><a href="#smtpdnewclient">smtpd: initialisation de la connexion</a></li>
+<li><a href="#smtpdrcptto">smtpd: commande RCPT TO</a></li>
+<li><a href="#smtpddata">smtpd: commande DATA</a></li>
+<li><a href="#smtpdbeforequeuing">smtpd: modification de l&rsquo;enveloppe</a></li>
+<li><a href="#smtpdtelemetry">smtpd: télémétrie</a></li>
+<li><a href="#deliverdgetroutes">deliverd: routage dynamique</a></li>
+<li><a href="#deliverdtelemetry">deliverd: télémetrie</a></li>
+</ul>
+</li>
+<li><a href="#exempleimpl">Exemples d&rsquo;implémentation</a></li>
+<li><a href="#msas">Micro-Services As Service</a>
+<ul>
+<li><a href="#greysmtpd">Grey SMTP</a></li>
+<li><a href="#dkimverif">Vérification DKIM</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="principes">Principes de base</h2>
 <p>A différentes étapes de la &ldquo;chaine SMTP&rdquo;, tmail va vérifier si des micro-services sont configurées et le cas échéant il va les interroger.</p>
-
 <p>Prenons un exemple concret, si un micro-service est configuré pour être interrogé lors de l’établissement d&rsquo;une connexion avec un nouveau client SMTP, tmail va sérialiser l&rsquo;identifiant de la sessions SMTP et l&rsquo;adresse IP du client distant et va les transmettre via une requête HTTP POST vers le micro service.</p>
-
 <p>Il va attendre (ou pas) la réponse et en fonction de cette dernière va agir en conséquence.</p>
-
 <p>La tache du micro-service pourrait être, par exemple, de vérifier si l&rsquo;IP est blacklistée sur une RBL, et si c&rsquo;est le cas alors le micro-service demanderait à tmail de refuser la connexion. (ce qui en passant n&rsquo;est pas une bonne idée, mais bon, c&rsquo;est pour l&rsquo;exemple ;) )</p>
-
-<h2 id="configuration:24c62ab0ae8d6139f10d3d52cfeca2af">Configuration</h2>
-
+<h2 id="configuration">Configuration</h2>
 <p>Pour chaque étape où des micro-services sont appelables, vous allez trouver dans le fichier de configuration une variable de ce type :</p>
-
 <pre><code># Microservices
 # On new incomming SMTP connection
 TMAIL_MS_SMTPD_NEWCLIENT=&quot;&quot;
 </code></pre>
-
 <p>Un micro-service est défini par une URL:</p>
-
 <pre><code>https://ms.tmail.io/smtpdnewclient?param1=x&amp;param2=y
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
-<li><a href="https://ms.tmail.io/smtpdnewclient:">https://ms.tmail.io/smtpdnewclient:</a> l&rsquo;URL vers laquelle sera posté les données sérialisées.</li>
+<li><a href="https://ms.tmail.io/smtpdnewclient">https://ms.tmail.io/smtpdnewclient</a>: l&rsquo;URL vers laquelle sera posté les données sérialisées.</li>
 <li>&ldquo;param1=x&amp;param2=y&rdquo; les paramètres de configuration de ce micro-service (voir la liste plus bas).
 <strong>Attention</strong> ces paramètres ne seront pas transmis au micro-services.</li>
 </ul>
-
 <p>Il est possible, d&rsquo;appeler plusieurs micro-services en séparant les URL d&rsquo;un point virgule.</p>
-
 <p>Par exemple :</p>
-
 <pre><code>TMAIL_MS_SMTPD_NEWCLIENT=&quot;https://ms.tmail.io/check-spamcop?timeout=15; https://ms.tmail.io/stats?fireandforget=true&quot;
 </code></pre>
-
 <p>Dans ce cas tmail va appeler <a href="https://ms.tmail.io/check-spamcop">https://ms.tmail.io/check-spamcop</a> et ensuite <a href="https://ms.tmail.io/stats">https://ms.tmail.io/stats</a></p>
-
-<h3 id="parametres:24c62ab0ae8d6139f10d3d52cfeca2af">Paramètres</h3>
-
+<h3 id="parametres">Paramètres</h3>
 <p>Les paramètres actuellement reconnus par tmail dans les URL sont:</p>
-
 <ul>
 <li><strong>timeout</strong> (default: 30): permet d&rsquo;indiquer un timeout (en seconde) sur un appel. Par défaut il est de 30 secondes. Au dela de ce delais, tmail va considérer qu&rsquo;il ne peut joindre le micro-service.</li>
 <li><strong>onfailure</strong> (default: continue): permet de spécifier une action si un appel échoue. Globalement un appel échoue si le timeout est déclenché ou si le code de retour HTTP indique une erreur (4xx ou 5xx).
 Les valeurs possibles pour ce paramètre sont:
-
 <ul>
 <li>continue: On continue. Le traitement continue normalement.</li>
 <li>tempfail: Erreur temporaire: si une erreur à lieu pendant une transaction SMTP entrante, une erreur temporaire (4xx) est retournée au client. Si c&rsquo;est pendant la livraison d&rsquo;un mail ou lors d&rsquo;une transaction sortante le mail est remis en queue et sera représenté.</li>
 <li>permfail: Erreur permanente: si une erreur à lieu pendant une transaction SMTP entrante une erreur permanente (5xx) est retournée au client. Si c&rsquo;est pendant la livraison d&rsquo;un mail ou lors d&rsquo;une transaction sortante le mail est bouncé.</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>fireandforget</strong> (default false): si ce paramètre est défini à <strong>true</strong>, tmail va exécuter la requête dans un process parallèle et ne va pas tenir compte de la réponse. Autrement dit ce genre de traitement n&rsquo;a aucune incidence sur le traitement réalisé par tmail. Attention cette option n&rsquo;est pas disponible pour tous les hooks.</li>
 </ul>
-
-<h2 id="protobuf:24c62ab0ae8d6139f10d3d52cfeca2af">Struture des messages échangés</h2>
-
-<p>Vous trouverez le fichier proto ici: <a href="https://github.com/toorop/tmail/blob/master/msproto/proto/tmail.proto" target="_blank" title="tmail proto"> <a href="https://github.com/toorop/tmail/blob/master/msproto/proto/tmail.proto">https://github.com/toorop/tmail/blob/master/msproto/proto/tmail.proto</a></a></p>
-
+<h2 id="protobuf">Struture des messages échangés</h2>
+<p>Vous trouverez le fichier proto ici: <!-- raw HTML omitted --> <a href="https://github.com/toorop/tmail/blob/master/msproto/proto/tmail.proto">https://github.com/toorop/tmail/blob/master/msproto/proto/tmail.proto</a><!-- raw HTML omitted --></p>
 <p>Je ne peux que vous encourager à jeter un oeil sur ce fichier pour avoir un idée de la struture des messages et ce même si vous ne comptez pas developper de micro-services.</p>
-
-<h2 id="hooks:24c62ab0ae8d6139f10d3d52cfeca2af">Étapes &ldquo;hookables&rdquo;</h2>
-
+<h2 id="hooks">Étapes &ldquo;hookables&rdquo;</h2>
 <p>Voici la liste des points (hook) où il actuellement  possible d&rsquo;étendre tmail avec pour chacun d&rsquo;entre eux</p>
-
-<h3 id="smtpdnewclient:24c62ab0ae8d6139f10d3d52cfeca2af">SmtpdNewClient: Établissement d&rsquo;une nouvelle connexion SMTP entrante</h3>
-
+<h3 id="smtpdnewclient">SmtpdNewClient: Établissement d&rsquo;une nouvelle connexion SMTP entrante</h3>
 <p>Le point d&rsquo;entré dans la configuration est :</p>
-
 <pre><code>TMAIL_MS_SMTPD_NEWCLIENT=&quot;&quot;
 </code></pre>
-
-<h4 id="structure-du-message-transmis-au-micro-service:24c62ab0ae8d6139f10d3d52cfeca2af">Structure du message transmis au micro service</h4>
-
+<h4 id="structure-du-message-transmis-au-micro-service">Structure du message transmis au micro service</h4>
 <pre><code>message SmtpdNewClientMsg {
-    required string session_id = 1;
-    required string remote_ip = 2;
+	required string session_id = 1;
+	required string remote_ip = 2;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
-<li><p><strong>session_id</strong> (requis): l&rsquo;identifiant de la session SMTP qui traite cette transaction. Cet identifiant va être transmis dans tous les appels qui auront lieu durant une même transaction SMTP, il va donc permettre de suivre cette transaction, coté microservice, et de lier les requêtes.</p></li>
-
-<li><p><strong>remote_ip</strong> (requis): contient l&rsquo;IP du client.</p></li>
+<li>
+<p><strong>session_id</strong> (requis): l&rsquo;identifiant de la session SMTP qui traite cette transaction. Cet identifiant va être transmis dans tous les appels qui auront lieu durant une même transaction SMTP, il va donc permettre de suivre cette transaction, coté microservice, et de lier les requêtes.</p>
+</li>
+<li>
+<p><strong>remote_ip</strong> (requis): contient l&rsquo;IP du client.</p>
+</li>
 </ul>
-
-<h4 id="structure-de-la-réponse-attendue-par-tmail:24c62ab0ae8d6139f10d3d52cfeca2af">Structure de la réponse attendue par tmail</h4>
-
+<h4 id="structure-de-la-réponse-attendue-par-tmail">Structure de la réponse attendue par tmail</h4>
 <pre><code>message SmtpdNewClientResponse {
-    required string session_id = 1;
-    optional SmtpResponse smtp_response = 2;
-    optional bool drop_connection = 3;
+	required string session_id = 1;
+	optional SmtpResponse smtp_response = 2;
+	optional bool drop_connection = 3;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>session_id</strong>: l&rsquo;identifiant de la session.</li>
 <li><strong>smtp_response</strong>: un message de type SmtpResponse qui va permettre de definir, si besoin, la réponse SMTP que tmail doit retourner au client. Vous n&rsquo;avez pas à sytématiquement renseigner cette structure, faites le uniquement si vous avez besoin de retourner un message spécial au client et faite le en ayant bien conscience des conséquences. Vous trouverez la définition de cette structure un peu plus bas.</li>
 <li><strong>drop_connection</strong>: un boolean qui si il est présent et positionné a <em>true</em> va demander a tmail de terminer dés que possible la transaction. N&rsquo;abusez pas de cette option, couper une transaction SMTP à l&rsquo;initiative du serveur n&rsquo;est pas trés RFC compliant.</li>
 </ul>
-
 <p>Structure du message SmtpResponse:</p>
-
 <pre><code>message SmtpResponse {
-    required int32 code = 1;            // SMTP code (ignored if eq 0)
-    required string msg = 2;            // SMTP message (ignored if eq &quot;&quot;)
+	required int32 code = 1; 			// SMTP code (ignored if eq 0)
+	required string msg = 2; 			// SMTP message (ignored if eq &quot;&quot;)
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>code</strong>: le code SMTP à retourner au client.</li>
 <li><strong>msg</strong>: le message à retourner au client.</li>
 </ul>
-
 <p>Vous trouverez cette structure dans de nombreux hook smtpd.</p>
-
-<h3 id="smtpdrcptto:24c62ab0ae8d6139f10d3d52cfeca2af">SmtpdRcptto: Appelé après la commande SMTP RCPT TO</h3>
-
+<h3 id="smtpdrcptto">SmtpdRcptto: Appelé après la commande SMTP RCPT TO</h3>
 <p>Le point d&rsquo;entré dans la configuration est :</p>
-
 <pre><code>export TMAIL_MS_SMTPD_RTCPTTO=&quot;&quot;
 </code></pre>
-
-<h4 id="structure-du-message-transmis-au-micro-service-1:24c62ab0ae8d6139f10d3d52cfeca2af">Structure du message transmis au micro service</h4>
-
+<h4 id="structure-du-message-transmis-au-micro-service-1">Structure du message transmis au micro service</h4>
 <pre><code>message SmtpdRcptToQuery {
-    required string session_id = 1;
-    required string rcptto = 2;
+	required string session_id = 1;
+	required string rcptto = 2;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>rcptto</strong> (requis): le rcptto sous forme d&rsquo;adresse email.</li>
 </ul>
-
-<h4 id="structure-de-la-réponse-attendue-par-tmail-1:24c62ab0ae8d6139f10d3d52cfeca2af">Structure de la réponse attendue par tmail</h4>
-
+<h4 id="structure-de-la-réponse-attendue-par-tmail-1">Structure de la réponse attendue par tmail</h4>
 <pre><code>message SmtpdRcptToResponse {
-    required string session_id = 1;
-    optional SmtpResponse smtp_response = 2;
-    optional bool drop_connection = 3;
-    optional bool relay_granted = 4;
+	required string session_id = 1;
+	optional SmtpResponse smtp_response = 2;
+	optional bool drop_connection = 3;
+	optional bool relay_granted = 4;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>relay_granted</strong>: si renseignée permet d&rsquo;authoriser ou pas le relai pour ce destinataire.</li>
 </ul>
-
-<h3 id="smtpddata:24c62ab0ae8d6139f10d3d52cfeca2af">SmtpdData: Après la commande SMTP DATA</h3>
-
+<h3 id="smtpddata">SmtpdData: Après la commande SMTP DATA</h3>
 <p>Le point d&rsquo;entré dans la configuration est :</p>
-
 <pre><code>export TMAIL_MS_SMTPD_DATA=&quot;&quot;
 </code></pre>
-
-<h4 id="structure-du-message-transmis-au-micro-service-2:24c62ab0ae8d6139f10d3d52cfeca2af">Structure du message transmis au micro service</h4>
-
+<h4 id="structure-du-message-transmis-au-micro-service-2">Structure du message transmis au micro service</h4>
 <pre><code>message SmtpdDataQuery {
-    required string session_id = 1;
-    required string data_link = 2;
+	required string session_id = 1;
+	required string data_link = 2;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>data_link</strong> (requis): Un lien HTTP depuis lequel le micro-service pourra télécharger le mail transmis à tmail lors de la commande DATA.</li>
 </ul>
-
-<h4 id="structure-de-la-réponse-attendue-par-tmail-2:24c62ab0ae8d6139f10d3d52cfeca2af">Structure de la réponse attendue par tmail</h4>
-
+<h4 id="structure-de-la-réponse-attendue-par-tmail-2">Structure de la réponse attendue par tmail</h4>
 <pre><code>message SmtpdDataResponse {
-    required string session_id = 1;
-    optional SmtpResponse smtp_response = 2;
-    optional string data_link = 3;
-    optional bool drop_connection = 4;
-    repeated string extra_headers = 5;
+	required string session_id = 1;
+	optional SmtpResponse smtp_response = 2;
+	optional string data_link = 3;
+	optional bool drop_connection = 4;
+	repeated string extra_headers = 5;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>data_link</strong> (optionnel): POas utilisé pour le moment</li>
 <li><strong>extra_headers</strong> (optionnel): d&rsquo;éventuels headers à ajouter.</li>
 </ul>
-
-<h3 id="smtpdbeforequeuing:24c62ab0ae8d6139f10d3d52cfeca2af">SmtpdBeforeQueueing: Avant la mise en queue du message, permet la modification de l&rsquo;enveloppe.</h3>
-
+<h3 id="smtpdbeforequeuing">SmtpdBeforeQueueing: Avant la mise en queue du message, permet la modification de l&rsquo;enveloppe.</h3>
 <p>Ce hook va permettre de modifier l&rsquo;enveloppe du message et donc l&rsquo;expéditeur et le(s) destinataire(s).
-Attention, le mail ne va pas être modifié, c&rsquo;est juste son enveloppe qui va l&rsquo;être. Autrement dit si vous modfifiez l&rsquo;expéditeur d&rsquo;origine de user@example.com vers user2@example.com, le header From sera toujours &lsquo;From: user@ddomaine.com&rsquo;.</p>
-
-<h4 id="stucture-du-message-transmis-au-microservice:24c62ab0ae8d6139f10d3d52cfeca2af">Stucture du message transmis au microservice</h4>
-
+Attention, le mail ne va pas être modifié, c&rsquo;est juste son enveloppe qui va l&rsquo;être. Autrement dit si vous modfifiez l&rsquo;expéditeur d&rsquo;origine de <a href="mailto:user@example.com">user@example.com</a> vers <a href="mailto:user2@example.com">user2@example.com</a>, le header From sera toujours &lsquo;From: <a href="mailto:user@ddomaine.com">user@ddomaine.com</a>&rsquo;.</p>
+<h4 id="stucture-du-message-transmis-au-microservice">Stucture du message transmis au microservice</h4>
 <pre><code>message SmtpdBeforeQueueing {
-    required string session_id = 1;
-    required string mail_from = 2;
-    repeated string rcpt_to = 3;
+	required string session_id = 1;
+	required string mail_from = 2;
+	repeated string rcpt_to = 3;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>session_id</strong>: l&rsquo;identifiant de la session SMTP.</li>
 <li><strong>mail_from</strong>: l&rsquo;adresse email de l&rsquo;expéditeur.</li>
 <li><strong>rcpt_to</strong>: la liste des adresses des destinataires.</li>
 </ul>
-
-<h4 id="structure-de-la-réponse-attendue-par-tmail-3:24c62ab0ae8d6139f10d3d52cfeca2af">Structure de la réponse attendue par tmail</h4>
-
+<h4 id="structure-de-la-réponse-attendue-par-tmail-3">Structure de la réponse attendue par tmail</h4>
 <p>Le seul champs requis est session_id, les autres sont facultatifs.
 Si vous modifiez l&rsquo;expéditeur ou le(s) destinaitaire(s), assurez vous d&rsquo;utiliser des adresses email valides. un vérification va être faite et uniquement les chaines représentant des adresses emails valides seront prise en compte.</p>
-
 <pre><code>message SmtpdBeforeQueueingResponse {
-    required string session_id = 1;
-    optional string mail_from  = 2;
-    repeated string rcpt_to = 3;
-    optional SmtpResponse smtp_response = 4;
-    optional bool drop_connection = 5;
+	required string session_id = 1;
+	optional string mail_from  = 2;
+	repeated string rcpt_to = 3;
+	optional SmtpResponse smtp_response = 4;
+	optional bool drop_connection = 5;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>session_id</strong>: l&rsquo;identifiant de la session SMTP.</li>
 <li><strong>mail_from</strong>: une chaine représentant l&rsquo;adresse de l&rsquo;expéditeur.</li>
@@ -399,33 +317,26 @@ Si vous modifiez l&rsquo;expéditeur ou le(s) destinaitaire(s), assurez vous d&r
 <li><strong>smtp_response</strong>: la réponse SMTP à retourner au client si le traitement ne suit pas son cours normal.</li>
 <li><strong>drop_connection</strong>: si la conenxion doit être intrrompu.</li>
 </ul>
-
 <p>Attention, assurez vous de savoir ce que vous faites avant d&rsquo;utiliser les deux dernieres options.</p>
-
-<h3 id="smtpdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af">SmtpdTelemetry</h3>
-
+<h3 id="smtpdtelemetry">SmtpdTelemetry</h3>
 <p>En utilisant ce hook votre microservice va recueillir la télémetrie relative aux processus <em>smtpd</em>.
 Dans un souci de performance, le message contenant la télémétrie est envoyé par tmail via une go routine (un processus parallélisé). tmail n&rsquo;attend pas de réponse à ce message. C&rsquo;est du &ldquo;fire and forget&rdquo;.</p>
-
-<h4 id="structure-du-message-envoyé:24c62ab0ae8d6139f10d3d52cfeca2af">Structure du message envoyé</h4>
-
+<h4 id="structure-du-message-envoyé">Structure du message envoyé</h4>
 <pre><code>message SmtpdTelemetry {
-    required string server_id = 1;
-    required string session_id = 2;
-    required string remote_address = 3;
-    required bool success = 4;
-    required uint32 smtp_response_code = 5;
-    required string env_mailfrom = 6;
-    repeated string env_rcptto = 7;
-    required uint32 message_size = 8;
-    required bool is_tls = 9;
-    required uint32 concurrency = 10;
-    required uint32 exec_time = 11;
+	required string server_id = 1;
+	required string session_id = 2;
+	required string remote_address = 3;
+	required bool success = 4;
+	required uint32 smtp_response_code = 5;
+	required string env_mailfrom = 6;
+	repeated string env_rcptto = 7;
+	required uint32 message_size = 8;
+	required bool is_tls = 9;
+	required uint32 concurrency = 10;
+	required uint32 exec_time = 11;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>server_id</strong>: un identifiant du serveur. Par defaut c&rsquo;est la variable <em>me</em> renseignée par le fichier de configuration.</li>
 <li><strong>session_id</strong>: l&rsquo;identifiant de la session SMTP.</li>
@@ -439,99 +350,90 @@ Dans un souci de performance, le message contenant la télémétrie est envoyé 
 <li><strong>concurency</strong>: représente le nombre de transaction concurentes au moment de la transcations.</li>
 <li><strong>exec_time</strong>: durée de la transaction entre la connection du client et la derniére réponse qui lui est envoyée.</li>
 </ul>
-
-<h3 id="deliverdgetroutes:24c62ab0ae8d6139f10d3d52cfeca2af">DeliverdGetRoutes: Appelé par deliverd pour obtenir le routage d&rsquo;un mail</h3>
-
+<h3 id="deliverdgetroutes">DeliverdGetRoutes: Appelé par deliverd pour obtenir le routage d&rsquo;un mail</h3>
 <p>Ce <em>hook</em> va vous permettre de faire du routage dynamique, d&rsquo;adapter la route que doit prendre un message à un instant t en fonction de paramètres qui vous sont propres.</p>
-
 <p>Le point d&rsquo;entré dans la configuration est :</p>
-
 <pre><code>export TMAIL_MS_DELIVERD_GET_ROUTES=&quot;&quot;
 </code></pre>
-
-<h4 id="structure-du-message-transmis-au-micro-service-3:24c62ab0ae8d6139f10d3d52cfeca2af">Structure du message transmis au micro service</h4>
-
+<h4 id="structure-du-message-transmis-au-micro-service-3">Structure du message transmis au micro service</h4>
 <pre><code>message DeliverdGetRoutesQuery {
-    required string deliverd_id = 1;
-    required string mailfrom = 2;
-    required string rcptto =  3;
-    required string authentified_user = 4;
+	required string deliverd_id = 1;
+	required string mailfrom = 2;
+	required string rcptto =  3;
+	required string authentified_user = 4;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>deliverd_id</strong>: l&rsquo;identifiant unique du process deliverd.</li>
 <li><strong>mailfrom</strong>: l&rsquo;adresse email de l&rsquo;expéditeur.</li>
 <li><strong>rcptto</strong>: l&rsquo;adresse email du destinataire.</li>
 <li><strong>authentified_user</strong>: si l&rsquo;utilisateur qui a transmis le mail via SMTP s&rsquo;est authentifié, alors cette variable contient son login.</li>
 </ul>
-
-<h4 id="structure-de-la-réponse-attendue-par-tmail-4:24c62ab0ae8d6139f10d3d52cfeca2af">Structure de la réponse attendue par tmail</h4>
-
+<h4 id="structure-de-la-réponse-attendue-par-tmail-4">Structure de la réponse attendue par tmail</h4>
 <pre><code>message DeliverdGetRoutesResponse {
-    message Route {
-        required string remote_host = 1;
-        required int64 remote_port = 2;
-        optional string local_ip = 3;
-        optional int32 priority = 4;
-        optional string smtpauth_login = 5;
-        optional string smtpauth_password = 6;
-    }
-    required string deliverd_id = 1;
-    repeated Route routes = 2;
+	message Route {
+		required string remote_host = 1;
+		required int64 remote_port = 2;
+		optional string local_ip = 3;
+		optional int32 priority = 4;
+		optional string smtpauth_login = 5;
+		optional string smtpauth_password = 6;
+	}
+	required string deliverd_id = 1;
+	repeated Route routes = 2;
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
-<li><p><strong>deliverd_id</strong>: l&rsquo;identifiant unique correspondant au process deliverd (transmis par tmail lors de la requète)</p></li>
-
-<li><p><strong>routes</strong>: la ou les routes à utiliser pour ce mail.</p></li>
+<li>
+<p><strong>deliverd_id</strong>: l&rsquo;identifiant unique correspondant au process deliverd (transmis par tmail lors de la requète)</p>
+</li>
+<li>
+<p><strong>routes</strong>: la ou les routes à utiliser pour ce mail.</p>
+</li>
 </ul>
-
-<p>Voici les définitions de la structure <em>Routes</em>:
-* <strong>remote_host</strong>: L&rsquo;adresse IP ou le nom d&rsquo;hôte du serveur à qui tmail doit transmettre le mail.</p>
-
+<p>Voici les définitions de la structure <em>Routes</em>:</p>
 <ul>
-<li><p><strong>remote_port</strong>: le port du serveur vers qui tmail doit transmettre le mail.</p></li>
-
-<li><p><strong>local_ip</strong>: l&rsquo;adresse IP locale que tmail doit utiliser pour établir la connexion.</p></li>
-
-<li><p><strong>priority</strong>: la priorité de cette route. Plus le chiffre est petit plus la priorité est élevée. Dans le cas où plusieurs routes auraient la même priorité, elles seront sélectionnée aléatoirement par tmail, ce qui permet de faire simplement du round-robin.</p></li>
-
-<li><p><strong>smtpauth_login</strong>: si le serveur distant requière une authentification, cette variable permet de renseigner le login.</p></li>
-
-<li><p><strong>smtpaut_passwd</strong>: si le serveur distant requière une authentification, cette variable permet de renseigner le mot de passe.</p></li>
+<li>
+<p><strong>remote_host</strong>: L&rsquo;adresse IP ou le nom d&rsquo;hôte du serveur à qui tmail doit transmettre le mail.</p>
+</li>
+<li>
+<p><strong>remote_port</strong>: le port du serveur vers qui tmail doit transmettre le mail.</p>
+</li>
+<li>
+<p><strong>local_ip</strong>: l&rsquo;adresse IP locale que tmail doit utiliser pour établir la connexion.</p>
+</li>
+<li>
+<p><strong>priority</strong>: la priorité de cette route. Plus le chiffre est petit plus la priorité est élevée. Dans le cas où plusieurs routes auraient la même priorité, elles seront sélectionnée aléatoirement par tmail, ce qui permet de faire simplement du round-robin.</p>
+</li>
+<li>
+<p><strong>smtpauth_login</strong>: si le serveur distant requière une authentification, cette variable permet de renseigner le login.</p>
+</li>
+<li>
+<p><strong>smtpaut_passwd</strong>: si le serveur distant requière une authentification, cette variable permet de renseigner le mot de passe.</p>
+</li>
 </ul>
-
-<h2 id="deliverdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af">DeliverdTelemetry: envoit la télémétrie des processus deliverd</h2>
-
+<h2 id="deliverdtelemetry">DeliverdTelemetry: envoit la télémétrie des processus deliverd</h2>
 <p>Fonctionne sur les mêmes principes que SmtpdTelemetry, à savoir, le message est généré et envoyé via une go routine, tmail n&rsquo;attend pas de réponse.</p>
-
-<h3 id="stucture-du-message-envoyé:24c62ab0ae8d6139f10d3d52cfeca2af">Stucture du message envoyé</h3>
-
+<h3 id="stucture-du-message-envoyé">Stucture du message envoyé</h3>
 <pre><code>message DeliverdTelemetry {
-    required string server_id = 1;
-    required string deliverd_id = 2;
-    required bool success = 3; // status of delivery (success or not)
-    required uint32 exec_time = 4; // in nanosecond
-    required uint32 messages_in_queue = 5;
-    required uint32 concurrency_remote = 6;
-    required uint32 concurrency_local = 7;
-    required string from = 8;
-    required string to = 9;
-    required bool is_local = 10;
-    optional string local_address = 11;
-    optional string remote_address =12;
-    optional uint32 remote_smtp_response_code = 13; // 250, 420, 550,...
+	required string server_id = 1;
+	required string deliverd_id = 2;
+	required bool success = 3; // status of delivery (success or not)
+	required uint32 exec_time = 4; // in nanosecond
+	required uint32 messages_in_queue = 5;
+	required uint32 concurrency_remote = 6;
+	required uint32 concurrency_local = 7;
+	required string from = 8;
+	required string to = 9;
+	required bool is_local = 10;
+	optional string local_address = 11;
+	optional string remote_address =12;
+	optional uint32 remote_smtp_response_code = 13; // 250, 420, 550,...
 }
 </code></pre>
-
 <p>Avec:</p>
-
 <ul>
 <li><strong>server_id</strong>: identifiant du serveur qui envoit le message (config.me par defaut).</li>
 <li><strong>deliverd_id</strong>: identifiant de la session deliverd.</li>
@@ -547,56 +449,36 @@ Dans un souci de performance, le message contenant la télémétrie est envoyé 
 <li><strong>remote_address</strong>: addresse distante (dans le cadre d&rsquo;une livraison de type <em>remote</em>) sous la forme IP:PORT.</li>
 <li><strong>remote_smtp_response_code</strong>: code SMTP retourné par le serveur distant dans le cadre d&rsquo;un livraison <em>remote</em>.</li>
 </ul>
-
-<h2 id="exempleimpl:24c62ab0ae8d6139f10d3d52cfeca2af">Exemples d&rsquo;implémentation</h2>
-
+<h2 id="exempleimpl">Exemples d&rsquo;implémentation</h2>
 <p>Vous trouverez sur <a href="https://github.com/toorop/tmail-ms-server">https://github.com/toorop/tmail-ms-server</a> différent exemples de micro-services pour tmail.
 N&rsquo;hésitez pas à participer à ce repo en proposant vos propres exemples. Si vous souhaitez publier un exemple dans un langage qui n&rsquo;a pas encore de dossier spécifique, créez le à la racine du repo.</p>
-
-<h2 id="msas:24c62ab0ae8d6139f10d3d52cfeca2af">μsas: Micro-Services As Services</h2>
-
+<h2 id="msas">μsas: Micro-Services As Services</h2>
 <p>Un des autres intérêts de cette architecture est qu&rsquo;il est possible de proposer des <strong>micro-services as service</strong>, autrement dit de mettre à dispositions des utilisateurs de tmail des micro-services que l&rsquo;on a codé et que l&rsquo;on héberge.</p>
-
 <p>C&rsquo;est ce que je vous propose ici, l&rsquo;usage en est totalement libre et gratuit.</p>
-
 <p>Le code de ses micro-services est disponible ici: <a href="https://github.com/toorop/tmail-ms-server/tree/master/golang/ms.tmail.io">https://github.com/toorop/tmail-ms-server/tree/master/golang/ms.tmail.io</a></p>
-
-<h3 id="greysmtpd:24c62ab0ae8d6139f10d3d52cfeca2af">SMTPD_NEWCLIENT: GreySmtpd</h3>
-
+<h3 id="greysmtpd">SMTPD_NEWCLIENT: GreySmtpd </h3>
 <p><strong>URL:</strong> <a href="https://ms.tmail.io/smtpdnewclientgreysmtpd">https://ms.tmail.io/smtpdnewclientgreysmtpd</a></p>
-
 <p>Ce service va accepter ou refuser temporairement la connexion en fonction de la réputation de l&rsquo;IP du client.</p>
-
 <p>Un client SMTP légitime va tenter à plusieurs reprises de transmettre un mail en cas d&rsquo;échec des tentatives précédentes (si le serveur à retourné une erreur temporaire), l&rsquo;idée ici est donc d&rsquo;exploiter cette fonctionnalité pour écarter un maximum de spambot.</p>
-
 <p>Actuellement l&rsquo;implémentation est la suivante:</p>
-
 <ul>
 <li>Si une IP est suspecte (pas de reverse || listée sur spamcop):
-
 <ul>
 <li>Si elle n&rsquo;est pas connue du micro-service, ou si elle est connue depuis moins de 2 heures, une erreur temporaire est retournée.</li>
 <li>Si elle est connue depuis plus de 3 heures et moins de 24 heures, on continue.</li>
 <li>Si elle connue depuis plus de 24 heures, l&rsquo;horodatage est réinitialisé, le micro-service l&rsquo;oubli, et une erreur temporaire est retournée.</li>
-</ul></li>
 </ul>
-
-<h3 id="dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af">SMTPD_DATA: DKIM verification</h3>
-
+</li>
+</ul>
+<h3 id="dkimverif">SMTPD_DATA: DKIM verification</h3>
 <p><strong>URL:</strong> <a href="https://ms.tmail.io/smtpddatadkimverif">https://ms.tmail.io/smtpddatadkimverif</a></p>
-
 <p>Ce micro-service va vérifier la signature DKIM du mail, si le mail en a une, et va ajouter un header Authentication-Results.</p>
-
 <p>Par exemple en cas de succès:</p>
-
 <pre><code>Authentication-Results: dkim=success
 </code></pre>
-
 <p>En cas d&rsquo;échec:</p>
-
 <pre><code>Authentication-Results: dkim=permfail testing body hash did not verify
 </code></pre>
-
         </div>
         <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -608,7 +490,7 @@ N&rsquo;hésitez pas à participer à ce repo en proposant vos propres exemples.
         return;
 
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = '';
+    var disqus_shortname = 'tmail';
     dsq.src = '//tmail.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -625,7 +507,7 @@ N&rsquo;hésitez pas à participer à ce repo en proposant vos propres exemples.
   ga('create', 'UA-59890382-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="http://tmail.io/js/tmail.js"></script>
+<script src="https://tmail.dpp.st/js/tmail.js"></script>
 </body>
 </html>
 

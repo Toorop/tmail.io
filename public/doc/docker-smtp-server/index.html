@@ -10,12 +10,12 @@
   <title>tmail &#43; Docker = un SMTP déployé en moins de 5 minutes  &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://tmail.io/css/tmail.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/poole.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde-x.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/tmail.css">
    
-    <link rel="stylesheet" href="http://tmail.io/libs/plyr/plyr.css">
+    <link rel="stylesheet" href="https://tmail.dpp.st/libs/plyr/plyr.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic">
 
@@ -23,12 +23,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
-
   <meta name="description" content="ce tuto va vous permettre de mettre en place un serveur SMTP en moins de 5 minutes avec tmail et docker">
   <meta name="keywords" content="docker">
-  <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
+  
 </head>
 <body>
  <ul class="navigation">
@@ -91,70 +88,46 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">tmail &#43; Docker = un SMTP déployé en moins de 5 minutes </h1>
-            <span class="post-date">May 26, 2015 &middot; Temps de lecture: 4 min  &middot; <a href="http://tmail.io/doc/docker-smtp-server/#disqus_thread">Comments</a>
+            <span class="post-date">May 26, 2015 &middot; Temps de lecture: 3 min  &middot; <a href="https://tmail.dpp.st/doc/docker-smtp-server/#disqus_thread">Comments</a>
       
       <br/>
       
-      <a class="label" href="http://tmail.io/categories/doc">doc</a>
+      <a class="label" href="https://tmail.dpp.st/categories/doc">doc</a>
       </span> <p>Ça vous dirait de tester tmail mais vous vous dites que vous n&rsquo;avez pas le temps et/ou pas de serveur de disponible ?</p>
-
 <p>Vous aimeriez avoir votre relais SMTP mais vous vous dites que c&rsquo;est trop compliqué à mettre en place ?</p>
-
 <p>Pfff balayez moi toute ces excuses bidons, dans ce tuto je vais vous montrer comment déployer tmail en tant que relais SMTP en quelques minutes et pour quelques centimes d&rsquo;euro (voir rien du tout si vous êtes client OVH).</p>
-
-<p><img class="center" src="/img/amazing.png"></p>
-
-<p><br>
-Avant toute chose, tmail est en plein développement, donc considérez ce tuto comme un <a href="http://fr.wikipedia.org/wiki/Preuve_de_concept" target="_blank" title="preuve de concept"> poc </a> et n&rsquo;utilisez pas le SMTP pour des choses importantes, il y à forcement des bugs qui traînent.</p>
-
-<p>Bien commençons par le commencement, il va nous falloir un serveur, nos amis de chez OVH ont eu la bonne idée de sortir <a href="http://www.ovh.com/fr/cloud/" target="_blank" title="cloud OVH"> leur offre cloud </a> cette semaine, ne cherchons pas plus loin.</p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Bien commençons par le commencement, il va nous falloir un serveur, nos amis de chez OVH ont eu la bonne idée de sortir <!-- raw HTML omitted --> leur offre cloud <!-- raw HTML omitted --> cette semaine, ne cherchons pas plus loin.</p>
 <p>A moins que vous ayez des millions de mails à envoyer par jour leur offre KS1 sera largement suffisante et à 0.008 € de l&rsquo;heure elle ne devrait pas vous ruiner. On va donc lancer une instance de ce type avec Ubuntu 14.04 comme distribution.</p>
-
 <p>Comptez jusqu’à 30:</p>
-
 <pre><code>30 29 28 27 26 25 24 23 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
 </code></pre>
-
-<p>Ça y est ?<br />
+<p>Ça y est ?<br>
 L&rsquo;instance est donc prête, on s&rsquo;y connecte:</p>
-
 <pre><code>ssh admin@IP
 </code></pre>
-
 <p>On passe en root et on met le système à jour:</p>
-
 <pre><code>sudo su
 apt-get update &amp;&amp; apt-get -y upgrade
 </code></pre>
-
 <p>On installe Docker:</p>
-
 <pre><code>wget -qO- https://get.docker.com/ | sh
 </code></pre>
-
 <p>On ajoute un utilisateur <em>tmail</em> qui va avoir le droit d&rsquo;utiliser Docker:</p>
-
-<pre><code>adduser -q --disabled-password  tmail   
+<pre><code>adduser -q --disabled-password  tmail	
 usermod -aG docker tmail
 </code></pre>
-
 <p>On bascule sous l&rsquo;user tmail :</p>
-
 <pre><code>su tmail 
 cd
 </code></pre>
-
 <p>Si vous êtes vraiment pressé il ne vous reste plus qu&rsquo;a faire:</p>
-
 <pre><code>docker build -t tmail https://raw.githubusercontent.com/toorop/dockerfiles/master/tmail/Dokerfile
 docker run -d -p 587:2525 tmail
 </code></pre>
-
 <p>Et voila, c&rsquo;est fini vous pouvez utiliser le smtp pour envoyer vos mails.</p>
-
 <p>Voici la configuration à utiliser:</p>
-
 <ul>
 <li>Adresse du serveur: adresse IP publique de votre instance</li>
 <li>Port: 587</li>
@@ -163,55 +136,36 @@ docker run -d -p 587:2525 tmail
 <li>Utilisateur: tmail</li>
 <li>Mot de passe: tmailpasswd</li>
 </ul>
-
 <p>Votre client va couiner car le certificat est auto-signé, il vous faudra ajouter une exception de sécurité.</p>
-
-<p>Tant que j&rsquo;y pense les mails sortant auront une signature DKIM. La <a href="https://github.com/toorop/go-dkim" target="_blank" title="DKIM library for Golang"> lib DKIM </a> étant toute fraîche je ne garantie rien, mais dans tous les cas ça ne doit pas poser de problème car la signature est signalée comme étant en test (en clair si à la vérification la signature n&rsquo;est pas valide, on ne doit pas en tenir compte) .</p>
-
+<p>Tant que j&rsquo;y pense les mails sortant auront une signature DKIM. La <!-- raw HTML omitted --> lib DKIM <!-- raw HTML omitted --> étant toute fraîche je ne garantie rien, mais dans tous les cas ça ne doit pas poser de problème car la signature est signalée comme étant en test (en clair si à la vérification la signature n&rsquo;est pas valide, on ne doit pas en tenir compte) .</p>
 <p>Bien entendu le couple login/passwd étant le même pour tout le monde, et surtout connu de tous, je vous conseille fortement de couper ce container dés que vous avez fini les tests.</p>
-
 <p>Si vous souhaitez aller plus loin, autrement dit si vous souhaitez garder le service SMTP, il vous faut changer le couple user/passwd.</p>
-
 <p>Pour cela stopper et supprimer le container:</p>
-
-<pre><code>    docker stop CONTAINER_ID
-    docker rm CONTAINER_ID
+<pre><code>	docker stop CONTAINER_ID
+	docker rm CONTAINER_ID
 </code></pre>
-
 <p>Téléchargez le <em>dokerfile</em>:</p>
-
 <pre><code>wget https://raw.githubusercontent.com/toorop/dockerfiles/master/tmail/Dokerfile
 </code></pre>
-
 <p>Éditez le pour modifier <em>tmail</em> et <em>tmailpasswd</em>:</p>
-
 <pre><code>RUN . conf/tmail.cfg &amp;&amp; \
 ./tmail user add -r USER MOT_DE_PASSE
 </code></pre>
-
 <p>Et construisez/lancez le container:</p>
-
 <pre><code>docker build -t tmail .
 docker run -d -p 587:2525 tmail
 </code></pre>
-
 <p>Un dernier petit tips pour la route, si vous n&rsquo;êtes pas adepte de Docker, pour avoir les logs de tmail:</p>
-
 <pre><code>docker logs -f ID_CONTAINER
 </code></pre>
-
 <p>Attention, le debug est activé, c&rsquo;est très verbeux.</p>
-
 <p>Finalement il m&rsquo;en reste encore un, pour connaître l&rsquo;identifiant du container:</p>
-
 <pre><code>core@coreos ~ $ docker ps -a
 
-CONTAINER ID  IMAGE         COMMAND                
+CONTAINER ID  IMAGE       	COMMAND                
 b60c7b7cc31f  tmail:latest  &quot;/home/tmail/dist/ru   
 </code></pre>
-
 <p>Voila enjoy ;)</p>
-
         </div>
         <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -223,7 +177,7 @@ b60c7b7cc31f  tmail:latest  &quot;/home/tmail/dist/ru
         return;
 
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = '';
+    var disqus_shortname = 'tmail';
     dsq.src = '//tmail.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -240,7 +194,7 @@ b60c7b7cc31f  tmail:latest  &quot;/home/tmail/dist/ru
   ga('create', 'UA-59890382-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="http://tmail.io/js/tmail.js"></script>
+<script src="https://tmail.dpp.st/js/tmail.js"></script>
 </body>
 </html>
 

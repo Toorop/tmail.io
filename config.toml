@@ -1,4 +1,4 @@
-baseurl = "http://tmail.io"
+baseurl = "https://tmail.dpp.st"
 languageCode = "fr-fr"
 title = "tmail"
 Paginate = "10"

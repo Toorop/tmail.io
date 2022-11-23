@@ -1,421 +1,139 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Podcasts on tmail</title>
-    <link>http://tmail.io/podcast/</link>
+    <link>https://tmail.dpp.st/podcast/</link>
     <description>Recent content in Podcasts on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 18 Jun 2015 19:52:01 +0200</lastBuildDate>
-    <atom:link href="http://tmail.io/podcast/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 18 Jun 2015 19:52:01 +0200</lastBuildDate><atom:link href="https://tmail.dpp.st/podcast/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Podcast #11: One more thing...</title>
-      <link>http://tmail.io/podcast/11/</link>
+      <link>https://tmail.dpp.st/podcast/11/</link>
       <pubDate>Thu, 18 Jun 2015 19:52:01 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/11/</guid>
-      <description>
-
-&lt;p&gt;Après un mois d&amp;rsquo;attente le voila enfin le nouvel épisode !&lt;br /&gt;
+      <guid>https://tmail.dpp.st/podcast/11/</guid>
+      <description>&lt;p&gt;Après un mois d&amp;rsquo;attente le voila enfin le nouvel épisode !&lt;br&gt;
 Cette &amp;ldquo;semaine&amp;rdquo;, je reviens sur l&amp;rsquo;implémentation des micro-services, sur les nouveautés concernant implémentation de DKIM, sur l&amp;rsquo;image Docker, sur la version raspberry pi  de tmail, je parle un peu de crypto et je termine sur&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/11&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/11&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Erratum: Dans le podcast je parle de licence BSD en fait il s&amp;rsquo;agit d&amp;rsquo;une licence MIT.&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:0d5879b806136f0fa50ee21553892511&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/microservices/&#34; title=&#34;Les micro-services et tmail&#34; target=&#34;_blank&#34;&gt;Détails sur l&#39;implementation des micro-services&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim/&#34; title=&#34;DKIM et tmail&#34; target=&#34;_blank&#34;&gt;Activer DKIM sur votre domaine&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/docker-smtp-server/&#34; title=&#34;tmail Docker image&#34; target=&#34;_blank&#34;&gt;Testez tmail avec Docker&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;http://dl.toorop.fr/softs/tmail/tmail-armv7&#34; title=&#34;tmail SMTP pour Raspberry&#34; target=&#34;_blank&#34;&gt;La version ARM de tmail pour Rasperry Pi V2&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.toorop.fr/pepper-nacl-crypto-boite-noire/&#34; title=&#34;Pepper&#34; target=&#34;_blank&#34;&gt;Pepper: chiffrez,signez, déchiffrez messages et fichiers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt; 
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34; title=&#34;Groupe de discussions tmail&#34; target=&#34;_blank&#34;&gt;Le &#34;Google group&#34; tmail&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/toorop/tmail&#34; title=&#34;tmail on github&#34; target=&#34;_blank&#34;&gt;One more thing...&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;/ul&gt;
-</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #10: Microservices &amp;&amp; Protocol Buffers</title>
-      <link>http://tmail.io/podcast/10/</link>
+      <link>https://tmail.dpp.st/podcast/10/</link>
       <pubDate>Mon, 18 May 2015 20:52:01 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/10/</guid>
-      <description>
-
-&lt;p&gt;Je me suis finalement décidé sur la techno à utiliser pour étendre les fonctionnalités de tmail, ce sera par le biais de microservices. Dans cet épisode je vous explique le bidule, enfin j&amp;rsquo;essaye&amp;hellip; ;)&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/10&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/10&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:308567cfbd1525551cff24e29a6013b6&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Toorop/go-dkim&#34; title=&#34;DKIM package for go (golang)&#34; target=&#34;_blank&#34;&gt;Librairie DKIM pour Go&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim/&#34; title=&#34;DKIM et tmail&#34; target=&#34;_blank&#34;&gt;tmail: activer DKIM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://developers.google.com/protocol-buffers/&#34; title=&#34;Specs protocol buffers&#34; target=&#34;_blank&#34;&gt;Protocol Buffer en détail&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt; 
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34; title=&#34;Groupe de discussions tmail&#34; target=&#34;_blank&#34;&gt;Le &#34;Google group&#34; tmail&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://tmail.dpp.st/podcast/10/</guid>
+      <description>&lt;p&gt;Je me suis finalement décidé sur la techno à utiliser pour étendre les fonctionnalités de tmail, ce sera par le biais de microservices. Dans cet épisode je vous explique le bidule, enfin j&amp;rsquo;essaye&amp;hellip; ;)&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #9: DKIM: Mythes et légendes</title>
-      <link>http://tmail.io/podcast/9/</link>
+      <link>https://tmail.dpp.st/podcast/9/</link>
       <pubDate>Sun, 03 May 2015 20:52:01 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/9/</guid>
-      <description>
-
-&lt;p&gt;Dans cette épisode, je vous parle de mon début de réflexion concernant le système de plugins que je voudrais intégrer à tmail et de DKIM, en particulier des fausses idées que l&amp;rsquo;on a à son sujet.
-&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/9&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/9&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:6a1322aee4e58bdcf88063043cbd86e6&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34; https://github.com/dullgiulio/pingo&#34; title=&#34;Gestionnaire de plugin pour Go&#34; target=&#34;_blank&#34;&gt;Gestionnaires de plugins pour Go&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Toorop/go-dkim&#34; title=&#34;DKIM package for go (golang)&#34; target=&#34;_blank&#34;&gt;Librairie DKIM pour Go&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt; 
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34; title=&#34;Groupe de discussions tmail&#34; target=&#34;_blank&#34;&gt;Le &#34;Google group&#34; tmail&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://tmail.dpp.st/podcast/9/</guid>
+      <description>&lt;p&gt;Dans cette épisode, je vous parle de mon début de réflexion concernant le système de plugins que je voudrais intégrer à tmail et de DKIM, en particulier des fausses idées que l&amp;rsquo;on a à son sujet.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #8: Les aventures de Nick Sarasse</title>
-      <link>http://tmail.io/podcast/8/</link>
+      <link>https://tmail.dpp.st/podcast/8/</link>
       <pubDate>Thu, 16 Apr 2015 17:34:34 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/8/</guid>
-      <description>
-
-&lt;p&gt;Cette semaine: la suite de la chasse aux &amp;ldquo;races conditions&amp;rdquo;, l&amp;rsquo;implémentation d&amp;rsquo;un système permettant de limiter le nombre de connexions entrantes, un petit projet annexe de mesure d&amp;rsquo;audience pour le podcast et &amp;hellip; on fait les valises !&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/8&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/8&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:f5241d3893893fe6fff8f57bd2dbf29a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://podstats.toorop.fr/&#34; title=&#34;Statistiques d&#39;écoute du podcast tmail&#34; target=&#34;_blank&#34;&gt;Les stats du podcast&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Toorop/podstats&#34; title=&#34;Podstats: analytics for you podcast&#34; target=&#34;_blank&#34;&gt;Podstats les sources de l&#39;outil de mesure d&#39;audience du podcast&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
-</description>
+      <guid>https://tmail.dpp.st/podcast/8/</guid>
+      <description>&lt;p&gt;Cette semaine: la suite de la chasse aux &amp;ldquo;races conditions&amp;rdquo;, l&amp;rsquo;implémentation d&amp;rsquo;un système permettant de limiter le nombre de connexions entrantes, un petit projet annexe de mesure d&amp;rsquo;audience pour le podcast et &amp;hellip; on fait les valises !&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #7: J&#39;ai testé pour vous</title>
-      <link>http://tmail.io/podcast/7/</link>
+      <link>https://tmail.dpp.st/podcast/7/</link>
       <pubDate>Sun, 12 Apr 2015 11:02:17 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/7/</guid>
+      <guid>https://tmail.dpp.st/podcast/7/</guid>
       <description>&lt;p&gt;Les nouvelles de la semaine concernant le développement du serveur SMTP tmail: API REST, tests unitaires, race detection,…&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/7&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/7&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&amp;rsquo;est par ici&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #6: Cocktail</title>
-      <link>http://tmail.io/podcast/6/</link>
+      <link>https://tmail.dpp.st/podcast/6/</link>
       <pubDate>Thu, 02 Apr 2015 17:18:22 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/6/</guid>
-      <description>
-
-&lt;p&gt;Cette semaine je vous parle de l&amp;rsquo;API REST qui vous permet de gérer tmail, de frameworks Go pour créer des services web, de Gin, de Martini, de Negroni, de&amp;hellip;&lt;/p&gt;
-
+      <guid>https://tmail.dpp.st/podcast/6/</guid>
+      <description>&lt;p&gt;Cette semaine je vous parle de l&amp;rsquo;API REST qui vous permet de gérer tmail, de frameworks Go pour créer des services web, de Gin, de Martini, de Negroni, de&amp;hellip;&lt;/p&gt;
 &lt;p&gt;A consommer sans modération !&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/6&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/6&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Un petit schéma illustrant le déroulé d&amp;rsquo;une requête web:
-&lt;br&gt;&lt;br&gt;
-&lt;img class=&#34;center&#34; src=&#34;http://tmail.io/img/httpsmall.png&#34;&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:7c4156473a0d57f79901cf8c5eff898e&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/activer-api-rest/&#34; title=&#34;activer l&#39;API REST tmail&#34; target=&#34;_blank&#34;&gt;Activer l&#39;API REST&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/api-rest/&#34; title=&#34;activer l&#39;API REST tmail&#34; target=&#34;_blank&#34;&gt;Utilisez l&#39;API REST&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/go-martini/martini&#34; title=&#34;Martini: Classy web framework for Go&#34; target=&#34;_blank&#34;&gt;Martini&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://codegangsta.io/blog/2014/05/19/my-thoughts-on-martini/&#34; title=&#34;My Thoughts on Martini&#34; target=&#34;_blank&#34;&gt;La réponse de Jeremy Saenz face aux critiques concernant Martini&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/codegangsta/negroni&#34; title=&#34;Negroni: Idiomatic HTTP Middleware for Golang&#34; target=&#34;_blank&#34;&gt;Negroni&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gin-gonic.github.io/gin/&#34; title=&#34;Gin Gonic: The fastest full-featured web framework for Golang&#34; target=&#34;_blank&#34;&gt;Gin Gonic&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://revel.github.io/&#34; title=&#34;Revel: A high-productivity web framework for the Go language&#34; target=&#34;_blank&#34;&gt;Revel web framework&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://howistart.org/posts/go/1&#34; title=&#34;Débuter en Go&#34; target=&#34;_blank&#34;&gt;Initiation à Go&lt;/a&gt;&lt;/li&gt; 
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
-</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #5 - Heu non c&#39;est l&#39;inverse</title>
-      <link>http://tmail.io/podcast/5/</link>
+      <link>https://tmail.dpp.st/podcast/5/</link>
       <pubDate>Fri, 27 Mar 2015 15:50:03 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/5/</guid>
-      <description>
-
-&lt;p&gt;Cette semaine il est question de logs, de message-id, de majuscules qui deviennent des minuscules (ou l&amp;rsquo;inverse je ne sais plus), de verbes et pour finir je vous parle du client de podcasts que j&amp;rsquo;utilise.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/5&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/5&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:4108045d631e1ffc0a8f9e461e342847&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/logs/&#34; title=&#34;configuration des logs du serveur SMTP tmail&#34;&gt;Configurer les logs tmail&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.shiftyjelly.com/pocketcasts&#34; title=&#34;Pocketcasts: application pour lire vos podcasts&#34;&gt;Pocketcasts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/Toorop/My-subscribed-podcasts/master/podcasts_opml.xml&#34; target=&#34;_blank&#34;&gt;De quoi nourrir votre lecteur de podcasts avec mes abonnements&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
-</description>
+      <guid>https://tmail.dpp.st/podcast/5/</guid>
+      <description>&lt;p&gt;Cette semaine il est question de logs, de message-id, de majuscules qui deviennent des minuscules (ou l&amp;rsquo;inverse je ne sais plus), de verbes et pour finir je vous parle du client de podcasts que j&amp;rsquo;utilise.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #4 - Titi et Toto</title>
-      <link>http://tmail.io/podcast/4/</link>
+      <link>https://tmail.dpp.st/podcast/4/</link>
       <pubDate>Sun, 22 Mar 2015 09:38:58 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/4/</guid>
-      <description>
-
-&lt;p&gt;Cette semaine je vous parle des nouveautés de la version 0.0.4, de sieve, et je réponds à la question existentielle: Qu&amp;rsquo;est ce qu&amp;rsquo;un mail ?&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/4&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/4&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Un petite illustration valant mieux qu&amp;rsquo;un long discours, voici un schéma représentant la structure d&amp;rsquo;un email.&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&#34;center&#34; src=&#34;http://tmail.io/img/structure-email.png&#34;&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:e7fd8297e2196d1a566a3e2e51cbb23a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34; title=&#34;installation dovecot sieve tmail&#34;&gt;Installer et configurer Dovecot pour tmail&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve&#34; title=&#34;Extension Sieve pour Dovecot&#34; target=&#34;_blank&#34;&gt;Extension Sieve Pigeonhole pour Dovecot&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve/Examples&#34; title=&#34;Exemples de scripts Sieve&#34; target=&#34;_blank&#34;&gt;Exemples de scripts Sieve&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;http://memcached.org/&#34; title=&#34;memcached&#34; target=&#34;_blank&#34;&gt;memcached&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
-</description>
+      <guid>https://tmail.dpp.st/podcast/4/</guid>
+      <description>&lt;p&gt;Cette semaine je vous parle des nouveautés de la version 0.0.4, de sieve, et je réponds à la question existentielle: Qu&amp;rsquo;est ce qu&amp;rsquo;un mail ?&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #3: Nouvelle rubrique</title>
-      <link>http://tmail.io/podcast/3/</link>
+      <link>https://tmail.dpp.st/podcast/3/</link>
       <pubDate>Sat, 14 Mar 2015 19:38:45 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/3/</guid>
-      <description>
-
-&lt;p&gt;Les nouvelles du projet, avec cette semaine, des corrections de bugs, du refactoring et&amp;hellip; une nouvelle rubrique.
-&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/3&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/3&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Si vous avez des remarques concernant cet épisode, aussi bien sur le fond, que la forme, n&amp;rsquo;hésitez pas à me laisser un commentaire en bas de page.&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:ae9997a2769c75053f068259cadd520a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://addons.mozilla.org/fr/firefox/addon/sqlite-manager/&#34; target=&#34;_blank&#34;&gt;SQLite manager&lt;/a&gt;: GUI pour gérer vos bases SQLite.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/flosse/sloc&#34; target=&#34;_blank&#34;&gt;Sloc&lt;/a&gt;: Un utilitaire vous permettant de compter les lignes de code d&amp;rsquo;un projet.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/#!forum/tmail-dev&#34; target=&#34;_blank&#34;&gt;Venez discuter du projet sur notre goupe de discussions.&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Retrouvez moi sur twitter &lt;a href=&#34;https://twitter.com/poroot&#34; target=&#34;_blank&#34;&gt; @poroot&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://tmail.dpp.st/podcast/3/</guid>
+      <description>&lt;p&gt;Les nouvelles du projet, avec cette semaine, des corrections de bugs, du refactoring et&amp;hellip; une nouvelle rubrique.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #2: Toc toc...</title>
-      <link>http://tmail.io/podcast/episode-2/</link>
+      <link>https://tmail.dpp.st/podcast/episode-2/</link>
       <pubDate>Fri, 06 Mar 2015 07:50:04 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/episode-2/</guid>
-      <description>
-
-&lt;p&gt;Dans cet épisode je vais vous parler des suggestions qui m&amp;rsquo;ont été faites concernant les fonctionnalités de tmail.
-&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/2&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/2&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;liens-de-l-épisode:51ade350eab725e837a47d1a4253ca0c&#34;&gt;Liens de l&amp;rsquo;épisode&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34;&gt;Venez discuter sur notre groupe Google&lt;/a&gt;. Vous y retrouverez les suggestions évoquées dans cet épisode et vous pourrez donnez votre avis.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.dovecot.org/&#34;&gt;Dovecot&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://tmail.dpp.st/podcast/episode-2/</guid>
+      <description>&lt;p&gt;Dans cet épisode je vais vous parler des suggestions qui m&amp;rsquo;ont été faites concernant les fonctionnalités de tmail.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #1: Antivirus</title>
-      <link>http://tmail.io/podcast/episode-1-antivirus/</link>
+      <link>https://tmail.dpp.st/podcast/episode-1-antivirus/</link>
       <pubDate>Tue, 24 Feb 2015 12:03:26 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/episode-1-antivirus/</guid>
-      <description>
-
-&lt;p&gt;Dans cet épisode je vais vous parler de l&amp;rsquo;intégration du filtrage antivirus au sein de tmail en utilisant le scanner opensource Clamav.
-&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/1&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/1&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:40c3dac850556cdd847a1f627701aeae&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Billet vous expliquant comment activer le filtrage antivirus dans tmail: &lt;a href=&#34;http://tmail.io&#34;&gt;http://tmail.io&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Site du scanner antivirus Clamav: &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;http://www.clamav.net/index.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Pour me suivre sur twitter c&amp;rsquo;est par ici: &lt;a href=&#34;https://twitter.com/poroot&#34;&gt;https://twitter.com/poroot&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://tmail.dpp.st/podcast/episode-1-antivirus/</guid>
+      <description>&lt;p&gt;Dans cet épisode je vais vous parler de l&amp;rsquo;intégration du filtrage antivirus au sein de tmail en utilisant le scanner opensource Clamav.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #0: Présentations</title>
-      <link>http://tmail.io/podcast/episode-0/</link>
+      <link>https://tmail.dpp.st/podcast/episode-0/</link>
       <pubDate>Mon, 23 Feb 2015 17:19:30 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/episode-0/</guid>
-      <description>
-
-&lt;p&gt;Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&amp;rsquo;etre de ce podcast.
-&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/0&#34; type=&#34;audio/mp3&#34;&gt;&lt;/p&gt;
-
+      <guid>https://tmail.dpp.st/podcast/episode-0/</guid>
+      <description>&lt;p&gt;Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&amp;rsquo;etre de ce podcast.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;pre&gt;&lt;code&gt;    &amp;lt;!-- Fallback for browsers that don&#39;t support the &amp;lt;audio&amp;gt; element --&amp;gt;
     &amp;lt;div&amp;gt;
         &amp;lt;a href=&amp;quot;http://podstats.toorop.fr/p/tmail/0&amp;quot;&amp;gt;Download&amp;lt;/a&amp;gt;
     &amp;lt;/div&amp;gt;
 &amp;lt;/audio&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:1fb66ffb196bf90087cd053f7e7a043c&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Site du projet tmail: &lt;a href=&#34;http://tmail.io&#34;&gt;http://tmail.io&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Mon github: &lt;a href=&#34;https://github.com/Toorop&#34;&gt;https://github.com/Toorop&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Pour me suivre sur twitter c&amp;rsquo;est par ici: &lt;a href=&#34;https://twitter.com/poroot&#34;&gt;https://twitter.com/poroot&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
   </channel>

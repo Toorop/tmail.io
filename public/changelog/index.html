@@ -10,12 +10,12 @@
   <title>Changelog &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://tmail.io/css/tmail.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/poole.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde-x.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/tmail.css">
    
-    <link rel="stylesheet" href="http://tmail.io/libs/plyr/plyr.css">
+    <link rel="stylesheet" href="https://tmail.dpp.st/libs/plyr/plyr.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic">
 
@@ -23,12 +23,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
-
   <meta name="description" content="changelog du serveur smtp tmail">
   <meta name="keywords" content="changelog,smtp,tmail">
-  <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
+  
 </head>
 <body>
  <ul class="navigation">
@@ -91,42 +88,31 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">Changelog</h1>
-            <span class="post-date">Mar 14, 2015 &middot; Temps de lecture: 1 min  &middot; <a href="http://tmail.io/changelog/#disqus_thread">Comments</a>
-      </span> 
-
-<h2 id="v-0-0-8:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.8</h2>
-
+            <span class="post-date">Mar 14, 2015 &middot; Temps de lecture: 1 min  &middot; <a href="https://tmail.dpp.st/changelog/#disqus_thread">Comments</a>
+      </span> <h2 id="v-008">v 0.0.8</h2>
 <ul>
 <li>DKIM: sign outgoing message (test)</li>
 </ul>
-
-<h2 id="v-0-0-7:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.7</h2>
-
+<h2 id="v-007">v 0.0.7</h2>
 <ul>
 <li>BugFix message-id</li>
 <li>REST /queue</li>
 <li>Bugfix: race condition on deliverd</li>
 <li>Add concurrency limits on smtpd</li>
 </ul>
-
-<h2 id="v-0-0-6:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.6</h2>
-
+<h2 id="v-006">v 0.0.6</h2>
 <ul>
 <li>REST API base</li>
 <li>REST API /users</li>
 </ul>
-
-<h2 id="v-0-0-5:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.5</h2>
-
+<h2 id="v-005">v 0.0.5</h2>
 <ul>
 <li>Log to file</li>
 <li>Improve log</li>
 <li>Case sensitivity on local part</li>
 <li>add RSET and NOOP SMTP verbs</li>
 </ul>
-
-<h2 id="v-0-0-4:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.4</h2>
-
+<h2 id="v-004">v 0.0.4</h2>
 <ul>
 <li>Add local deliveries</li>
 <li>Dovecot support</li>
@@ -134,16 +120,12 @@
 <li>Cli</li>
 <li>Refactoring</li>
 </ul>
-
-<h2 id="v-0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.3</h2>
-
+<h2 id="v-003">v 0.0.3</h2>
 <ul>
 <li>Bugfix: MySQL Datetime to Golang time.Time</li>
 <li>BugFix: Optimise/fix queries for Mysql</li>
 </ul>
-
-<h2 id="v-0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc">v 0.0.2</h2>
-
+<h2 id="v-002">v 0.0.2</h2>
 <ul>
 <li>add Clamav support: <a href="http://tmail.io/doc/filtrage-smtp-antivirus-clamav/">http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</a></li>
 </ul>
@@ -159,7 +141,7 @@
         return;
 
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = '';
+    var disqus_shortname = 'tmail';
     dsq.src = '//tmail.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -176,7 +158,7 @@
   ga('create', 'UA-59890382-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="http://tmail.io/js/tmail.js"></script>
+<script src="https://tmail.dpp.st/js/tmail.js"></script>
 </body>
 </html>
 

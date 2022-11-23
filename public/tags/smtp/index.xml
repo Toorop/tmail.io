@@ -1,604 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Smtp on tmail</title>
-    <link>http://tmail.io/tags/smtp/</link>
-    <description>Recent content in Smtp on tmail</description>
+    <title>smtp on tmail</title>
+    <link>https://tmail.dpp.st/tags/smtp/</link>
+    <description>Recent content in smtp on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 27 Mar 2015 14:03:12 +0100</lastBuildDate>
-    <atom:link href="http://tmail.io/tags/smtp/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 27 Mar 2015 14:03:12 +0100</lastBuildDate><atom:link href="https://tmail.dpp.st/tags/smtp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gestion des logs tmail</title>
-      <link>http://tmail.io/doc/logs/</link>
+      <link>https://tmail.dpp.st/doc/logs/</link>
       <pubDate>Fri, 27 Mar 2015 14:03:12 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/logs/</guid>
-      <description>&lt;p&gt;Par défaut tmail va afficher les logs sur la sortie standard &lt;em&gt;stdout&lt;/em&gt;.&lt;br /&gt;
-Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fichier texte.&lt;/p&gt;
-
-&lt;p&gt;Pour cela, éditer le fichier de configuration et modifiez la variable &lt;em&gt;TMAIL_LOGPATH&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Pour enregistrer les logs dans le dossier &lt;em&gt;/home/tmail/dist/log/&lt;/em&gt; :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_LOGPATH=&amp;quot;/home/tmail/dist/log/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Attention&lt;/strong&gt; le dossier doit exister, et l&amp;rsquo;utilisateur sous lequel est lancé tmail doit avoir les droits de lecture et d&amp;rsquo;écriture sur ce dossier.&lt;/p&gt;
-
-&lt;p&gt;Pour revenir vers un affichage des logs vers la sortie standard, mettez &lt;em&gt;stdout&lt;/em&gt; à la place du chemin:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_LOGPATH=&amp;quot;stdout&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;La verbosité des logs se configure via la variable &lt;em&gt;TMAIL_DEBUG_ENABLED&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;En la mettant à &lt;em&gt;true&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_DEBUG_ENABLED=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;vous aurez un maximum de logs. Attention ce mode est très verbeux, si vous n&amp;rsquo;avez pas de problèmes particuliers je vous recommande de mettre cette variable à &lt;em&gt;false&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_DEBUG_ENABLED=false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;dans ce mode vous aurez les logs nécessaires au suivi de la bonne marche de votre serveur mail.&lt;/p&gt;
-
-&lt;p&gt;Voici un exemple de logs avec TMAIL_DEBUG_ENABLED positionné à false:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:56.689099 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - starting new transaction
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:56.717078 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - remote greets as [192.168.0.1]
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.001558 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - remote greets as [192.168.0.1]
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.138727 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - auth succeed for user toorop@tmail.io
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.164773 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - new mail from toorop@tmail.io
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.192105 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - rcpt to: toorop@toorop.fr
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.267349 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - Message-ID: &amp;lt;5515651A.4000304@tmail.io&amp;gt;
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.305726 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - message queued as 3b0d652314a64d906b61a9658362f4d126400015
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.331292 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - EOT
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.332438 INFO - delivery-remote 30316f400ef44fe563dd2b8b9c06807124b32d75: starting new delivery from toorop@tmail.io to toorop@toorop.fr - Message-Id: &amp;lt;5515651A.4000304@tmail.io&amp;gt; - Queue-Id: 3b0d652314a64d906b61a9658362f4d126400015
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:12:01.396618 INFO - deliverd-remote 30316f400ef44fe563dd2b8b9c06807124b32d75: remote server 178.33.223.34 reply to data cmd: 250 - ok
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:12:01.396819 INFO - deliverd 30316f400ef44fe563dd2b8b9c06807124b32d75: success
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/logs/</guid>
+      <description>&lt;p&gt;Par défaut tmail va afficher les logs sur la sortie standard &lt;em&gt;stdout&lt;/em&gt;.&lt;br&gt;
+Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fichier texte.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Filtrage antivirus en utilisant Clamav</title>
-      <link>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</link>
+      <link>https://tmail.dpp.st/doc/filtrage-smtp-antivirus-clamav/</link>
       <pubDate>Wed, 18 Feb 2015 14:19:22 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</guid>
-      <description>
-
-&lt;p&gt;Vous trouverez dans ce billet les explications nécessaires pour installer l&amp;rsquo;antivirus opensource &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;Clamav&lt;/a&gt; et activer le filtrage de votre flux SMTP par tmail.&lt;/p&gt;
-
-&lt;h3 id=&#34;installation-de-clamav:7da83a8da26892e0f6b1ccff72984fde&#34;&gt;Installation de clamav&lt;/h3&gt;
-
-&lt;p&gt;Je vais prendre le cas où vous utilisez une distribution Linux Debian ou Ubuntu, dans ce cas l’installation de Clamav est on ne peut plus simple :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install clamav
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Comme tout antivirus il est nécessaire de maintenir à jour la base de signatures du scanner, normalement l&amp;rsquo;installation de Clamav va aussi entraîner l&amp;rsquo;installation de l&amp;rsquo;outil &lt;em&gt;freshclam&lt;/em&gt; dédié à cet effet.&lt;/p&gt;
-
-&lt;p&gt;Il ne nous reste plus qu&amp;rsquo;à lancer les services, le scanner en tant que tel:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo service clamav-daemon start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;et le daemon freshclam qui va maintenir à jour la base de signatures:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo service clamav-freshclam start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;configuration-de-tmail-pour-activer-le-filtrage-antivirus:7da83a8da26892e0f6b1ccff72984fde&#34;&gt;Configuration de tmail pour activer le filtrage antivirus&lt;/h3&gt;
-
-&lt;p&gt;Il y à deux paramètres à configurer/vérifier pour activer le filtrage de votre flux SMTP. Tout d&amp;rsquo;abord il faut indiquer à tmail le socket unix sur lequel écoute le scanner. Le fichier de config contient le chemin par défaut lors d&amp;rsquo;une installation sous Ubuntu, si vous n&amp;rsquo;utilisez pas cette distribution, vous trouverez le chemin dans votre fichier de configuration de clamav.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Clamd DSNS
-export TMAIL_SMTPD_SCAN_CLAMAV_DSNS=&amp;quot;/var/run/clamav/clamd.ctl&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ensuite il ne reste plus qu&amp;rsquo;a activer le filtrage:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Clamav
-export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Et voila !&lt;/p&gt;
-
-&lt;p&gt;Il faut savoir qu&amp;rsquo;actuellement le comportement va être le suivant:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Les mails vont êtres filtrés durant la transaction SMTP.&lt;/li&gt;
-&lt;li&gt;Si un virus est détecté le mail va être refusé.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A terme je pense ajouter des option permettant par exemple de taguer les mails.&lt;/p&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/filtrage-smtp-antivirus-clamav/</guid>
+      <description>&lt;p&gt;Vous trouverez dans ce billet les explications nécessaires pour installer l&amp;rsquo;antivirus opensource &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;Clamav&lt;/a&gt; et activer le filtrage de votre flux SMTP par tmail.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Installer et configurer tmail</title>
-      <link>http://tmail.io/doc/installer-tmail/</link>
+      <link>https://tmail.dpp.st/doc/installer-tmail/</link>
       <pubDate>Thu, 29 Jan 2015 17:00:44 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/installer-tmail/</guid>
-      <description>
-
-&lt;p&gt;&lt;br&gt;
-&lt;div style=&#34;text-align:center&#34;&gt;
-&lt;iframe align=&#34;center&#34; width=&#34;640&#34; height=&#34;360&#34; src=&#34;https://www.youtube.com/embed/Ncs3AZKPqKU?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
+      <guid>https://tmail.dpp.st/doc/installer-tmail/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Durant tout le cycle de développement de tmail je vais mettre à disposition le nécessaire pour qu&amp;rsquo;il soit possible de tester les fonctionnalités qui sont implémentées.&lt;/p&gt;
-
 &lt;p&gt;Qu&amp;rsquo;il n&amp;rsquo;y ait pas de malentendu, on ne parle pas ici de version bêta, ni même alpha, ce sera à chaque fois une version de développement, avec plein de choses non implémentées et forcement de nombreux bugs.&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;En clair: ne pas utiliser en production&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Pour le moment tmail est très basique, mais il devrait cependant vous permettre d&amp;rsquo;envoyer et de relayer des mails.&lt;/p&gt;
-
-&lt;p&gt;On va partir sur une installation qui va nous permettre de mettre en place un service SMTP qui va:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;écouter sur les ports 25 et 587 (avec STARTTLS).&lt;/li&gt;
-&lt;li&gt;écouter sur le port 465 en SSL.&lt;/li&gt;
-&lt;li&gt;accepter tous les mails à destination du domaine &lt;em&gt;toorop.fr&lt;/em&gt; et qui va les router vers &lt;em&gt;mail.toorop.fr&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;permettre à l&amp;rsquo;utilisateur &lt;em&gt;toorop@toorop.fr&lt;/em&gt; ayant comme mot de passe &lt;em&gt;password&lt;/em&gt; d&amp;rsquo;utiliser le service pour envoyer des mails (quelque soit la destination).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;prérequis:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Prérequis&lt;/h2&gt;
-
-&lt;p&gt;Vous n&amp;rsquo;avez donc besoin de rien d&amp;rsquo;autre pour tester qu&amp;rsquo;une machine sous Linux. Pour cet exemple je vais utiliser un &lt;a href=&#34;https://www.ovh.com/fr/vps/vps-classic.xml&#34;&gt;VPS Classic 1 OVH&lt;/a&gt; sous &lt;em&gt;Ubuntu server 64bits&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Pensez à vous assurer que vous pouvez utiliser les ports SMTP (ou alors testez sur des ports alternatifs).&lt;/p&gt;
-
-&lt;p&gt;Si vous comptez utiliser tmail pour envoyer des mails, pensez à mettre un reverse sur l&amp;rsquo;IP (ou les IP) de votre serveur.&lt;/p&gt;
-
-&lt;p&gt;Pensez aussi à renseigner les SPF des domaines que vous allez utiliser comme émetteurs le cas échéant.&lt;/p&gt;
-
-&lt;p&gt;A noter que comme backend pour la base de données vous pouvez utiliser sqlite, MySQl (et dérivés) ou Postgresql. Je tiens cependant à signaler que je n&amp;rsquo;ai pas fais de tests sous PosgreSQL.
-Si vous hésitez, je vous encourage à utiliser sqlite, il n&amp;rsquo;y a aucune installation spécifique, c&amp;rsquo;est rapide et sera amplement suffisant pour le moment.&lt;/p&gt;
-
-&lt;p&gt;A terme, tmail sera splitté en composants sous forme de containers Docker, dans ce qui suit je vais juste expliquer l&amp;rsquo;installation &amp;ldquo;standalone&amp;rdquo; (vs cluster).&lt;/p&gt;
-
-&lt;h3 id=&#34;dependances-outils:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Dependances &amp;amp; outils&lt;/h3&gt;
-
-&lt;p&gt;Votre serveur devra disposer des softs suivant:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;unzip: pour décrompresser l&amp;rsquo;archive contenant le necessaire à la mise en place de tmail.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Si vous etes sous Debian/Ubuntu:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apt-get install unzip
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;note-sur-l-utilisation-des-ports-inférieurs-à-1024:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Note sur l&amp;rsquo;utilisation des ports inférieurs à 1024&lt;/h3&gt;
-
-&lt;p&gt;Sur un système linux un processus ne peut ouvrir un port inférieur à 1024 que si il est root.
-Une des limitations de Go fait que l&amp;rsquo;on ne peut pas lancer d&amp;rsquo;application sous l&amp;rsquo;utilisateur root pour ouvrir les ports nécessaires et ensuite &lt;em&gt;forker&lt;/em&gt; sous un autre user.&lt;br /&gt;
-Il y à plusieurs autres solutions pour contourner ce problème, la plus simple à mettre en œuvre est d&amp;rsquo;utiliser iptables. C&amp;rsquo;est ce que nous allons faire ici.&lt;/p&gt;
-
-&lt;h2 id=&#34;installation:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Installation&lt;/h2&gt;
-
-&lt;h3 id=&#34;ajout-de-l-utilisateur-tmail:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Ajout de l&amp;rsquo;utilisateur tmail&lt;/h3&gt;
-
-&lt;p&gt;On va commencer par ajouter un utilisateur tmail&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adduser tmail
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;téléchargement-de-tmail:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Téléchargement de tmail&lt;/h3&gt;
-
-&lt;p&gt;J&amp;rsquo;ai mis sur mon FTP une archive comprenant le binaire et divers autre éléments utiles pour installer tmail.&lt;/p&gt;
-
-&lt;p&gt;On va donc commencer par récupérer cette archive et la décompresser.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# su tmail
-$ cd
-$ wget ftp://ftp.toorop.fr/softs/tmail/tmail.zip
-$ unzip tmail.zip
-$ cd dist
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Le répertoire &lt;em&gt;dist&lt;/em&gt; contient les éléments nécessaires pour lancer tmail:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ls -la
-drwxrwxr-x 5 tmail tmail     4096 févr.  2 09:08 .
-drwxr-xr-x 3 tmail tmail     4096 févr.  2 09:08 ..
-drwxrwxr-x 2 tmail tmail     4096 févr.  2 09:08 conf
--rw-rw-r-- 1 tmail tmail       38 janv. 16 15:14 run
-drwx------ 2 tmail tmail     4096 déc.  29 12:02 ssl
--rwxr-xr-x 1 tmail tmail 14370520 janv. 28 16:34 tmail
-drwxrwxr-x 2 tmail tmail     4096 déc.  29 11:20 tpl
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avant de vous détailler ces différents éléments, on va fixer quelques droits, (il se peut que ce ne soit pas toujours nécessaire mais dans tous les cas pensez à vérifier):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;chmod 700 run tmail 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;et on va rajouter deux répertoires:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir db
-mkdir store 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;si vous souhaitez gérer des boites mail, vous pouvez créer le dossiers &lt;em&gt;mailboxes&lt;/em&gt; qui contiendra les différents comptes.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir mailboxes     
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;conf: contient, oh surprise, le fichier de configuration.&lt;/li&gt;
-&lt;li&gt;run: est un mini script qui va charger la config et lancer tmail.&lt;/li&gt;
-&lt;li&gt;ssl: est le répertoire contenant le nécessaire pour gérer le SSL. Vous pouvez utiliser ce qui est inclus dans la distribution dans le cadre de tests mais pensez à créer vos propres certificat et clé en prod (si besoin je ferais un tuto).&lt;/li&gt;
-&lt;li&gt;tmail: est l&amp;rsquo;exécutable.&lt;/li&gt;
-&lt;li&gt;tpl: contient des templates, par exemple pour les bounces.&lt;/li&gt;
-&lt;li&gt;db: contiendra la base sqlite (si vous utilisez sqlite&amp;hellip;)&lt;/li&gt;
-&lt;li&gt;store: va servir au stockage des mails en queue. Vous pouvez le mettre ailleurs mais pensez à faire la modification dans le fichier de configuration. A terme, il va y avoir d&amp;rsquo;autre type se &lt;em&gt;store&lt;/em&gt; que du stockage sur le disque local.&lt;/li&gt;
-&lt;li&gt;mailboxes: les boites mails des utilisateurs&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;configuration:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Configuration&lt;/h2&gt;
-
-&lt;p&gt;On va commencer par copier le ficher tmail.cfg.base vers tmail.cfg car c&amp;rsquo;est ce dernier qui sera pris en compte:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd conf
-cp tmail.cfg.base tmail.cfg
-chmod 600 tmail.cfg 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Je ne vais parler que des options qu&amp;rsquo;il va être nécessaire de modifier:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;TMAIL_ME: C&amp;rsquo;est le nom d’hôte de votre serveur, celui qui va être utilisé, entre autre, dans la commande HELO/EHLO. Personnalisez cette valeur pour qu&amp;rsquo;elle corresponde au reverse de votre IP.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;TMAIL_DEBUG_ENABLED: si positionné à &lt;em&gt;true&lt;/em&gt; vous allez avoir toutes les info de debug. Pour une sortie moins verbeuse mettez false, mais je ne vous le conseille pas dans le cadre de ces tests.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;TMAIL_DB_DRIVER: la base de données utilisées. Notez que pour le moment j&amp;rsquo;utilise exclusivement sqlite3, les autres devraient fonctionner mais je ne garantis rien.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;TMAIL_DB_SOURCE: la source des données.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;TMAIL_SMTPD_DSNS: cette option va nous permettre de définir les IP:port d&amp;rsquo;écoute de tmail et si on doit activer SSL ou pas. A noter que si SSL n&amp;rsquo;est pas activé on a tout de même l&amp;rsquo;option ESMTP STARTTLS qui permet d&amp;rsquo;avoir des transactions chiffrées si le client supporte STARTTLS.
-Dans notre cas on veut que tmail écoute sur l&amp;rsquo;IP publique du serveur 151.80.115.83, sur les port 25 et 587 et sur le port 465 en SSL. Comme l&amp;rsquo;utilisateur tmail ne peut ouvrir ces ports on va utiliser 2525 5877 et 4655 et on fera de la redirection de port. On a donc:
-TMAIL_SMTPD_DSNS=&amp;ldquo;151.80.115.83:2525:false;151.80.115.83:5877:false;151.80.115.83:4655:true&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_LOCAL_IPS: c&amp;rsquo;est l&amp;rsquo;IP (ou les IP) locale(s) à utiliser pour envoyer des mails. Pour ce premier test on va faire simple, on va utiliser une seule adresse, celle par défaut du serveur: export TMAIL_DELIVERD_LOCAL_IPS=&amp;ldquo;151.80.115.83&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_MAX_IN_FLIGHT: correspond au nombre de &amp;ldquo;delivery&amp;rdquo;, autrement dit d&amp;rsquo;envois concurrents.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;TMAIL_DELIVERD_QUEUE_LIFETIME: correspond au temps de rétention en queue avant qu&amp;rsquo;un mail ne soit bouncé si tmail n&amp;rsquo;arrive pas à l’expédier. Par défaut le temps est très court, si il vous prend l&amp;rsquo;envie d&amp;rsquo;utiliser tmail en prod (ce que je ne vous conseille pas de faire en l&amp;rsquo;état) augmentez le.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Si vous souhaitez activer le filtrage antivirus de votre flux SMTP, &lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav&#34;&gt;consultez ce billet&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Si vous souhaitez gérer des boites mail consulter ce billet: &lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Gérez vos boites mail avec tmail&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Un fois cette configuration faite, on peut lancer lancer tmail.&lt;/p&gt;
-
-&lt;p&gt;Vu que c&amp;rsquo;est un premier lancement tmail va détecter que la base de données n&amp;rsquo;est pas initialisée et il va vous demander si il peut le faire:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail@dev:~/dist$ ./run 
-Database &#39;driver: sqlite3, source: /home/tmail/dist/db/tmail.db&#39; misses some tables.
-Should i create them ? (y/n): y
-
-je vous passe les info de debug..
-
-[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.449597 INFO - smtpd 151.80.115.83:2525 launched.
-[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.449931 INFO - smtpd 151.80.115.83:5877 launched.
-[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.450011 INFO - smtpd 151.80.115.83:4655 SSL launched.
-[dev.tmail.io - 127.0.0.1] 2015/02/02 12:42:32.499728 INFO - deliverd launched
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;redirection-de-ports-via-iptables:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Redirection de ports via iptables&lt;/h3&gt;
-
-&lt;p&gt;Pour que tmail écoute sur les ports standards nous allons mettre en place les trois règles suivantes. Attention assurez vous que vous n&amp;rsquo;avez pas déjà un serveur SMTP qui écoute sur ces ports, si c&amp;rsquo;est le cas et que vous ne souhaitez pas l’arrêter, utilisez simplement tmail sur les port alternatifs.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;iptables -t nat -A PREROUTING -p tcp --dport 25 -j REDIRECT --to-port 2525
-iptables -t nat -A PREROUTING -p tcp --dport 465 -j REDIRECT --to-port 4655
-iptables -t nat -A PREROUTING -p tcp --dport 587 -j REDIRECT --to-port 5877
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;le-moment-est-venu-de-faire-un-premier-test:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Le moment est venu de faire un premier test&lt;/h3&gt;
-
-&lt;p&gt;Vous pouvez faire le test depuis la même machine mais tant qu&amp;rsquo;a faire, faites le depuis une autre.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ telnet dev.tmail.io 25
-Trying 151.80.115.83...
-Connected to dev.tmail.io.
-Escape character is &#39;^]&#39;.
-220 tmail.io  tmail ESMTP f22815e0988b8766b6fe69cbc73fb0d965754f60
-HELO toto
-250 tmail.io
-MAIL FROM: toorop@toorop.fr
-250 ok
-RCPT TO: toorop@toorop.fr
-554 5.7.1 &amp;lt;toorop@toorop.fr&amp;gt;: Relay access denied.
-Connection closed by foreign host.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Parfait !
-Pour le moment le mail est refusé car nous n&amp;rsquo;avons défini aucune autorisation.&lt;/p&gt;
-
-&lt;h3 id=&#34;prise-en-charge-des-mails-du-domaine-toorop-fr:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Prise en charge des mails du domaine toorop.fr&lt;/h3&gt;
-
-&lt;p&gt;Pour que tmail prenne en charge les mails du domaine toorop.fr il suffit tout simplement d&amp;rsquo;exécuter la commande suivante:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail rcpthost add toorop.fr
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Par défaut tmail va considérer qu&amp;rsquo;il doit juste relayer les mails du domaine concerné, si vous voulez que tmail considere ce domaine comme local, dans le cas ou vous voulez que tmail gére les boites mail du domaine voud devez ajouter l&amp;rsquo;option -l true:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail rcpthost add -l toorop.fr
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pour ce premier test, on va juste demander à tmail de prendre en charge les mails du domaine et de les relayer, donc n&amp;rsquo;ajouter pas cette option.&lt;/p&gt;
-
-&lt;p&gt;Si vous avez une erreur du type:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;2015/02/02 15:51:30 unable to load config from env, TMAIL_ME variable is missing.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;C&amp;rsquo;est parce que la configuration n&amp;rsquo;est pas chargée dans votre environnement, pour y remédier exécuter:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;. /home/tmail/dist/conf/tmail.cfg
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vérifions que tmail accepte les mails pour toorop.fr:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ telnet dev.tmail.io 25
-Trying 151.80.115.83...
-Connected to dev.tmail.io.
-Escape character is &#39;^]&#39;.
-220 tmail.io  tmail ESMTP 96b78ef8f850253cc956820a874e8ce40773bfb7
-HELO toto
-250 tmail.io
-mail from: toorop@toorop.fr
-250 ok
-rcpt to: toorop@toorop.fr
-250 ok
-data
-354 End data with &amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;.&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;
-subject: test tmail
-
-blabla
-.
-250 2.0.0 Ok: queued 2736698d73c044fd7f1994e76814d737c702a25e
-quit
-221 2.0.0 Bye
-Connection closed by foreign host.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;router-les-mails-à-destination-du-domaine-toorop-fr-vers-mail-toorop-fr:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Router les mails à destination du domaine toorop.fr vers mail.toorop.fr&lt;/h3&gt;
-
-&lt;p&gt;Par défaut quand tmail doit router un mail, il va utiliser les enregistrements DNS MX du domaine pour savoir à qui le transmettre. Mais nous pouvons aussi créer des routes &amp;ldquo;en dur&amp;rdquo;. Par exemple si nous souhaitons que tmail transmette les mails à destination du domaine toorop.fr au relais mail.toorop.fr il suffit de lui indiquer via cette commande :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add -d toorop.fr -rh mail.toorop.fr
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Je vous invite lire la documentation sur les &lt;a href=&#34;http://tmail.io/doc/cli-gestion-route-smtp/&#34;&gt;régles de routage SMTP&lt;/a&gt; pour connaitre les possibilités offertes par tmail.&lt;/p&gt;
-
-&lt;h3 id=&#34;ajout-de-utilisateur-smtp-toorop-toorop-fr:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Ajout de utilisateur SMTP toorop@toorop.fr&lt;/h3&gt;
-
-&lt;p&gt;Si vous souhaitez ajouter un utilisateur &lt;em&gt;toorop@toorop.fr&lt;/em&gt; qui pourra envoyer des mails via tmail en s&amp;rsquo;authentifiant via SMTPAUTH avec le mot de passe &lt;em&gt;password&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail user add -r toorop@toorop.fr password 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;L&amp;rsquo;option -r signifie que l&amp;rsquo;utilisateur, si il s&amp;rsquo;authentifie, est authorisé à relayé.&lt;/p&gt;
-
-&lt;p&gt;Pour supprimer un utilisateur:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail user del toorop@toorop.fr
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;tmux:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;tmux&lt;/h3&gt;
-
-&lt;p&gt;Pour que tmail ne s&amp;rsquo;arrete pas lorsque vous quitterez votre session, vous avez pouvez le lancer en utilisant:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    ./run &amp;amp;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;mais tmail affichant ces logs sur la sortie standard je vous recommande plutot d&amp;rsquo;utilser tmux (ou screen):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apt-get install tmux
-tmux
-./run
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pour vous détacher de la session:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;Ctrl&amp;gt; + &amp;lt;b&amp;gt; suivi de &amp;lt;d&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://doc.ubuntu-fr.org/tmux&#34; target=&#34;_blank&#34;&gt; Plus d&amp;rsquo;information sur tmux.&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;vous-avez-trouvé-un-bug:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Vous avez trouvé un bug ?&lt;/h3&gt;
-
-&lt;p&gt;Utilisez le &lt;a href=&#34;https://github.com/Toorop/tmail-bugtracker&#34;&gt;bugtracker dédié sur Github&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;discuter-du-projet:b68dafd7755f74812ae92f74ce38ff42&#34;&gt;Discuter du projet&lt;/h3&gt;
-
-&lt;p&gt;J&amp;rsquo;ai mis en place &lt;a href=&#34;https://groups.google.com/d/forum/tmail-dev&#34;&gt;un groupe de discussion&lt;/a&gt; sur Google Groups pour discuter du projet. N&amp;rsquo;hésitez pas à soumettre vos suggestions.&lt;/p&gt;
-
-&lt;p&gt;Bon tests ;)&lt;/p&gt;
-</description>
+&lt;p&gt;Pour le moment tmail est très basique, mais il devrait cependant vous permettre d&amp;rsquo;envoyer et de relayer des mails.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Gestion des routes SMTP en utilisant le CLI</title>
-      <link>http://tmail.io/doc/cli-gestion-route-smtp/</link>
+      <link>https://tmail.dpp.st/doc/cli-gestion-route-smtp/</link>
       <pubDate>Wed, 28 Jan 2015 09:15:12 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/cli-gestion-route-smtp/</guid>
-      <description>
-
-&lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
-
-&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;
-
-&lt;h3 id=&#34;lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f&#34;&gt;Lister toutes les routes&lt;/h3&gt;
-
-&lt;p&gt;La commande pour lister les routes est:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes list
-
-1 - Destination host: toorop.fr - Prority: 1 - Local IPs: default - Remote host: mail.toorop.fr:25
-2 - Destination host: tmail.io - Prority: 1 - Local IPs: default - Remote host: mail.tmail.io:25
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pour le moment il n&amp;rsquo;y a pas de paramètres pour spécifier des critères de recherche. Si vous avez besoin de rechercher une route particulière, le plus simple pour le moment est d&amp;rsquo;utiliser l&amp;rsquo;outil &lt;em&gt;grep&lt;/em&gt; pour filtrer la sortie de la commande &lt;em&gt;tmail routes list&lt;/em&gt;.&lt;br /&gt;
-Par exemple si vous voulez chercher les routes faisant référence au domaine tmail.io :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes list | grep tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;ajouter-une-régle-de-routage-smtp:253091a785f27e2f20aac978da09c51f&#34;&gt;Ajouter une régle de routage SMTP&lt;/h3&gt;
-
-&lt;h4 id=&#34;aide-en-ligne:253091a785f27e2f20aac978da09c51f&#34;&gt;Aide en ligne&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add --help
-NAME:
-    add - Add a route
-USAGE:
-    command add [command options] [arguments...]
-DESCRIPTION:
-    tmail routes add -d DESTINATION_HOST -rh REMOTE_HOST [-rp REMOTE_PORT] [-p PRORITY] [-l LOCAL_IP] [-u AUTHENTIFIED_USER] [-f MAIL_FROM] [-rl REMOTE_LOGIN] [-rpwd REMOTE_PASSWD]
-
-OPTIONS:
-    --destination, -d       hostame destination, eg domain in rcpt user@domain
-    --remote host, --rh         remote host, eg where email should be deliver
-    --remotePort, --rp &amp;quot;25&amp;quot; Route port
-    --priority, -p &amp;quot;1&amp;quot;      Route priority. Lowest-numbered priority routes are the most preferred
-    --localIp, -l       Local IP(s) to use. If you want to add multiple IP separate them by | for round-robin or &amp;amp; for failover. Don&#39;t mix &amp;amp; and |
-    --smtpUser, -u      Routes for authentified user user.
-    --mailFrom, -f      Routes for MAIL FROM. User need to be authentified
-    --remoteLogin, --rl         SMTPauth login for remote host
-    --remotePasswd, --rpwd  SMTPauth passwd for remote host
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;exemples:253091a785f27e2f20aac978da09c51f&#34;&gt;Exemples&lt;/h4&gt;
-
-&lt;p&gt;Ajouter une route pour relayer les mails à destination du domaine tmail.io vers mail.tmail.io&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add -d tmail.io -rh mail.tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vous pouvez spécifier un port distant&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add -d tmail.io -rh mail.tmail.io -rp 2525 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si le serveur distant nécessite une authentification SMTP ajouter les options rl et rpwd&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh mail.tmail.io -rp 587 -rl login -rpwd passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vous pouvez créer des routes qui vont agir en fonction de l&amp;rsquo;utilisateur qui à soumis le mail ( à la condition bien entendu qu&amp;rsquo;il se soit authentifié via SMTPAUTH). Imaginons par exemple que vous souhaitiez router les mails soumis par l&amp;rsquo;utilisateur toorop@tmail.io vers le relais premium.tmail.io&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -rh premium.tmail.io -u toorop@tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si vous voulez attribuer une route spécifique à tous les utilisateurs d&amp;rsquo;un domaine, la solution consiste  à utiliser leur adresse email comme login SMTP et ensuite de créer une règle en mettant le domaine comme valeur pour l&amp;rsquo;option u. Par exemple si vous souhaitez que les mails de tous les utilisateurs identifiés comme faisant partie du domaine domaine tmail.io aient leurs mails routés par Mailjet :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -rh in.mailjet.com -u tmail.io -rl mailjet_login -rpwd mailjet_passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si vous voulez ajouter comme contrainte que l’expéditeur du mail (MAIL FROM) doit etre en @tmail.io :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; tmail route add -rh in.mailjet.com -u tmail.io -f tmail.io -rl mailjet_login -rpwd mailjet_passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;round-robin:253091a785f27e2f20aac978da09c51f&#34;&gt;Round Robin&lt;/h4&gt;
-
-&lt;p&gt;Vous pouvez mettre deux (ou plus) routes identiques. Bien entendu ça n&amp;rsquo;a aucun intérêt si ce sont les seules routes pour une destination donnée, mais dans le cas contraire cela permet de repartir les mails vers plusieurs relais en leur attribuant un poids. Par exemple imaginons que nous souhaitions faire passer deux fois plus de mails par big.smtp.tmail.io que par small.smtp.tmail.io :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh big.smtp.tmail.io
-tmail route add -d tmail.io -rh big.smtp.tmail.io
-tmail route add -d tmail.io -rh small.smtp.tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;failover:253091a785f27e2f20aac978da09c51f&#34;&gt;Failover&lt;/h4&gt;
-
-&lt;p&gt;En ajoutant un paramètre de priorité, vous pouvez créer des routes secondaires qui vont qui vont etres utilisé sur les routes de priorité plus élevées sont en échecs.&lt;/p&gt;
-
-&lt;p&gt;Par exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh main.smtp.tmail.io -p 1
-tmail route add -d tmail.io -rh alt1.smtp.tmail.io -p 2
-tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Dans ce cas tmail va d&amp;rsquo;abord tenter de transmettre le mail à main.smtp.tmail.io puis ça ça échoue à alt1.smtp.tmail.io et si ça échoue toujours à alt2.smtp.tmail.io&lt;/p&gt;
-
-&lt;p&gt;Notez que vous pouvez mixer failover et roundrobin, par exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh main.smtp.tmail.io -p 1
-tmail route add -d tmail.io -rh alt1.smtp.tmail.io -p 2
-tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Dans ce cas si tmail n&amp;rsquo;arrive pas a transmettre le mail à main.smtp.tmail.io il va faire le second essais vers alt1 ou alt2.&lt;/p&gt;
-
-&lt;h3 id=&#34;supprimer-une-règle-de-routage-smtp:253091a785f27e2f20aac978da09c51f&#34;&gt;Supprimer une règle de routage SMTP&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes del ROUTE_ID
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/cli-gestion-route-smtp/</guid>
+      <description>&lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
+&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;https://tmail.dpp.st/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Routes smtp sortantes</title>
-      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
+      <link>https://tmail.dpp.st/doc/routes-smtp-sortantes/</link>
       <pubDate>Mon, 19 Jan 2015 16:38:23 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
+      <guid>https://tmail.dpp.st/doc/routes-smtp-sortantes/</guid>
       <description>&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;
-
-&lt;p&gt;Les règles de routage vont êtres définies an fonction des paramètres suivants :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Le domaine de destination.&lt;/li&gt;
-&lt;li&gt;L&amp;rsquo;expéditeur à la condition que le mail ait été originalement transmis à tmail par un utilisateur authentifié (via SMTP AUTH).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Lorsque tmail à un mail à transmettre il va chercher parmi les règles suivantes si il y en a une qui correspond.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si il trouve une règle&lt;/strong&gt;, il va utiliser les routes qui correspondent à cette règle. Chaque route à un poids, comme pour les MX classiques, tmail va donc essayer en premier lieu de se connecter au relais suivant en utilisant la route qui a le poids le plus faible. Dans le cas où plusieurs routes ont le même poids, il va les ordonner aléatoirement ce qui va permettre de faire facilement du round-robin.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si il n&amp;rsquo;en trouve pas&lt;/strong&gt;, il va utiliser les MX du domaine de destination.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Les règles sont testées dans l&amp;rsquo;ordre suivant:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond à l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond au domaine de l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle &amp;lsquo;générique&amp;rsquo; liée à l&amp;rsquo;utilisateur authentifié.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;tmail va chercher une règle qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;tmail va chercher une règle par défaut (wildcard &amp;ldquo;*&amp;rdquo; sur le domaine de destination)&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle liée au login complet de cet utilisateur, ou si il n&amp;rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle liée à domaine.tld&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Vous pouvez configurer les règles de routage en utilisante le CLI&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;</description>
     </item>
     
   </channel>

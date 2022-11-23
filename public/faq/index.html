@@ -10,12 +10,12 @@
   <title>FAQ &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://tmail.io/css/tmail.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/poole.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde-x.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/tmail.css">
    
-    <link rel="stylesheet" href="http://tmail.io/libs/plyr/plyr.css">
+    <link rel="stylesheet" href="https://tmail.dpp.st/libs/plyr/plyr.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic">
 
@@ -23,12 +23,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
-
   <meta name="description" content="FAQ du serveur SMTP tamil">
   <meta name="keywords" content="faq">
-  <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
+  
 </head>
 <body>
  <ul class="navigation">
@@ -91,68 +88,53 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">FAQ</h1>
-            <span class="post-date">Jan 14, 2015 &middot; Temps de lecture: 4 min  &middot; <a href="http://tmail.io/faq/#disqus_thread">Comments</a>
-      </span> 
-
-<ul>
-<li><a href="#tmail:4a1318da06786ac52626178ca960109e">Qu&rsquo;est ce que tmail ? </a></li>
-<li><a href="#opensource:4a1318da06786ac52626178ca960109e">Est ce que tmail est opensource ? </a></li>
-<li><a href="#tester-tmail:4a1318da06786ac52626178ca960109e">Peut on tester tmail ? </a></li>
-<li><a href="#golang-tmail:4a1318da06786ac52626178ca960109e">tmail est codé en quel langage ? </a></li>
-<li><a href="#bugtracker:4a1318da06786ac52626178ca960109e">J&rsquo;ai trouvé un bug !</a></li>
-<li><a href="#suggestion:4a1318da06786ac52626178ca960109e">J&rsquo;ai une suggestion</a></li>
-<li><a href="#question:4a1318da06786ac52626178ca960109e">J&rsquo;ai une question </a></li>
+            <span class="post-date">Jan 14, 2015 &middot; Temps de lecture: 3 min  &middot; <a href="https://tmail.dpp.st/faq/#disqus_thread">Comments</a>
+      </span> <ul>
+<li><a href="#tmail">Qu&rsquo;est ce que tmail ? </a></li>
+<li><a href="#opensource">Est ce que tmail est opensource ? </a></li>
+<li><a href="#tester-tmail">Peut on tester tmail ? </a></li>
+<li><a href="#golang-tmail">tmail est codé en quel langage ? </a></li>
+<li><a href="#bugtracker">J&rsquo;ai trouvé un bug !</a></li>
+<li><a href="#suggestion">J&rsquo;ai une suggestion</a></li>
+<li><a href="#question">J&rsquo;ai une question </a></li>
 </ul>
-
-<h2 id="tmail:4a1318da06786ac52626178ca960109e">Qu&rsquo;est ce que tmail ?</h2>
-
+<h2 id="tmail">Qu&rsquo;est ce que tmail ?</h2>
 <p>Réponse courte: tmail est un serveur <a href="http://fr.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a></p>
-
 <p><strong>Mais pourquoi créer un nouveau serveur smtp !?</strong></p>
-
-<p>Oui c&rsquo;est vrai ça pourquoi créer un nouveau serveur SMTP alors qu&rsquo;il existe déjà qmail, postfix, exim, sendmail, .. ?<br />
+<p>Oui c&rsquo;est vrai ça pourquoi créer un nouveau serveur SMTP alors qu&rsquo;il existe déjà qmail, postfix, exim, sendmail, .. ?<br>
 Parce que :</p>
-
 <ul>
-<li><p>Ces serveurs ont été conçu à une époque où les problématiques et donc les besoins liés à l’émail étaient différents. Je pense en particulier à la problématique du spam, aujourd&rsquo;hui il est indispensable de filtrer ce qui entre et ce qui sort d&rsquo;un serveur SMTP, d&rsquo;établir de règles strictes quant à l&rsquo;usage du service: par exemple l&rsquo;user X ne peux envoyer plus de x mails par jour, chaque mail ne doit pas faire plus de x Mo et il ne peut utiliser le service le week-end ou encore de pas envoyer plus de x mails par minute vers telle destination&hellip;</p></li>
-
-<li><p>Avoir un système fiable et parfaitement redondant nécessite pas mal de compromis.</p></li>
-
-<li><p>La scalabilité apportée par les solutions actuelles n&rsquo;est pas simple à mettre en place et est difficilement linéaire.</p></li>
-
-<li><p>Plus globalement, la mise en place et l&rsquo;administration de ces serveurs n&rsquo;est pas forcement simple non plus. Attention le but n&rsquo;est pas de permettre à n&rsquo;importe qui ne mettre en place un service SMTP, mais plutôt de libérer les sysadmins de contraintes inutiles.</p></li>
-
-<li><p>Enfin ça fait des années que je travaille dans ce secteur (pour <a href="http://protecmail.com/" target="_blank" title="Protection de messagerie">Protecmail</a>) et ça fait presque aussi longtemps que je me dis:<br />
-<em>Un jour je coderais mon propre serveur</em> ;)</p></li>
+<li>
+<p>Ces serveurs ont été conçu à une époque où les problématiques et donc les besoins liés à l’émail étaient différents. Je pense en particulier à la problématique du spam, aujourd&rsquo;hui il est indispensable de filtrer ce qui entre et ce qui sort d&rsquo;un serveur SMTP, d&rsquo;établir de règles strictes quant à l&rsquo;usage du service: par exemple l&rsquo;user X ne peux envoyer plus de x mails par jour, chaque mail ne doit pas faire plus de x Mo et il ne peut utiliser le service le week-end ou encore de pas envoyer plus de x mails par minute vers telle destination&hellip;</p>
+</li>
+<li>
+<p>Avoir un système fiable et parfaitement redondant nécessite pas mal de compromis.</p>
+</li>
+<li>
+<p>La scalabilité apportée par les solutions actuelles n&rsquo;est pas simple à mettre en place et est difficilement linéaire.</p>
+</li>
+<li>
+<p>Plus globalement, la mise en place et l&rsquo;administration de ces serveurs n&rsquo;est pas forcement simple non plus. Attention le but n&rsquo;est pas de permettre à n&rsquo;importe qui ne mettre en place un service SMTP, mais plutôt de libérer les sysadmins de contraintes inutiles.</p>
+</li>
+<li>
+<p>Enfin ça fait des années que je travaille dans ce secteur (pour <!-- raw HTML omitted -->Protecmail<!-- raw HTML omitted -->) et ça fait presque aussi longtemps que je me dis:<br>
+<em>Un jour je coderais mon propre serveur</em> ;)</p>
+</li>
 </ul>
-
-<h2 id="opensource:4a1318da06786ac52626178ca960109e">Est ce que tmail est opensource ?</h2>
-
+<h2 id="opensource">Est ce que tmail est opensource ?</h2>
 <p>Pour le moment je ne souhaite pas &ldquo;libérer&rdquo; les sources, mais à terme ce sera le cas.</p>
-
 <p>La raison principale est que le projet est trop jeune, je préfère attendre que les grandes lignes soient posées, que ce que j&rsquo;ai prévu soit implémenté - au moins en partie - pour éviter d&rsquo;une part trop de dispersions et d&rsquo;autre part pour pouvoir concentrer mon temps disponible au code plutôt qu&rsquo;à la gestion du projet.</p>
-
-<h2 id="tester-tmail:4a1318da06786ac52626178ca960109e">Peut on tester tmail ?</h2>
-
+<h2 id="tester-tmail">Peut on tester tmail ?</h2>
 <p>Oui vous avez <a href="/doc/installer-tmail/">la procédure pour installer tmail ici</a>
 Bien entendu les versions proposées seront des versions de dev qui implémenteront que.. ce qui est implémenté et qui ne seront pas exemptes de bugs.</p>
-
-<h2 id="golang-tmail:4a1318da06786ac52626178ca960109e">tmail est codé en quel langage ?</h2>
-
-<p><a href="http://golang.org/" target="_blank" title="golang">Go</a></p>
-
-<h2 id="bugtracker:4a1318da06786ac52626178ca960109e">J&rsquo;ai trouvé un bug</h2>
-
+<h2 id="golang-tmail">tmail est codé en quel langage ?</h2>
+<p><!-- raw HTML omitted -->Go<!-- raw HTML omitted --></p>
+<h2 id="bugtracker">J&rsquo;ai trouvé un bug</h2>
 <p>Utilisez le <a href="https://github.com/Toorop/tmail-bugtracker">bugtracker dédié sur Github</a> pour me le remonter.</p>
-
-<h2 id="suggestion:4a1318da06786ac52626178ca960109e">J&rsquo;ai une suggestion</h2>
-
+<h2 id="suggestion">J&rsquo;ai une suggestion</h2>
 <p>Un <a href="https://groups.google.com/d/forum/tmail-dev">un groupe de discutions</a> est à votre disposition pour discuter de tmail. Toute suggestion est la bienvenue ;)</p>
-
-<h2 id="question:4a1318da06786ac52626178ca960109e">J&rsquo;ai une question</h2>
-
+<h2 id="question">J&rsquo;ai une question</h2>
 <p>Si vous avez une question postez la dans les commentaires en bas de page.</p>
-
         </div>
         <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -164,7 +146,7 @@ Bien entendu les versions proposées seront des versions de dev qui implémenter
         return;
 
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = '';
+    var disqus_shortname = 'tmail';
     dsq.src = '//tmail.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -181,7 +163,7 @@ Bien entendu les versions proposées seront des versions de dev qui implémenter
   ga('create', 'UA-59890382-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="http://tmail.io/js/tmail.js"></script>
+<script src="https://tmail.dpp.st/js/tmail.js"></script>
 </body>
 </html>
 

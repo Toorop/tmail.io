@@ -10,12 +10,12 @@
   <title>Activer l&#39;API REST &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://tmail.io/css/tmail.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/poole.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde-x.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/tmail.css">
    
-    <link rel="stylesheet" href="http://tmail.io/libs/plyr/plyr.css">
+    <link rel="stylesheet" href="https://tmail.dpp.st/libs/plyr/plyr.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic">
 
@@ -23,12 +23,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
-
   <meta name="description" content="Activation de l&#39;API REST tmail">
   <meta name="keywords" content="api">
-  <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
+  
 </head>
 <body>
  <ul class="navigation">
@@ -91,107 +88,70 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">Activer l&#39;API REST</h1>
-            <span class="post-date">Apr 1, 2015 &middot; Temps de lecture: 5 min  &middot; <a href="http://tmail.io/doc/activer-api-rest/#disqus_thread">Comments</a>
+            <span class="post-date">Apr 1, 2015 &middot; Temps de lecture: 3 min  &middot; <a href="https://tmail.dpp.st/doc/activer-api-rest/#disqus_thread">Comments</a>
       
       <br/>
       
-      <a class="label" href="http://tmail.io/categories/doc">doc</a>
-      </span> 
-
-<p>tmail embarque un <a href="http://fr.wikipedia.org/wiki/Serveur_HTTP" target="_blank" title="qu'est ce qu'un serveur HTTP"> serveur HTTP</a> qui expose une <a href="http://fr.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" title="Qu'est ce qu'une API REST">API REST</a>. Cette API vous permet d’administrer votre serveur tmail et <em>&lt;teasing&gt;</em> dans un futur &ldquo;proche&rdquo; votre cluster SMTP tmail<em>&lt;/teasing&gt;</em>.</p>
-
-<h3 id="activation-et-configuration-de-l-api-rest:82051207c90b1bf3c7ca93b8129f63c7">Activation et configuration de l&rsquo;API REST.</h3>
-
+      <a class="label" href="https://tmail.dpp.st/categories/doc">doc</a>
+      </span> <p>tmail embarque un <!-- raw HTML omitted --> serveur HTTP<!-- raw HTML omitted --> qui expose une <!-- raw HTML omitted -->API REST<!-- raw HTML omitted -->. Cette API vous permet d’administrer votre serveur tmail et <em>&lt;teasing&gt;</em> dans un futur &ldquo;proche&rdquo; votre cluster SMTP tmail*&lt;/teasing&gt;*.</p>
+<h3 id="activation-et-configuration-de-lapi-rest">Activation et configuration de l&rsquo;API REST.</h3>
 <p>Vous devez d&rsquo;abord spécifier que vous souhaitez activer le service:</p>
-
 <pre><code># Launch REST server
 export TMAIL_REST_SERVER_LAUNCH=true
 </code></pre>
-
 <p>Puis définir sur quelle IP il doit écouter:</p>
-
 <pre><code># REST server IP
 export TMAIL_REST_SERVER_IP=&quot;127.0.0.1&quot;
 </code></pre>
-
 <p>Et sur quel port:</p>
-
 <pre><code># REST server port
 export TMAIL_REST_SERVER_PORT=8080
 </code></pre>
-
 <p>Ce paramètre vous permet d&rsquo;activer (ou non) le chiffrement de votre connexion:</p>
-
 <pre><code># REST server is TLS (https) ?
 export TMAIL_REST_SERVER_IS_TLS=true
 </code></pre>
-
 <p>tmail va utiliser le certificat dist/ssl/web_server.crt et la clé dist/ssl/web_server.key pour chiffrer les transactions. Vous pouvez utiliser ceux inclus dans la distribution pour vos tests mais attention cela va générer des alertes auprès des clients REST que vous allez utiliser.</p>
-
-<p><strong>Si votre serveur REST écoute sur une IP publique, activer TLS n&rsquo;est pas une option, c&rsquo;est impératif car l&rsquo;authentification se fait avec des mots de passe en clair  <a href="http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB" target="_blank">(authentification HTTP Basic)</a></strong></p>
-
+<p><strong>Si votre serveur REST écoute sur une IP publique, activer TLS n&rsquo;est pas une option, c&rsquo;est impératif car l&rsquo;authentification se fait avec des mots de passe en clair  <!-- raw HTML omitted -->(authentification HTTP Basic)<!-- raw HTML omitted --></strong></p>
 <p>Enfin vous devez définir vos identifiants de connexion:</p>
-
 <pre><code># Login for HTTP auth
 export TMAIL_REST_SERVER_LOGIN=&quot;admin&quot;
 
 # Passwd for HTTP auth
 export TMAIL_REST_SERVER_PASSWD=&quot;admin&quot;
 </code></pre>
-
-<h4 id="test:82051207c90b1bf3c7ca93b8129f63c7">Test</h4>
-
+<h4 id="test">Test</h4>
 <p>Après avoir relancé tmail vous devriez voir dans vos logs une ligne de ce type:</p>
-
 <pre><code>[trooper - 127.0.0.1] 2015/04/01 15:32:06.467484 INFO - httpd 127.0.0.1:8080 TLS launched
 </code></pre>
-
-<p>Vous pouvez tester le fonctionnement de l&rsquo;API en appelant la ressource /ping. Par exemple avec <a href="http://curl.haxx.se/" target="_blank" title="tester une API REST avec curl">curl</a> :</p>
-
+<p>Vous pouvez tester le fonctionnement de l&rsquo;API en appelant la ressource /ping. Par exemple avec <!-- raw HTML omitted -->curl<!-- raw HTML omitted --> :</p>
 <pre><code>$ curl -k https://127.0.0.1:8080/ping
 {&quot;msg&quot;: &quot;pong&quot;}
 </code></pre>
-
 <p>La ligne de log correspondant à cette requête :</p>
-
 <pre><code>[trooper - 127.0.0.1] 2015/04/02 11:09:51.647899 INFO - http 127.0.0.1:54423 - GET /ping - 200 OK 4.638µs
 </code></pre>
-
 <p><em>Note: Non il n&rsquo;y à pas d&rsquo;erreur la requête à bien mis 0.000004 seconde pour être exécutée ;-)</em></p>
-
-<h2 id="généralités:82051207c90b1bf3c7ca93b8129f63c7">Généralités</h2>
-
-<h3 id="authentification:82051207c90b1bf3c7ca93b8129f63c7">Authentification</h3>
-
-<p>L&rsquo;API utilise l&rsquo;authentification <a href="http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB" target="_blank">HTTP Basic</a>.</p>
-
+<h2 id="généralités">Généralités</h2>
+<h3 id="authentification">Authentification</h3>
+<p>L&rsquo;API utilise l&rsquo;authentification <!-- raw HTML omitted -->HTTP Basic<!-- raw HTML omitted -->.</p>
 <p>Pourquoi ce type d’authentification ?</p>
-
 <ul>
 <li>simple à mettre en œuvre</li>
 <li>compatible avec tous les clients HTTP</li>
 </ul>
-
-<h3 id="requêtes:82051207c90b1bf3c7ca93b8129f63c7">Requêtes</h3>
-
+<h3 id="requêtes">Requêtes</h3>
 <p>Si il est nécessaire de transmettre des éléments à l&rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.</p>
-
-<h3 id="réponses:82051207c90b1bf3c7ca93b8129f63c7">Réponses</h3>
-
+<h3 id="réponses">Réponses</h3>
 <p>Le corps, si il existe est lui aussi un message JSON.</p>
-
-<h3 id="codes-http:82051207c90b1bf3c7ca93b8129f63c7">Codes HTTP</h3>
-
+<h3 id="codes-http">Codes HTTP</h3>
 <p>Succès :</p>
-
 <ul>
 <li>200 OK: La requête à été exécuté avec succès, la réponse contient un corps.</li>
 <li>201 Created: L&rsquo;entité à été crée.</li>
 <li>204 No Content: La requête à été exécuté avec succès, le corps de la réponse est vide.</li>
 </ul>
-
 <p>Erreurs :</p>
-
 <ul>
 <li>400 Bad Request: Le requête est mal formée.</li>
 <li>401 Unauthorized: Une autorisation est nécessaire.</li>
@@ -200,16 +160,14 @@ export TMAIL_REST_SERVER_PASSWD=&quot;admin&quot;
 <li>422 Unprocessable Entry: La requête visant à créer ou modifier une entité n&rsquo;a pas pu être exécutée car les données transmises n&rsquo;étaient pas conformes.</li>
 <li>500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.</li>
 </ul>
-
-<h3 id="erreurs:82051207c90b1bf3c7ca93b8129f63c7">Erreurs</h3>
-
+<h3 id="erreurs">Erreurs</h3>
 <p>En cas d&rsquo;erreur (4** ou 5**), un message sous forme d&rsquo;un objet JSON est retourné.
-Le message contient deux champs:
-* msg: le message d&rsquo;erreur générée par l&rsquo;application
-* raw: l&rsquo;erreur levée (quand elle existe)</p>
-
+Le message contient deux champs:</p>
+<ul>
+<li>msg: le message d&rsquo;erreur générée par l&rsquo;application</li>
+<li>raw: l&rsquo;erreur levée (quand elle existe)</li>
+</ul>
 <p>Exemple, si on essaye de créer un utilisateur qui existe déjà:</p>
-
 <pre><code>curl -H &quot;Content-Type: application/json&quot; -X POST -d '{&quot;passwd&quot;:&quot;motdepasse&quot;,&quot;authRelay&quot;:true,&quot;haveMailbox&quot;:true,&quot;mailboxQuota&quot;:&quot;1G&quot;}' -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
 
 &lt; HTTP/1.1 422 status code 422
@@ -219,7 +177,6 @@ Le message contient deux champs:
 
 {&quot;msg&quot;:&quot;unable to create new user&quot;,&quot;raw&quot;:&quot;UNIQUE constraint failed: users.login&quot;}
 </code></pre>
-
         </div>
         <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -231,7 +188,7 @@ Le message contient deux champs:
         return;
 
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = '';
+    var disqus_shortname = 'tmail';
     dsq.src = '//tmail.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -248,7 +205,7 @@ Le message contient deux champs:
   ga('create', 'UA-59890382-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="http://tmail.io/js/tmail.js"></script>
+<script src="https://tmail.dpp.st/js/tmail.js"></script>
 </body>
 </html>
 

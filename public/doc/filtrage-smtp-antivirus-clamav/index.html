@@ -10,12 +10,12 @@
   <title>Filtrage antivirus en utilisant Clamav &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://tmail.io/css/tmail.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/poole.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde-x.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/tmail.css">
    
-    <link rel="stylesheet" href="http://tmail.io/libs/plyr/plyr.css">
+    <link rel="stylesheet" href="https://tmail.dpp.st/libs/plyr/plyr.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic">
 
@@ -23,12 +23,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
-
   <meta name="description" content="Filtrage antivirus SMTP avec tmail et clamav">
   <meta name="keywords" content="cli,smtp,tmail,clamav">
-  <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
+  
 </head>
 <body>
  <ul class="navigation">
@@ -91,59 +88,39 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">Filtrage antivirus en utilisant Clamav</h1>
-            <span class="post-date">Feb 18, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="http://tmail.io/doc/filtrage-smtp-antivirus-clamav/#disqus_thread">Comments</a>
+            <span class="post-date">Feb 18, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="https://tmail.dpp.st/doc/filtrage-smtp-antivirus-clamav/#disqus_thread">Comments</a>
       
       <br/>
       
-      <a class="label" href="http://tmail.io/categories/doc">doc</a>
-      </span> 
-
-<p>Vous trouverez dans ce billet les explications nécessaires pour installer l&rsquo;antivirus opensource <a href="http://www.clamav.net/index.html">Clamav</a> et activer le filtrage de votre flux SMTP par tmail.</p>
-
-<h3 id="installation-de-clamav:7da83a8da26892e0f6b1ccff72984fde">Installation de clamav</h3>
-
+      <a class="label" href="https://tmail.dpp.st/categories/doc">doc</a>
+      </span> <p>Vous trouverez dans ce billet les explications nécessaires pour installer l&rsquo;antivirus opensource <a href="http://www.clamav.net/index.html">Clamav</a> et activer le filtrage de votre flux SMTP par tmail.</p>
+<h3 id="installation-de-clamav">Installation de clamav</h3>
 <p>Je vais prendre le cas où vous utilisez une distribution Linux Debian ou Ubuntu, dans ce cas l’installation de Clamav est on ne peut plus simple :</p>
-
 <pre><code>sudo apt-get install clamav
 </code></pre>
-
 <p>Comme tout antivirus il est nécessaire de maintenir à jour la base de signatures du scanner, normalement l&rsquo;installation de Clamav va aussi entraîner l&rsquo;installation de l&rsquo;outil <em>freshclam</em> dédié à cet effet.</p>
-
 <p>Il ne nous reste plus qu&rsquo;à lancer les services, le scanner en tant que tel:</p>
-
 <pre><code>sudo service clamav-daemon start
 </code></pre>
-
 <p>et le daemon freshclam qui va maintenir à jour la base de signatures:</p>
-
 <pre><code>sudo service clamav-freshclam start
 </code></pre>
-
-<h3 id="configuration-de-tmail-pour-activer-le-filtrage-antivirus:7da83a8da26892e0f6b1ccff72984fde">Configuration de tmail pour activer le filtrage antivirus</h3>
-
+<h3 id="configuration-de-tmail-pour-activer-le-filtrage-antivirus">Configuration de tmail pour activer le filtrage antivirus</h3>
 <p>Il y à deux paramètres à configurer/vérifier pour activer le filtrage de votre flux SMTP. Tout d&rsquo;abord il faut indiquer à tmail le socket unix sur lequel écoute le scanner. Le fichier de config contient le chemin par défaut lors d&rsquo;une installation sous Ubuntu, si vous n&rsquo;utilisez pas cette distribution, vous trouverez le chemin dans votre fichier de configuration de clamav.</p>
-
 <pre><code># Clamd DSNS
 export TMAIL_SMTPD_SCAN_CLAMAV_DSNS=&quot;/var/run/clamav/clamd.ctl&quot;
 </code></pre>
-
 <p>Ensuite il ne reste plus qu&rsquo;a activer le filtrage:</p>
-
 <pre><code># Clamav
 export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
 </code></pre>
-
 <p>Et voila !</p>
-
 <p>Il faut savoir qu&rsquo;actuellement le comportement va être le suivant:</p>
-
 <ul>
 <li>Les mails vont êtres filtrés durant la transaction SMTP.</li>
 <li>Si un virus est détecté le mail va être refusé.</li>
 </ul>
-
 <p>A terme je pense ajouter des option permettant par exemple de taguer les mails.</p>
-
         </div>
         <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -155,7 +132,7 @@ export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
         return;
 
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = '';
+    var disqus_shortname = 'tmail';
     dsq.src = '//tmail.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -172,7 +149,7 @@ export TMAIL_SMTPD_SCAN_CLAMAV_ENABLED=true
   ga('create', 'UA-59890382-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="http://tmail.io/js/tmail.js"></script>
+<script src="https://tmail.dpp.st/js/tmail.js"></script>
 </body>
 </html>
 

@@ -10,12 +10,12 @@
   <title>Gestion des logs tmail &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://tmail.io/css/tmail.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/poole.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde-x.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/tmail.css">
    
-    <link rel="stylesheet" href="http://tmail.io/libs/plyr/plyr.css">
+    <link rel="stylesheet" href="https://tmail.dpp.st/libs/plyr/plyr.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic">
 
@@ -23,12 +23,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
-
   <meta name="description" content="Gestion des logs du serveur smtp tmail">
   <meta name="keywords" content="logs,smtp,tmail">
-  <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
+  
 </head>
 <body>
  <ul class="navigation">
@@ -91,44 +88,30 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">Gestion des logs tmail</h1>
-            <span class="post-date">Mar 27, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="http://tmail.io/doc/logs/#disqus_thread">Comments</a>
+            <span class="post-date">Mar 27, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="https://tmail.dpp.st/doc/logs/#disqus_thread">Comments</a>
       
       <br/>
       
-      <a class="label" href="http://tmail.io/categories/doc">doc</a>
-      </span> <p>Par défaut tmail va afficher les logs sur la sortie standard <em>stdout</em>.<br />
+      <a class="label" href="https://tmail.dpp.st/categories/doc">doc</a>
+      </span> <p>Par défaut tmail va afficher les logs sur la sortie standard <em>stdout</em>.<br>
 Vous pouvez configurer tmail pour qu&rsquo;il enregistre les logs dans un fichier texte.</p>
-
 <p>Pour cela, éditer le fichier de configuration et modifiez la variable <em>TMAIL_LOGPATH</em>.</p>
-
 <p>Pour enregistrer les logs dans le dossier <em>/home/tmail/dist/log/</em> :</p>
-
 <pre><code>export TMAIL_LOGPATH=&quot;/home/tmail/dist/log/&quot;
 </code></pre>
-
 <p><strong>Attention</strong> le dossier doit exister, et l&rsquo;utilisateur sous lequel est lancé tmail doit avoir les droits de lecture et d&rsquo;écriture sur ce dossier.</p>
-
 <p>Pour revenir vers un affichage des logs vers la sortie standard, mettez <em>stdout</em> à la place du chemin:</p>
-
 <pre><code>export TMAIL_LOGPATH=&quot;stdout&quot;
 </code></pre>
-
 <p>La verbosité des logs se configure via la variable <em>TMAIL_DEBUG_ENABLED</em>.</p>
-
 <p>En la mettant à <em>true</em>:</p>
-
 <pre><code>export TMAIL_DEBUG_ENABLED=true
 </code></pre>
-
 <p>vous aurez un maximum de logs. Attention ce mode est très verbeux, si vous n&rsquo;avez pas de problèmes particuliers je vous recommande de mettre cette variable à <em>false</em>:</p>
-
 <pre><code>export TMAIL_DEBUG_ENABLED=false
 </code></pre>
-
 <p>dans ce mode vous aurez les logs nécessaires au suivi de la bonne marche de votre serveur mail.</p>
-
 <p>Voici un exemple de logs avec TMAIL_DEBUG_ENABLED positionné à false:</p>
-
 <pre><code>[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:56.689099 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - starting new transaction
 [mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:56.717078 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - remote greets as [192.168.0.1]
 [mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.001558 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - remote greets as [192.168.0.1]
@@ -142,7 +125,6 @@ Vous pouvez configurer tmail pour qu&rsquo;il enregistre les logs dans un fichie
 [mail.tmail.io - 127.0.0.1] 2015/03/27 15:12:01.396618 INFO - deliverd-remote 30316f400ef44fe563dd2b8b9c06807124b32d75: remote server 178.33.223.34 reply to data cmd: 250 - ok
 [mail.tmail.io - 127.0.0.1] 2015/03/27 15:12:01.396819 INFO - deliverd 30316f400ef44fe563dd2b8b9c06807124b32d75: success
 </code></pre>
-
         </div>
         <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -154,7 +136,7 @@ Vous pouvez configurer tmail pour qu&rsquo;il enregistre les logs dans un fichie
         return;
 
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = '';
+    var disqus_shortname = 'tmail';
     dsq.src = '//tmail.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -171,7 +153,7 @@ Vous pouvez configurer tmail pour qu&rsquo;il enregistre les logs dans un fichie
   ga('create', 'UA-59890382-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="http://tmail.io/js/tmail.js"></script>
+<script src="https://tmail.dpp.st/js/tmail.js"></script>
 </body>
 </html>
 

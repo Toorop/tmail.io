@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on tmail</title>
+    <link>https://tmail.dpp.st/categories/</link>
+    <description>Recent content in Categories on tmail</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Thu, 18 Jun 2015 19:52:01 +0200</lastBuildDate><atom:link href="https://tmail.dpp.st/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>podcast</title>
+      <link>https://tmail.dpp.st/categories/podcast/</link>
+      <pubDate>Thu, 18 Jun 2015 19:52:01 +0200</pubDate>
+      
+      <guid>https://tmail.dpp.st/categories/podcast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>doc</title>
+      <link>https://tmail.dpp.st/categories/doc/</link>
+      <pubDate>Tue, 09 Jun 2015 14:33:39 +0200</pubDate>
+      
+      <guid>https://tmail.dpp.st/categories/doc/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

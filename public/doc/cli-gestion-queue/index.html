@@ -10,12 +10,12 @@
   <title>Gestion de la queue en utilisant le CLI &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://tmail.io/css/tmail.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/poole.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde-x.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/tmail.css">
    
-    <link rel="stylesheet" href="http://tmail.io/libs/plyr/plyr.css">
+    <link rel="stylesheet" href="https://tmail.dpp.st/libs/plyr/plyr.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic">
 
@@ -23,12 +23,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
-
   <meta name="description" content="Utilisation du CLI tmail pour gérer la queue du serveur smtp.">
   <meta name="keywords" content="cli,smtp,tmail">
-  <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
+  
 </head>
 <body>
  <ul class="navigation">
@@ -91,22 +88,16 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">Gestion de la queue en utilisant le CLI</h1>
-            <span class="post-date">Jan 21, 2015 &middot; Temps de lecture: 3 min  &middot; <a href="http://tmail.io/doc/cli-gestion-queue/#disqus_thread">Comments</a>
+            <span class="post-date">Jan 21, 2015 &middot; Temps de lecture: 2 min  &middot; <a href="https://tmail.dpp.st/doc/cli-gestion-queue/#disqus_thread">Comments</a>
       
       <br/>
       
-      <a class="label" href="http://tmail.io/categories/doc">doc</a>
-      </span> 
-
-<h4 id="lister-les-messages-en-queue:a5ae8842e5f4cb42bab09bbc9c21cead">Lister les messages en queue</h4>
-
+      <a class="label" href="https://tmail.dpp.st/categories/doc">doc</a>
+      </span> <h4 id="lister-les-messages-en-queue">Lister les messages en queue</h4>
 <p>La commande pour lister les messages en queue est:</p>
-
 <pre><code>tmail queue list
 </code></pre>
-
 <p>Pour chaque mail en queue les informations suivantes sont retournées:</p>
-
 <ul>
 <li>Identifiant du mail en queue</li>
 <li>From: expéditeur du mail</li>
@@ -114,55 +105,36 @@
 <li>Status: status du mail. Actuellement les status sont &ldquo;Delivery in progress&rdquo;, &ldquo;Scheduled&rdquo;, &ldquo;Will be discarded&rdquo;, &ldquo;Will be bounced&rdquo;</li>
 <li>Next delivery process scheduled at: Dans le cas ou un mail est en attente dans la queue ce paramètre indique le moment (approximatif) où le mail sera représenté au process tmail qui traite les message en queue.</li>
 </ul>
-
 <p>Cas où il n&rsquo;y a pas de message en queue:</p>
-
 <pre><code>tmail queue list
 
 There is no message in queue.
 </code></pre>
-
 <p>Cas où il y a un message en queue qui est en train d&rsquo;être délivré:</p>
-
 <pre><code>tmail queue list
 
 1 messages in queue.
 
 12564 - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Delivery in progress - Added: 2015-01-23 09:10:40.271449372 +0100 CET 
 </code></pre>
-
 <p>Cas où il y un message en queue en attente:</p>
-
 <pre><code>1 messages in queue.
 12564 - From: toorop@toorop.fr - To: toorop@toorop.fr - Status: Scheduled - Added: 2015-01-23 09:10:40.271449372 +0100 CET - Next delivery process scheduled at: 2015-01-23 09:14:40.464895229 +0100 CET
 </code></pre>
-
-<h4 id="supprimer-un-message-discard:a5ae8842e5f4cb42bab09bbc9c21cead">Supprimer un message (discard)</h4>
-
+<h4 id="supprimer-un-message-discard">Supprimer un message (discard)</h4>
 <p>La commande suivante va vous permettre de supprimer un message de la queue:</p>
-
 <pre><code>tmail discard MESSAGE_ID
 </code></pre>
-
 <p>Attention le mail ne sera pas supprimé instantanément, il le sera lorsqu&rsquo;il sera présenté à tmail pour être traité.</p>
-
 <p>Dans la mesure du possible il est préférable de bouncer un mail plutôt que de le supprimer pour que l&rsquo;expéditeur soit informé du fait que son mail n&rsquo;a pas abouti.</p>
-
-<h4 id="bouncer-un-message:a5ae8842e5f4cb42bab09bbc9c21cead">Bouncer un message</h4>
-
+<h4 id="bouncer-un-message">Bouncer un message</h4>
 <p>Bouncer un message consiste à le supprimer de la queue et à envoyer un message à l&rsquo;expéditeur pour l&rsquo;informer que son mail n&rsquo;est pas arrivé à destination.</p>
-
 <p>La commande pour bouncer un mail est:</p>
-
-<pre><code>    tmail bounce MESSAGE_ID
+<pre><code>	tmail bounce MESSAGE_ID
 </code></pre>
-
 <p>Comme pour la commande discard, le bounce n&rsquo;est pas instantané il se fera lorsque le mail sera représenté à tmail pour être délivré.</p>
-
-<h4 id="relancer-la-queue-flush:a5ae8842e5f4cb42bab09bbc9c21cead">Relancer la queue (flush)</h4>
-
+<h4 id="relancer-la-queue-flush">Relancer la queue (flush)</h4>
 <p>Pour le moment cette commande n&rsquo;est pas implémentée. En attendant, pour relancer la queue il vous suffit de relancer tmail.</p>
-
         </div>
         <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -174,7 +146,7 @@ There is no message in queue.
         return;
 
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = '';
+    var disqus_shortname = 'tmail';
     dsq.src = '//tmail.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -191,7 +163,7 @@ There is no message in queue.
   ga('create', 'UA-59890382-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="http://tmail.io/js/tmail.js"></script>
+<script src="https://tmail.dpp.st/js/tmail.js"></script>
 </body>
 </html>
 

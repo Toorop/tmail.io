@@ -10,12 +10,12 @@
   <title>Utilisez l&#39;API REST &middot; Journal de développement d&#39;un serveur SMTP</title>
 
   
-  <link rel="stylesheet" href="http://tmail.io/css/poole.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde.css">
-  <link rel="stylesheet" href="http://tmail.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://tmail.io/css/tmail.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/poole.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/hyde-x.css">
+  <link rel="stylesheet" href="https://tmail.dpp.st/css/tmail.css">
    
-    <link rel="stylesheet" href="http://tmail.io/libs/plyr/plyr.css">
+    <link rel="stylesheet" href="https://tmail.dpp.st/libs/plyr/plyr.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic">
 
@@ -23,12 +23,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="tmail &middot; Stéphane Depierrepont" />
-
   <meta name="description" content="Utiliser l&#39;API REST tmail">
   <meta name="keywords" content="api">
-  <link rel="author" href="http://plus.google.com/&#43;St%C3%A9phaneDepierrepont">
+  
 </head>
 <body>
  <ul class="navigation">
@@ -91,79 +88,67 @@
     <div class="content container">
         <div class="post">
             <h1 class="post-title">Utilisez l&#39;API REST</h1>
-            <span class="post-date">Apr 2, 2015 &middot; Temps de lecture: 5 min  &middot; <a href="http://tmail.io/doc/api-rest/#disqus_thread">Comments</a>
+            <span class="post-date">Apr 2, 2015 &middot; Temps de lecture: 3 min  &middot; <a href="https://tmail.dpp.st/doc/api-rest/#disqus_thread">Comments</a>
       
       <br/>
       
-      <a class="label" href="http://tmail.io/categories/doc">doc</a>
-      </span> 
-
-<p>Vous trouverez dans ce document toutes les informations nécessaires pour utiliser l&rsquo;API REST tmail.</p>
-
-<h2 id="sommaire:bc6e7d60c7ea3d7165eb78a87a94b626">Sommaire</h2>
-
+      <a class="label" href="https://tmail.dpp.st/categories/doc">doc</a>
+      </span> <p>Vous trouverez dans ce document toutes les informations nécessaires pour utiliser l&rsquo;API REST tmail.</p>
+<h2 id="sommaire">Sommaire</h2>
 <ul>
-<li><a href="#authentification:bc6e7d60c7ea3d7165eb78a87a94b626">Authentification</a></li>
-<li><a href="#requetes:bc6e7d60c7ea3d7165eb78a87a94b626">Requêtes</a></li>
-<li><a href="#http_code:bc6e7d60c7ea3d7165eb78a87a94b626">Codes HTTP</a></li>
-
-<li><p><a href="#erreurs:bc6e7d60c7ea3d7165eb78a87a94b626">Erreurs</a></p></li>
-
-<li><p><a href="#users:bc6e7d60c7ea3d7165eb78a87a94b626">Gestion des utilisateurs</a></p>
-
+<li>
+<p><a href="#authentification">Authentification</a></p>
+</li>
+<li>
+<p><a href="#requetes">Requêtes</a></p>
+</li>
+<li>
+<p><a href="#http_code">Codes HTTP</a></p>
+</li>
+<li>
+<p><a href="#erreurs">Erreurs</a></p>
+</li>
+<li>
+<p><a href="#users">Gestion des utilisateurs</a></p>
 <ul>
-<li><a href="#usersAdd:bc6e7d60c7ea3d7165eb78a87a94b626">Ajouter un utilisateur</a></li>
-<li><a href="#usersDel:bc6e7d60c7ea3d7165eb78a87a94b626">Supprimer un utilisateur</a></li>
-<li><a href="#usersGetOne:bc6e7d60c7ea3d7165eb78a87a94b626">Retrouver un utilisateur</a></li>
-<li><a href="#usersGetAll:bc6e7d60c7ea3d7165eb78a87a94b626">Retrouver tous les utilisateurs</a></li>
-</ul></li>
-
-<li><p><a href="#queue:bc6e7d60c7ea3d7165eb78a87a94b626">Gestion de la queue</a></p>
-
-<ul>
-<li><a href="#queueListMessages:bc6e7d60c7ea3d7165eb78a87a94b626">Lister les messages en queue</a></li>
-<li><a href="#queueGetMessage:bc6e7d60c7ea3d7165eb78a87a94b626">Récuperer les information concernant un message</a></li>
-<li><a href="#queueDiscardMessage:bc6e7d60c7ea3d7165eb78a87a94b626">Supprimer un message</a></li>
-<li><a href="#queueBounceMessage:bc6e7d60c7ea3d7165eb78a87a94b626">Bouncer un message</a><br /></li>
-</ul></li>
+<li><a href="#usersAdd">Ajouter un utilisateur</a></li>
+<li><a href="#usersDel">Supprimer un utilisateur</a></li>
+<li><a href="#usersGetOne">Retrouver un utilisateur</a></li>
+<li><a href="#usersGetAll">Retrouver tous les utilisateurs</a></li>
 </ul>
-
-<h3 id="authentification:bc6e7d60c7ea3d7165eb78a87a94b626">Authentification</h3>
-
-<p>L&rsquo;API utilise l&rsquo;authentification <a href="http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB" target="_blank">HTTP Basic</a>.</p>
-
+</li>
+<li>
+<p><a href="#queue">Gestion de la queue</a></p>
+<ul>
+<li><a href="#queueListMessages">Lister les messages en queue</a></li>
+<li><a href="#queueGetMessage">Récuperer les information concernant un message</a></li>
+<li><a href="#queueDiscardMessage">Supprimer un message</a></li>
+<li><a href="#queueBounceMessage">Bouncer un message</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="authentification">Authentification</h3>
+<p>L&rsquo;API utilise l&rsquo;authentification <!-- raw HTML omitted -->HTTP Basic<!-- raw HTML omitted -->.</p>
 <p>Pourquoi ce type d’authentification ?</p>
-
 <ul>
 <li>simple à mettre en œuvre</li>
 <li>compatible avec tous les clients HTTP</li>
 </ul>
-
 <p>Exemple avec curl:</p>
-
 <pre><code>curl -v -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
 </code></pre>
-
-<h3 id="requetes:bc6e7d60c7ea3d7165eb78a87a94b626">Requêtes</h3>
-
+<h3 id="requetes">Requêtes</h3>
 <p>Si il est nécessaire de transmettre des éléments à l&rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.</p>
-
-<h3 id="reponses:bc6e7d60c7ea3d7165eb78a87a94b626">Réponses</h3>
-
+<h3 id="reponses">Réponses</h3>
 <p>Le corps, si il existe est lui aussi un message JSON.</p>
-
-<h3 id="http_code:bc6e7d60c7ea3d7165eb78a87a94b626">Codes HTTP</h3>
-
+<h3 id="http_code">Codes HTTP</h3>
 <p>Succès :</p>
-
 <ul>
 <li>200 OK: La requête à été exécuté avec succès, la réponse contient un corps.</li>
 <li>201 Created: L&rsquo;entité à été crée.</li>
 <li>204 No Content: La requête à été exécuté avec succès, le corps de la réponse est vide.</li>
 </ul>
-
 <p>Erreurs :</p>
-
 <ul>
 <li>400 Bad Request: Le requête est mal formée.</li>
 <li>401 Unauthorized: Une autorisation est nécessaire.</li>
@@ -172,16 +157,14 @@
 <li>422 Unprocessable Entry: La requête visant à créer ou modifier une entité n&rsquo;a pas pu être exécutée car les données transmises n&rsquo;étaient pas conformes.</li>
 <li>500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.</li>
 </ul>
-
-<h3 id="erreurs:bc6e7d60c7ea3d7165eb78a87a94b626">Erreurs</h3>
-
+<h3 id="erreurs">Erreurs</h3>
 <p>En cas d&rsquo;erreur (4** ou 5**), un message sous forme d&rsquo;un objet JSON est retourné.
-Le message contient deux champs:
-* msg: le message d&rsquo;erreur générée par l&rsquo;application
-* raw: l&rsquo;erreur levée (quand elle existe)</p>
-
+Le message contient deux champs:</p>
+<ul>
+<li>msg: le message d&rsquo;erreur générée par l&rsquo;application</li>
+<li>raw: l&rsquo;erreur levée (quand elle existe)</li>
+</ul>
 <p>Exemple, si on essaye de créer un utilisateur qui existe déjà:</p>
-
 <pre><code>curl -H &quot;Content-Type: application/json&quot; -X POST -d '{&quot;passwd&quot;:&quot;motdepasse&quot;,&quot;authRelay&quot;:true,&quot;haveMailbox&quot;:true,&quot;mailboxQuota&quot;:&quot;1G&quot;}' -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
 
 &lt; HTTP/1.1 422 status code 422
@@ -191,54 +174,41 @@ Le message contient deux champs:
 
 {&quot;msg&quot;:&quot;unable to create new user&quot;,&quot;raw&quot;:&quot;UNIQUE constraint failed: users.login&quot;}
 </code></pre>
-
-<h2 id="users:bc6e7d60c7ea3d7165eb78a87a94b626">Gestion des utilisateurs</h2>
-
-<h3 id="usersAdd:bc6e7d60c7ea3d7165eb78a87a94b626">Ajouter un utilisateur</h3>
-
+<h2 id="users">Gestion des utilisateurs</h2>
+<h3 id="usersAdd">Ajouter un utilisateur</h3>
 <ul>
 <li>Ressource: /users/LOGIN</li>
 <li>Méthode: POST</li>
 <li>Body:
-
 <ul>
 <li>passwd (string): mot de passe de l&rsquo;utilisateur.</li>
 <li>authRelay (bool): défini si l&rsquo;utilisateur peut utiliser tmail pour relayer.</li>
 <li>haveMailbox (bool): défini si l&rsquo;utilisateur à une boite email.</li>
 <li>mailboxQuota (string): le quota de la boite email de l&rsquo;utilisateur en bytes. Vous pouvez utiliser K, M, ou G pour fénir les unités (par exemple 1G signifie un GB)</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>Exemple:</p>
-
 <pre><code>curl -v -u admin:admin -k -H &quot;Content-Type: application/json&quot; -X POST -d '{&quot;passwd&quot;: &quot;mot de passe&quot;, &quot;authRelay&quot;: true, &quot;haveMailbox&quot;: true, &quot;mailboxQuota&quot;: &quot;1G&quot;}' https://127.0.0.1:8080/users/test@tmail.io
 
 &lt; HTTP/1.1 201 Created
 </code></pre>
-
-<h3 id="usersDel:bc6e7d60c7ea3d7165eb78a87a94b626">Supprimer un utilisateur</h3>
-
+<h3 id="usersDel">Supprimer un utilisateur</h3>
 <ul>
 <li>Ressource: /users/LOGIN</li>
 <li>Méthode: DELETE</li>
 </ul>
-
 <p>Exemple:</p>
-
 <pre><code>curl -v -u admin:admin -k  -X DELETE https://127.0.0.1:8080/users/test@tmail.io
 
 &lt; HTTP/1.1 200 OK
 </code></pre>
-
-<h3 id="usersGetOne:bc6e7d60c7ea3d7165eb78a87a94b626">Retrouver un utilisateur</h3>
-
+<h3 id="usersGetOne">Retrouver un utilisateur</h3>
 <ul>
 <li>Ressource: /users/LOGIN</li>
 <li>Méthode: GET</li>
 </ul>
-
 <p>Exemple:</p>
-
 <pre><code>curl -v -u admin:admin -k https://127.0.0.1:8080/users/test@tmail.io
 
 &lt; HTTP/1.1 200 OK
@@ -246,16 +216,12 @@ Le message contient deux champs:
 
 {&quot;Id&quot;:10,&quot;Login&quot;:&quot;test@tmail.io&quot;,&quot;Passwd&quot;:&quot;$2a$10$TGg8af6X08KFvWDnjljAqeBpwkXuQ78sc.xyTUrHN6nRzm1wMyIT.&quot;,&quot;DovePasswd&quot;:&quot;$6$06a585cd9d0540d2$OYGaBsyonWxeuoRQkxsokLRkW/vUtx1qbZoEC1DG9DcX7NmHqgrqQtIuL0N6r0RuPpOOhgMdiXPYr/0Dg.wA41&quot;,&quot;Active&quot;:&quot;Y&quot;,&quot;AuthRelay&quot;:true,&quot;HaveMailbox&quot;:true,&quot;MailboxQuota&quot;:&quot;1G&quot;,&quot;Home&quot;:&quot;/home/toorop/Projects/Go/src/github.com/toorop/tmail/dist/mailboxes/t/tmail.io/t/test&quot;}
 </code></pre>
-
-<h3 id="usersGetAll:bc6e7d60c7ea3d7165eb78a87a94b626">Retrouver tous les utilisateurs</h3>
-
+<h3 id="usersGetAll">Retrouver tous les utilisateurs</h3>
 <ul>
 <li>Ressource: /users</li>
 <li>Méthode: GET</li>
 </ul>
-
 <p>Exemple:</p>
-
 <pre><code>curl -v -u admin:admin -k https://127.0.0.1:8080/users
 
 &lt; HTTP/1.1 200 OK
@@ -263,18 +229,13 @@ Le message contient deux champs:
 
 [{&quot;Id&quot;:4,&quot;Login&quot;:&quot;texset@tmail.io&quot;,&quot;Passwd&quot;:&quot;$2a$10$rih8MngreLiYl6KzB72jVuufgtIHYFF08c4Q.GNIx2UObPOrL18QW&quot;,&quot;DovePasswd&quot;:&quot;$6$ba3b4fb33607b031$5.FuzhmYBHK5fBIGSMamG7nv7G/OfHxGBuGPBkfSU0FiE6AvWAJIplz/RJP5AQoTFrKC.vYulBeKlKm/Ua7Gj.&quot;,&quot;Active&quot;:&quot;Y&quot;,&quot;AuthRelay&quot;:false,&quot;HaveMailbox&quot;:false,&quot;MailboxQuota&quot;:&quot;&quot;,&quot;Home&quot;:&quot;&quot;},{&quot;Id&quot;:5,&quot;Login&quot;:&quot;texsdet@tmail.io&quot;,&quot;Passwd&quot;:&quot;$2a$10$Lnvy5ViilsKwAKKLsxhrZOhlcZkW.gbDvffEpyEif6Fefc5NU0iOe&quot;,&quot;DovePasswd&quot;:&quot;$6$8c69e981ea71fa91$WRbtGb6AnEKQo.wSRd2VecOkjiHKCr/SVK0ww.qqK/O.wAjLNUn6ztEpONycwFYwiLWU82rI52A8rLzqrNsE./&quot;,&quot;Active&quot;:&quot;Y&quot;,&quot;AuthRelay&quot;:false,&quot;HaveMailbox&quot;:false,&quot;MailboxQuota&quot;:&quot;&quot;,&quot;Home&quot;:&quot;&quot;}]
 </code></pre>
-
-<h2 id="queue:bc6e7d60c7ea3d7165eb78a87a94b626">Gestion de la queue</h2>
-
-<h3 id="queueListMessages:bc6e7d60c7ea3d7165eb78a87a94b626">Lister les messages en queue</h3>
-
+<h2 id="queue">Gestion de la queue</h2>
+<h3 id="queueListMessages">Lister les messages en queue</h3>
 <ul>
 <li>Ressource: /queue</li>
 <li>Méthode: GET</li>
 </ul>
-
 <p>Exemple:</p>
-
 <pre><code>curl -v -u admin:admin -k https://127.0.0.1:8080/queue
 
 &lt; HTTP/1.1 200 OK
@@ -282,16 +243,12 @@ Le message contient deux champs:
 
 [{&quot;Id&quot;:1,&quot;Uuid&quot;:&quot;5217dfdc96d7216d7074b329f88d11f76dee997b&quot;,&quot;Key&quot;:&quot;84855041283d1badc5224231b2afa57f6e1b12e2&quot;,&quot;MailFrom&quot;:&quot;toorop@tmail.io&quot;,&quot;AuthUser&quot;:&quot;toorop@tmail.io&quot;,&quot;RcptTo&quot;:&quot;toorop@toorop.fr&quot;,&quot;MessageId&quot;:&quot;5528C725.8060007@tmail.io&quot;,&quot;Host&quot;:&quot;toorop.fr&quot;,&quot;AddedAt&quot;:&quot;2015-04-11T09:03:02.737629459+02:00&quot;,&quot;NextDeliveryScheduledAt&quot;:&quot;2015-04-11T16:44:35.994411773+02:00&quot;,&quot;Status&quot;:2,&quot;DeliveryFailedCount&quot;:0},{&quot;Id&quot;:2,&quot;Uuid&quot;:&quot;bd36f47dab0e27482ce5db8605415e32978f0185&quot;,&quot;Key&quot;:&quot;38b27d32311b21f1e6afa6215a756c8f696979a8&quot;,&quot;MailFrom&quot;:&quot;toorop@tmail.io&quot;,&quot;AuthUser&quot;:&quot;toorop@tmail.io&quot;,&quot;RcptTo&quot;:&quot;stephane@protecmail.com&quot;,&quot;MessageId&quot;:&quot;5529331C.3050308@tmail.io&quot;,&quot;Host&quot;:&quot;protecmail.com&quot;,&quot;AddedAt&quot;:&quot;2015-04-11T16:43:41.965596115+02:00&quot;,&quot;NextDeliveryScheduledAt&quot;:&quot;0001-01-01T00:09:21+00:09&quot;,&quot;Status&quot;:0,&quot;DeliveryFailedCount&quot;:0}]
 </code></pre>
-
-<h3 id="queueGetMessage:bc6e7d60c7ea3d7165eb78a87a94b626">Récuperer les information concernant un message</h3>
-
+<h3 id="queueGetMessage">Récuperer les information concernant un message</h3>
 <ul>
 <li>Ressource: /queue/ID</li>
 <li>Méthode: GET</li>
 </ul>
-
 <p>Exemple:</p>
-
 <pre><code>curl -v -u admin:admin -k https://127.0.0.1:8080/queue/1
 
 &lt; HTTP/1.1 200 OK
@@ -299,35 +256,26 @@ Le message contient deux champs:
 
 {&quot;Id&quot;:1,&quot;Uuid&quot;:&quot;5217dfdc96d7216d7074b329f88d11f76dee997b&quot;,&quot;Key&quot;:&quot;84855041283d1badc5224231b2afa57f6e1b12e2&quot;,&quot;MailFrom&quot;:&quot;toorop@tmail.io&quot;,&quot;AuthUser&quot;:&quot;toorop@tmail.io&quot;,&quot;RcptTo&quot;:&quot;toorop@toorop.fr&quot;,&quot;MessageId&quot;:&quot;5528C725.8060007@tmail.io&quot;,&quot;Host&quot;:&quot;toorop.fr&quot;,&quot;AddedAt&quot;:&quot;2015-04-11T09:03:02.737629459+02:00&quot;,&quot;NextDeliveryScheduledAt&quot;:&quot;2015-04-11T17:15:36.290267337+02:00&quot;,&quot;Status&quot;:2,&quot;DeliveryFailedCount&quot;:0}
 </code></pre>
-
-<h3 id="queueDiscardMessage:bc6e7d60c7ea3d7165eb78a87a94b626">Supprimer un message</h3>
-
+<h3 id="queueDiscardMessage">Supprimer un message</h3>
 <ul>
 <li>Ressource: /queue/discard/ID</li>
 <li>Méthode: DELETE</li>
 </ul>
-
 <p>Exemple:</p>
-
 <pre><code>curl -v -u admin:admin -X DELETE -k https://127.0.0.1:8080/queue/discard/1
 
 &lt; HTTP/1.1 200 OK
 </code></pre>
-
-<h3 id="queueBounceMessage:bc6e7d60c7ea3d7165eb78a87a94b626">Bouncer un message</h3>
-
+<h3 id="queueBounceMessage">Bouncer un message</h3>
 <ul>
 <li>Ressource: /queue/bounce/ID</li>
 <li>Méthode: DELETE</li>
 </ul>
-
 <p>Exemple:</p>
-
 <pre><code>curl -v -u admin:admin -X DELETE -k https://127.0.0.1:8080/queue/bounce/1
 
 &lt; HTTP/1.1 200 OK
 </code></pre>
-
         </div>
         <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -339,7 +287,7 @@ Le message contient deux champs:
         return;
 
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = '';
+    var disqus_shortname = 'tmail';
     dsq.src = '//tmail.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -356,7 +304,7 @@ Le message contient deux champs:
   ga('create', 'UA-59890382-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="http://tmail.io/js/tmail.js"></script>
+<script src="https://tmail.dpp.st/js/tmail.js"></script>
 </body>
 </html>
 

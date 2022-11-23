@@ -1,155 +1,175 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://tmail.io/</loc>
+    <loc>https://tmail.dpp.st/categories/</loc>
     <lastmod>2015-06-18T19:52:01+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/11/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/podcast/</loc>
     <lastmod>2015-06-18T19:52:01+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/dkim/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/categories/podcast/</loc>
+    <lastmod>2015-06-18T19:52:01+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/11/</loc>
+    <lastmod>2015-06-18T19:52:01+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/</loc>
+    <lastmod>2015-06-18T19:52:01+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/</loc>
+    <lastmod>2015-06-18T19:52:01+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/</loc>
+    <lastmod>2015-06-18T19:52:01+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/dkim/</loc>
     <lastmod>2015-06-09T14:33:39+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/microservices/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/dkim/</loc>
+    <lastmod>2015-06-09T14:33:39+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/categories/doc/</loc>
+    <lastmod>2015-06-09T14:33:39+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/</loc>
+    <lastmod>2015-06-09T14:33:39+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/api/</loc>
     <lastmod>2015-05-28T10:24:01+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/docker-smtp-server/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/microservices/</loc>
+    <lastmod>2015-05-28T10:24:01+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/microservices/</loc>
+    <lastmod>2015-05-28T10:24:01+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/docker/</loc>
     <lastmod>2015-05-26T18:23:15+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/10/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/docker-smtp-server/</loc>
+    <lastmod>2015-05-26T18:23:15+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/10/</loc>
     <lastmod>2015-05-18T20:52:01+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/9/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/9/</loc>
     <lastmod>2015-05-03T20:52:01+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/8/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/8/</loc>
     <lastmod>2015-04-16T17:34:34+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/7/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/7/</loc>
     <lastmod>2015-04-12T11:02:17+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/6/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/6/</loc>
     <lastmod>2015-04-02T17:18:22+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/api-rest/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/rest/</loc>
     <lastmod>2015-04-02T11:14:47+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/activer-api-rest/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/api-rest/</loc>
+    <lastmod>2015-04-02T11:14:47+02:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/activer-api-rest/</loc>
     <lastmod>2015-04-01T15:05:07+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/5/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/5/</loc>
     <lastmod>2015-03-27T15:50:03+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/logs/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/logs/</loc>
     <lastmod>2015-03-27T14:03:12+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/documentation/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/logs/</loc>
+    <lastmod>2015-03-27T14:03:12+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/smtp/</loc>
+    <lastmod>2015-03-27T14:03:12+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/doc/</loc>
     <lastmod>2015-03-22T19:09:52+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/4/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/documentation/</loc>
+    <lastmod>2015-03-22T19:09:52+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/4/</loc>
     <lastmod>2015-03-22T09:38:58+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/mailboxes/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/mailboxes/</loc>
     <lastmod>2015-03-20T16:34:28+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/changelog/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/imap/</loc>
+    <lastmod>2015-03-20T16:34:28+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/sieve/</loc>
+    <lastmod>2015-03-20T16:34:28+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/changelog/</loc>
     <lastmod>2015-03-14T19:38:45+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/3/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/changelog/</loc>
     <lastmod>2015-03-14T19:38:45+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/episode-2/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/3/</loc>
+    <lastmod>2015-03-14T19:38:45+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/episode-2/</loc>
     <lastmod>2015-03-06T07:50:04+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/wishlist/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/wishlist/</loc>
     <lastmod>2015-02-26T12:00:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/episode-1-antivirus/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/wishlist/</loc>
+    <lastmod>2015-02-26T12:00:11+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/episode-1-antivirus/</loc>
     <lastmod>2015-02-24T12:03:26+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/podcast/episode-0/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/podcast/episode-0/</loc>
     <lastmod>2015-02-23T17:19:30+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/recherche/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/recherche/</loc>
     <lastmod>2015-02-23T16:22:25+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/filtrage-smtp-antivirus-clamav/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/antivirus/</loc>
     <lastmod>2015-02-18T14:19:22+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/installer-tmail/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/clamav/</loc>
+    <lastmod>2015-02-18T14:19:22+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/filtrage/</loc>
+    <lastmod>2015-02-18T14:19:22+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/filtrage-smtp-antivirus-clamav/</loc>
+    <lastmod>2015-02-18T14:19:22+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/installer-tmail/</loc>
     <lastmod>2015-01-29T17:00:44+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/cli-gestion-route-smtp/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/cli/</loc>
     <lastmod>2015-01-28T09:15:12+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/cli-gestion-queue/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/cli-gestion-route-smtp/</loc>
+    <lastmod>2015-01-28T09:15:12+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/routes/</loc>
+    <lastmod>2015-01-28T09:15:12+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/cli-gestion-queue/</loc>
     <lastmod>2015-01-21T14:20:24+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/doc/routes-smtp-sortantes/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/queue/</loc>
+    <lastmod>2015-01-21T14:20:24+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/doc/routes-smtp-sortantes/</loc>
     <lastmod>2015-01-19T16:38:23+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tmail.io/faq/</loc>
+  </url><url>
+    <loc>https://tmail.dpp.st/tags/faq/</loc>
     <lastmod>2015-01-14T14:14:40+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/faq/</loc>
+    <lastmod>2015-01-14T14:14:40+01:00</lastmod>
+  </url><url>
+    <loc>https://tmail.dpp.st/series/</loc>
   </url>
-  
 </urlset>

@@ -1,181 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Routes on tmail</title>
-    <link>http://tmail.io/tags/routes/</link>
-    <description>Recent content in Routes on tmail</description>
+    <title>routes on tmail</title>
+    <link>https://tmail.dpp.st/tags/routes/</link>
+    <description>Recent content in routes on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 28 Jan 2015 09:15:12 +0100</lastBuildDate>
-    <atom:link href="http://tmail.io/tags/routes/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 28 Jan 2015 09:15:12 +0100</lastBuildDate><atom:link href="https://tmail.dpp.st/tags/routes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gestion des routes SMTP en utilisant le CLI</title>
-      <link>http://tmail.io/doc/cli-gestion-route-smtp/</link>
+      <link>https://tmail.dpp.st/doc/cli-gestion-route-smtp/</link>
       <pubDate>Wed, 28 Jan 2015 09:15:12 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/cli-gestion-route-smtp/</guid>
-      <description>
-
-&lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
-
-&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;
-
-&lt;h3 id=&#34;lister-toutes-les-routes:253091a785f27e2f20aac978da09c51f&#34;&gt;Lister toutes les routes&lt;/h3&gt;
-
-&lt;p&gt;La commande pour lister les routes est:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes list
-
-1 - Destination host: toorop.fr - Prority: 1 - Local IPs: default - Remote host: mail.toorop.fr:25
-2 - Destination host: tmail.io - Prority: 1 - Local IPs: default - Remote host: mail.tmail.io:25
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pour le moment il n&amp;rsquo;y a pas de paramètres pour spécifier des critères de recherche. Si vous avez besoin de rechercher une route particulière, le plus simple pour le moment est d&amp;rsquo;utiliser l&amp;rsquo;outil &lt;em&gt;grep&lt;/em&gt; pour filtrer la sortie de la commande &lt;em&gt;tmail routes list&lt;/em&gt;.&lt;br /&gt;
-Par exemple si vous voulez chercher les routes faisant référence au domaine tmail.io :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes list | grep tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;ajouter-une-régle-de-routage-smtp:253091a785f27e2f20aac978da09c51f&#34;&gt;Ajouter une régle de routage SMTP&lt;/h3&gt;
-
-&lt;h4 id=&#34;aide-en-ligne:253091a785f27e2f20aac978da09c51f&#34;&gt;Aide en ligne&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add --help
-NAME:
-    add - Add a route
-USAGE:
-    command add [command options] [arguments...]
-DESCRIPTION:
-    tmail routes add -d DESTINATION_HOST -rh REMOTE_HOST [-rp REMOTE_PORT] [-p PRORITY] [-l LOCAL_IP] [-u AUTHENTIFIED_USER] [-f MAIL_FROM] [-rl REMOTE_LOGIN] [-rpwd REMOTE_PASSWD]
-
-OPTIONS:
-    --destination, -d       hostame destination, eg domain in rcpt user@domain
-    --remote host, --rh         remote host, eg where email should be deliver
-    --remotePort, --rp &amp;quot;25&amp;quot; Route port
-    --priority, -p &amp;quot;1&amp;quot;      Route priority. Lowest-numbered priority routes are the most preferred
-    --localIp, -l       Local IP(s) to use. If you want to add multiple IP separate them by | for round-robin or &amp;amp; for failover. Don&#39;t mix &amp;amp; and |
-    --smtpUser, -u      Routes for authentified user user.
-    --mailFrom, -f      Routes for MAIL FROM. User need to be authentified
-    --remoteLogin, --rl         SMTPauth login for remote host
-    --remotePasswd, --rpwd  SMTPauth passwd for remote host
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;exemples:253091a785f27e2f20aac978da09c51f&#34;&gt;Exemples&lt;/h4&gt;
-
-&lt;p&gt;Ajouter une route pour relayer les mails à destination du domaine tmail.io vers mail.tmail.io&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add -d tmail.io -rh mail.tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vous pouvez spécifier un port distant&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes add -d tmail.io -rh mail.tmail.io -rp 2525 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si le serveur distant nécessite une authentification SMTP ajouter les options rl et rpwd&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh mail.tmail.io -rp 587 -rl login -rpwd passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vous pouvez créer des routes qui vont agir en fonction de l&amp;rsquo;utilisateur qui à soumis le mail ( à la condition bien entendu qu&amp;rsquo;il se soit authentifié via SMTPAUTH). Imaginons par exemple que vous souhaitiez router les mails soumis par l&amp;rsquo;utilisateur toorop@tmail.io vers le relais premium.tmail.io&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -rh premium.tmail.io -u toorop@tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si vous voulez attribuer une route spécifique à tous les utilisateurs d&amp;rsquo;un domaine, la solution consiste  à utiliser leur adresse email comme login SMTP et ensuite de créer une règle en mettant le domaine comme valeur pour l&amp;rsquo;option u. Par exemple si vous souhaitez que les mails de tous les utilisateurs identifiés comme faisant partie du domaine domaine tmail.io aient leurs mails routés par Mailjet :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -rh in.mailjet.com -u tmail.io -rl mailjet_login -rpwd mailjet_passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si vous voulez ajouter comme contrainte que l’expéditeur du mail (MAIL FROM) doit etre en @tmail.io :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; tmail route add -rh in.mailjet.com -u tmail.io -f tmail.io -rl mailjet_login -rpwd mailjet_passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;round-robin:253091a785f27e2f20aac978da09c51f&#34;&gt;Round Robin&lt;/h4&gt;
-
-&lt;p&gt;Vous pouvez mettre deux (ou plus) routes identiques. Bien entendu ça n&amp;rsquo;a aucun intérêt si ce sont les seules routes pour une destination donnée, mais dans le cas contraire cela permet de repartir les mails vers plusieurs relais en leur attribuant un poids. Par exemple imaginons que nous souhaitions faire passer deux fois plus de mails par big.smtp.tmail.io que par small.smtp.tmail.io :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh big.smtp.tmail.io
-tmail route add -d tmail.io -rh big.smtp.tmail.io
-tmail route add -d tmail.io -rh small.smtp.tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;failover:253091a785f27e2f20aac978da09c51f&#34;&gt;Failover&lt;/h4&gt;
-
-&lt;p&gt;En ajoutant un paramètre de priorité, vous pouvez créer des routes secondaires qui vont qui vont etres utilisé sur les routes de priorité plus élevées sont en échecs.&lt;/p&gt;
-
-&lt;p&gt;Par exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh main.smtp.tmail.io -p 1
-tmail route add -d tmail.io -rh alt1.smtp.tmail.io -p 2
-tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Dans ce cas tmail va d&amp;rsquo;abord tenter de transmettre le mail à main.smtp.tmail.io puis ça ça échoue à alt1.smtp.tmail.io et si ça échoue toujours à alt2.smtp.tmail.io&lt;/p&gt;
-
-&lt;p&gt;Notez que vous pouvez mixer failover et roundrobin, par exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail route add -d tmail.io -rh main.smtp.tmail.io -p 1
-tmail route add -d tmail.io -rh alt1.smtp.tmail.io -p 2
-tmail route add -d tmail.io -rh alt2.smtp.tmail.io -p 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Dans ce cas si tmail n&amp;rsquo;arrive pas a transmettre le mail à main.smtp.tmail.io il va faire le second essais vers alt1 ou alt2.&lt;/p&gt;
-
-&lt;h3 id=&#34;supprimer-une-règle-de-routage-smtp:253091a785f27e2f20aac978da09c51f&#34;&gt;Supprimer une règle de routage SMTP&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;tmail routes del ROUTE_ID
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/cli-gestion-route-smtp/</guid>
+      <description>&lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
+&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;https://tmail.dpp.st/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Routes smtp sortantes</title>
-      <link>http://tmail.io/doc/routes-smtp-sortantes/</link>
+      <link>https://tmail.dpp.st/doc/routes-smtp-sortantes/</link>
       <pubDate>Mon, 19 Jan 2015 16:38:23 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/routes-smtp-sortantes/</guid>
+      <guid>https://tmail.dpp.st/doc/routes-smtp-sortantes/</guid>
       <description>&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;
-
-&lt;p&gt;Les règles de routage vont êtres définies an fonction des paramètres suivants :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Le domaine de destination.&lt;/li&gt;
-&lt;li&gt;L&amp;rsquo;expéditeur à la condition que le mail ait été originalement transmis à tmail par un utilisateur authentifié (via SMTP AUTH).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Lorsque tmail à un mail à transmettre il va chercher parmi les règles suivantes si il y en a une qui correspond.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si il trouve une règle&lt;/strong&gt;, il va utiliser les routes qui correspondent à cette règle. Chaque route à un poids, comme pour les MX classiques, tmail va donc essayer en premier lieu de se connecter au relais suivant en utilisant la route qui a le poids le plus faible. Dans le cas où plusieurs routes ont le même poids, il va les ordonner aléatoirement ce qui va permettre de faire facilement du round-robin.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si il n&amp;rsquo;en trouve pas&lt;/strong&gt;, il va utiliser les MX du domaine de destination.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Les règles sont testées dans l&amp;rsquo;ordre suivant:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond à l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond au domaine de l&amp;rsquo;expéditeur (MAIL FROM de l’enveloppe SMTP) et au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle liée à l&amp;rsquo;utilisateur authentifié qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Si le mail à été transmis via SMTPAUTH:&lt;/strong&gt; tmail va chercher une règle &amp;lsquo;générique&amp;rsquo; liée à l&amp;rsquo;utilisateur authentifié.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;tmail va chercher une règle qui correspond au domaine de destination.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;tmail va chercher une règle par défaut (wildcard &amp;ldquo;*&amp;rdquo; sur le domaine de destination)&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Par &lt;em&gt;règle liée à l&amp;rsquo;utilisateur authentifié&lt;/em&gt; j&amp;rsquo;entends une règle liée au login complet de cet utilisateur, ou si il n&amp;rsquo;y en a pas et que ce login est de la forme user@domaine.tld un règle liée à domaine.tld&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Vous pouvez configurer les règles de routage en utilisante le CLI&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;</description>
     </item>
     
   </channel>

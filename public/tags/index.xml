@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on tmail</title>
+    <link>https://tmail.dpp.st/tags/</link>
+    <description>Recent content in Tags on tmail</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Thu, 18 Jun 2015 19:52:01 +0200</lastBuildDate><atom:link href="https://tmail.dpp.st/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>podcast</title>
+      <link>https://tmail.dpp.st/tags/podcast/</link>
+      <pubDate>Thu, 18 Jun 2015 19:52:01 +0200</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/podcast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dkim</title>
+      <link>https://tmail.dpp.st/tags/dkim/</link>
+      <pubDate>Tue, 09 Jun 2015 14:33:39 +0200</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/dkim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>api</title>
+      <link>https://tmail.dpp.st/tags/api/</link>
+      <pubDate>Thu, 28 May 2015 10:24:01 +0200</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microservices</title>
+      <link>https://tmail.dpp.st/tags/microservices/</link>
+      <pubDate>Thu, 28 May 2015 10:24:01 +0200</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://tmail.dpp.st/tags/docker/</link>
+      <pubDate>Tue, 26 May 2015 18:23:15 +0200</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rest</title>
+      <link>https://tmail.dpp.st/tags/rest/</link>
+      <pubDate>Thu, 02 Apr 2015 11:14:47 +0200</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logs</title>
+      <link>https://tmail.dpp.st/tags/logs/</link>
+      <pubDate>Fri, 27 Mar 2015 14:03:12 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/logs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smtp</title>
+      <link>https://tmail.dpp.st/tags/smtp/</link>
+      <pubDate>Fri, 27 Mar 2015 14:03:12 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/smtp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>doc</title>
+      <link>https://tmail.dpp.st/tags/doc/</link>
+      <pubDate>Sun, 22 Mar 2015 19:09:52 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/doc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>imap</title>
+      <link>https://tmail.dpp.st/tags/imap/</link>
+      <pubDate>Fri, 20 Mar 2015 16:34:28 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/imap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sieve</title>
+      <link>https://tmail.dpp.st/tags/sieve/</link>
+      <pubDate>Fri, 20 Mar 2015 16:34:28 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/sieve/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>changelog</title>
+      <link>https://tmail.dpp.st/tags/changelog/</link>
+      <pubDate>Sat, 14 Mar 2015 19:38:45 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/changelog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wishlist</title>
+      <link>https://tmail.dpp.st/tags/wishlist/</link>
+      <pubDate>Thu, 26 Feb 2015 12:00:11 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/wishlist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>antivirus</title>
+      <link>https://tmail.dpp.st/tags/antivirus/</link>
+      <pubDate>Wed, 18 Feb 2015 14:19:22 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/antivirus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clamav</title>
+      <link>https://tmail.dpp.st/tags/clamav/</link>
+      <pubDate>Wed, 18 Feb 2015 14:19:22 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/clamav/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>filtrage</title>
+      <link>https://tmail.dpp.st/tags/filtrage/</link>
+      <pubDate>Wed, 18 Feb 2015 14:19:22 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/filtrage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cli</title>
+      <link>https://tmail.dpp.st/tags/cli/</link>
+      <pubDate>Wed, 28 Jan 2015 09:15:12 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>routes</title>
+      <link>https://tmail.dpp.st/tags/routes/</link>
+      <pubDate>Wed, 28 Jan 2015 09:15:12 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/routes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>queue</title>
+      <link>https://tmail.dpp.st/tags/queue/</link>
+      <pubDate>Wed, 21 Jan 2015 14:20:24 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/queue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>faq</title>
+      <link>https://tmail.dpp.st/tags/faq/</link>
+      <pubDate>Wed, 14 Jan 2015 14:14:40 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/tags/faq/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

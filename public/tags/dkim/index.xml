@@ -1,147 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dkim on tmail</title>
-    <link>http://tmail.io/tags/dkim/</link>
-    <description>Recent content in Dkim on tmail</description>
+    <title>dkim on tmail</title>
+    <link>https://tmail.dpp.st/tags/dkim/</link>
+    <description>Recent content in dkim on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Tue, 09 Jun 2015 14:33:39 +0200</lastBuildDate>
-    <atom:link href="http://tmail.io/tags/dkim/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 09 Jun 2015 14:33:39 +0200</lastBuildDate><atom:link href="https://tmail.dpp.st/tags/dkim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DKIM</title>
-      <link>http://tmail.io/doc/dkim/</link>
+      <link>https://tmail.dpp.st/doc/dkim/</link>
       <pubDate>Tue, 09 Jun 2015 14:33:39 +0200</pubDate>
       
-      <guid>http://tmail.io/doc/dkim/</guid>
-      <description>
-
-&lt;p&gt;Je suppose que vous avez déjà lu des docs expliquant comment mettre en place et configurer DKIM ?&lt;br /&gt;
-Ça vous à paru compliqué, long et pénible ?&lt;br /&gt;
-Moi aussi et c&amp;rsquo;est pour ces raisons que j&amp;rsquo;ai voulu simplifier au maximum la procédure avec tmail.&lt;/p&gt;
-
-&lt;p&gt;Tout d&amp;rsquo;abord un petit rappel sur ce qu&amp;rsquo;est DKIM.&lt;/p&gt;
-
-&lt;p&gt;Pour faire court DKIM permet :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;De faire le lien entre un mail et une autorité, celle qui l&amp;rsquo;a signé.&lt;/li&gt;
-&lt;li&gt;De s&amp;rsquo;assurer de l&amp;rsquo;intégrité d&amp;rsquo;un mail, autrement dit qu&amp;rsquo;il n&amp;rsquo;a pas été modifié entre le moment où il à été signé et le moment où la signature à été vérifiée.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Attention aux légendes urbaines:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ce n&amp;rsquo;est pas parce qu&amp;rsquo;un mail ayant comme expéditeur contact@mabanque.com à une signature DKIM valide que ce mail vient de contact@mabanque.com et plus globalement qu&amp;rsquo;il n&amp;rsquo;est pas un spam ou un phishing.&lt;/li&gt;
-&lt;li&gt;Ce n&amp;rsquo;est pas parce qu’un mail à une signature DKIM non valide que c&amp;rsquo;est un spam ou un phishing.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Comme toutes les sections de cette documentation, cette page reflète ce qui est implémenté dans tmail au moment de sa rédaction. Autrement dit pensez à visiter cette page régulièrement car elle sera fréquemment mise à jour&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;support-de-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Support de DKIM&lt;/h2&gt;
-
-&lt;p&gt;Le support de DKIM à été introduit dans la version 0.0.8, mais il vous faudra au moins la 0.0.8.3 pour suivre ce tutoriel.&lt;/p&gt;
-
-&lt;p&gt;Je ne vais traiter ici que de la signature des mails sortant, si vous voulez vérifier la signature des mails entrant, je vous invite à utiliser le &lt;a href=&#34;http://tmail.io/doc/microservices/#dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;micro-service de vérification DKIM&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;activer-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Activer DKIM&lt;/h2&gt;
-
-&lt;p&gt;D&amp;rsquo;abord assurez vous d&amp;rsquo;avoir une version de tmail supérieure ou égale à la 0.0.8.3&lt;/p&gt;
-
-&lt;p&gt;Ensuite il vous suffit juste de modifier:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# DKIM sign outgoing (remote) emails
-export TMAIL_DELIVERD_DKIM_SIGN=false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;pour:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# DKIM sign outgoing (remote) emails
-export TMAIL_DELIVERD_DKIM_SIGN=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;configurer-dkim-pour-un-domaine:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Configurer DKIM pour un domaine&lt;/h2&gt;
-
-&lt;p&gt;Pour ce tuto je vais utiliser le domaine tmail.io comme exemple.&lt;/p&gt;
-
-&lt;p&gt;Pour configurer et activer DKIM pour le domaine tmail.io il vous suffit d’exécuter cette commande:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ tmail dkim enable tmail.io
-Done !
-It remains for you to create this TXT record on dkim._domainkey.tmail.io zone:
-
-v=DKIM1;k=rsa;s=email;h=sha256;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB
-
-And... That&#39;s all.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Comme indiqué, il ne vous reste plus qu&amp;rsquo;a ajouter l&amp;rsquo;enregistrement TXT fournis aux DNS du domaine et c&amp;rsquo;est fini. Tous les mails ayant comme domaine d&amp;rsquo;expédition tmail.io seront dés lors signés.&lt;/p&gt;
-
-&lt;p&gt;Je vous avez dis que ce serait simple et rapide ;)&lt;/p&gt;
-
-&lt;p&gt;Vous ne savez pas trop comment crée cet enregistrement au niveau de votre serveur DNS ?&lt;/p&gt;
-
-&lt;p&gt;Si vous utilisez &lt;em&gt;Bind&lt;/em&gt;, ajoutez dans la zone du domaine:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;dkim._domainkey.tmail.io IN TXT &amp;quot;v=DKIM1;k=rsa;s=email;h=sha256;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB&amp;quot; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pensez aussi à incrémenter le serial.&lt;/p&gt;
-
-&lt;p&gt;Si vous utilisé &lt;em&gt;djbdns&lt;/em&gt; ou un dérivé (pour un ttl de 300 secondes):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&#39;dkim._domainkey.tmail.io:v=DKIM1;k=rsa;s=email;h=sha256;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB:300::
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;quelques-commandes-utiles:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Quelques commandes utiles&lt;/h2&gt;
-
-&lt;h3 id=&#34;désactiver-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Désactiver DKIM&lt;/h3&gt;
-
-&lt;p&gt;Il vous suffit d&amp;rsquo;éxecuter la commande:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    $ tmail dkim disable tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Attention en exécutant cette commande toute la configuration DKIM du domaine va être supprimée et donc entre autre la clé privée qui permet de signer le message. Donc si vous souhaitez réactiver le domaine ultérieurement il vous faudra penser à mettre à jour votre enregistrement DNS avec la nouvelle clé publique.&lt;/p&gt;
-
-&lt;h3 id=&#34;obtenir-la-clé-publique:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Obtenir la clé publique&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ tmail dkim getpubkey tmail.io
-
-MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;obtenir-la-clé-privée:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Obtenir la clé privée&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ tmail dkim getprivkey tmail.io
-
------BEGIN RSA PRIVATE KEY-----
-MIICWwIBAAKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6
-CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lK
-SJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB
-AoGALETIBpgVZZVkgD8uV5YKzNCD0ilbjvz4fUi3uPHliZ/5lyrvZY7DOv9N4Uj+
-99v4lAv/7eIaGMyCPsCPzSy7SPDgf00yPX/LO4k5rMZv292zLe4bQO4PPIuLcy/q
-4yzkhMZqZVBSCcUMh8fNUbqGC84R2QFCH3WiW1P8fZgmfUECQQD8Ges5rOopvLkS
-Ee2Qmu17CYmo8Fh/zcro5guakbifYTdoaNNYYCg35S40HngCHbOvNBAIMaNbQxPR
-W41Hxv05AkEA3+bw7zGfO7e2ZLUqgjsisGWVFWmDSdYnxjuetmfORumzfpjxB8JO
-HW6YESrQVQTY6P5lwCdZLhs5YDKsKtatxQJBAJEY+eIAO+Y50OstlmYcRYMDQlAR
-xV4JvDe/7/3O0UwqUBGwA7Rh48QIDEfDIZ9WKQ02EeQlbbghK07cOryNM0ECQEcT
-RIBpvCZ01w15BRl6NDTSylSVvft+Y/nliyhUI4MXRMd3PWw9HhbxuIwajy+t7j1o
-JFyvIPwl4DzNWSHwLBECPzFI7mKE2r9aDMP6nD+srX2Dy/xhqngveiiacPipaTAT
-R+h7IZIHP3Of7G9J7enMvg0L6bkhEFkQFkqC+Ns5mA==
------END RSA PRIVATE KEY-----
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;obtenir-l-enregistrement-dns-txt:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Obtenir l&amp;rsquo;enregistrement DNS TXT&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ dist/tmail dkim getdnsrecord tmail.io
-
-dkim._domainkey.tmail.io zone:
-
-v=DKIM1;k=rsa;s=email;h=sha256;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/dkim/</guid>
+      <description>&lt;p&gt;Je suppose que vous avez déjà lu des docs expliquant comment mettre en place et configurer DKIM ?&lt;br&gt;
+Ça vous à paru compliqué, long et pénible ?&lt;br&gt;
+Moi aussi et c&amp;rsquo;est pour ces raisons que j&amp;rsquo;ai voulu simplifier au maximum la procédure avec tmail.&lt;/p&gt;</description>
     </item>
     
   </channel>

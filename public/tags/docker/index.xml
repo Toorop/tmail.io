@@ -1,136 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on tmail</title>
-    <link>http://tmail.io/tags/docker/</link>
-    <description>Recent content in Docker on tmail</description>
+    <title>docker on tmail</title>
+    <link>https://tmail.dpp.st/tags/docker/</link>
+    <description>Recent content in docker on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Tue, 26 May 2015 18:23:15 +0200</lastBuildDate>
-    <atom:link href="http://tmail.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 26 May 2015 18:23:15 +0200</lastBuildDate><atom:link href="https://tmail.dpp.st/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>tmail &#43; Docker = un SMTP déployé en moins de 5 minutes </title>
-      <link>http://tmail.io/doc/docker-smtp-server/</link>
+      <link>https://tmail.dpp.st/doc/docker-smtp-server/</link>
       <pubDate>Tue, 26 May 2015 18:23:15 +0200</pubDate>
       
-      <guid>http://tmail.io/doc/docker-smtp-server/</guid>
+      <guid>https://tmail.dpp.st/doc/docker-smtp-server/</guid>
       <description>&lt;p&gt;Ça vous dirait de tester tmail mais vous vous dites que vous n&amp;rsquo;avez pas le temps et/ou pas de serveur de disponible ?&lt;/p&gt;
-
 &lt;p&gt;Vous aimeriez avoir votre relais SMTP mais vous vous dites que c&amp;rsquo;est trop compliqué à mettre en place ?&lt;/p&gt;
-
 &lt;p&gt;Pfff balayez moi toute ces excuses bidons, dans ce tuto je vais vous montrer comment déployer tmail en tant que relais SMTP en quelques minutes et pour quelques centimes d&amp;rsquo;euro (voir rien du tout si vous êtes client OVH).&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&#34;center&#34; src=&#34;http://tmail.io/img/amazing.png&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;
-Avant toute chose, tmail est en plein développement, donc considérez ce tuto comme un &lt;a href=&#34;http://fr.wikipedia.org/wiki/Preuve_de_concept&#34; target=&#34;_blank&#34; title=&#34;preuve de concept&#34;&gt; poc &lt;/a&gt; et n&amp;rsquo;utilisez pas le SMTP pour des choses importantes, il y à forcement des bugs qui traînent.&lt;/p&gt;
-
-&lt;p&gt;Bien commençons par le commencement, il va nous falloir un serveur, nos amis de chez OVH ont eu la bonne idée de sortir &lt;a href=&#34;http://www.ovh.com/fr/cloud/&#34; target=&#34;_blank&#34; title=&#34;cloud OVH&#34;&gt; leur offre cloud &lt;/a&gt; cette semaine, ne cherchons pas plus loin.&lt;/p&gt;
-
-&lt;p&gt;A moins que vous ayez des millions de mails à envoyer par jour leur offre KS1 sera largement suffisante et à 0.008 € de l&amp;rsquo;heure elle ne devrait pas vous ruiner. On va donc lancer une instance de ce type avec Ubuntu 14.04 comme distribution.&lt;/p&gt;
-
-&lt;p&gt;Comptez jusqu’à 30:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;30 29 28 27 26 25 24 23 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ça y est ?&lt;br /&gt;
-L&amp;rsquo;instance est donc prête, on s&amp;rsquo;y connecte:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ssh admin@IP
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On passe en root et on met le système à jour:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo su
-apt-get update &amp;amp;&amp;amp; apt-get -y upgrade
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On installe Docker:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget -qO- https://get.docker.com/ | sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On ajoute un utilisateur &lt;em&gt;tmail&lt;/em&gt; qui va avoir le droit d&amp;rsquo;utiliser Docker:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adduser -q --disabled-password  tmail   
-usermod -aG docker tmail
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On bascule sous l&amp;rsquo;user tmail :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;su tmail 
-cd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si vous êtes vraiment pressé il ne vous reste plus qu&amp;rsquo;a faire:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker build -t tmail https://raw.githubusercontent.com/toorop/dockerfiles/master/tmail/Dokerfile
-docker run -d -p 587:2525 tmail
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Et voila, c&amp;rsquo;est fini vous pouvez utiliser le smtp pour envoyer vos mails.&lt;/p&gt;
-
-&lt;p&gt;Voici la configuration à utiliser:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Adresse du serveur: adresse IP publique de votre instance&lt;/li&gt;
-&lt;li&gt;Port: 587&lt;/li&gt;
-&lt;li&gt;STARTTLS&lt;/li&gt;
-&lt;li&gt;SMTPAUTH: mots de passe en clair (pensez bien à activer STARTTLS)&lt;/li&gt;
-&lt;li&gt;Utilisateur: tmail&lt;/li&gt;
-&lt;li&gt;Mot de passe: tmailpasswd&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Votre client va couiner car le certificat est auto-signé, il vous faudra ajouter une exception de sécurité.&lt;/p&gt;
-
-&lt;p&gt;Tant que j&amp;rsquo;y pense les mails sortant auront une signature DKIM. La &lt;a href=&#34;https://github.com/toorop/go-dkim&#34; target=&#34;_blank&#34; title=&#34;DKIM library for Golang&#34;&gt; lib DKIM &lt;/a&gt; étant toute fraîche je ne garantie rien, mais dans tous les cas ça ne doit pas poser de problème car la signature est signalée comme étant en test (en clair si à la vérification la signature n&amp;rsquo;est pas valide, on ne doit pas en tenir compte) .&lt;/p&gt;
-
-&lt;p&gt;Bien entendu le couple login/passwd étant le même pour tout le monde, et surtout connu de tous, je vous conseille fortement de couper ce container dés que vous avez fini les tests.&lt;/p&gt;
-
-&lt;p&gt;Si vous souhaitez aller plus loin, autrement dit si vous souhaitez garder le service SMTP, il vous faut changer le couple user/passwd.&lt;/p&gt;
-
-&lt;p&gt;Pour cela stopper et supprimer le container:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    docker stop CONTAINER_ID
-    docker rm CONTAINER_ID
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Téléchargez le &lt;em&gt;dokerfile&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://raw.githubusercontent.com/toorop/dockerfiles/master/tmail/Dokerfile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Éditez le pour modifier &lt;em&gt;tmail&lt;/em&gt; et &lt;em&gt;tmailpasswd&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;RUN . conf/tmail.cfg &amp;amp;&amp;amp; \
-./tmail user add -r USER MOT_DE_PASSE
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Et construisez/lancez le container:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker build -t tmail .
-docker run -d -p 587:2525 tmail
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Un dernier petit tips pour la route, si vous n&amp;rsquo;êtes pas adepte de Docker, pour avoir les logs de tmail:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker logs -f ID_CONTAINER
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Attention, le debug est activé, c&amp;rsquo;est très verbeux.&lt;/p&gt;
-
-&lt;p&gt;Finalement il m&amp;rsquo;en reste encore un, pour connaître l&amp;rsquo;identifiant du container:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;core@coreos ~ $ docker ps -a
-
-CONTAINER ID  IMAGE         COMMAND                
-b60c7b7cc31f  tmail:latest  &amp;quot;/home/tmail/dist/ru   
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Voila enjoy ;)&lt;/p&gt;
-</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
   </channel>

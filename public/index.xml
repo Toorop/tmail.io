@@ -1,1532 +1,331 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tmail</title>
-    <link>http://tmail.io/</link>
+    <link>https://tmail.dpp.st/</link>
     <description>Recent content on tmail</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 18 Jun 2015 19:52:01 +0200</lastBuildDate>
-    <atom:link href="http://tmail.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 18 Jun 2015 19:52:01 +0200</lastBuildDate><atom:link href="https://tmail.dpp.st/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Podcast #11: One more thing...</title>
-      <link>http://tmail.io/podcast/11/</link>
+      <link>https://tmail.dpp.st/podcast/11/</link>
       <pubDate>Thu, 18 Jun 2015 19:52:01 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/11/</guid>
-      <description>
-
-&lt;p&gt;Après un mois d&amp;rsquo;attente le voila enfin le nouvel épisode !&lt;br /&gt;
+      <guid>https://tmail.dpp.st/podcast/11/</guid>
+      <description>&lt;p&gt;Après un mois d&amp;rsquo;attente le voila enfin le nouvel épisode !&lt;br&gt;
 Cette &amp;ldquo;semaine&amp;rdquo;, je reviens sur l&amp;rsquo;implémentation des micro-services, sur les nouveautés concernant implémentation de DKIM, sur l&amp;rsquo;image Docker, sur la version raspberry pi  de tmail, je parle un peu de crypto et je termine sur&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/11&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/11&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Erratum: Dans le podcast je parle de licence BSD en fait il s&amp;rsquo;agit d&amp;rsquo;une licence MIT.&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:0d5879b806136f0fa50ee21553892511&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/microservices/&#34; title=&#34;Les micro-services et tmail&#34; target=&#34;_blank&#34;&gt;Détails sur l&#39;implementation des micro-services&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim/&#34; title=&#34;DKIM et tmail&#34; target=&#34;_blank&#34;&gt;Activer DKIM sur votre domaine&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/docker-smtp-server/&#34; title=&#34;tmail Docker image&#34; target=&#34;_blank&#34;&gt;Testez tmail avec Docker&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;http://dl.toorop.fr/softs/tmail/tmail-armv7&#34; title=&#34;tmail SMTP pour Raspberry&#34; target=&#34;_blank&#34;&gt;La version ARM de tmail pour Rasperry Pi V2&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.toorop.fr/pepper-nacl-crypto-boite-noire/&#34; title=&#34;Pepper&#34; target=&#34;_blank&#34;&gt;Pepper: chiffrez,signez, déchiffrez messages et fichiers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt; 
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34; title=&#34;Groupe de discussions tmail&#34; target=&#34;_blank&#34;&gt;Le &#34;Google group&#34; tmail&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/toorop/tmail&#34; title=&#34;tmail on github&#34; target=&#34;_blank&#34;&gt;One more thing...&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;/ul&gt;
-</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>DKIM</title>
-      <link>http://tmail.io/doc/dkim/</link>
+      <link>https://tmail.dpp.st/doc/dkim/</link>
       <pubDate>Tue, 09 Jun 2015 14:33:39 +0200</pubDate>
       
-      <guid>http://tmail.io/doc/dkim/</guid>
-      <description>
-
-&lt;p&gt;Je suppose que vous avez déjà lu des docs expliquant comment mettre en place et configurer DKIM ?&lt;br /&gt;
-Ça vous à paru compliqué, long et pénible ?&lt;br /&gt;
-Moi aussi et c&amp;rsquo;est pour ces raisons que j&amp;rsquo;ai voulu simplifier au maximum la procédure avec tmail.&lt;/p&gt;
-
-&lt;p&gt;Tout d&amp;rsquo;abord un petit rappel sur ce qu&amp;rsquo;est DKIM.&lt;/p&gt;
-
-&lt;p&gt;Pour faire court DKIM permet :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;De faire le lien entre un mail et une autorité, celle qui l&amp;rsquo;a signé.&lt;/li&gt;
-&lt;li&gt;De s&amp;rsquo;assurer de l&amp;rsquo;intégrité d&amp;rsquo;un mail, autrement dit qu&amp;rsquo;il n&amp;rsquo;a pas été modifié entre le moment où il à été signé et le moment où la signature à été vérifiée.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Attention aux légendes urbaines:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ce n&amp;rsquo;est pas parce qu&amp;rsquo;un mail ayant comme expéditeur contact@mabanque.com à une signature DKIM valide que ce mail vient de contact@mabanque.com et plus globalement qu&amp;rsquo;il n&amp;rsquo;est pas un spam ou un phishing.&lt;/li&gt;
-&lt;li&gt;Ce n&amp;rsquo;est pas parce qu’un mail à une signature DKIM non valide que c&amp;rsquo;est un spam ou un phishing.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Comme toutes les sections de cette documentation, cette page reflète ce qui est implémenté dans tmail au moment de sa rédaction. Autrement dit pensez à visiter cette page régulièrement car elle sera fréquemment mise à jour&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;support-de-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Support de DKIM&lt;/h2&gt;
-
-&lt;p&gt;Le support de DKIM à été introduit dans la version 0.0.8, mais il vous faudra au moins la 0.0.8.3 pour suivre ce tutoriel.&lt;/p&gt;
-
-&lt;p&gt;Je ne vais traiter ici que de la signature des mails sortant, si vous voulez vérifier la signature des mails entrant, je vous invite à utiliser le &lt;a href=&#34;http://tmail.io/doc/microservices/#dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;micro-service de vérification DKIM&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;activer-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Activer DKIM&lt;/h2&gt;
-
-&lt;p&gt;D&amp;rsquo;abord assurez vous d&amp;rsquo;avoir une version de tmail supérieure ou égale à la 0.0.8.3&lt;/p&gt;
-
-&lt;p&gt;Ensuite il vous suffit juste de modifier:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# DKIM sign outgoing (remote) emails
-export TMAIL_DELIVERD_DKIM_SIGN=false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;pour:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# DKIM sign outgoing (remote) emails
-export TMAIL_DELIVERD_DKIM_SIGN=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;configurer-dkim-pour-un-domaine:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Configurer DKIM pour un domaine&lt;/h2&gt;
-
-&lt;p&gt;Pour ce tuto je vais utiliser le domaine tmail.io comme exemple.&lt;/p&gt;
-
-&lt;p&gt;Pour configurer et activer DKIM pour le domaine tmail.io il vous suffit d’exécuter cette commande:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ tmail dkim enable tmail.io
-Done !
-It remains for you to create this TXT record on dkim._domainkey.tmail.io zone:
-
-v=DKIM1;k=rsa;s=email;h=sha256;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB
-
-And... That&#39;s all.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Comme indiqué, il ne vous reste plus qu&amp;rsquo;a ajouter l&amp;rsquo;enregistrement TXT fournis aux DNS du domaine et c&amp;rsquo;est fini. Tous les mails ayant comme domaine d&amp;rsquo;expédition tmail.io seront dés lors signés.&lt;/p&gt;
-
-&lt;p&gt;Je vous avez dis que ce serait simple et rapide ;)&lt;/p&gt;
-
-&lt;p&gt;Vous ne savez pas trop comment crée cet enregistrement au niveau de votre serveur DNS ?&lt;/p&gt;
-
-&lt;p&gt;Si vous utilisez &lt;em&gt;Bind&lt;/em&gt;, ajoutez dans la zone du domaine:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;dkim._domainkey.tmail.io IN TXT &amp;quot;v=DKIM1;k=rsa;s=email;h=sha256;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB&amp;quot; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pensez aussi à incrémenter le serial.&lt;/p&gt;
-
-&lt;p&gt;Si vous utilisé &lt;em&gt;djbdns&lt;/em&gt; ou un dérivé (pour un ttl de 300 secondes):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&#39;dkim._domainkey.tmail.io:v=DKIM1;k=rsa;s=email;h=sha256;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB:300::
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;quelques-commandes-utiles:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Quelques commandes utiles&lt;/h2&gt;
-
-&lt;h3 id=&#34;désactiver-dkim:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Désactiver DKIM&lt;/h3&gt;
-
-&lt;p&gt;Il vous suffit d&amp;rsquo;éxecuter la commande:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    $ tmail dkim disable tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Attention en exécutant cette commande toute la configuration DKIM du domaine va être supprimée et donc entre autre la clé privée qui permet de signer le message. Donc si vous souhaitez réactiver le domaine ultérieurement il vous faudra penser à mettre à jour votre enregistrement DNS avec la nouvelle clé publique.&lt;/p&gt;
-
-&lt;h3 id=&#34;obtenir-la-clé-publique:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Obtenir la clé publique&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ tmail dkim getpubkey tmail.io
-
-MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;obtenir-la-clé-privée:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Obtenir la clé privée&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ tmail dkim getprivkey tmail.io
-
------BEGIN RSA PRIVATE KEY-----
-MIICWwIBAAKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6
-CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lK
-SJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB
-AoGALETIBpgVZZVkgD8uV5YKzNCD0ilbjvz4fUi3uPHliZ/5lyrvZY7DOv9N4Uj+
-99v4lAv/7eIaGMyCPsCPzSy7SPDgf00yPX/LO4k5rMZv292zLe4bQO4PPIuLcy/q
-4yzkhMZqZVBSCcUMh8fNUbqGC84R2QFCH3WiW1P8fZgmfUECQQD8Ges5rOopvLkS
-Ee2Qmu17CYmo8Fh/zcro5guakbifYTdoaNNYYCg35S40HngCHbOvNBAIMaNbQxPR
-W41Hxv05AkEA3+bw7zGfO7e2ZLUqgjsisGWVFWmDSdYnxjuetmfORumzfpjxB8JO
-HW6YESrQVQTY6P5lwCdZLhs5YDKsKtatxQJBAJEY+eIAO+Y50OstlmYcRYMDQlAR
-xV4JvDe/7/3O0UwqUBGwA7Rh48QIDEfDIZ9WKQ02EeQlbbghK07cOryNM0ECQEcT
-RIBpvCZ01w15BRl6NDTSylSVvft+Y/nliyhUI4MXRMd3PWw9HhbxuIwajy+t7j1o
-JFyvIPwl4DzNWSHwLBECPzFI7mKE2r9aDMP6nD+srX2Dy/xhqngveiiacPipaTAT
-R+h7IZIHP3Of7G9J7enMvg0L6bkhEFkQFkqC+Ns5mA==
------END RSA PRIVATE KEY-----
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;obtenir-l-enregistrement-dns-txt:c99c24afa10a30bd9bfec7a5439680ab&#34;&gt;Obtenir l&amp;rsquo;enregistrement DNS TXT&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ dist/tmail dkim getdnsrecord tmail.io
-
-dkim._domainkey.tmail.io zone:
-
-v=DKIM1;k=rsa;s=email;h=sha256;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcfgB0bQfGnuDJKtB2/9oT6NIs2WTnnNfFMGMGEBR1TyuGhya6CjXPaOJSZKFsHWz98uzaaXNGIXIJKPIkboSmnVg4X9ezp7JeqbyWf/T3Bi1QL7lKSJLWrtHzEaDAchitFwH+y8ByCQb6nQO8/ptCeFJZg+yDv/8uYddovOZh3QIDAQAB
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/dkim/</guid>
+      <description>&lt;p&gt;Je suppose que vous avez déjà lu des docs expliquant comment mettre en place et configurer DKIM ?&lt;br&gt;
+Ça vous à paru compliqué, long et pénible ?&lt;br&gt;
+Moi aussi et c&amp;rsquo;est pour ces raisons que j&amp;rsquo;ai voulu simplifier au maximum la procédure avec tmail.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Micro-services</title>
-      <link>http://tmail.io/doc/microservices/</link>
+      <link>https://tmail.dpp.st/doc/microservices/</link>
       <pubDate>Thu, 28 May 2015 10:24:01 +0200</pubDate>
       
-      <guid>http://tmail.io/doc/microservices/</guid>
-      <description>
-
-&lt;p&gt;Comme un serveur SMTP peut avoir une infinité de fonctionnalités et que l&amp;rsquo;on ne peut les implémenter toutes, tmail dispose d&amp;rsquo;un systéme permettant d&amp;rsquo;ajouter des fonctionalités par le biais de micro-services servis via HTTP.&lt;/p&gt;
-
-&lt;p&gt;Pourquoi des microservices pour étendre tmail ?&lt;/p&gt;
-
-&lt;p&gt;Voyons les contraintes liées à ce besoin:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Fiable: est il vraiment nécessaire de préciser la nécessité de ce point ? ;)&lt;/li&gt;
-&lt;li&gt;Facile: n&amp;rsquo;importe qui, à condition d&amp;rsquo;avoir quelques base en programmation, doit être en mesure d&amp;rsquo;étendre tmail pour l&amp;rsquo;adapter à ses besoins.&lt;/li&gt;
-&lt;li&gt;Multi language: un langage de programmation spécifique ne doit pas être  imposé pour implémenter une nouvelle fonctionnalité.&lt;/li&gt;
-&lt;li&gt;Scalable: on doit pouvoir adapter simplement et rapidement les ressources aux besoins.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Comment y répondre:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;De part leur indépendance vis à vis du logiciel client, les micro-services ne viendront pas impacter tmail en cas de problème. En clair si un micro-service plante, ca ne va pas faire planter tmail.&lt;/li&gt;
-&lt;li&gt;HTTP est un protocole répandu, fiable et maîtrisé par de nombreux développeur, il est tout à fait adapté comme protocole de communication entre le client (tmail) et les micro-services. De plus il est facilement scalable.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://developers.google.com/protocol-buffers/&#34; target=&#34;_blank&#34; title=&#34;Protocol Buffers&#34;&gt; Protocol Buffers &lt;/a&gt; est un format de sérialisation très performant, il permet un contrôle fin sur la structure et le type des donnés échangées, des implémentations existent dans les langages les plus courant,.. bref il semble le parfait candidat pour ce qui concerne le format d&amp;rsquo;échange de données..&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;sommaire:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Sommaire&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#principes:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Principes de base &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#configuration:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Configuration &lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#parametres:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Paramètres&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#protobuf:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure des messages &lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#smtpdreponse:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdResponse &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#hooks:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Points d&amp;rsquo;entré - Hooks&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#smtpdnewclient:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;smtpd: initialisation de la connexion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#smtpdrcptto:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;smtpd: commande RCPT TO&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#smtpddata:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;smtpd: commande DATA&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#smtpdbeforequeuing:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;smtpd: modification de l&amp;rsquo;enveloppe&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#smtpdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;smtpd: télémétrie&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#deliverdgetroutes:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;deliverd: routage dynamique&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#deliverdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;deliverd: télémetrie&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#exempleimpl:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Exemples d&amp;rsquo;implémentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#msas:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Micro-Services As Service&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#greysmtpd:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Grey SMTP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Vérification DKIM&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;principes:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Principes de base&lt;/h2&gt;
-
-&lt;p&gt;A différentes étapes de la &amp;ldquo;chaine SMTP&amp;rdquo;, tmail va vérifier si des micro-services sont configurées et le cas échéant il va les interroger.&lt;/p&gt;
-
-&lt;p&gt;Prenons un exemple concret, si un micro-service est configuré pour être interrogé lors de l’établissement d&amp;rsquo;une connexion avec un nouveau client SMTP, tmail va sérialiser l&amp;rsquo;identifiant de la sessions SMTP et l&amp;rsquo;adresse IP du client distant et va les transmettre via une requête HTTP POST vers le micro service.&lt;/p&gt;
-
-&lt;p&gt;Il va attendre (ou pas) la réponse et en fonction de cette dernière va agir en conséquence.&lt;/p&gt;
-
-&lt;p&gt;La tache du micro-service pourrait être, par exemple, de vérifier si l&amp;rsquo;IP est blacklistée sur une RBL, et si c&amp;rsquo;est le cas alors le micro-service demanderait à tmail de refuser la connexion. (ce qui en passant n&amp;rsquo;est pas une bonne idée, mais bon, c&amp;rsquo;est pour l&amp;rsquo;exemple ;) )&lt;/p&gt;
-
-&lt;h2 id=&#34;configuration:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Configuration&lt;/h2&gt;
-
-&lt;p&gt;Pour chaque étape où des micro-services sont appelables, vous allez trouver dans le fichier de configuration une variable de ce type :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Microservices
-# On new incomming SMTP connection
-TMAIL_MS_SMTPD_NEWCLIENT=&amp;quot;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Un micro-service est défini par une URL:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;https://ms.tmail.io/smtpdnewclient?param1=x&amp;amp;param2=y
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ms.tmail.io/smtpdnewclient:&#34;&gt;https://ms.tmail.io/smtpdnewclient:&lt;/a&gt; l&amp;rsquo;URL vers laquelle sera posté les données sérialisées.&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;param1=x&amp;amp;param2=y&amp;rdquo; les paramètres de configuration de ce micro-service (voir la liste plus bas).
-&lt;strong&gt;Attention&lt;/strong&gt; ces paramètres ne seront pas transmis au micro-services.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Il est possible, d&amp;rsquo;appeler plusieurs micro-services en séparant les URL d&amp;rsquo;un point virgule.&lt;/p&gt;
-
-&lt;p&gt;Par exemple :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;TMAIL_MS_SMTPD_NEWCLIENT=&amp;quot;https://ms.tmail.io/check-spamcop?timeout=15; https://ms.tmail.io/stats?fireandforget=true&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Dans ce cas tmail va appeler &lt;a href=&#34;https://ms.tmail.io/check-spamcop&#34;&gt;https://ms.tmail.io/check-spamcop&lt;/a&gt; et ensuite &lt;a href=&#34;https://ms.tmail.io/stats&#34;&gt;https://ms.tmail.io/stats&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;parametres:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Paramètres&lt;/h3&gt;
-
-&lt;p&gt;Les paramètres actuellement reconnus par tmail dans les URL sont:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;timeout&lt;/strong&gt; (default: 30): permet d&amp;rsquo;indiquer un timeout (en seconde) sur un appel. Par défaut il est de 30 secondes. Au dela de ce delais, tmail va considérer qu&amp;rsquo;il ne peut joindre le micro-service.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;onfailure&lt;/strong&gt; (default: continue): permet de spécifier une action si un appel échoue. Globalement un appel échoue si le timeout est déclenché ou si le code de retour HTTP indique une erreur (4xx ou 5xx).
-Les valeurs possibles pour ce paramètre sont:
-
-&lt;ul&gt;
-&lt;li&gt;continue: On continue. Le traitement continue normalement.&lt;/li&gt;
-&lt;li&gt;tempfail: Erreur temporaire: si une erreur à lieu pendant une transaction SMTP entrante, une erreur temporaire (4xx) est retournée au client. Si c&amp;rsquo;est pendant la livraison d&amp;rsquo;un mail ou lors d&amp;rsquo;une transaction sortante le mail est remis en queue et sera représenté.&lt;/li&gt;
-&lt;li&gt;permfail: Erreur permanente: si une erreur à lieu pendant une transaction SMTP entrante une erreur permanente (5xx) est retournée au client. Si c&amp;rsquo;est pendant la livraison d&amp;rsquo;un mail ou lors d&amp;rsquo;une transaction sortante le mail est bouncé.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;fireandforget&lt;/strong&gt; (default false): si ce paramètre est défini à &lt;strong&gt;true&lt;/strong&gt;, tmail va exécuter la requête dans un process parallèle et ne va pas tenir compte de la réponse. Autrement dit ce genre de traitement n&amp;rsquo;a aucune incidence sur le traitement réalisé par tmail. Attention cette option n&amp;rsquo;est pas disponible pour tous les hooks.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;protobuf:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Struture des messages échangés&lt;/h2&gt;
-
-&lt;p&gt;Vous trouverez le fichier proto ici: &lt;a href=&#34;https://github.com/toorop/tmail/blob/master/msproto/proto/tmail.proto&#34; target=&#34;_blank&#34; title=&#34;tmail proto&#34;&gt; &lt;a href=&#34;https://github.com/toorop/tmail/blob/master/msproto/proto/tmail.proto&#34;&gt;https://github.com/toorop/tmail/blob/master/msproto/proto/tmail.proto&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Je ne peux que vous encourager à jeter un oeil sur ce fichier pour avoir un idée de la struture des messages et ce même si vous ne comptez pas developper de micro-services.&lt;/p&gt;
-
-&lt;h2 id=&#34;hooks:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Étapes &amp;ldquo;hookables&amp;rdquo;&lt;/h2&gt;
-
-&lt;p&gt;Voici la liste des points (hook) où il actuellement  possible d&amp;rsquo;étendre tmail avec pour chacun d&amp;rsquo;entre eux&lt;/p&gt;
-
-&lt;h3 id=&#34;smtpdnewclient:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdNewClient: Établissement d&amp;rsquo;une nouvelle connexion SMTP entrante&lt;/h3&gt;
-
-&lt;p&gt;Le point d&amp;rsquo;entré dans la configuration est :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;TMAIL_MS_SMTPD_NEWCLIENT=&amp;quot;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;structure-du-message-transmis-au-micro-service:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure du message transmis au micro service&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpdNewClientMsg {
-    required string session_id = 1;
-    required string remote_ip = 2;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;session_id&lt;/strong&gt; (requis): l&amp;rsquo;identifiant de la session SMTP qui traite cette transaction. Cet identifiant va être transmis dans tous les appels qui auront lieu durant une même transaction SMTP, il va donc permettre de suivre cette transaction, coté microservice, et de lier les requêtes.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;remote_ip&lt;/strong&gt; (requis): contient l&amp;rsquo;IP du client.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;structure-de-la-réponse-attendue-par-tmail:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure de la réponse attendue par tmail&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpdNewClientResponse {
-    required string session_id = 1;
-    optional SmtpResponse smtp_response = 2;
-    optional bool drop_connection = 3;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;session_id&lt;/strong&gt;: l&amp;rsquo;identifiant de la session.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;smtp_response&lt;/strong&gt;: un message de type SmtpResponse qui va permettre de definir, si besoin, la réponse SMTP que tmail doit retourner au client. Vous n&amp;rsquo;avez pas à sytématiquement renseigner cette structure, faites le uniquement si vous avez besoin de retourner un message spécial au client et faite le en ayant bien conscience des conséquences. Vous trouverez la définition de cette structure un peu plus bas.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;drop_connection&lt;/strong&gt;: un boolean qui si il est présent et positionné a &lt;em&gt;true&lt;/em&gt; va demander a tmail de terminer dés que possible la transaction. N&amp;rsquo;abusez pas de cette option, couper une transaction SMTP à l&amp;rsquo;initiative du serveur n&amp;rsquo;est pas trés RFC compliant.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Structure du message SmtpResponse:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpResponse {
-    required int32 code = 1;            // SMTP code (ignored if eq 0)
-    required string msg = 2;            // SMTP message (ignored if eq &amp;quot;&amp;quot;)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;code&lt;/strong&gt;: le code SMTP à retourner au client.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;msg&lt;/strong&gt;: le message à retourner au client.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Vous trouverez cette structure dans de nombreux hook smtpd.&lt;/p&gt;
-
-&lt;h3 id=&#34;smtpdrcptto:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdRcptto: Appelé après la commande SMTP RCPT TO&lt;/h3&gt;
-
-&lt;p&gt;Le point d&amp;rsquo;entré dans la configuration est :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_MS_SMTPD_RTCPTTO=&amp;quot;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;structure-du-message-transmis-au-micro-service-1:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure du message transmis au micro service&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpdRcptToQuery {
-    required string session_id = 1;
-    required string rcptto = 2;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;rcptto&lt;/strong&gt; (requis): le rcptto sous forme d&amp;rsquo;adresse email.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;structure-de-la-réponse-attendue-par-tmail-1:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure de la réponse attendue par tmail&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpdRcptToResponse {
-    required string session_id = 1;
-    optional SmtpResponse smtp_response = 2;
-    optional bool drop_connection = 3;
-    optional bool relay_granted = 4;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;relay_granted&lt;/strong&gt;: si renseignée permet d&amp;rsquo;authoriser ou pas le relai pour ce destinataire.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;smtpddata:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdData: Après la commande SMTP DATA&lt;/h3&gt;
-
-&lt;p&gt;Le point d&amp;rsquo;entré dans la configuration est :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_MS_SMTPD_DATA=&amp;quot;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;structure-du-message-transmis-au-micro-service-2:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure du message transmis au micro service&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpdDataQuery {
-    required string session_id = 1;
-    required string data_link = 2;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;data_link&lt;/strong&gt; (requis): Un lien HTTP depuis lequel le micro-service pourra télécharger le mail transmis à tmail lors de la commande DATA.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;structure-de-la-réponse-attendue-par-tmail-2:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure de la réponse attendue par tmail&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpdDataResponse {
-    required string session_id = 1;
-    optional SmtpResponse smtp_response = 2;
-    optional string data_link = 3;
-    optional bool drop_connection = 4;
-    repeated string extra_headers = 5;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;data_link&lt;/strong&gt; (optionnel): POas utilisé pour le moment&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;extra_headers&lt;/strong&gt; (optionnel): d&amp;rsquo;éventuels headers à ajouter.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;smtpdbeforequeuing:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdBeforeQueueing: Avant la mise en queue du message, permet la modification de l&amp;rsquo;enveloppe.&lt;/h3&gt;
-
-&lt;p&gt;Ce hook va permettre de modifier l&amp;rsquo;enveloppe du message et donc l&amp;rsquo;expéditeur et le(s) destinataire(s).
-Attention, le mail ne va pas être modifié, c&amp;rsquo;est juste son enveloppe qui va l&amp;rsquo;être. Autrement dit si vous modfifiez l&amp;rsquo;expéditeur d&amp;rsquo;origine de user@example.com vers user2@example.com, le header From sera toujours &amp;lsquo;From: user@ddomaine.com&amp;rsquo;.&lt;/p&gt;
-
-&lt;h4 id=&#34;stucture-du-message-transmis-au-microservice:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Stucture du message transmis au microservice&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpdBeforeQueueing {
-    required string session_id = 1;
-    required string mail_from = 2;
-    repeated string rcpt_to = 3;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;session_id&lt;/strong&gt;: l&amp;rsquo;identifiant de la session SMTP.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;mail_from&lt;/strong&gt;: l&amp;rsquo;adresse email de l&amp;rsquo;expéditeur.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;rcpt_to&lt;/strong&gt;: la liste des adresses des destinataires.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;structure-de-la-réponse-attendue-par-tmail-3:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure de la réponse attendue par tmail&lt;/h4&gt;
-
-&lt;p&gt;Le seul champs requis est session_id, les autres sont facultatifs.
-Si vous modifiez l&amp;rsquo;expéditeur ou le(s) destinaitaire(s), assurez vous d&amp;rsquo;utiliser des adresses email valides. un vérification va être faite et uniquement les chaines représentant des adresses emails valides seront prise en compte.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpdBeforeQueueingResponse {
-    required string session_id = 1;
-    optional string mail_from  = 2;
-    repeated string rcpt_to = 3;
-    optional SmtpResponse smtp_response = 4;
-    optional bool drop_connection = 5;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;session_id&lt;/strong&gt;: l&amp;rsquo;identifiant de la session SMTP.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;mail_from&lt;/strong&gt;: une chaine représentant l&amp;rsquo;adresse de l&amp;rsquo;expéditeur.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;rcpt_to&lt;/strong&gt;: la liste de adresses des destinataires.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;smtp_response&lt;/strong&gt;: la réponse SMTP à retourner au client si le traitement ne suit pas son cours normal.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;drop_connection&lt;/strong&gt;: si la conenxion doit être intrrompu.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Attention, assurez vous de savoir ce que vous faites avant d&amp;rsquo;utiliser les deux dernieres options.&lt;/p&gt;
-
-&lt;h3 id=&#34;smtpdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SmtpdTelemetry&lt;/h3&gt;
-
-&lt;p&gt;En utilisant ce hook votre microservice va recueillir la télémetrie relative aux processus &lt;em&gt;smtpd&lt;/em&gt;.
-Dans un souci de performance, le message contenant la télémétrie est envoyé par tmail via une go routine (un processus parallélisé). tmail n&amp;rsquo;attend pas de réponse à ce message. C&amp;rsquo;est du &amp;ldquo;fire and forget&amp;rdquo;.&lt;/p&gt;
-
-&lt;h4 id=&#34;structure-du-message-envoyé:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure du message envoyé&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message SmtpdTelemetry {
-    required string server_id = 1;
-    required string session_id = 2;
-    required string remote_address = 3;
-    required bool success = 4;
-    required uint32 smtp_response_code = 5;
-    required string env_mailfrom = 6;
-    repeated string env_rcptto = 7;
-    required uint32 message_size = 8;
-    required bool is_tls = 9;
-    required uint32 concurrency = 10;
-    required uint32 exec_time = 11;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;server_id&lt;/strong&gt;: un identifiant du serveur. Par defaut c&amp;rsquo;est la variable &lt;em&gt;me&lt;/em&gt; renseignée par le fichier de configuration.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;session_id&lt;/strong&gt;: l&amp;rsquo;identifiant de la session SMTP.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;remote_adresse&lt;/strong&gt;: l&amp;rsquo;adresse du serveur qui est à l&amp;rsquo;origine de la transaction. Sous la forme IP:PORT.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;succes&lt;/strong&gt;: un booleén indiquant si la transaction à réussi ou pas.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;smtp_response_code&lt;/strong&gt;: le code SMTP qui à été retourné au client.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;env_mailfrom&lt;/strong&gt;: l&amp;rsquo;adresse de l&amp;rsquo;expéditeur.&lt;/li&gt;
-&lt;li&gt;**env_rcptto: les adresses des destinataires.&lt;/li&gt;
-&lt;li&gt;** message_size**: la taille totale du message (headers compris) au moment de sa transmission (c&amp;rsquo;est à dire sans les éventuels headers ajoutés par tmail).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;is_tls&lt;/strong&gt;: indique si la connexion à été sécurisée par TLS ou SSL.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;concurency&lt;/strong&gt;: représente le nombre de transaction concurentes au moment de la transcations.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;exec_time&lt;/strong&gt;: durée de la transaction entre la connection du client et la derniére réponse qui lui est envoyée.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;deliverdgetroutes:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;DeliverdGetRoutes: Appelé par deliverd pour obtenir le routage d&amp;rsquo;un mail&lt;/h3&gt;
-
-&lt;p&gt;Ce &lt;em&gt;hook&lt;/em&gt; va vous permettre de faire du routage dynamique, d&amp;rsquo;adapter la route que doit prendre un message à un instant t en fonction de paramètres qui vous sont propres.&lt;/p&gt;
-
-&lt;p&gt;Le point d&amp;rsquo;entré dans la configuration est :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_MS_DELIVERD_GET_ROUTES=&amp;quot;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;structure-du-message-transmis-au-micro-service-3:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure du message transmis au micro service&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message DeliverdGetRoutesQuery {
-    required string deliverd_id = 1;
-    required string mailfrom = 2;
-    required string rcptto =  3;
-    required string authentified_user = 4;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;deliverd_id&lt;/strong&gt;: l&amp;rsquo;identifiant unique du process deliverd.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;mailfrom&lt;/strong&gt;: l&amp;rsquo;adresse email de l&amp;rsquo;expéditeur.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;rcptto&lt;/strong&gt;: l&amp;rsquo;adresse email du destinataire.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;authentified_user&lt;/strong&gt;: si l&amp;rsquo;utilisateur qui a transmis le mail via SMTP s&amp;rsquo;est authentifié, alors cette variable contient son login.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;structure-de-la-réponse-attendue-par-tmail-4:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Structure de la réponse attendue par tmail&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;message DeliverdGetRoutesResponse {
-    message Route {
-        required string remote_host = 1;
-        required int64 remote_port = 2;
-        optional string local_ip = 3;
-        optional int32 priority = 4;
-        optional string smtpauth_login = 5;
-        optional string smtpauth_password = 6;
-    }
-    required string deliverd_id = 1;
-    repeated Route routes = 2;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;deliverd_id&lt;/strong&gt;: l&amp;rsquo;identifiant unique correspondant au process deliverd (transmis par tmail lors de la requète)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;routes&lt;/strong&gt;: la ou les routes à utiliser pour ce mail.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Voici les définitions de la structure &lt;em&gt;Routes&lt;/em&gt;:
-* &lt;strong&gt;remote_host&lt;/strong&gt;: L&amp;rsquo;adresse IP ou le nom d&amp;rsquo;hôte du serveur à qui tmail doit transmettre le mail.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;remote_port&lt;/strong&gt;: le port du serveur vers qui tmail doit transmettre le mail.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;local_ip&lt;/strong&gt;: l&amp;rsquo;adresse IP locale que tmail doit utiliser pour établir la connexion.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;priority&lt;/strong&gt;: la priorité de cette route. Plus le chiffre est petit plus la priorité est élevée. Dans le cas où plusieurs routes auraient la même priorité, elles seront sélectionnée aléatoirement par tmail, ce qui permet de faire simplement du round-robin.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;smtpauth_login&lt;/strong&gt;: si le serveur distant requière une authentification, cette variable permet de renseigner le login.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;smtpaut_passwd&lt;/strong&gt;: si le serveur distant requière une authentification, cette variable permet de renseigner le mot de passe.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;deliverdtelemetry:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;DeliverdTelemetry: envoit la télémétrie des processus deliverd&lt;/h2&gt;
-
-&lt;p&gt;Fonctionne sur les mêmes principes que SmtpdTelemetry, à savoir, le message est généré et envoyé via une go routine, tmail n&amp;rsquo;attend pas de réponse.&lt;/p&gt;
-
-&lt;h3 id=&#34;stucture-du-message-envoyé:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Stucture du message envoyé&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;message DeliverdTelemetry {
-    required string server_id = 1;
-    required string deliverd_id = 2;
-    required bool success = 3; // status of delivery (success or not)
-    required uint32 exec_time = 4; // in nanosecond
-    required uint32 messages_in_queue = 5;
-    required uint32 concurrency_remote = 6;
-    required uint32 concurrency_local = 7;
-    required string from = 8;
-    required string to = 9;
-    required bool is_local = 10;
-    optional string local_address = 11;
-    optional string remote_address =12;
-    optional uint32 remote_smtp_response_code = 13; // 250, 420, 550,...
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Avec:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;server_id&lt;/strong&gt;: identifiant du serveur qui envoit le message (config.me par defaut).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;deliverd_id&lt;/strong&gt;: identifiant de la session deliverd.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;success&lt;/strong&gt;: status de la tache.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;exec_time&lt;/strong&gt;: temps d&amp;rsquo;exécution.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;message_in_queue&lt;/strong&gt;: nombre de message en queue au moment de la session.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;concurrency_remote&lt;/strong&gt;: nombre de processus deliverd concurrents pour des livraisons distantes.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;concurrency_local&lt;/strong&gt;: nombre de processus deliverd concurrents pour des livraisons locales.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;from&lt;/strong&gt;: expéditeur du message traité par ce processus deliverd.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;to&lt;/strong&gt;: destinataire du message traité par ce processus deliverd.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;is_local&lt;/strong&gt;: le processus est pour une livraison locale ou distante ?&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;local_address&lt;/strong&gt;: adresse locale sous la forme iP:PORT.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;remote_address&lt;/strong&gt;: addresse distante (dans le cadre d&amp;rsquo;une livraison de type &lt;em&gt;remote&lt;/em&gt;) sous la forme IP:PORT.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;remote_smtp_response_code&lt;/strong&gt;: code SMTP retourné par le serveur distant dans le cadre d&amp;rsquo;un livraison &lt;em&gt;remote&lt;/em&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;exempleimpl:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;Exemples d&amp;rsquo;implémentation&lt;/h2&gt;
-
-&lt;p&gt;Vous trouverez sur &lt;a href=&#34;https://github.com/toorop/tmail-ms-server&#34;&gt;https://github.com/toorop/tmail-ms-server&lt;/a&gt; différent exemples de micro-services pour tmail.
-N&amp;rsquo;hésitez pas à participer à ce repo en proposant vos propres exemples. Si vous souhaitez publier un exemple dans un langage qui n&amp;rsquo;a pas encore de dossier spécifique, créez le à la racine du repo.&lt;/p&gt;
-
-&lt;h2 id=&#34;msas:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;μsas: Micro-Services As Services&lt;/h2&gt;
-
-&lt;p&gt;Un des autres intérêts de cette architecture est qu&amp;rsquo;il est possible de proposer des &lt;strong&gt;micro-services as service&lt;/strong&gt;, autrement dit de mettre à dispositions des utilisateurs de tmail des micro-services que l&amp;rsquo;on a codé et que l&amp;rsquo;on héberge.&lt;/p&gt;
-
-&lt;p&gt;C&amp;rsquo;est ce que je vous propose ici, l&amp;rsquo;usage en est totalement libre et gratuit.&lt;/p&gt;
-
-&lt;p&gt;Le code de ses micro-services est disponible ici: &lt;a href=&#34;https://github.com/toorop/tmail-ms-server/tree/master/golang/ms.tmail.io&#34;&gt;https://github.com/toorop/tmail-ms-server/tree/master/golang/ms.tmail.io&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;greysmtpd:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SMTPD_NEWCLIENT: GreySmtpd&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;URL:&lt;/strong&gt; &lt;a href=&#34;https://ms.tmail.io/smtpdnewclientgreysmtpd&#34;&gt;https://ms.tmail.io/smtpdnewclientgreysmtpd&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Ce service va accepter ou refuser temporairement la connexion en fonction de la réputation de l&amp;rsquo;IP du client.&lt;/p&gt;
-
-&lt;p&gt;Un client SMTP légitime va tenter à plusieurs reprises de transmettre un mail en cas d&amp;rsquo;échec des tentatives précédentes (si le serveur à retourné une erreur temporaire), l&amp;rsquo;idée ici est donc d&amp;rsquo;exploiter cette fonctionnalité pour écarter un maximum de spambot.&lt;/p&gt;
-
-&lt;p&gt;Actuellement l&amp;rsquo;implémentation est la suivante:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Si une IP est suspecte (pas de reverse || listée sur spamcop):
-
-&lt;ul&gt;
-&lt;li&gt;Si elle n&amp;rsquo;est pas connue du micro-service, ou si elle est connue depuis moins de 2 heures, une erreur temporaire est retournée.&lt;/li&gt;
-&lt;li&gt;Si elle est connue depuis plus de 3 heures et moins de 24 heures, on continue.&lt;/li&gt;
-&lt;li&gt;Si elle connue depuis plus de 24 heures, l&amp;rsquo;horodatage est réinitialisé, le micro-service l&amp;rsquo;oubli, et une erreur temporaire est retournée.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;dkimverif:24c62ab0ae8d6139f10d3d52cfeca2af&#34;&gt;SMTPD_DATA: DKIM verification&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;URL:&lt;/strong&gt; &lt;a href=&#34;https://ms.tmail.io/smtpddatadkimverif&#34;&gt;https://ms.tmail.io/smtpddatadkimverif&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Ce micro-service va vérifier la signature DKIM du mail, si le mail en a une, et va ajouter un header Authentication-Results.&lt;/p&gt;
-
-&lt;p&gt;Par exemple en cas de succès:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Authentication-Results: dkim=success
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;En cas d&amp;rsquo;échec:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Authentication-Results: dkim=permfail testing body hash did not verify
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/microservices/</guid>
+      <description>&lt;p&gt;Comme un serveur SMTP peut avoir une infinité de fonctionnalités et que l&amp;rsquo;on ne peut les implémenter toutes, tmail dispose d&amp;rsquo;un systéme permettant d&amp;rsquo;ajouter des fonctionalités par le biais de micro-services servis via HTTP.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>tmail &#43; Docker = un SMTP déployé en moins de 5 minutes </title>
-      <link>http://tmail.io/doc/docker-smtp-server/</link>
+      <link>https://tmail.dpp.st/doc/docker-smtp-server/</link>
       <pubDate>Tue, 26 May 2015 18:23:15 +0200</pubDate>
       
-      <guid>http://tmail.io/doc/docker-smtp-server/</guid>
+      <guid>https://tmail.dpp.st/doc/docker-smtp-server/</guid>
       <description>&lt;p&gt;Ça vous dirait de tester tmail mais vous vous dites que vous n&amp;rsquo;avez pas le temps et/ou pas de serveur de disponible ?&lt;/p&gt;
-
 &lt;p&gt;Vous aimeriez avoir votre relais SMTP mais vous vous dites que c&amp;rsquo;est trop compliqué à mettre en place ?&lt;/p&gt;
-
 &lt;p&gt;Pfff balayez moi toute ces excuses bidons, dans ce tuto je vais vous montrer comment déployer tmail en tant que relais SMTP en quelques minutes et pour quelques centimes d&amp;rsquo;euro (voir rien du tout si vous êtes client OVH).&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&#34;center&#34; src=&#34;http://tmail.io/img/amazing.png&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;
-Avant toute chose, tmail est en plein développement, donc considérez ce tuto comme un &lt;a href=&#34;http://fr.wikipedia.org/wiki/Preuve_de_concept&#34; target=&#34;_blank&#34; title=&#34;preuve de concept&#34;&gt; poc &lt;/a&gt; et n&amp;rsquo;utilisez pas le SMTP pour des choses importantes, il y à forcement des bugs qui traînent.&lt;/p&gt;
-
-&lt;p&gt;Bien commençons par le commencement, il va nous falloir un serveur, nos amis de chez OVH ont eu la bonne idée de sortir &lt;a href=&#34;http://www.ovh.com/fr/cloud/&#34; target=&#34;_blank&#34; title=&#34;cloud OVH&#34;&gt; leur offre cloud &lt;/a&gt; cette semaine, ne cherchons pas plus loin.&lt;/p&gt;
-
-&lt;p&gt;A moins que vous ayez des millions de mails à envoyer par jour leur offre KS1 sera largement suffisante et à 0.008 € de l&amp;rsquo;heure elle ne devrait pas vous ruiner. On va donc lancer une instance de ce type avec Ubuntu 14.04 comme distribution.&lt;/p&gt;
-
-&lt;p&gt;Comptez jusqu’à 30:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;30 29 28 27 26 25 24 23 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ça y est ?&lt;br /&gt;
-L&amp;rsquo;instance est donc prête, on s&amp;rsquo;y connecte:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ssh admin@IP
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On passe en root et on met le système à jour:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo su
-apt-get update &amp;amp;&amp;amp; apt-get -y upgrade
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On installe Docker:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget -qO- https://get.docker.com/ | sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On ajoute un utilisateur &lt;em&gt;tmail&lt;/em&gt; qui va avoir le droit d&amp;rsquo;utiliser Docker:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adduser -q --disabled-password  tmail   
-usermod -aG docker tmail
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On bascule sous l&amp;rsquo;user tmail :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;su tmail 
-cd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Si vous êtes vraiment pressé il ne vous reste plus qu&amp;rsquo;a faire:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker build -t tmail https://raw.githubusercontent.com/toorop/dockerfiles/master/tmail/Dokerfile
-docker run -d -p 587:2525 tmail
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Et voila, c&amp;rsquo;est fini vous pouvez utiliser le smtp pour envoyer vos mails.&lt;/p&gt;
-
-&lt;p&gt;Voici la configuration à utiliser:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Adresse du serveur: adresse IP publique de votre instance&lt;/li&gt;
-&lt;li&gt;Port: 587&lt;/li&gt;
-&lt;li&gt;STARTTLS&lt;/li&gt;
-&lt;li&gt;SMTPAUTH: mots de passe en clair (pensez bien à activer STARTTLS)&lt;/li&gt;
-&lt;li&gt;Utilisateur: tmail&lt;/li&gt;
-&lt;li&gt;Mot de passe: tmailpasswd&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Votre client va couiner car le certificat est auto-signé, il vous faudra ajouter une exception de sécurité.&lt;/p&gt;
-
-&lt;p&gt;Tant que j&amp;rsquo;y pense les mails sortant auront une signature DKIM. La &lt;a href=&#34;https://github.com/toorop/go-dkim&#34; target=&#34;_blank&#34; title=&#34;DKIM library for Golang&#34;&gt; lib DKIM &lt;/a&gt; étant toute fraîche je ne garantie rien, mais dans tous les cas ça ne doit pas poser de problème car la signature est signalée comme étant en test (en clair si à la vérification la signature n&amp;rsquo;est pas valide, on ne doit pas en tenir compte) .&lt;/p&gt;
-
-&lt;p&gt;Bien entendu le couple login/passwd étant le même pour tout le monde, et surtout connu de tous, je vous conseille fortement de couper ce container dés que vous avez fini les tests.&lt;/p&gt;
-
-&lt;p&gt;Si vous souhaitez aller plus loin, autrement dit si vous souhaitez garder le service SMTP, il vous faut changer le couple user/passwd.&lt;/p&gt;
-
-&lt;p&gt;Pour cela stopper et supprimer le container:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    docker stop CONTAINER_ID
-    docker rm CONTAINER_ID
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Téléchargez le &lt;em&gt;dokerfile&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://raw.githubusercontent.com/toorop/dockerfiles/master/tmail/Dokerfile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Éditez le pour modifier &lt;em&gt;tmail&lt;/em&gt; et &lt;em&gt;tmailpasswd&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;RUN . conf/tmail.cfg &amp;amp;&amp;amp; \
-./tmail user add -r USER MOT_DE_PASSE
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Et construisez/lancez le container:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker build -t tmail .
-docker run -d -p 587:2525 tmail
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Un dernier petit tips pour la route, si vous n&amp;rsquo;êtes pas adepte de Docker, pour avoir les logs de tmail:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker logs -f ID_CONTAINER
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Attention, le debug est activé, c&amp;rsquo;est très verbeux.&lt;/p&gt;
-
-&lt;p&gt;Finalement il m&amp;rsquo;en reste encore un, pour connaître l&amp;rsquo;identifiant du container:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;core@coreos ~ $ docker ps -a
-
-CONTAINER ID  IMAGE         COMMAND                
-b60c7b7cc31f  tmail:latest  &amp;quot;/home/tmail/dist/ru   
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Voila enjoy ;)&lt;/p&gt;
-</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #10: Microservices &amp;&amp; Protocol Buffers</title>
-      <link>http://tmail.io/podcast/10/</link>
+      <link>https://tmail.dpp.st/podcast/10/</link>
       <pubDate>Mon, 18 May 2015 20:52:01 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/10/</guid>
-      <description>
-
-&lt;p&gt;Je me suis finalement décidé sur la techno à utiliser pour étendre les fonctionnalités de tmail, ce sera par le biais de microservices. Dans cet épisode je vous explique le bidule, enfin j&amp;rsquo;essaye&amp;hellip; ;)&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/10&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/10&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:308567cfbd1525551cff24e29a6013b6&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Toorop/go-dkim&#34; title=&#34;DKIM package for go (golang)&#34; target=&#34;_blank&#34;&gt;Librairie DKIM pour Go&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim/&#34; title=&#34;DKIM et tmail&#34; target=&#34;_blank&#34;&gt;tmail: activer DKIM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://developers.google.com/protocol-buffers/&#34; title=&#34;Specs protocol buffers&#34; target=&#34;_blank&#34;&gt;Protocol Buffer en détail&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt; 
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34; title=&#34;Groupe de discussions tmail&#34; target=&#34;_blank&#34;&gt;Le &#34;Google group&#34; tmail&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://tmail.dpp.st/podcast/10/</guid>
+      <description>&lt;p&gt;Je me suis finalement décidé sur la techno à utiliser pour étendre les fonctionnalités de tmail, ce sera par le biais de microservices. Dans cet épisode je vous explique le bidule, enfin j&amp;rsquo;essaye&amp;hellip; ;)&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #9: DKIM: Mythes et légendes</title>
-      <link>http://tmail.io/podcast/9/</link>
+      <link>https://tmail.dpp.st/podcast/9/</link>
       <pubDate>Sun, 03 May 2015 20:52:01 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/9/</guid>
-      <description>
-
-&lt;p&gt;Dans cette épisode, je vous parle de mon début de réflexion concernant le système de plugins que je voudrais intégrer à tmail et de DKIM, en particulier des fausses idées que l&amp;rsquo;on a à son sujet.
-&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/9&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/9&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:6a1322aee4e58bdcf88063043cbd86e6&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34; https://github.com/dullgiulio/pingo&#34; title=&#34;Gestionnaire de plugin pour Go&#34; target=&#34;_blank&#34;&gt;Gestionnaires de plugins pour Go&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Toorop/go-dkim&#34; title=&#34;DKIM package for go (golang)&#34; target=&#34;_blank&#34;&gt;Librairie DKIM pour Go&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt; 
-&lt;li&gt;&lt;a href=&#34;https://groups.google.com/forum/?hl=fr#!forum/tmail-dev&#34; title=&#34;Groupe de discussions tmail&#34; target=&#34;_blank&#34;&gt;Le &#34;Google group&#34; tmail&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://tmail.dpp.st/podcast/9/</guid>
+      <description>&lt;p&gt;Dans cette épisode, je vous parle de mon début de réflexion concernant le système de plugins que je voudrais intégrer à tmail et de DKIM, en particulier des fausses idées que l&amp;rsquo;on a à son sujet.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #8: Les aventures de Nick Sarasse</title>
-      <link>http://tmail.io/podcast/8/</link>
+      <link>https://tmail.dpp.st/podcast/8/</link>
       <pubDate>Thu, 16 Apr 2015 17:34:34 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/8/</guid>
-      <description>
-
-&lt;p&gt;Cette semaine: la suite de la chasse aux &amp;ldquo;races conditions&amp;rdquo;, l&amp;rsquo;implémentation d&amp;rsquo;un système permettant de limiter le nombre de connexions entrantes, un petit projet annexe de mesure d&amp;rsquo;audience pour le podcast et &amp;hellip; on fait les valises !&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/8&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/8&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:f5241d3893893fe6fff8f57bd2dbf29a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://podstats.toorop.fr/&#34; title=&#34;Statistiques d&#39;écoute du podcast tmail&#34; target=&#34;_blank&#34;&gt;Les stats du podcast&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Toorop/podstats&#34; title=&#34;Podstats: analytics for you podcast&#34; target=&#34;_blank&#34;&gt;Podstats les sources de l&#39;outil de mesure d&#39;audience du podcast&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
-</description>
+      <guid>https://tmail.dpp.st/podcast/8/</guid>
+      <description>&lt;p&gt;Cette semaine: la suite de la chasse aux &amp;ldquo;races conditions&amp;rdquo;, l&amp;rsquo;implémentation d&amp;rsquo;un système permettant de limiter le nombre de connexions entrantes, un petit projet annexe de mesure d&amp;rsquo;audience pour le podcast et &amp;hellip; on fait les valises !&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #7: J&#39;ai testé pour vous</title>
-      <link>http://tmail.io/podcast/7/</link>
+      <link>https://tmail.dpp.st/podcast/7/</link>
       <pubDate>Sun, 12 Apr 2015 11:02:17 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/7/</guid>
+      <guid>https://tmail.dpp.st/podcast/7/</guid>
       <description>&lt;p&gt;Les nouvelles de la semaine concernant le développement du serveur SMTP tmail: API REST, tests unitaires, race detection,…&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/7&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/7&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&amp;rsquo;est par ici&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Podcast #6: Cocktail</title>
-      <link>http://tmail.io/podcast/6/</link>
+      <link>https://tmail.dpp.st/podcast/6/</link>
       <pubDate>Thu, 02 Apr 2015 17:18:22 +0200</pubDate>
       
-      <guid>http://tmail.io/podcast/6/</guid>
-      <description>
-
-&lt;p&gt;Cette semaine je vous parle de l&amp;rsquo;API REST qui vous permet de gérer tmail, de frameworks Go pour créer des services web, de Gin, de Martini, de Negroni, de&amp;hellip;&lt;/p&gt;
-
+      <guid>https://tmail.dpp.st/podcast/6/</guid>
+      <description>&lt;p&gt;Cette semaine je vous parle de l&amp;rsquo;API REST qui vous permet de gérer tmail, de frameworks Go pour créer des services web, de Gin, de Martini, de Negroni, de&amp;hellip;&lt;/p&gt;
 &lt;p&gt;A consommer sans modération !&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/6&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/6&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Un petit schéma illustrant le déroulé d&amp;rsquo;une requête web:
-&lt;br&gt;&lt;br&gt;
-&lt;img class=&#34;center&#34; src=&#34;http://tmail.io/img/httpsmall.png&#34;&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:7c4156473a0d57f79901cf8c5eff898e&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/activer-api-rest/&#34; title=&#34;activer l&#39;API REST tmail&#34; target=&#34;_blank&#34;&gt;Activer l&#39;API REST&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/api-rest/&#34; title=&#34;activer l&#39;API REST tmail&#34; target=&#34;_blank&#34;&gt;Utilisez l&#39;API REST&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/go-martini/martini&#34; title=&#34;Martini: Classy web framework for Go&#34; target=&#34;_blank&#34;&gt;Martini&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://codegangsta.io/blog/2014/05/19/my-thoughts-on-martini/&#34; title=&#34;My Thoughts on Martini&#34; target=&#34;_blank&#34;&gt;La réponse de Jeremy Saenz face aux critiques concernant Martini&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/codegangsta/negroni&#34; title=&#34;Negroni: Idiomatic HTTP Middleware for Golang&#34; target=&#34;_blank&#34;&gt;Negroni&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gin-gonic.github.io/gin/&#34; title=&#34;Gin Gonic: The fastest full-featured web framework for Golang&#34; target=&#34;_blank&#34;&gt;Gin Gonic&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://revel.github.io/&#34; title=&#34;Revel: A high-productivity web framework for the Go language&#34; target=&#34;_blank&#34;&gt;Revel web framework&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://howistart.org/posts/go/1&#34; title=&#34;Débuter en Go&#34; target=&#34;_blank&#34;&gt;Initiation à Go&lt;/a&gt;&lt;/li&gt; 
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
-</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Utilisez l&#39;API REST</title>
-      <link>http://tmail.io/doc/api-rest/</link>
+      <link>https://tmail.dpp.st/doc/api-rest/</link>
       <pubDate>Thu, 02 Apr 2015 11:14:47 +0200</pubDate>
       
-      <guid>http://tmail.io/doc/api-rest/</guid>
-      <description>
-
-&lt;p&gt;Vous trouverez dans ce document toutes les informations nécessaires pour utiliser l&amp;rsquo;API REST tmail.&lt;/p&gt;
-
-&lt;h2 id=&#34;sommaire:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Sommaire&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#authentification:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Authentification&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#requetes:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Requêtes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#http_code:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Codes HTTP&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;#erreurs:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Erreurs&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;#users:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion des utilisateurs&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#usersAdd:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Ajouter un utilisateur&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#usersDel:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un utilisateur&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#usersGetOne:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver un utilisateur&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#usersGetAll:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver tous les utilisateurs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;#queue:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion de la queue&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#queueListMessages:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Lister les messages en queue&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#queueGetMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Récuperer les information concernant un message&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#queueDiscardMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un message&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#queueBounceMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Bouncer un message&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;authentification:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Authentification&lt;/h3&gt;
-
-&lt;p&gt;L&amp;rsquo;API utilise l&amp;rsquo;authentification &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;HTTP Basic&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Pourquoi ce type d’authentification ?&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;simple à mettre en œuvre&lt;/li&gt;
-&lt;li&gt;compatible avec tous les clients HTTP&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple avec curl:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;requetes:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Requêtes&lt;/h3&gt;
-
-&lt;p&gt;Si il est nécessaire de transmettre des éléments à l&amp;rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.&lt;/p&gt;
-
-&lt;h3 id=&#34;reponses:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Réponses&lt;/h3&gt;
-
-&lt;p&gt;Le corps, si il existe est lui aussi un message JSON.&lt;/p&gt;
-
-&lt;h3 id=&#34;http_code:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Codes HTTP&lt;/h3&gt;
-
-&lt;p&gt;Succès :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;200 OK: La requête à été exécuté avec succès, la réponse contient un corps.&lt;/li&gt;
-&lt;li&gt;201 Created: L&amp;rsquo;entité à été crée.&lt;/li&gt;
-&lt;li&gt;204 No Content: La requête à été exécuté avec succès, le corps de la réponse est vide.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Erreurs :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;400 Bad Request: Le requête est mal formée.&lt;/li&gt;
-&lt;li&gt;401 Unauthorized: Une autorisation est nécessaire.&lt;/li&gt;
-&lt;li&gt;403 Forbidden: L’accès est refusé.&lt;/li&gt;
-&lt;li&gt;404 Not Found: La ressource demandée n&amp;rsquo;existe pas.&lt;/li&gt;
-&lt;li&gt;422 Unprocessable Entry: La requête visant à créer ou modifier une entité n&amp;rsquo;a pas pu être exécutée car les données transmises n&amp;rsquo;étaient pas conformes.&lt;/li&gt;
-&lt;li&gt;500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;erreurs:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Erreurs&lt;/h3&gt;
-
-&lt;p&gt;En cas d&amp;rsquo;erreur (4** ou 5**), un message sous forme d&amp;rsquo;un objet JSON est retourné.
-Le message contient deux champs:
-* msg: le message d&amp;rsquo;erreur générée par l&amp;rsquo;application
-* raw: l&amp;rsquo;erreur levée (quand elle existe)&lt;/p&gt;
-
-&lt;p&gt;Exemple, si on essaye de créer un utilisateur qui existe déjà:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -H &amp;quot;Content-Type: application/json&amp;quot; -X POST -d &#39;{&amp;quot;passwd&amp;quot;:&amp;quot;motdepasse&amp;quot;,&amp;quot;authRelay&amp;quot;:true,&amp;quot;haveMailbox&amp;quot;:true,&amp;quot;mailboxQuota&amp;quot;:&amp;quot;1G&amp;quot;}&#39; -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
-
-&amp;lt; HTTP/1.1 422 status code 422
-&amp;lt; Content-Type: application/json; charset=UTF-8
-&amp;lt; Date: Wed, 01 Apr 2015 15:01:21 GMT
-&amp;lt; Content-Length: 85
-
-{&amp;quot;msg&amp;quot;:&amp;quot;unable to create new user&amp;quot;,&amp;quot;raw&amp;quot;:&amp;quot;UNIQUE constraint failed: users.login&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;users:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion des utilisateurs&lt;/h2&gt;
-
-&lt;h3 id=&#34;usersAdd:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Ajouter un utilisateur&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ressource: /users/LOGIN&lt;/li&gt;
-&lt;li&gt;Méthode: POST&lt;/li&gt;
-&lt;li&gt;Body:
-
-&lt;ul&gt;
-&lt;li&gt;passwd (string): mot de passe de l&amp;rsquo;utilisateur.&lt;/li&gt;
-&lt;li&gt;authRelay (bool): défini si l&amp;rsquo;utilisateur peut utiliser tmail pour relayer.&lt;/li&gt;
-&lt;li&gt;haveMailbox (bool): défini si l&amp;rsquo;utilisateur à une boite email.&lt;/li&gt;
-&lt;li&gt;mailboxQuota (string): le quota de la boite email de l&amp;rsquo;utilisateur en bytes. Vous pouvez utiliser K, M, ou G pour fénir les unités (par exemple 1G signifie un GB)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k -H &amp;quot;Content-Type: application/json&amp;quot; -X POST -d &#39;{&amp;quot;passwd&amp;quot;: &amp;quot;mot de passe&amp;quot;, &amp;quot;authRelay&amp;quot;: true, &amp;quot;haveMailbox&amp;quot;: true, &amp;quot;mailboxQuota&amp;quot;: &amp;quot;1G&amp;quot;}&#39; https://127.0.0.1:8080/users/test@tmail.io
-
-&amp;lt; HTTP/1.1 201 Created
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;usersDel:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un utilisateur&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ressource: /users/LOGIN&lt;/li&gt;
-&lt;li&gt;Méthode: DELETE&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k  -X DELETE https://127.0.0.1:8080/users/test@tmail.io
-
-&amp;lt; HTTP/1.1 200 OK
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;usersGetOne:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver un utilisateur&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ressource: /users/LOGIN&lt;/li&gt;
-&lt;li&gt;Méthode: GET&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/users/test@tmail.io
-
-&amp;lt; HTTP/1.1 200 OK
-&amp;lt; Content-Type: application/json; charset=UTF-8
-
-{&amp;quot;Id&amp;quot;:10,&amp;quot;Login&amp;quot;:&amp;quot;test@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$TGg8af6X08KFvWDnjljAqeBpwkXuQ78sc.xyTUrHN6nRzm1wMyIT.&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$06a585cd9d0540d2$OYGaBsyonWxeuoRQkxsokLRkW/vUtx1qbZoEC1DG9DcX7NmHqgrqQtIuL0N6r0RuPpOOhgMdiXPYr/0Dg.wA41&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:true,&amp;quot;HaveMailbox&amp;quot;:true,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;1G&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;/home/toorop/Projects/Go/src/github.com/toorop/tmail/dist/mailboxes/t/tmail.io/t/test&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;usersGetAll:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Retrouver tous les utilisateurs&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ressource: /users&lt;/li&gt;
-&lt;li&gt;Méthode: GET&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/users
-
-&amp;lt; HTTP/1.1 200 OK
-&amp;lt; Content-Type: application/json; charset=UTF-8
-
-[{&amp;quot;Id&amp;quot;:4,&amp;quot;Login&amp;quot;:&amp;quot;texset@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$rih8MngreLiYl6KzB72jVuufgtIHYFF08c4Q.GNIx2UObPOrL18QW&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$ba3b4fb33607b031$5.FuzhmYBHK5fBIGSMamG7nv7G/OfHxGBuGPBkfSU0FiE6AvWAJIplz/RJP5AQoTFrKC.vYulBeKlKm/Ua7Gj.&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:false,&amp;quot;HaveMailbox&amp;quot;:false,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;&amp;quot;},{&amp;quot;Id&amp;quot;:5,&amp;quot;Login&amp;quot;:&amp;quot;texsdet@tmail.io&amp;quot;,&amp;quot;Passwd&amp;quot;:&amp;quot;$2a$10$Lnvy5ViilsKwAKKLsxhrZOhlcZkW.gbDvffEpyEif6Fefc5NU0iOe&amp;quot;,&amp;quot;DovePasswd&amp;quot;:&amp;quot;$6$8c69e981ea71fa91$WRbtGb6AnEKQo.wSRd2VecOkjiHKCr/SVK0ww.qqK/O.wAjLNUn6ztEpONycwFYwiLWU82rI52A8rLzqrNsE./&amp;quot;,&amp;quot;Active&amp;quot;:&amp;quot;Y&amp;quot;,&amp;quot;AuthRelay&amp;quot;:false,&amp;quot;HaveMailbox&amp;quot;:false,&amp;quot;MailboxQuota&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Home&amp;quot;:&amp;quot;&amp;quot;}]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;queue:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Gestion de la queue&lt;/h2&gt;
-
-&lt;h3 id=&#34;queueListMessages:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Lister les messages en queue&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ressource: /queue&lt;/li&gt;
-&lt;li&gt;Méthode: GET&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/queue
-
-&amp;lt; HTTP/1.1 200 OK
-&amp;lt; Content-Type: application/json; charset=UTF-8
-
-[{&amp;quot;Id&amp;quot;:1,&amp;quot;Uuid&amp;quot;:&amp;quot;5217dfdc96d7216d7074b329f88d11f76dee997b&amp;quot;,&amp;quot;Key&amp;quot;:&amp;quot;84855041283d1badc5224231b2afa57f6e1b12e2&amp;quot;,&amp;quot;MailFrom&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;AuthUser&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;RcptTo&amp;quot;:&amp;quot;toorop@toorop.fr&amp;quot;,&amp;quot;MessageId&amp;quot;:&amp;quot;5528C725.8060007@tmail.io&amp;quot;,&amp;quot;Host&amp;quot;:&amp;quot;toorop.fr&amp;quot;,&amp;quot;AddedAt&amp;quot;:&amp;quot;2015-04-11T09:03:02.737629459+02:00&amp;quot;,&amp;quot;NextDeliveryScheduledAt&amp;quot;:&amp;quot;2015-04-11T16:44:35.994411773+02:00&amp;quot;,&amp;quot;Status&amp;quot;:2,&amp;quot;DeliveryFailedCount&amp;quot;:0},{&amp;quot;Id&amp;quot;:2,&amp;quot;Uuid&amp;quot;:&amp;quot;bd36f47dab0e27482ce5db8605415e32978f0185&amp;quot;,&amp;quot;Key&amp;quot;:&amp;quot;38b27d32311b21f1e6afa6215a756c8f696979a8&amp;quot;,&amp;quot;MailFrom&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;AuthUser&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;RcptTo&amp;quot;:&amp;quot;stephane@protecmail.com&amp;quot;,&amp;quot;MessageId&amp;quot;:&amp;quot;5529331C.3050308@tmail.io&amp;quot;,&amp;quot;Host&amp;quot;:&amp;quot;protecmail.com&amp;quot;,&amp;quot;AddedAt&amp;quot;:&amp;quot;2015-04-11T16:43:41.965596115+02:00&amp;quot;,&amp;quot;NextDeliveryScheduledAt&amp;quot;:&amp;quot;0001-01-01T00:09:21+00:09&amp;quot;,&amp;quot;Status&amp;quot;:0,&amp;quot;DeliveryFailedCount&amp;quot;:0}]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;queueGetMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Récuperer les information concernant un message&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ressource: /queue/ID&lt;/li&gt;
-&lt;li&gt;Méthode: GET&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -k https://127.0.0.1:8080/queue/1
-
-&amp;lt; HTTP/1.1 200 OK
-&amp;lt; Content-Type: application/json; charset=UTF-8
-
-{&amp;quot;Id&amp;quot;:1,&amp;quot;Uuid&amp;quot;:&amp;quot;5217dfdc96d7216d7074b329f88d11f76dee997b&amp;quot;,&amp;quot;Key&amp;quot;:&amp;quot;84855041283d1badc5224231b2afa57f6e1b12e2&amp;quot;,&amp;quot;MailFrom&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;AuthUser&amp;quot;:&amp;quot;toorop@tmail.io&amp;quot;,&amp;quot;RcptTo&amp;quot;:&amp;quot;toorop@toorop.fr&amp;quot;,&amp;quot;MessageId&amp;quot;:&amp;quot;5528C725.8060007@tmail.io&amp;quot;,&amp;quot;Host&amp;quot;:&amp;quot;toorop.fr&amp;quot;,&amp;quot;AddedAt&amp;quot;:&amp;quot;2015-04-11T09:03:02.737629459+02:00&amp;quot;,&amp;quot;NextDeliveryScheduledAt&amp;quot;:&amp;quot;2015-04-11T17:15:36.290267337+02:00&amp;quot;,&amp;quot;Status&amp;quot;:2,&amp;quot;DeliveryFailedCount&amp;quot;:0}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;queueDiscardMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Supprimer un message&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ressource: /queue/discard/ID&lt;/li&gt;
-&lt;li&gt;Méthode: DELETE&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -X DELETE -k https://127.0.0.1:8080/queue/discard/1
-
-&amp;lt; HTTP/1.1 200 OK
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;queueBounceMessage:bc6e7d60c7ea3d7165eb78a87a94b626&#34;&gt;Bouncer un message&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ressource: /queue/bounce/ID&lt;/li&gt;
-&lt;li&gt;Méthode: DELETE&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -u admin:admin -X DELETE -k https://127.0.0.1:8080/queue/bounce/1
-
-&amp;lt; HTTP/1.1 200 OK
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/api-rest/</guid>
+      <description>&lt;p&gt;Vous trouverez dans ce document toutes les informations nécessaires pour utiliser l&amp;rsquo;API REST tmail.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Activer l&#39;API REST</title>
-      <link>http://tmail.io/doc/activer-api-rest/</link>
+      <link>https://tmail.dpp.st/doc/activer-api-rest/</link>
       <pubDate>Wed, 01 Apr 2015 15:05:07 +0200</pubDate>
       
-      <guid>http://tmail.io/doc/activer-api-rest/</guid>
-      <description>
-
-&lt;p&gt;tmail embarque un &lt;a href=&#34;http://fr.wikipedia.org/wiki/Serveur_HTTP&#34; target=&#34;_blank&#34; title=&#34;qu&#39;est ce qu&#39;un serveur HTTP&#34;&gt; serveur HTTP&lt;/a&gt; qui expose une &lt;a href=&#34;http://fr.wikipedia.org/wiki/Representational_State_Transfer&#34; target=&#34;_blank&#34; title=&#34;Qu&#39;est ce qu&#39;une API REST&#34;&gt;API REST&lt;/a&gt;. Cette API vous permet d’administrer votre serveur tmail et &lt;em&gt;&amp;lt;teasing&amp;gt;&lt;/em&gt; dans un futur &amp;ldquo;proche&amp;rdquo; votre cluster SMTP tmail&lt;em&gt;&amp;lt;/teasing&amp;gt;&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;activation-et-configuration-de-l-api-rest:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Activation et configuration de l&amp;rsquo;API REST.&lt;/h3&gt;
-
-&lt;p&gt;Vous devez d&amp;rsquo;abord spécifier que vous souhaitez activer le service:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Launch REST server
-export TMAIL_REST_SERVER_LAUNCH=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Puis définir sur quelle IP il doit écouter:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# REST server IP
-export TMAIL_REST_SERVER_IP=&amp;quot;127.0.0.1&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Et sur quel port:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# REST server port
-export TMAIL_REST_SERVER_PORT=8080
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ce paramètre vous permet d&amp;rsquo;activer (ou non) le chiffrement de votre connexion:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# REST server is TLS (https) ?
-export TMAIL_REST_SERVER_IS_TLS=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;tmail va utiliser le certificat dist/ssl/web_server.crt et la clé dist/ssl/web_server.key pour chiffrer les transactions. Vous pouvez utiliser ceux inclus dans la distribution pour vos tests mais attention cela va générer des alertes auprès des clients REST que vous allez utiliser.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Si votre serveur REST écoute sur une IP publique, activer TLS n&amp;rsquo;est pas une option, c&amp;rsquo;est impératif car l&amp;rsquo;authentification se fait avec des mots de passe en clair  &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;(authentification HTTP Basic)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Enfin vous devez définir vos identifiants de connexion:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Login for HTTP auth
-export TMAIL_REST_SERVER_LOGIN=&amp;quot;admin&amp;quot;
-
-# Passwd for HTTP auth
-export TMAIL_REST_SERVER_PASSWD=&amp;quot;admin&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;test:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Test&lt;/h4&gt;
-
-&lt;p&gt;Après avoir relancé tmail vous devriez voir dans vos logs une ligne de ce type:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/01 15:32:06.467484 INFO - httpd 127.0.0.1:8080 TLS launched
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vous pouvez tester le fonctionnement de l&amp;rsquo;API en appelant la ressource /ping. Par exemple avec &lt;a href=&#34;http://curl.haxx.se/&#34; target=&#34;_blank&#34; title=&#34;tester une API REST avec curl&#34;&gt;curl&lt;/a&gt; :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl -k https://127.0.0.1:8080/ping
-{&amp;quot;msg&amp;quot;: &amp;quot;pong&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;La ligne de log correspondant à cette requête :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[trooper - 127.0.0.1] 2015/04/02 11:09:51.647899 INFO - http 127.0.0.1:54423 - GET /ping - 200 OK 4.638µs
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Note: Non il n&amp;rsquo;y à pas d&amp;rsquo;erreur la requête à bien mis 0.000004 seconde pour être exécutée ;-)&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;généralités:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Généralités&lt;/h2&gt;
-
-&lt;h3 id=&#34;authentification:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Authentification&lt;/h3&gt;
-
-&lt;p&gt;L&amp;rsquo;API utilise l&amp;rsquo;authentification &lt;a href=&#34;http://fr.wikipedia.org/wiki/Authentification_HTTP#M.C3.A9thode_.C2.AB_Basic_.C2.BB&#34; target=&#34;_blank&#34;&gt;HTTP Basic&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Pourquoi ce type d’authentification ?&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;simple à mettre en œuvre&lt;/li&gt;
-&lt;li&gt;compatible avec tous les clients HTTP&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;requêtes:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Requêtes&lt;/h3&gt;
-
-&lt;p&gt;Si il est nécessaire de transmettre des éléments à l&amp;rsquo;API (donc via POST, PUT ou PATCH), ils devront êtres encodés au format JSON.&lt;/p&gt;
-
-&lt;h3 id=&#34;réponses:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Réponses&lt;/h3&gt;
-
-&lt;p&gt;Le corps, si il existe est lui aussi un message JSON.&lt;/p&gt;
-
-&lt;h3 id=&#34;codes-http:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Codes HTTP&lt;/h3&gt;
-
-&lt;p&gt;Succès :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;200 OK: La requête à été exécuté avec succès, la réponse contient un corps.&lt;/li&gt;
-&lt;li&gt;201 Created: L&amp;rsquo;entité à été crée.&lt;/li&gt;
-&lt;li&gt;204 No Content: La requête à été exécuté avec succès, le corps de la réponse est vide.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Erreurs :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;400 Bad Request: Le requête est mal formée.&lt;/li&gt;
-&lt;li&gt;401 Unauthorized: Une autorisation est nécessaire.&lt;/li&gt;
-&lt;li&gt;403 Forbidden: L’accès est refusé.&lt;/li&gt;
-&lt;li&gt;404 Not Found: La ressource demandée n&amp;rsquo;existe pas.&lt;/li&gt;
-&lt;li&gt;422 Unprocessable Entry: La requête visant à créer ou modifier une entité n&amp;rsquo;a pas pu être exécutée car les données transmises n&amp;rsquo;étaient pas conformes.&lt;/li&gt;
-&lt;li&gt;500, 501, 502, 503, etc: Une erreur à eu lieu au niveau du serveur.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;erreurs:82051207c90b1bf3c7ca93b8129f63c7&#34;&gt;Erreurs&lt;/h3&gt;
-
-&lt;p&gt;En cas d&amp;rsquo;erreur (4** ou 5**), un message sous forme d&amp;rsquo;un objet JSON est retourné.
-Le message contient deux champs:
-* msg: le message d&amp;rsquo;erreur générée par l&amp;rsquo;application
-* raw: l&amp;rsquo;erreur levée (quand elle existe)&lt;/p&gt;
-
-&lt;p&gt;Exemple, si on essaye de créer un utilisateur qui existe déjà:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -H &amp;quot;Content-Type: application/json&amp;quot; -X POST -d &#39;{&amp;quot;passwd&amp;quot;:&amp;quot;motdepasse&amp;quot;,&amp;quot;authRelay&amp;quot;:true,&amp;quot;haveMailbox&amp;quot;:true,&amp;quot;mailboxQuota&amp;quot;:&amp;quot;1G&amp;quot;}&#39; -u admin:admin -k https://127.0.0.1:8080/users/toorop@tmail.io
-
-&amp;lt; HTTP/1.1 422 status code 422
-&amp;lt; Content-Type: application/json; charset=UTF-8
-&amp;lt; Date: Wed, 01 Apr 2015 15:01:21 GMT
-&amp;lt; Content-Length: 85
-
-{&amp;quot;msg&amp;quot;:&amp;quot;unable to create new user&amp;quot;,&amp;quot;raw&amp;quot;:&amp;quot;UNIQUE constraint failed: users.login&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/activer-api-rest/</guid>
+      <description>&lt;p&gt;tmail embarque un &lt;!-- raw HTML omitted --&gt; serveur HTTP&lt;!-- raw HTML omitted --&gt; qui expose une &lt;!-- raw HTML omitted --&gt;API REST&lt;!-- raw HTML omitted --&gt;. Cette API vous permet d’administrer votre serveur tmail et &lt;em&gt;&amp;lt;teasing&amp;gt;&lt;/em&gt; dans un futur &amp;ldquo;proche&amp;rdquo; votre cluster SMTP tmail*&amp;lt;/teasing&amp;gt;*.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Podcast #5 - Heu non c&#39;est l&#39;inverse</title>
-      <link>http://tmail.io/podcast/5/</link>
+      <link>https://tmail.dpp.st/podcast/5/</link>
       <pubDate>Fri, 27 Mar 2015 15:50:03 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/5/</guid>
-      <description>
-
-&lt;p&gt;Cette semaine il est question de logs, de message-id, de majuscules qui deviennent des minuscules (ou l&amp;rsquo;inverse je ne sais plus), de verbes et pour finir je vous parle du client de podcasts que j&amp;rsquo;utilise.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/5&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/5&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:4108045d631e1ffc0a8f9e461e342847&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/logs/&#34; title=&#34;configuration des logs du serveur SMTP tmail&#34;&gt;Configurer les logs tmail&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.shiftyjelly.com/pocketcasts&#34; title=&#34;Pocketcasts: application pour lire vos podcasts&#34;&gt;Pocketcasts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/Toorop/My-subscribed-podcasts/master/podcasts_opml.xml&#34; target=&#34;_blank&#34;&gt;De quoi nourrir votre lecteur de podcasts avec mes abonnements&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
-</description>
+      <guid>https://tmail.dpp.st/podcast/5/</guid>
+      <description>&lt;p&gt;Cette semaine il est question de logs, de message-id, de majuscules qui deviennent des minuscules (ou l&amp;rsquo;inverse je ne sais plus), de verbes et pour finir je vous parle du client de podcasts que j&amp;rsquo;utilise.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>Gestion des logs tmail</title>
-      <link>http://tmail.io/doc/logs/</link>
+      <link>https://tmail.dpp.st/doc/logs/</link>
       <pubDate>Fri, 27 Mar 2015 14:03:12 +0100</pubDate>
       
-      <guid>http://tmail.io/doc/logs/</guid>
-      <description>&lt;p&gt;Par défaut tmail va afficher les logs sur la sortie standard &lt;em&gt;stdout&lt;/em&gt;.&lt;br /&gt;
-Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fichier texte.&lt;/p&gt;
-
-&lt;p&gt;Pour cela, éditer le fichier de configuration et modifiez la variable &lt;em&gt;TMAIL_LOGPATH&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Pour enregistrer les logs dans le dossier &lt;em&gt;/home/tmail/dist/log/&lt;/em&gt; :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_LOGPATH=&amp;quot;/home/tmail/dist/log/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Attention&lt;/strong&gt; le dossier doit exister, et l&amp;rsquo;utilisateur sous lequel est lancé tmail doit avoir les droits de lecture et d&amp;rsquo;écriture sur ce dossier.&lt;/p&gt;
-
-&lt;p&gt;Pour revenir vers un affichage des logs vers la sortie standard, mettez &lt;em&gt;stdout&lt;/em&gt; à la place du chemin:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_LOGPATH=&amp;quot;stdout&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;La verbosité des logs se configure via la variable &lt;em&gt;TMAIL_DEBUG_ENABLED&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;En la mettant à &lt;em&gt;true&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_DEBUG_ENABLED=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;vous aurez un maximum de logs. Attention ce mode est très verbeux, si vous n&amp;rsquo;avez pas de problèmes particuliers je vous recommande de mettre cette variable à &lt;em&gt;false&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export TMAIL_DEBUG_ENABLED=false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;dans ce mode vous aurez les logs nécessaires au suivi de la bonne marche de votre serveur mail.&lt;/p&gt;
-
-&lt;p&gt;Voici un exemple de logs avec TMAIL_DEBUG_ENABLED positionné à false:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:56.689099 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - starting new transaction
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:56.717078 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - remote greets as [192.168.0.1]
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.001558 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - remote greets as [192.168.0.1]
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.138727 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - auth succeed for user toorop@tmail.io
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.164773 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - new mail from toorop@tmail.io
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.192105 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - rcpt to: toorop@toorop.fr
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.267349 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - Message-ID: &amp;lt;5515651A.4000304@tmail.io&amp;gt;
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.305726 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - message queued as 3b0d652314a64d906b61a9658362f4d126400015
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.331292 INFO - smtpd  ba06fea8e42ee38d62cdb82c98a5221e6e7852cd - 88.178.118.205:50348 - EOT
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:11:57.332438 INFO - delivery-remote 30316f400ef44fe563dd2b8b9c06807124b32d75: starting new delivery from toorop@tmail.io to toorop@toorop.fr - Message-Id: &amp;lt;5515651A.4000304@tmail.io&amp;gt; - Queue-Id: 3b0d652314a64d906b61a9658362f4d126400015
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:12:01.396618 INFO - deliverd-remote 30316f400ef44fe563dd2b8b9c06807124b32d75: remote server 178.33.223.34 reply to data cmd: 250 - ok
-[mail.tmail.io - 127.0.0.1] 2015/03/27 15:12:01.396819 INFO - deliverd 30316f400ef44fe563dd2b8b9c06807124b32d75: success
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://tmail.dpp.st/doc/logs/</guid>
+      <description>&lt;p&gt;Par défaut tmail va afficher les logs sur la sortie standard &lt;em&gt;stdout&lt;/em&gt;.&lt;br&gt;
+Vous pouvez configurer tmail pour qu&amp;rsquo;il enregistre les logs dans un fichier texte.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Documentation</title>
-      <link>http://tmail.io/documentation/</link>
+      <link>https://tmail.dpp.st/documentation/</link>
       <pubDate>Sun, 22 Mar 2015 19:09:52 +0100</pubDate>
       
-      <guid>http://tmail.io/documentation/</guid>
-      <description>
-
-&lt;h1 id=&#34;installation:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;Installation&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/installer-tmail/&#34;&gt;Installation et configuration de base&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34;&gt;Boites locales&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/microservices/&#34;&gt;Micro-Services&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/dkim&#34;&gt;DKIM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/filtrage-smtp-antivirus-clamav/&#34;&gt;Filtrage antivirus via Clamav&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/logs&#34;&gt;Gestion des logs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/docker-smtp-server/&#34;&gt;Déployer un relais SMTP en 5 minutes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;cli:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;Cli&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-queue/&#34;&gt;Gestion de la queue&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/cli-gestion-route-smtp/&#34;&gt;Routage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Gestion des utilisateurs &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Gestion des domaines pris en charge &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Gestion des IP authorisées à relayer &lt;em&gt;todo&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;api-rest:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;API REST&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/activer-api-rest/&#34;&gt;Activer l&amp;rsquo;API REST&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/api-rest/&#34;&gt;Utiliser l&amp;rsquo;API REST&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;smtp-sortant:519b3731c0b3c26bafa462d3efdcc120&#34;&gt;SMTP sortant&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/routes-smtp-sortantes/&#34;&gt;Principe de fonctionnement des règles de routage&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://tmail.dpp.st/documentation/</guid>
+      <description>Installation Installation et configuration de base Boites locales Micro-Services DKIM Filtrage antivirus via Clamav Gestion des logs Déployer un relais SMTP en 5 minutes Cli Gestion de la queue Routage Gestion des utilisateurs todo Gestion des domaines pris en charge todo Gestion des IP authorisées à relayer todo API REST Activer l&amp;rsquo;API REST Utiliser l&amp;rsquo;API REST SMTP sortant Principe de fonctionnement des règles de routage </description>
     </item>
     
     <item>
       <title>Podcast #4 - Titi et Toto</title>
-      <link>http://tmail.io/podcast/4/</link>
+      <link>https://tmail.dpp.st/podcast/4/</link>
       <pubDate>Sun, 22 Mar 2015 09:38:58 +0100</pubDate>
       
-      <guid>http://tmail.io/podcast/4/</guid>
-      <description>
-
-&lt;p&gt;Cette semaine je vous parle des nouveautés de la version 0.0.4, de sieve, et je réponds à la question existentielle: Qu&amp;rsquo;est ce qu&amp;rsquo;un mail ?&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;player&#34;&gt;
-    &lt;audio controls preload=&#34;none&#34;&gt;
-        &amp;lt;!&amp;ndash; Audio files &amp;ndash;&amp;gt;
-        &lt;source src=&#34;http://podstats.toorop.fr/p/tmail/4&#34; type=&#34;audio/mp3&#34;&gt;
-        &amp;lt;!&amp;ndash; Fallback for browsers that don&amp;rsquo;t support the &lt;audio&gt; element &amp;ndash;&amp;gt;
-        &lt;div&gt;
-            &lt;a href=&#34;http://podstats.toorop.fr/p/tmail/4&#34;&gt;Download&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/audio&gt;
-&lt;/div&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Un petite illustration valant mieux qu&amp;rsquo;un long discours, voici un schéma représentant la structure d&amp;rsquo;un email.&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&#34;center&#34; src=&#34;http://tmail.io/img/structure-email.png&#34;&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;les-liens-évoqués-dans-cet-épisode:e7fd8297e2196d1a566a3e2e51cbb23a&#34;&gt;Les liens évoqués dans cet épisode:&lt;/h4&gt;
-
+      <guid>https://tmail.dpp.st/podcast/4/</guid>
+      <description>&lt;p&gt;Cette semaine je vous parle des nouveautés de la version 0.0.4, de sieve, et je réponds à la question existentielle: Qu&amp;rsquo;est ce qu&amp;rsquo;un mail ?&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gérez vos boites mail avec Dovecot</title>
+      <link>https://tmail.dpp.st/doc/mailboxes/</link>
+      <pubDate>Fri, 20 Mar 2015 16:34:28 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/doc/mailboxes/</guid>
+      <description>&lt;p&gt;Initialement j&amp;rsquo;avais prévu d&amp;rsquo;ajouter le support de comptes mail bien plus tard dans le cycle de développement car mon usage principal de tmail est avant tout celui de relais SMTP.&lt;br&gt;
+Le fait que l&amp;rsquo;on m&amp;rsquo;ait demandé si ça allait être bientôt disponible m&amp;rsquo;a fait réaliser que gérer des comptes mails était quand même l&amp;rsquo;usage principal d&amp;rsquo;un serveur de messagerie - gnééééé&amp;hellip; - , j&amp;rsquo;ai donc décidé de remonter cette tache dans ma todo-list.&lt;/p&gt;
+&lt;p&gt;Pour vous proposer cette fonctionnalité plus rapidement, j&amp;rsquo;ai fait quelques compromis par rapport à ce que je voulais initialement faire. Mon idée de départ était de ne pas utiliser le classique stockage des mails via Mailbox/maildir + accès POP ou IMAP, mais d’utiliser une &lt;strong&gt;interface de stockage de type PUT/GET pour stocker les mails et une API HTTP REST pour y accéder et les gérer.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;L’intérêt de cette solution c&amp;rsquo;est que l&amp;rsquo;on peut implémenter l&amp;rsquo;interface pour une multitude de types de stockage, du simple espace disque sur le serveur, ou déporté sur un NAS/Filer, mais aussi du Amazon S3, ou encore du Runabove.
+Par ailleurs proposer une API REST pour gérer les mails permettait de développer simplement des clients de messagerie, des &amp;ldquo;connecteurs/proxy&amp;rdquo; pour rendre ce stockage compatible avec les clients classique (par exemple un proxy IMAP), mais aussi d&amp;rsquo;interfacer simplement de nombreux outils au service de messagerie.&lt;/p&gt;
+&lt;p&gt;Rassurez vous - ou pas - je n&amp;rsquo;ai pas abandonné ces idées, ce sera implémenté, mais en attendant pour offrir le plus rapidement la possibilité d&amp;rsquo;utiliser tmail comme serveur mail classique, j&amp;rsquo;ai décidé de prendre un raccourci en implémentant le nécessaire pour utiliser Dovecot avec tmail.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Concrètement il est donc aujourd&amp;rsquo;hui possible d&amp;rsquo;utiliser tmail comme serveur de destination pour un domaine - celui qui va héberger les mails du domaine donc - et d&amp;rsquo;accéder aux boites mails via POP et IMAP.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Voila pour cette - longue - introduction, passons à la pratique.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Changelog</title>
+      <link>https://tmail.dpp.st/changelog/</link>
+      <pubDate>Sat, 14 Mar 2015 19:38:45 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/changelog/</guid>
+      <description>v 0.0.8 DKIM: sign outgoing message (test) v 0.0.7 BugFix message-id REST /queue Bugfix: race condition on deliverd Add concurrency limits on smtpd v 0.0.6 REST API base REST API /users v 0.0.5 Log to file Improve log Case sensitivity on local part add RSET and NOOP SMTP verbs v 0.0.4 Add local deliveries Dovecot support SmtpUser replaced by Use Cli Refactoring v 0.0.3 Bugfix: MySQL Datetime to Golang time.Time BugFix: Optimise/fix queries for Mysql v 0.</description>
+    </item>
+    
+    <item>
+      <title>Podcast #3: Nouvelle rubrique</title>
+      <link>https://tmail.dpp.st/podcast/3/</link>
+      <pubDate>Sat, 14 Mar 2015 19:38:45 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/podcast/3/</guid>
+      <description>&lt;p&gt;Les nouvelles du projet, avec cette semaine, des corrections de bugs, du refactoring et&amp;hellip; une nouvelle rubrique.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Podcast #2: Toc toc...</title>
+      <link>https://tmail.dpp.st/podcast/episode-2/</link>
+      <pubDate>Fri, 06 Mar 2015 07:50:04 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/podcast/episode-2/</guid>
+      <description>&lt;p&gt;Dans cet épisode je vais vous parler des suggestions qui m&amp;rsquo;ont été faites concernant les fonctionnalités de tmail.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wishlist</title>
+      <link>https://tmail.dpp.st/wishlist/</link>
+      <pubDate>Thu, 26 Feb 2015 12:00:11 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/wishlist/</guid>
+      <description>Cette page recense les fonctionnalités que vous souhaitez voir implémentées dans tmail. Si vous avez une fonctionnalité que vous aimeriez voir intégrée:
+Vérifiez qu&amp;rsquo;elle n&amp;rsquo;est pas dans la liste ci dessous. Créez une nouvelle discussion sur le groupe tmail-dev pour la présenter et nous permettre d&amp;rsquo;en discuter. En cours de discussion Alias et listes de discussions Restrictions sur l&amp;rsquo;expéditeur déclaré d&amp;rsquo;un mail en fonction de l&amp;rsquo;utilisateur SMTP Pouvoir rediriger les logs ailleurs que vers stdout Approuvés, à implémenter Implémentés Livraison locale, gestion de boites mails et compatiblilité Dovecot.</description>
+    </item>
+    
+    <item>
+      <title>Podcast #1: Antivirus</title>
+      <link>https://tmail.dpp.st/podcast/episode-1-antivirus/</link>
+      <pubDate>Tue, 24 Feb 2015 12:03:26 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/podcast/episode-1-antivirus/</guid>
+      <description>&lt;p&gt;Dans cet épisode je vais vous parler de l&amp;rsquo;intégration du filtrage antivirus au sein de tmail en utilisant le scanner opensource Clamav.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Podcast #0: Présentations</title>
+      <link>https://tmail.dpp.st/podcast/episode-0/</link>
+      <pubDate>Mon, 23 Feb 2015 17:19:30 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/podcast/episode-0/</guid>
+      <description>&lt;p&gt;Dans cet épisode je vais me présenter, vous présenter le projet de serveur SMTP tmail et la raison d&amp;rsquo;etre de ce podcast.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;pre&gt;&lt;code&gt;    &amp;lt;!-- Fallback for browsers that don&#39;t support the &amp;lt;audio&amp;gt; element --&amp;gt;
+    &amp;lt;div&amp;gt;
+        &amp;lt;a href=&amp;quot;http://podstats.toorop.fr/p/tmail/0&amp;quot;&amp;gt;Download&amp;lt;/a&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/audio&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Rechercher</title>
+      <link>https://tmail.dpp.st/recherche/</link>
+      <pubDate>Mon, 23 Feb 2015 16:22:25 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/recherche/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Filtrage antivirus en utilisant Clamav</title>
+      <link>https://tmail.dpp.st/doc/filtrage-smtp-antivirus-clamav/</link>
+      <pubDate>Wed, 18 Feb 2015 14:19:22 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/doc/filtrage-smtp-antivirus-clamav/</guid>
+      <description>&lt;p&gt;Vous trouverez dans ce billet les explications nécessaires pour installer l&amp;rsquo;antivirus opensource &lt;a href=&#34;http://www.clamav.net/index.html&#34;&gt;Clamav&lt;/a&gt; et activer le filtrage de votre flux SMTP par tmail.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Installer et configurer tmail</title>
+      <link>https://tmail.dpp.st/doc/installer-tmail/</link>
+      <pubDate>Thu, 29 Jan 2015 17:00:44 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/doc/installer-tmail/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Durant tout le cycle de développement de tmail je vais mettre à disposition le nécessaire pour qu&amp;rsquo;il soit possible de tester les fonctionnalités qui sont implémentées.&lt;/p&gt;
+&lt;p&gt;Qu&amp;rsquo;il n&amp;rsquo;y ait pas de malentendu, on ne parle pas ici de version bêta, ni même alpha, ce sera à chaque fois une version de développement, avec plein de choses non implémentées et forcement de nombreux bugs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;En clair: ne pas utiliser en production&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pour le moment tmail est très basique, mais il devrait cependant vous permettre d&amp;rsquo;envoyer et de relayer des mails.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gestion des routes SMTP en utilisant le CLI</title>
+      <link>https://tmail.dpp.st/doc/cli-gestion-route-smtp/</link>
+      <pubDate>Wed, 28 Jan 2015 09:15:12 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/doc/cli-gestion-route-smtp/</guid>
+      <description>&lt;p&gt;Vous pouvez gérer les routes SMTP sortantes directement en ligne de commande, ce document vous donne les références concernant les fonctionnalités implémentées.&lt;/p&gt;
+&lt;p&gt;Avant d&amp;rsquo;aller plus loin je vous recommande la lecture de la &lt;a href=&#34;https://tmail.dpp.st/doc/routes-smtp-sortantes/&#34;&gt;documentation expliquant le fonctionnement des routes SMTP&lt;/a&gt; principalement pour savoir l&amp;rsquo;ordre dans lequel les règles sont testées. Il faut savoir que la première route qui correspond sera celle qui sera utilisée, donc si vous ne voulez pas avoir de surprise il est capital de bien assimiler ce point.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gestion de la queue en utilisant le CLI</title>
+      <link>https://tmail.dpp.st/doc/cli-gestion-queue/</link>
+      <pubDate>Wed, 21 Jan 2015 14:20:24 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/doc/cli-gestion-queue/</guid>
+      <description>&lt;h4 id=&#34;lister-les-messages-en-queue&#34;&gt;Lister les messages en queue&lt;/h4&gt;
+&lt;p&gt;La commande pour lister les messages en queue est:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tmail queue list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pour chaque mail en queue les informations suivantes sont retournées:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://tmail.io/doc/mailboxes/&#34; title=&#34;installation dovecot sieve tmail&#34;&gt;Installer et configurer Dovecot pour tmail&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve&#34; title=&#34;Extension Sieve pour Dovecot&#34; target=&#34;_blank&#34;&gt;Extension Sieve Pigeonhole pour Dovecot&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;http://wiki2.dovecot.org/Pigeonhole/Sieve/Examples&#34; title=&#34;Exemples de scripts Sieve&#34; target=&#34;_blank&#34;&gt;Exemples de scripts Sieve&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;http://memcached.org/&#34; title=&#34;memcached&#34; target=&#34;_blank&#34;&gt;memcached&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/poroot&#34; title=&#34;Toorop sur twitter&#34; target=&#34;_blank&#34;&gt;Pour me suivre sur twitter c&#39;est ici&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 
-</description>
+&lt;li&gt;Identifiant du mail en queue&lt;/li&gt;
+&lt;li&gt;From: expéditeur du mail&lt;/li&gt;
+&lt;li&gt;To:  destinataire du mail&lt;/li&gt;
+&lt;li&gt;Status: status du mail. Actuellement les status sont &amp;ldquo;Delivery in progress&amp;rdquo;, &amp;ldquo;Scheduled&amp;rdquo;, &amp;ldquo;Will be discarded&amp;rdquo;, &amp;ldquo;Will be bounced&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Next delivery process scheduled at: Dans le cas ou un mail est en attente dans la queue ce paramètre indique le moment (approximatif) où le mail sera représenté au process tmail qui traite les message en queue.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Routes smtp sortantes</title>
+      <link>https://tmail.dpp.st/doc/routes-smtp-sortantes/</link>
+      <pubDate>Mon, 19 Jan 2015 16:38:23 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/doc/routes-smtp-sortantes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tmail vous permet de spécifier des routes sortantes pour les mails qu&amp;rsquo;il a à expédier.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Par défaut, lorsque tmail doit transmettre un mail il va faire une requête DNS MX pour obtenir les adresses IP du/des serveur(s) SMTP du domaine de destination. C&amp;rsquo;est le fonctionnement classique d&amp;rsquo;un serveur SMTP, mais vous pouvez aussi créer des règles de routage pour forcer les connexions sortantes vers des relais spécifiques.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://tmail.dpp.st/faq/</link>
+      <pubDate>Wed, 14 Jan 2015 14:14:40 +0100</pubDate>
+      
+      <guid>https://tmail.dpp.st/faq/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#tmail&#34;&gt;Qu&amp;rsquo;est ce que tmail ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#opensource&#34;&gt;Est ce que tmail est opensource ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tester-tmail&#34;&gt;Peut on tester tmail ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#golang-tmail&#34;&gt;tmail est codé en quel langage ? &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bugtracker&#34;&gt;J&amp;rsquo;ai trouvé un bug !&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#suggestion&#34;&gt;J&amp;rsquo;ai une suggestion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#question&#34;&gt;J&amp;rsquo;ai une question &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>
